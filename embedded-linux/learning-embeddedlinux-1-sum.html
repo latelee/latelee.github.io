@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<!--
+无上甚深微妙法，百千万劫难遭遇。
+我今见闻得受持，愿解如来真实义。
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>嵌入式之行(1)：绪论 | 迟思堂随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="前言：
+学习Linux和嵌入式也有一段时间了。其中经历了很多，但也学到很多。这里做一些总结，算是一个系列吧。但又不知能写多少文章，也不知能写多久。我将它命名为“嵌入式Linux之行”。目前李迟所学有限，见识不可能高，但却是李迟的经验和对所学东西的总结(有来自网络上的，也有来自书本的)。鉴于实际情况(因为我不知以后还会不会写此类文章)，我将目前的几篇文章定为这个系列的“前奏”。" />
+<meta name="keywords" content="嵌入式之行 " />
+
+  <link rel="alternate" href="/atom.xml" title="迟思堂随笔" type="application/atom+xml">
+  <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  
+<link rel="stylesheet" href="/css/style.css">
+ 
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+   <link rel="stylesheet" href="/css/vdonate.css" > 
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+  <script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'}var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s)})();</script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body data-spy="scroll" data-target="#toc" data-offset="50">
+
+  
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    <a class="navbar-brand" href="/"></a></div>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_0" href="">
+                嵌入式/Linux<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/using-gnu-linux"> GUN/Linux系统</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/linux-kernel"> Linux内核研究</a></li>
+                <li><a href="/category/embedded-linux"> 嵌入式Linux</a></li>
+                <li><a href="/category/porting-uboot"> U-Boot随笔</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/firmware-bios"> 嵌入式底层BIOS</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/嵌入式qemu"> qemu</a></li>
+                <li><a href="/tag/raspberrypi"> 树莓派</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_1" href="">
+                程序开发<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/my-study"> 技术杂铺</a></li>
+                <li><a href="/category/open-project"> 开源项目</a></li>
+                <li><a href="/category/my-library"> 程序库</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/multistream"> 流媒体</a></li>
+                <li><a href="/category/wireless"> 无线WIFI</a></li>
+                <li><a href="/category/"> 网络/网站/web</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/just-for-fun"> 小玩意</a></li>
+                <li><a href="/category/answer4you"> 答网友问</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_2" href="">
+                编程语言<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/programming-under-linux"> GUN/Linux</a></li>
+                <li><a href="/category/programming-under-windows"> Windows</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/C语言/"> C/C++</a></li>
+                <li><a href="/category/python"> Python</a></li>
+                <li><a href="/category/nodejs"> NodeJS</a></li>
+                <li><a href="/tag/golang"> Golang</a></li>
+                <li><a href="/category/csharp"> C#</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_3" href="">
+                自动化群集运维<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/devops"> devops</a></li>
+                <li><a href="/category/docker"> Docker</a></li>
+                <li><a href="/category/cicd"> CICD</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_4" href="">
+                生活/随想<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/code-life"> 代码生活</a></li>
+                <li><a href="/category/the-life"> 生活掠影</a></li>
+                <li><a href="/category/人文社科"> 人文社科</a></li>
+                </ul></li>
+           
+        <li><a href="/archives">文章归档</a></li> 
+           
+        <li><a href="/webinfo">本站信息</a></li> 
+          </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="latelee" title="Late Lee&#39;s GitHub" target=_blank><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul></div></div></nav>
+<header id="allheader" class="site-header" role="banner"
+   >
+  <div class="clearfix container"><div class="site-branding"><h1 class="site-title">
+            
+              <!-- <a href="/" title="迟思堂随笔" rel="home"> 迟思堂随笔 </a> -->
+            </h1>
+          <!-- <div class="header-container" style="background: url('/bg.jpg')"></div> -->
+          <center>
+
+天不语而四时行 <br> 地不语而百物生 <br> --唐 李白 <br> 
+</center>
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    </ul></div></nav>
+</div></div></header>
+
+  <div id="container"><div id="wrap"><div id="content" class="outer">
+        <section id="main" style="float:none;"><article id="post-嵌入式-Linux/2010-06-18-嵌入式之行(1)：绪论" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    <header class="article-header"><h1 class="thumb" class="article-title" itemprop="name">嵌入式之行(1)：绪论</h1></header>
+    <ul class="breadcrumb">
+      <li><a href="/">首页</a></li>
+      <li><a href="/archives">所有文章</a></li>
+      <li><a href="/archives/2010/06">2010年06月</a></li>
+      <li><a class="article-category-link" href="/category/embedded-linux/">嵌入式Linux</a>
+      </li>
+    </ul> 
+
+    <div class="article-meta">
+      <span class="ico-calendar"> </span><time datetime="2010-06-18T22:02:46+08:00" itemprop="datePublished">2010-06-18 22:02</time>
+      
+	<span class="ico-folder"> </span>
+    <a class="article-category-link" href="/category/embedded-linux/">嵌入式Linux</a>
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B9%8B%E8%A1%8C/" rel="tag">嵌入式之行</a></li></ul>
+
+      <span class="ico-keyboard"> </span>3.6k 字
+      
+	<span id="busuanzi_container_page_pv" class="ico-eye">
+	 <span id="busuanzi_value_page_pv"></span> 次
+	</span>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+        <p>前言：</p>
+<p>学习Linux和嵌入式也有一段时间了。其中经历了很多，但也学到很多。这里做一些总结，算是一个系列吧。但又不知能写多少文章，也不知能写多久。我将它命名为“嵌入式Linux之行”。目前李迟所学有限，见识不可能高，但却是李迟的经验和对所学东西的总结(有来自网络上的，也有来自书本的)。鉴于实际情况(因为我不知以后还会不会写此类文章)，我将目前的几篇文章定为这个系列的“前奏”。</p>
+<a id="more"></a>
+
+<p>所谓“工欲善其事，必先得其器”。文中错误之处，还请见谅，并提出，可以在文后评论，一家一起学习进步。本文是该系列中的首篇文章，主要关于我对我所学的一些总结以及个人的想法。</p>
+<h2 id="1、起因"><a href="#1、起因" class="headerlink" title="1、起因"></a>1、起因</h2><p>我在大二的时候就决定学习嵌入式了，原因很简单，某次开什么会，我看见我的助班的简介，主攻方向便是嵌入式，那时，“嵌入式”便进了我脑海。虽然不知其为何物，但却让我好奇。于是就决定学习它了。——不要奇怪，大学低年级时，我什么都想学，网站、黑客什么的，我都看过相关的书。现在想来，我似乎只对嵌入式感兴趣了。但是，只是限于某一个方面，即嵌入式Linux。</p>
+<p>那时便开始了我的计划，学习单片机，学习Linux，等等。学单片机的原因也简单，因为那时我不会写程序，恰好有同学找我学单片机，我就学了。学Linux，是由于看到我宿舍同学(即sky.ljp)的Magic Linux桌面很好，觉得很爽，就去学习了(我说了，我对很多事都好奇)。现在想来，Linux的桌面于我，已没有什么好与不好的了，只要是Linux，对我来说，都差不多。(又：后来他sky.ljp无意告诉我，是他的一位同学“勾引”他搞，而他又“勾引”我搞。)</p>
+<p>但是，学习的过程却是很辛苦，首先，没有志同道合之人，遇到困难，没人帮你——因为没人搞这个；解决了困难，没人跟你分享——因为没人懂这个。可能是这个原因吧，造成我今日的性格。</p>
+<p>至于后来慢慢熟悉敲命令、写代码，是经过训练的。我的专业英语，是看芯片手册、看协议练出来的；我懂用emacs，是练出来的。现在有人问我问题，我解决后，都不忘加一句：这是我练出来的(<font color="red">我为什么懂xxx？因为是我练出来的！</font>)。我想，大多人经历过一番辛苦后，都会有这种想法吧。</p>
+<h2 id="2、论学"><a href="#2、论学" class="headerlink" title="2、论学"></a>2、论学</h2><p>嵌入式的范围很广很广，我目前所学的只限于Linux这一方面，因为我不想放弃我积累的Linux知识和经验。而且，用了这么久的Linux，也看了很多相关新闻，开源项目，我渐渐懂了一些GNU、Linux的精神了。我也愿意为其贡献自己的一份力量，这并不是说我多伟大，多牛，我觉得，如果某些问题我解决过的，别人又碰到过的，我有义务去帮忙；我将我的经验、教训总结出来，等等，是我目前能做的，是出了一份力了(不知接触Linux久的人，会不会有这种想法)。我渐渐意识到，写程序、写文章，首先是对自己责任，其次才是对别人(或读者)负责。先不管他人的评论，首先要对得起自己：程序是给自己写的，文章是给自己写的。这一点，《疯狂的程序员》里有提到的，这本书对我的影响很大，它让我思想改变了很多。</p>
+<p>虽然乐于助人常常给自己造成很多麻烦，但我觉得我还是要这样做。可惜，这样会给别人造成致命的一点，别人常常以为你什么都懂，连个简单问题都懒得百度，就直接问人，我很烦这类事情，我也觉得自己很冤，本来好好的，想帮助你，结果却害了你。——这个“帮助”，不是说什么事情都帮。唉。其中的矛盾，我也没法很好地解决。只好一遍又一遍地说要学会独立，学会培养自己学习的能力，我不知有几人能听得进去。(<font color="red">注意：这里所说的“简单问题”，是指那种自己应该能解决的问题，比如，程序运行或编译代码时，提示“No such file or directory”这类问题，特此说明</font>)</p>
+<p>学某些东西，如果时间长了，应该对它会有所了解，有所熟悉，比如使用Linux很久了，连自己进到哪个目录都不知道，那就让人不解了。我们应该在学习过程中总结一些技巧，学会一些技巧，学习是一个长期过程，比如我最近才知道Linux的一个技巧，比如你在一个很深的目录，不小心输入“cd”，回车，回到自己的家目录，这时就可以输入“cd -”，就能进到刚才那个目录了。我周边很多人，都习惯于考试前突击，把一个学期的知识用一两周时间学习，这样的结果除了得高分外，学到的东西，很快就忘了。我自认为我的操作系统、编译原理和组成原理很懂，相关的书也看了很多，比如，学操作系统时，我还自己看了保护模式的知识。结果呢？考试不高分，因为分心去看别的知识点，而不是考试知识点。这终于让我彻底意识到考试与学习之间的关系，这种意识在未来很长时间内是不会变的。但我不后悔这样做，因为学到的东西是自己的，高分是给用人单位和学校看的，——当然，评奖学金、评优秀时很有用。做“自己”和做“别人的自己”，两种生活方式，就看我们怎么去选择了。</p>
+<h2 id="3、Linux"><a href="#3、Linux" class="headerlink" title="3、Linux"></a>3、Linux</h2><p>Linux其实是一个很有趣的OS，不过，很多人使用别的系统多了，就觉得看不惯Linux。比如，一般可执行文件都是以exe结尾，可Linux中很多情况下都忽略扩展名，这让人想不明白，人家安装软件都是用鼠标直接点击“下一步”的，而Linux却是./configure，make，make install。</p>
+<p>其实，我们需要辩证看待事情，Windows有它的好，Linux也有它的好，它们各自的理念都不一样，为何一定要比较出高低好坏呢？</p>
+<p>下面说一下Linux的一些基本的常识。这里的理解全是个人的理解，如果有错误，希望能指正。</p>
+<p>Linux下很多看似没意义的字符，其实是有含义的，虽然我有些理解不到位，但却能帮助记忆。比如GCC的一些编译选项，如I(大写的字母I)，可以认为它是include的首字母，如Wall，它不是wall，而是Warn all，等等。只要有一定的专业英文，理解它们是不成问题了。</p>
+<p>Linux下的共享库前缀为lib，后缀名为so，so估计是shared object的简称吧，命名也有规律，比如一个SDL的库，名称很可能就是libSDL.so，在使用该库时，可以写它的全名，因为前缀和后缀都固定了，单写其“真正”名称即可，可以这样使用-lSDL来引入该库。</p>
+<p>库是Linux很重要的组成部分，有些库牵涉的程序、软件很多，有一次，我在LG电脑上删除qt3的库(因为我安装了qt4，不需要qt3了)，但是重启后，却进入不了桌面，我估计是被删除的库为别的桌面软件所用，后来使用光盘重新安装后所有的qt3，这才解决问题。此后，我不敢随便删除什么库了。</p>
+<h2 id="4、-基本能力"><a href="#4、-基本能力" class="headerlink" title="4、 基本能力"></a>4、 基本能力</h2><p>学习的能力。这是一种基本的能力，因为是你自己学习，而不是他人学习，凡事都要经过自己的思考，别人的经验、别人的代码，别人的算法，只有经过自己的消化，才有成为自己的东西。</p>
+<p>英文的能力。这不是说CET-4或CET-6这种英语，那也是给学校和用人单位看的。我们的英文是真正为我们所用的英文。这里的能力指：</p>
+<p>1、能看得懂编译错误信息，系统提示信息；</p>
+<p>2、到某个开源项目的官方网站上知道在哪里下载源代码，知道看它README文件或INSTALL文件，并根据其中的说明来安装软件。</p>
+<p>3、一些计算机方面的词汇，比如不要把driver看成“司机”，不要将bus看成“公车”，更不能将“kernel”不要翻译成“核仁”，等等。</p>
+<p>其实，英语不难，假如时时接触到，哪会有不熟悉之理？比如“ls”命令，一开始可能不知道为何“ls”就能查看目录和文件，但当知道“ls”是“list”后，就会明白了。所有这些，不是一日便能学会的，前文说了，学习是一个长期的过程，这个过程中的积累，可以是请教别人得到的，可以是看相关书籍得到的，可以是从网络上搜索得到的。</p>
+<p>专业知识的能力，这个是没得说了，一些基本的专业知识的能力是最起码的。我很难想象一个计算机专业的学生不会安装Windows系统，一个自动化专业学习没焊过电路板——有例外者不在列于此。</p>
+<h2 id="5、细节决定成败"><a href="#5、细节决定成败" class="headerlink" title="5、细节决定成败"></a>5、细节决定成败</h2><p>有时，一些细节会给我们解决问题路上造成很大麻烦，有过调试经历的人应该会明白，有时，一个小小的疏忽，花费很久时间，一夜，甚至几天。</p>
+<p>我遇到过一种情况，有一同学将无极性电容焊错了，因为那个地方有两个电容，四个孔，距离又相近，结果将电容的脚焊错了，由于电容小，又藏在单片机底下，花了不少时日解决这个“小小”的问题。</p>
+<p>上面的是做板过程出现的问题，其实，做板到写程序，到烧程序到板上，都要很小心，每一步不能出错，我很反对将这些分工，它们是一个整体，如果从画电路图到焊板，到写代码，都是一个人的话，解决问题可能会比较快速，因为是一个人在操作。但这样代价太大了，其实可以找一些比较默契的人来一起合作，组队，这不失为一种好方法。现在不是很流行团队精神吗？我觉得，如果是志同道合之士的话，配合起来会很默契(至少所需时间不会很长)，而不用进行什么“素质拓展”活动了。(我跟LG和LS他们还算默契吧，大家都搞过单片机，都是一个专业的，能谈的话题也多)</p>
+<p>在写代码过程中，细节同样很重要。</p>
+<p>有一次，我的同学编译一个程序，编译信息很奇怪，后来才知道，原来是一个宏的名称跟某个函数的参数名称一样造成的。我自己没有遇到这种情况，因为我代码中的宏全部是大写的，这样应该不会造成名称冲突，因为一个函数的参数是大写的话，看上去不太好。这告诉我们，遵循某些既成的约定，能比较容易、方便找到问题所在并解决之。</p>
+<p>一般来说，头文件中都会有“#ifndef _HELLO_H #define _HELLO_H”等防止头文件被多次包含的语句。但有一次，我遇到一种情况，即某个头文件的这些宏语句定义跟系统内的一个头文件所用的宏语句是一模一样的。这样编译就会出错了。——应该不一定就会出错，但我遇到的情况，的的确确就是因为这个原因造成的。</p>
+<p>在我做毕业设计过程中，有一部分是网络发送模块，也遇到一个小小细节花费很长时间才解决得了。原来，我将某个变量的类型从int 改成unsigned int，这样，当这个变量减到小于0时，它就变成一个很大的数了，那么，它永远不会变成负数。我郁闷了几天，后来通过gdb调试，一次一次打印该变量经过观察才发现这个问题，从此，我对有符号与无符号都有阴影了。</p>
+<p>一些细节，需要我们付出多大的代价？！</p>
+<p>此外，对于学习的一些哲理，网上有很多人分享了自己的经验，这样都是很宝贵的。比如：</p>
+<p>“<strong>如果你不能享受追求技术给人生带来的愉悦，就到此为止吧</strong>”。<br>——来自<a target="_blank" rel="noopener" href="http://linux.chinaunix.net/bbs/viewthread.php?tid=1164376&extra=page=1">http://linux.chinaunix.net/bbs/viewthread.php?tid=1164376&amp;extra=page%3D1</a></p>
+<p>“<strong>看得越多，学得越深，越发觉自己无知</strong>”<br>——一个printf(“helloworldn”)很简单吧，但如果你使用strace追踪它的系统调用，深入了解的话，你会发现自己不知不觉掉入了万丈深渊，出不来了。但等你出来后，你又会发现自己的功力大大提升了。所谓“一桶水不响，半桶水响当当”是也。</p>
+<p>“<strong>搞技术的人，应该耐得住寂寞，抵得住外界诱惑，坐得住冷板凳。</strong>”<br>“<strong>君子有所不为而后有所为。</strong>”<br>——在某一方面付出了时间精力，必然在另一方面失去很多东西，世上没有十全十美的事。不可能整个学期都在玩，却希望考试通过，甚至拿奖学金(不排除很聪明的人，但我肯定是做不到的)。</p>
+<p>搞技术，这本来就是一条不归路。如果承受不了，那就到此为止吧！</p>
+ </div>
+    <div id="donation_div"></div>
+
+
+<div style="width: 90%; text-align: center;">
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}"><span>打赏支持</span></button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block"><img id="wechat_qr" src="/images/wepay_240.png" width="50%" alt="微信支付"><p>微信支付</p></div>
+    
+      <div id="alipay" style="display: inline-block"><img id="alipay_qr" src="/images/alipay_240.png" width="50%" alt="支付宝"><p>支付宝</p></div>
+    <br>如觉得本文有用，可随意赞助以资鼓励。<br>如影响阅读体验，请再次点击关闭窗口。</div></div>
+      
+    <div class="authorinfo">
+      <img alt='' src='/author/latelee.jpg'  class='avatar avatar-64 photo' height='64' width='64' />
+      <ul><li><strong>本文作者：</strong>李迟</li> 
+      <li><strong>版权声明：</strong>原创文章，版权归署名作者，转载建议注明出处（当然不注明亦可）。</li>
+      <li><strong>本文链接：</strong><a href="/embedded-linux/learning-embeddedlinux-1-sum.html" title="嵌入式之行(1)：绪论">http://www.latelee.org/embedded-linux/learning-embeddedlinux-1-sum.html</a></li></ul>
+    </div>
+    
+ 
+    <nav id="article-nav">      <a href="/embedded-linux/learning-embeddedlinux-2-env.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+        嵌入式之行(2)：环境搭建</a> 
+  <a href="/embedded-linux/learning-embeddedlinux-01-breakdown.html" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">后一篇</strong> 嵌入式之行前传：挫折</a></nav>
+    <hr class="entry-footer-hr">
+    <footer class="entry-meta entry-footer">
+      
+<div id="comment"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'true' == true ? true : false;
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+    window.onload = function() {
+        new Valine({
+			//av: AV,
+            el: '#comment',
+            notify: notify,
+            verify: verify,
+            app_id: "X36fuJhKb5DzHu6Sv2AU1Aap-gzGzoHsz",
+            app_key: "bix54WVwzsQyxeHbvIcJGsyA",
+            avatar:"monsterid",
+            placeholder: "可自由评论，但勿恶意评论。上面那行可填可不填。",
+            guest_info:guest_info,
+			//visitor: true // 阅读量统计
+        });
+    }
+  </script></div></footer></div>
+</article>
+  <aside id="sidebar">
+  <div style="margin: 20px 0;">
+	<div id="search-form-wrap">
+
+    <form class="search-form">
+        <label style="width: 72%;">
+            <span class="screen-reader-text">Search for:</span>
+            <input type="search" class="search-field" style="height: 36px; width: 100%;" placeholder=" 搜索…" value="" name="s" title="Search for:">
+        </label>
+        <input type="submit" class="search-form-submit" value="搜索">
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+</div><div class="widget_athemes_tabs">
+    <ul id="widget-tab" class="clearfix widget-tab-nav"><li class="active"><a>最新文章</a></li></ul>
+    <div class="widget"><ul>
+        
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/docker/docker-30-deploy-for-c++.html" title=""><img width="50" height="50" src="/gallery/tech/docker1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/docker/docker-30-deploy-for-c++.html">我的docker随笔30：C++程序的自动化构建</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/vue/vue-notes-vue-basic.html" title=""><img width="50" height="50" src="/gallery/tech/vue.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/vue/vue-notes-vue-basic.html">vue实践录：vue基础学习</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/vue/vue-notes-starting.html" title=""><img width="50" height="50" src="/gallery/tech/vue.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/vue/vue-notes-starting.html">vue实践录：windows 10系统vue环境搭建</a></h6></div></li>
+          <li class="clearfix"><div class="widget-entry-summary" style="margin: 0;">
+              <h6 style="margin: 0;"><a href="/code-life/ruankao-pm1.html">软考路：高项1心得</a></h6></div></li>
+          <li class="clearfix"><div class="widget-entry-summary" style="margin: 0;">
+              <h6 style="margin: 0;"><a href="/pkc/kindle-usage.html">kindle使用及周边的记录</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-oracle-test.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-oracle-test.html">Golang实践录：oracle数据库实践</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-my-utils.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-my-utils.html">Golang实践录：我的工具包</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-cobra-note.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-cobra-note.html">Golang实践录：命令行cobra库实例</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/pkc/setting-ip-for-windows.html" title=""><img width="50" height="50" src="/gallery/tech/tools1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/pkc/setting-ip-for-windows.html">Windows设置IP脚本</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/pkc/database-practice.html" title=""><img width="50" height="50" src="/gallery/tech/tools1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/pkc/database-practice.html">格式化工具indent使用笔记</a></h6></div></li></ul></div></div>
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-linux/">GNU/Linux程序</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/category/using-gnu-linux/">GNU/Linux系统</a><span class="category-list-count">72</span></li><li class="category-list-item"><a class="category-list-link" href="/category/linux-kernel/">Linux内核研究</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/Qt/">Qt</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/category/porting-uboot/">U-Boot随笔</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-windows/">Windows程序</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/cicd/">cicd</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/category/delphi/">delphi</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/devops/">devops</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/docker/">docker</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/category/golang/">golang</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubeedge/">kubeedge</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubernetes/">kubernetes</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/category/nodejs/">nodejs</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/category/python/">python</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/vue/">vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/pkc/">个人知识中心</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/">人文社科</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/code-life/">代码生活</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/category/just-for-fun/">小玩意</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/embedded-linux/">嵌入式Linux</a><span class="category-list-count">58</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ellp/">嵌入式Linux入门与实践</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/firmware-bios/">嵌入式底层BIOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/category/toolslib/">工具编译使用</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/open-project/">开源项目</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-library/">我的程序代码</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-study/">技术杂铺</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/wireless/">无线WIFI</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ml/">机器学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/category/multistream/">流媒体学习</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/category/the-life/">生活掠影</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/category/answer4you/">答网友问</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/compilelinking/">编译链接</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/web/">网络/网站/web</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/net-study/">网络方面</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/">项目日志</a><span class="category-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+  <div class="widget-wrap"><h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud"><a href="/tag/4G%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">4G网卡</a> <a href="/tag/ARM/" style="font-size: 10.5px;">ARM</a> <a href="/tag/BIOS%E6%97%B6%E9%97%B4/" style="font-size: 10px;">BIOS时间</a> <a href="/tag/BMP/" style="font-size: 10px;">BMP</a> <a href="/tag/CPUID/" style="font-size: 10.5px;">CPUID</a> <a href="/tag/CPU%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">CPU寄存器</a> <a href="/tag/CPU%E9%A2%91%E7%8E%87/" style="font-size: 10px;">CPU频率</a> <a href="/tag/C%E8%AF%AD%E8%A8%80/" style="font-size: 15.5px;">C语言</a> <a href="/tag/FTP/" style="font-size: 10.5px;">FTP</a> <a href="/tag/GBK/" style="font-size: 11px;">GBK</a> <a href="/tag/H264/" style="font-size: 11px;">H264</a> <a href="/tag/H264%E7%A0%81%E6%B5%81/" style="font-size: 10.5px;">H264码流</a> <a href="/tag/H265/" style="font-size: 11.5px;">H265</a> <a href="/tag/H3C/" style="font-size: 10px;">H3C</a> <a href="/tag/HEVC/" style="font-size: 10.5px;">HEVC</a> <a href="/tag/HTML/" style="font-size: 10px;">HTML</a> <a href="/tag/ICH/" style="font-size: 10px;">ICH</a> <a href="/tag/Intel%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">Intel处理器</a> <a href="/tag/LCD/" style="font-size: 11px;">LCD</a> <a href="/tag/LPC/" style="font-size: 10px;">LPC</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/Linux%E4%B9%8B%E8%A1%8C/" style="font-size: 12px;">Linux之行</a> <a href="/tag/Linux%E4%BD%BF%E7%94%A8/" style="font-size: 12.5px;">Linux使用</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8/" style="font-size: 11.5px;">Linux内核</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/" style="font-size: 10px;">Linux内核编译</a> <a href="/tag/Linux%E7%A7%BB%E6%A4%8D%E9%9A%8F%E7%AC%94/" style="font-size: 12.5px;">Linux移植随笔</a> <a href="/tag/Linux%E7%BC%96%E7%A8%8B/" style="font-size: 14.5px;">Linux编程</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C/" style="font-size: 10.5px;">Linux网络</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10.5px;">Linux网络子系统</a> <a href="/tag/Linux%E9%A9%B1%E5%8A%A8/" style="font-size: 11.5px;">Linux驱动</a> <a href="/tag/MFC/" style="font-size: 19px;">MFC</a> <a href="/tag/Makefile/" style="font-size: 14.5px;">Makefile</a> <a href="/tag/PCI/" style="font-size: 11.5px;">PCI</a> <a href="/tag/PHY%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10.5px;">PHY寄存器</a> <a href="/tag/PHY%E7%8A%B6%E6%80%81/" style="font-size: 10px;">PHY状态</a> <a href="/tag/PHY%E9%A9%B1%E5%8A%A8/" style="font-size: 10px;">PHY驱动</a> <a href="/tag/Qt/" style="font-size: 13.5px;">Qt</a> <a href="/tag/SCSI/" style="font-size: 10px;">SCSI</a> <a href="/tag/SDL/" style="font-size: 11px;">SDL</a> <a href="/tag/SD%E5%8D%A1/" style="font-size: 10px;">SD卡</a> <a href="/tag/STL/" style="font-size: 11px;">STL</a> <a href="/tag/U-Boot%E9%9A%8F%E7%AC%94/" style="font-size: 18px;">U-Boot随笔</a> <a href="/tag/USB/" style="font-size: 12.5px;">USB</a> <a href="/tag/U%E7%9B%98%E5%88%B6%E4%BD%9C/" style="font-size: 10px;">U盘制作</a> <a href="/tag/V4L2/" style="font-size: 10px;">V4L2</a> <a href="/tag/VAAPI/" style="font-size: 10px;">VAAPI</a> <a href="/tag/VLAN/" style="font-size: 10px;">VLAN</a> <a href="/tag/Vagrant/" style="font-size: 10.5px;">Vagrant</a> <a href="/tag/WIFI/" style="font-size: 13.5px;">WIFI</a> <a href="/tag/YUV/" style="font-size: 15px;">YUV</a> <a href="/tag/YUV%E6%92%AD%E6%94%BE%E5%99%A8/" style="font-size: 13.5px;">YUV播放器</a> <a href="/tag/ap-hotspot/" style="font-size: 10px;">ap-hotspot</a> <a href="/tag/armdocker/" style="font-size: 12px;">armdocker</a> <a href="/tag/atom/" style="font-size: 10px;">atom</a> <a href="/tag/beidou/" style="font-size: 10.5px;">beidou</a> <a href="/tag/bios/" style="font-size: 16.5px;">bios</a> <a href="/tag/boa/" style="font-size: 11px;">boa</a> <a href="/tag/c-c/" style="font-size: 10px;">c&c++</a> <a href="/tag/cgi/" style="font-size: 10px;">cgi</a> <a href="/tag/cicd/" style="font-size: 15px;">cicd</a> <a href="/tag/coreboot/" style="font-size: 15px;">coreboot</a> <a href="/tag/coredump/" style="font-size: 11px;">coredump</a> <a href="/tag/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tag/crontab/" style="font-size: 10px;">crontab</a> <a href="/tag/cuda/" style="font-size: 10.5px;">cuda</a> <a href="/tag/debootstrap/" style="font-size: 11px;">debootstrap</a> <a href="/tag/delphi/" style="font-size: 11.5px;">delphi</a> <a href="/tag/dhcp/" style="font-size: 10px;">dhcp</a> <a href="/tag/docker/" style="font-size: 20px;">docker</a> <a href="/tag/dos%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">dos系统</a> <a href="/tag/doxygen/" style="font-size: 10.5px;">doxygen</a> <a href="/tag/dropbox/" style="font-size: 10px;">dropbox</a> <a href="/tag/emacs/" style="font-size: 10.5px;">emacs</a> <a href="/tag/ethtool/" style="font-size: 11px;">ethtool</a> <a href="/tag/ffmpeg/" style="font-size: 13px;">ffmpeg</a> <a href="/tag/flash/" style="font-size: 10px;">flash</a> <a href="/tag/freetype/" style="font-size: 10px;">freetype</a> <a href="/tag/gcc/" style="font-size: 11px;">gcc</a> <a href="/tag/gdbserver/" style="font-size: 10px;">gdbserver</a> <a href="/tag/getopt/" style="font-size: 10px;">getopt</a> <a href="/tag/git/" style="font-size: 14.5px;">git</a> <a href="/tag/git-cicd/" style="font-size: 10px;">git-cicd</a> <a href="/tag/gitbook/" style="font-size: 10px;">gitbook</a> <a href="/tag/github/" style="font-size: 10.5px;">github</a> <a href="/tag/golang/" style="font-size: 14.5px;">golang</a> <a href="/tag/gpio-ich/" style="font-size: 10px;">gpio_ich</a> <a href="/tag/grub/" style="font-size: 10px;">grub</a> <a href="/tag/h264/" style="font-size: 10.5px;">h264</a> <a href="/tag/hexo/" style="font-size: 10.5px;">hexo</a> <a href="/tag/hostapd/" style="font-size: 11.5px;">hostapd</a> <a href="/tag/i2c-gpio/" style="font-size: 10px;">i2c-gpio</a> <a href="/tag/iTCO-wdt/" style="font-size: 10px;">iTCO_wdt</a> <a href="/tag/ifconfig/" style="font-size: 10px;">ifconfig</a> <a href="/tag/inode/" style="font-size: 10px;">inode</a> <a href="/tag/iperf/" style="font-size: 10px;">iperf</a> <a href="/tag/iptables/" style="font-size: 13px;">iptables</a> <a href="/tag/kubeedge/" style="font-size: 16.5px;">kubeedge</a> <a href="/tag/kubernetes/" style="font-size: 19.5px;">kubernetes</a> <a href="/tag/leds-gpio/" style="font-size: 10px;">leds-gpio</a> <a href="/tag/libjpeg/" style="font-size: 13.5px;">libjpeg</a> <a href="/tag/libjpeg-turbo/" style="font-size: 10px;">libjpeg-turbo</a> <a href="/tag/linux%E5%86%85%E6%A0%B8/" style="font-size: 10px;">linux内核</a> <a href="/tag/linux%E5%A4%8D%E4%BD%8D/" style="font-size: 10px;">linux复位</a> <a href="/tag/linux%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">linux编程</a> <a href="/tag/live555/" style="font-size: 11px;">live555</a> <a href="/tag/malloc/" style="font-size: 10px;">malloc</a> <a href="/tag/mfd/" style="font-size: 10px;">mfd</a> <a href="/tag/mingw/" style="font-size: 10.5px;">mingw</a> <a href="/tag/nodejs/" style="font-size: 17.5px;">nodejs</a> <a href="/tag/ntfs/" style="font-size: 10px;">ntfs</a> <a href="/tag/ntp/" style="font-size: 11px;">ntp</a> <a href="/tag/onvif/" style="font-size: 13.5px;">onvif</a> <a href="/tag/openwrt/" style="font-size: 11px;">openwrt</a> <a href="/tag/osd/" style="font-size: 10.5px;">osd</a> <a href="/tag/pelco%E5%8D%8F%E8%AE%AE/" style="font-size: 10.5px;">pelco协议</a> <a href="/tag/platform/" style="font-size: 10px;">platform</a> <a href="/tag/proc/" style="font-size: 10px;">proc</a> <a href="/tag/python/" style="font-size: 10px;">python</a> <a href="/tag/radiotap/" style="font-size: 10px;">radiotap</a> <a href="/tag/rtc%E6%99%B6%E6%8C%AF/" style="font-size: 10px;">rtc晶振</a> <a href="/tag/shell/" style="font-size: 11px;">shell</a> <a href="/tag/socket/" style="font-size: 10px;">socket</a> <a href="/tag/spin-lock/" style="font-size: 10px;">spin_lock</a> <a href="/tag/sscanf/" style="font-size: 10px;">sscanf</a> <a href="/tag/ssh/" style="font-size: 11px;">ssh</a> <a href="/tag/staruml/" style="font-size: 10px;">staruml</a> <a href="/tag/sudo/" style="font-size: 10px;">sudo</a> <a href="/tag/sysfs/" style="font-size: 10px;">sysfs</a> <a href="/tag/syslog/" style="font-size: 10.5px;">syslog</a> <a href="/tag/tcpdump/" style="font-size: 10.5px;">tcpdump</a> <a href="/tag/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tag/unicode/" style="font-size: 10.5px;">unicode</a> <a href="/tag/vc2003/" style="font-size: 10px;">vc2003</a> <a href="/tag/visca%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">visca协议</a> <a href="/tag/vnstat/" style="font-size: 10px;">vnstat</a> <a href="/tag/vue/" style="font-size: 10.5px;">vue</a> <a href="/tag/web/" style="font-size: 11.5px;">web</a> <a href="/tag/web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">web服务器</a> <a href="/tag/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tag/x86/" style="font-size: 10px;">x86</a> <a href="/tag/xml/" style="font-size: 10px;">xml</a> <a href="/tag/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" style="font-size: 15.5px;">个人总结</a> <a href="/tag/%E4%B8%B2%E5%8F%A3/" style="font-size: 11px;">串口</a> <a href="/tag/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" style="font-size: 10px;">交叉编译</a> <a href="/tag/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/" style="font-size: 10px;">人文社科</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">代码生活</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%A7%AF%E7%B4%AF/" style="font-size: 12.5px;">代码积累</a> <a href="/tag/%E5%86%85%E5%AD%98%E5%B8%A6%E5%AE%BD/" style="font-size: 10px;">内存带宽</a> <a href="/tag/%E5%86%85%E5%AD%98%E9%A2%91%E7%8E%87/" style="font-size: 10px;">内存频率</a> <a href="/tag/%E5%86%85%E6%A0%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">内核学习笔记</a> <a href="/tag/%E5%8A%A8%E6%80%81%E5%BA%93/" style="font-size: 10.5px;">动态库</a> <a href="/tag/%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5/" style="font-size: 10px;">参数检查</a> <a href="/tag/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" style="font-size: 10px;">双向链表</a> <a href="/tag/%E5%8F%8C%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">双网卡</a> <a href="/tag/%E5%8F%A5%E6%9F%84/" style="font-size: 10px;">句柄</a> <a href="/tag/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/" style="font-size: 10.5px;">可变参数</a> <a href="/tag/%E5%90%AF%E5%8A%A8/" style="font-size: 10px;">启动</a> <a href="/tag/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tag/%E5%9B%BE%E7%89%87%E5%B7%A5%E5%85%B7%E6%8E%A5%E5%8F%A3/" style="font-size: 10px;">图片工具接口</a> <a href="/tag/%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">处理器</a> <a href="/tag/%E5%A4%87%E6%A1%88/" style="font-size: 10px;">备案</a> <a href="/tag/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E5%89%8D%E7%BC%80/" style="font-size: 10px;">子网掩码前缀</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" style="font-size: 11.5px;">字符编码</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87/" style="font-size: 10px;">字符设备</a> <a href="/tag/%E5%AD%A6%E4%BD%9B/" style="font-size: 12px;">学佛</a> <a href="/tag/%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">寄存器</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/" style="font-size: 10px;">嵌入式Linux</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux%E5%85%A5%E9%97%A8/" style="font-size: 16px;">嵌入式Linux入门</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8Fqemu/" style="font-size: 11px;">嵌入式qemu</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B9%8B%E8%A1%8C/" style="font-size: 16px;">嵌入式之行</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 12px;">嵌入式开发环境</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 16.5px;">工具使用</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E7%BC%96%E8%AF%91/" style="font-size: 15.5px;">工具编译</a> <a href="/tag/%E5%B7%A5%E7%A8%8B%E5%BA%93%E4%BB%A3%E7%A0%81/" style="font-size: 18.5px;">工程库代码</a> <a href="/tag/%E5%BA%93%E7%BC%96%E8%AF%91/" style="font-size: 13.5px;">库编译</a> <a href="/tag/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/tag/%E5%BC%80%E5%8F%91%E5%AE%9E%E5%BD%95/" style="font-size: 10px;">开发实录</a> <a href="/tag/%E5%BC%B1%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">弱链接</a> <a href="/tag/%E5%BE%AE%E6%9C%BA%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">微机知识</a> <a href="/tag/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" style="font-size: 15.5px;">技术笔记</a> <a href="/tag/%E6%8B%B7%E8%B4%9D%E7%A1%AC%E7%9B%98/" style="font-size: 10px;">拷贝硬盘</a> <a href="/tag/%E6%8C%82%E8%BD%BD/" style="font-size: 10px;">挂载</a> <a href="/tag/%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8D%E5%AE%9A%E5%90%91/" style="font-size: 10px;">控制台重定向</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11px;">数据库</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10.5px;">数据结构</a> <a href="/tag/%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组</a> <a href="/tag/%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96/" style="font-size: 10px;">数组初始化</a> <a href="/tag/%E6%96%87%E4%BB%B6%E5%8F%A5%E6%9F%84/" style="font-size: 10.5px;">文件句柄</a> <a href="/tag/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" style="font-size: 10px;">文件操作</a> <a href="/tag/%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" style="font-size: 10px;">新年计划</a> <a href="/tag/%E6%97%B6%E5%8C%BA/" style="font-size: 10.5px;">时区</a> <a href="/tag/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tag/%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">根文件系统</a> <a href="/tag/%E6%B1%87%E7%BC%96/" style="font-size: 12px;">汇编</a> <a href="/tag/%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81/" style="font-size: 10px;">汉字编码</a> <a href="/tag/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 12px;">源码分析</a> <a href="/tag/%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6/" style="font-size: 14px;">点阵字符</a> <a href="/tag/%E7%82%B9%E9%98%B5%E6%98%BE%E7%A4%BA/" style="font-size: 11px;">点阵显示</a> <a href="/tag/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 13.5px;">版本控制</a> <a href="/tag/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/" style="font-size: 11px;">电子邮件</a> <a href="/tag/%E7%9C%8B%E9%97%A8%E7%8B%97/" style="font-size: 10px;">看门狗</a> <a href="/tag/%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F/" style="font-size: 10px;">硬件加速</a> <a href="/tag/%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/" style="font-size: 10px;">磁盘空间</a> <a href="/tag/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84/" style="font-size: 10px;">端口映射</a> <a href="/tag/%E7%AD%94%E7%BD%91%E5%8F%8B%E9%97%AE/" style="font-size: 10.5px;">答网友问</a> <a href="/tag/%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" style="font-size: 10.5px;">简明教程</a> <a href="/tag/%E7%AE%A1%E9%81%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">管道函数</a> <a href="/tag/%E7%B3%BB%E7%BB%9F%E5%AE%9A%E5%88%B6/" style="font-size: 11.5px;">系统定制</a> <a href="/tag/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 10.5px;">编程规范</a> <a href="/tag/%E7%BC%96%E8%AF%91%E8%AD%A6%E5%91%8A/" style="font-size: 11.5px;">编译警告</a> <a href="/tag/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5/" style="font-size: 11px;">编译链接</a> <a href="/tag/%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">网卡</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E8%BD%AC%E5%8F%91/" style="font-size: 10px;">网络转发</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/" style="font-size: 10.5px;">网络问题</a> <a href="/tag/%E8%80%83%E8%AF%81/" style="font-size: 10px;">考证</a> <a href="/tag/%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86/" style="font-size: 10px;">视频采集</a> <a href="/tag/%E8%AF%97%E8%AF%8D%E9%9F%B5%E5%BE%8B/" style="font-size: 10px;">诗词韵律</a> <a href="/tag/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/" style="font-size: 10px;">语法高亮</a> <a href="/tag/%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%B9%BF%E6%92%AD%E5%8C%85/" style="font-size: 10px;">跨网段广播包</a> <a href="/tag/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 10px;">软件安装</a> <a href="/tag/%E9%97%AE%E9%A2%98%E9%9B%86/" style="font-size: 17px;">问题集</a> <a href="/tag/%E9%9D%99%E6%80%81%E5%BA%93/" style="font-size: 10px;">静态库</a> <a href="/tag/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/" style="font-size: 16.5px;">项目日志</a></div></div>
+ 
+<div class="widget-wrap"><h3 class="widget-title">友情链接</h3>
+  <div class="widget">
+    <ul class="clearfix">
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.blog.csdn.net/" target="_blank">李迟的专栏</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://i.latelee.org" target="_blank">李迟的个人主页</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.github.io/" target="_blank">本站备份网址</a>
+      </li>
+    </ul>
+  </div>
+</div>
+  </aside> </section></div></div>
+    <footer id="footer" class="site-footer">
+  
+  <div class="clearfix container text-center">
+        <ul class="list-inline text-center">
+          <li><a href="/sitemap.xml">网站地图</a></li>
+          <li>|</li>
+          <li><a href="/lisence">版权声明</a></li>
+          <li>|</li>
+          <li><a href="/donate">捐赠本站</a></li>
+          <li>|</li>
+          <li><a href="/news-for-my-website">建站记录</a></li>
+          <li>|</li>
+          <li><a href="/atom.xml">RSS订阅</a></li>
+          <li>|</li>
+          <li><a href="/about">关于</a></li>
+          </ul>
+      <div class="list-inline  text-center">
+	      &copy; 2010 - 2020 <a href="/" target="_blank"></a> 版权所有.
+          本博客由hexo强力驱动，主题修改自<a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a> &nbsp;&nbsp;
+          <a href="http://www.beian.miit.gov.cn/" target=_blank>桂ICP备10003672号-1</a> &nbsp;&nbsp <a href="https://uweb.umeng.com/v1/login.php?siteid=2137378" target="_blank">站长统计</a> </br></div>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div></footer>
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+    
+</script><!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/bootstrap.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=2137378&web_id=2137378" language="JavaScript"></script>
+  </div>
+
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <script type="text/javascript" src="/js/click_show_text.js"></script>
+</body>
+</html>

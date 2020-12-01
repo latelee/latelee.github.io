@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<!--
+无上甚深微妙法，百千万劫难遭遇。
+我今见闻得受持，愿解如来真实义。
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Lubuntu16.4.3定制教程 | 迟思堂随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Lubuntu16.4.3定制教程
+迟思堂工作室 李迟(li@latelee.org)
+
+
+本文是对lubuntu-16.04.3-desktop-amd64.iso进行定制文档，最终输出一个可以烧写到U盘并能启动的ISO镜像文件。本文要求读者对linux有一定掌握程度，比如：知道用户权限（root权限）、知道如何使用apt-get install安装软件，知道shell。本文注重的是制作的方法，另外有做好的定制脚本文件，具体参考工程仓库内文件。工程仓库里的图标、配置文件显示的字符串可能与本文有出入，最终以读者自行判断的为准。  " />
+<meta name="keywords" content="系统定制 " />
+
+  <link rel="alternate" href="/atom.xml" title="迟思堂随笔" type="application/atom+xml">
+  <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  
+<link rel="stylesheet" href="/css/style.css">
+ 
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+   <link rel="stylesheet" href="/css/vdonate.css" > 
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+  <script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'}var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s)})();</script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body data-spy="scroll" data-target="#toc" data-offset="50">
+
+  
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    <a class="navbar-brand" href="/"></a></div>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_0" href="">
+                嵌入式/Linux<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/using-gnu-linux"> GUN/Linux系统</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/linux-kernel"> Linux内核研究</a></li>
+                <li><a href="/category/embedded-linux"> 嵌入式Linux</a></li>
+                <li><a href="/category/porting-uboot"> U-Boot随笔</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/firmware-bios"> 嵌入式底层BIOS</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/嵌入式qemu"> qemu</a></li>
+                <li><a href="/tag/raspberrypi"> 树莓派</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_1" href="">
+                程序开发<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/my-study"> 技术杂铺</a></li>
+                <li><a href="/category/open-project"> 开源项目</a></li>
+                <li><a href="/category/my-library"> 程序库</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/multistream"> 流媒体</a></li>
+                <li><a href="/category/wireless"> 无线WIFI</a></li>
+                <li><a href="/category/"> 网络/网站/web</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/just-for-fun"> 小玩意</a></li>
+                <li><a href="/category/answer4you"> 答网友问</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_2" href="">
+                编程语言<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/programming-under-linux"> GUN/Linux</a></li>
+                <li><a href="/category/programming-under-windows"> Windows</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/C语言/"> C/C++</a></li>
+                <li><a href="/category/python"> Python</a></li>
+                <li><a href="/category/nodejs"> NodeJS</a></li>
+                <li><a href="/tag/golang"> Golang</a></li>
+                <li><a href="/category/csharp"> C#</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_3" href="">
+                自动化群集运维<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/devops"> devops</a></li>
+                <li><a href="/category/docker"> Docker</a></li>
+                <li><a href="/category/cicd"> CICD</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_4" href="">
+                生活/随想<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/code-life"> 代码生活</a></li>
+                <li><a href="/category/the-life"> 生活掠影</a></li>
+                <li><a href="/category/人文社科"> 人文社科</a></li>
+                </ul></li>
+           
+        <li><a href="/archives">文章归档</a></li> 
+           
+        <li><a href="/webinfo">本站信息</a></li> 
+          </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="latelee" title="Late Lee&#39;s GitHub" target=_blank><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul></div></div></nav>
+<header id="allheader" class="site-header" role="banner"
+   >
+  <div class="clearfix container"><div class="site-branding"><h1 class="site-title">
+            
+              <!-- <a href="/" title="迟思堂随笔" rel="home"> 迟思堂随笔 </a> -->
+            </h1>
+          <!-- <div class="header-container" style="background: url('/bg.jpg')"></div> -->
+          <center>
+
+天不语而四时行 <br> 地不语而百物生 <br> --唐 李白 <br> 
+</center>
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    </ul></div></nav>
+</div></div></header>
+
+  <div id="container"><div id="wrap"><div id="content" class="outer">
+        <section id="main" style="float:none;"><article id="post-Linux使用/2018-04-19-Lubuntu16.4.3定制教程" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    <header class="article-header"><h1 class="thumb" class="article-title" itemprop="name">Lubuntu16.4.3定制教程</h1></header>
+    <ul class="breadcrumb">
+      <li><a href="/">首页</a></li>
+      <li><a href="/archives">所有文章</a></li>
+      <li><a href="/archives/2018/04">2018年04月</a></li>
+      <li><a class="article-category-link" href="/category/using-gnu-linux/">GNU/Linux系统</a>
+      </li>
+    </ul> 
+
+    <div class="article-meta">
+      <span class="ico-calendar"> </span><time datetime="2018-04-19T14:01:05+08:00" itemprop="datePublished">2018-04-19 14:01</time>
+      
+	<span class="ico-folder"> </span>
+    <a class="article-category-link" href="/category/using-gnu-linux/">GNU/Linux系统</a>
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/%E7%B3%BB%E7%BB%9F%E5%AE%9A%E5%88%B6/" rel="tag">系统定制</a></li></ul>
+
+      <span class="ico-keyboard"> </span>8k 字
+      
+	<span id="busuanzi_container_page_pv" class="ico-eye">
+	 <span id="busuanzi_value_page_pv"></span> 次
+	</span>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+        <center><h1>Lubuntu16.4.3定制教程</h1></center>
+<center>迟思堂工作室 李迟(li@latelee.org)</center>
+
+
+<p>本文是对lubuntu-16.04.3-desktop-amd64.iso进行定制文档，最终输出一个可以烧写到U盘并能启动的ISO镜像文件。本文要求读者对linux有一定掌握程度，比如：知道用户权限（root权限）、知道如何使用apt-get install安装软件，知道shell。本文注重的是制作的方法，另外有做好的定制脚本文件，具体参考工程仓库内文件。工程仓库里的图标、配置文件显示的字符串可能与本文有出入，最终以读者自行判断的为准。  </p>
+<a id="more"></a>
+
+<p>如无特殊说明：<br>本文提到的命令，都是用root执行的。<br>本文所述“启动系统”、“重启系统”、“ISO启动”等，都是指“启动iso，进入livecd环境”。<br>本文假定读者能自由切换sudo和root，并能自由切换“/”和“\”。<br>本文工程项目仓库地址：<a target="_blank" rel="noopener" href="https://github.com/cststudio/lubuntucd">https://github.com/cststudio/lubuntucd</a> ，下文将其为“工程”或“工程仓库”。  </p>
+<h1 id="1、环境搭建"><a href="#1、环境搭建" class="headerlink" title="1、环境搭建"></a>1、环境搭建</h1><p>制作iso镜像，需要使用一台linux系统，可以是物理机，也可以是虚拟机，只要保证安装有相应的工具即可。本文使用的系统是12核至强处理器，64GB内存的ubuntu 16.04 64bit。CPU核心数越多，制作ISO镜像越快（本文所用系统制作ISO耗时大约1分钟左右）。<br>就制作过程而言，需要使用的工具安装步骤如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install squashfs-tools </span><br><span class="line">sudo apt-get install mkisofs  </span><br><span class="line">sudo apt install xorriso  </span><br><span class="line">sudo apt-get install isolinux  </span><br></pre></td></tr></table></figure>
+<p>说明：<br>squashfs-tools主要用于解压、压缩squash文件系统的（ISO光盘使用这种格式）。<br>mkisofs 和xorriso主要用于制定ISO镜像文件。<br>isolinux主要用于生成isohdpfx.bin。安装该工具后，在/usr/lib/ISOLINUX/下面会有isohdpfx.bin，这个文件是我们在制定ISO时使用到的，需要将其拷贝到指定目录。该文件已经整合到工程仓库里了。  </p>
+<h1 id="2、文件说明"><a href="#2、文件说明" class="headerlink" title="2、文件说明"></a>2、文件说明</h1><p>制作过程需要使用大量命令，为了简化其人工输入的失误，因此，在解压ISO、制作ISO过程中，均使用脚本来实现。<br>本文工程使用的主要文件和目录说明如下：  </p>
+<ul>
+<li>1_tar_iso.sh：解压专用。用于将原始ISO（即从官网下载的镜像）解压，得到rootfs文件。  </li>
+<li>2_tar_splash.sh ：解压splash、bootlogo相关文件。  </li>
+<li>3_build_splash.sh：：更新并重新制作splash、bootlogo相关文件。</li>
+<li><code>update.sh</code>：更新ISO镜像（即本文的定制部分将通过此脚本完成，当然也可以手工一步步完成）。  </li>
+<li>4_build_iso.sh：制作ISO镜像专用。用于将修改后rootfs打包、制作成新的ISO镜像。  </li>
+<li>work：工作目录，包括自定义图片、修改后的配置文件、语言文件、isohdpfx.bin文件，等等。<br>细节请自行查阅文件。  </li>
+</ul>
+<h1 id="3、制作步骤"><a href="#3、制作步骤" class="headerlink" title="3、制作步骤"></a>3、制作步骤</h1><p>一般来说，制作过程分几个阶段：  </p>
+<ol>
+<li>下载镜像文件lubuntu-16.04.3-desktop-amd64.iso，将这个镜像文件和脚本文件（1_tar_iso.sh、2_tar_splash.sh等)放置同一个目录。</li>
+<li>解压原始镜像文件。此阶段使用1_tar_iso.sh脚本进行（注意：后面我们定制时，是基于已经解压的iso文件，因此，这个阶段就不再需要了）。执行脚本：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;1_tar_iso.sh</span><br></pre></td></tr></table></figure></li>
+<li>自定义制作。此阶段根据实际情况不同而不同。文后主要在此阶段进行说明、演示。</li>
+<li>重新制作ISO镜像。此阶段使用4_build_iso.sh脚本进行。执行脚本：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F; 4_build_iso.sh</span><br></pre></td></tr></table></figure>
+测试我们重新制定的ISO有2种方式。第一种是使用虚拟机vmware软件，新建一个虚拟机，然后使用新生成的iso，启动即可看到效果。这种方法在初期阶段建议，因为比较快看到效果。第二种是使用烧写工具将ISO烧写到U盘，从U盘启动，查看效果。烧写工具因系统不同而不同，这里介绍的是在Linux系统中烧写方式。<br>将U盘插入计算机的USB口，使用  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;dev&#x2F;sd*</span><br></pre></td></tr></table></figure>
+查看。一般来说，只有一块硬盘的计算机，/dev/sda即为该硬盘的设备文件（盘符），而/dev/sdb就是U盘的设备文件。简单记忆就是sda表示系统识别到的第一块磁盘，sdb是第二块，sdc为第三块，等等。本文使用的系统有2块硬盘，因此U盘的设备文件为/dev/sdc。烧写命令如：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if&#x3D;lubuntu-16.04.3-desktop-amd64.iso of&#x3D;&#x2F;dev&#x2F;sdc</span><br></pre></td></tr></table></figure>
+其中if表示要烧写的镜像文件，这里是lubuntu-16.04.3-desktop-amd64.iso，of表示要烧写的U盘设备文件。  </li>
+</ol>
+<h1 id="4、定制过程"><a href="#4、定制过程" class="headerlink" title="4、定制过程"></a>4、定制过程</h1><p>为了行文简便，本节定制过程，仅仅是描述要定制的流程，不重复涉及解压iso、重新制定iso的过程，请参考第三章节。凡是演示有效果图的，均是重新制作ISO，然后再启动ISO系统。<br>本文定制的镜像、脚本，统一放到/home/latelee/iso目录。ISO真正内容位于squashfs-root目录。该目录由脚本固定，本文使用该目录来描述，如果实际目录不同，目录名跟着变化即可。本节涉及路径都在/home/latelee/iso目录下面，比如  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">squashfs-root&#x2F;usr&#x2F;share&#x2F;lubuntu&#x2F;wallpapers  </span><br></pre></td></tr></table></figure>
+<p>实际在系统的全路径为：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;home&#x2F;latelee&#x2F;iso&#x2F;squashfs-root&#x2F;usr&#x2F;share&#x2F;lubuntu&#x2F;wallpapers  </span><br></pre></td></tr></table></figure>
+<p>为了编写高效，有时会使用windows系统，比如存放图片、修改图片等等，会使用“\”分隔符，在本文中，不区别对待“/”和“\”，在真正操作时，请时刻记住在linux下是“/”的。<br>实践小结：<br>建议部分重要文件使用chroot进入squashfs-root来编辑。<br>比如ISO光盘中的/usr/share/plymouth/themes/lubuntu-text/lubuntu-text.plymouth文件，是链接到/etc/alternatives/text.plymouth的。<br>如果在主机上查看/etc/alternatives/text.plymouth，该文件却链接到/usr/share/plymouth/themes/xubuntu-text/xubuntu-text.plymouth。<br>因为本文是使用ubuntu来定制lubuntu，所以会出现这种情况。如果主机也是lubuntu，则不会这样。但是，如果不小心改错了ISO里面的文件，还是会影响主机的使用的。<br>下图是默认的lubuntu桌面：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_lubuntu_org_desktop.png"></p>
+<h2 id="4-1-桌面背景图片"><a href="#4-1-桌面背景图片" class="headerlink" title="4.1 桌面背景图片"></a>4.1 桌面背景图片</h2><h3 id="4-1-1-背景图片"><a href="#4-1-1-背景图片" class="headerlink" title="4.1.1 背景图片"></a>4.1.1 背景图片</h3><p>目录：squashfs-root \usr\share\lubuntu\wallpapers<br>默认是图片名称：lubuntu-default-wallpaper.png<br>分辨率：2560X1600<br>【定制】：<br>将自己喜欢的图片（最好保持分辨率），放到此目录，并修改为lubuntu-default-wallpaper.png。原来的图片可以删除可重命名。  </p>
+<h3 id="4-1-2-菜单的logo图"><a href="#4-1-2-菜单的logo图" class="headerlink" title="4.1.2 菜单的logo图"></a>4.1.2 菜单的logo图</h3><p>目录：squashfs-root \usr\share\lubuntu\images<br>默认名称：1604-lubuntu-logo.png<br>分辨率：56x24<br>【定制】：<br>将自己喜欢的图片（最终保持分辨率），放到此目录，并修改为1604-lubuntu-logo.png。原来的图片可以删除可重命名。<br>注：squashfs-root \usr\share\lubuntu\images 目录下的1604-logout-banner.png是登出显示的logo图片。<br>定制效果如下图所示：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_background.png"></p>
+<h2 id="4-2-系统关机显示的图标"><a href="#4-2-系统关机显示的图标" class="headerlink" title="4.2 系统关机显示的图标"></a>4.2 系统关机显示的图标</h2><p>目录：squashfs-root\usr\share\plymouth\themes\lubuntu-logo<br>文件：lubuntu_logo.png<br>分辨率：217X58<br>直接替换该文件即可。  </p>
+<h2 id="4-3-开机文字和图片"><a href="#4-3-开机文字和图片" class="headerlink" title="4.3 开机文字和图片"></a>4.3 开机文字和图片</h2><p>开机文字和图片是livecd启动正式系统前进行显示的。内容位于newiso目录。<br>开机文字涉及目录：newiso\isolinux<br>开机图片涉及文件：newiso\casper\initrd.lz<br>修改过程十分复杂，已经制作成脚本，参考2_tar_splash.sh和3_build_splash.sh。修改的图片、文件放到work\splash目录。下面介绍有关文件：<br>en.tr、txt.cfg、zh_CN.tr、zh_TW.tr：开机文字文件(.tr文件部分为二进制，部分为正常字符串，笔者使用notepad++对正常字符串进行修改)，需要将修改后的文件放到newiso\isolinux目录，同时也要重新制定该目录的bootlogo文件。<br>splash.pcx：开机选择安装系统时显示的图片，pcx格式（用photoshop可修改、保存。注：相同分辨率，大小不同，开机图片会显示不正常，暂未知原因）。放到newiso\isolinux目录，同时也要重新制定该目录的bootlogo文件。<br>lubuntu_logo.png、progress_dot_on.png：系统启动过程显示的图片。需要重新制作，最后生成initrd.lz文件。<br>就本节实验而言，修改的地方有：<br>en.tr文件中，将  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Install Lubuntu</span><br></pre></td></tr></table></figure>
+<p>改为  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Install Lubuntu-KXS</span><br></pre></td></tr></table></figure>
+<p>将  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Try Lubuntu without installing</span><br></pre></td></tr></table></figure>
+<p>改为  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Try Lubuntu without installing-KXS</span><br></pre></td></tr></table></figure>
+<p>修改txt.cfg文件（menu label一行最后的“-KXS”为新加字符串）：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">default live</span><br><span class="line">label live</span><br><span class="line">  menu label ^Try Lubuntu without installing-KXS</span><br><span class="line">  kernel &#x2F;casper&#x2F;vmlinuz.efi</span><br><span class="line">  append  file&#x3D;&#x2F;cdrom&#x2F;preseed&#x2F;lubuntu.seed boot&#x3D;casper initrd&#x3D;&#x2F;casper&#x2F;initrd.lz quiet splash ---</span><br><span class="line">label live-install</span><br><span class="line">  menu label ^Install Lubuntu-KXS</span><br><span class="line">  kernel &#x2F;casper&#x2F;vmlinuz.efi</span><br><span class="line">  append  file&#x3D;&#x2F;cdrom&#x2F;preseed&#x2F;lubuntu.seed boot&#x3D;casper only-ubiquity initrd&#x3D;&#x2F;casper&#x2F;initrd.lz quiet splash ---</span><br><span class="line">label check</span><br></pre></td></tr></table></figure>
+<p>zh_CN.tr文件中，将  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">试用 Lubuntu 而不安装</span><br></pre></td></tr></table></figure>
+<p>改为  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">试用 Lubuntu 而不安装-人生</span><br></pre></td></tr></table></figure>
+<p>将  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安装 Lubuntu</span><br></pre></td></tr></table></figure>
+<p>改为  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安装 Lubuntu-何处</span><br></pre></td></tr></table></figure>
+<p>zh_TW.tr文件中，将  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在不需安裝的情況下試用 Lubuntu</span><br></pre></td></tr></table></figure>
+<p>改为  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在不需安裝的情況下試用 Lubuntu-天涯</span><br></pre></td></tr></table></figure>
+<p>将  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安裝 Lubuntu</span><br></pre></td></tr></table></figure>
+<p>改为  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安裝 Lubuntu-行客</span><br></pre></td></tr></table></figure>
+<p>效果如下（红框部分所示）：<br>英文界面：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_bootlogo_en.png">  <br><br>简体中文界面：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_bootlogo_zh.png">  <br><br>繁体中文界面：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_bootlogo_tw.png">  <br><br>从图中看到，繁体中文效果不佳，原因未知，个人猜测和文字长度或者编码格式有关。<br>另外在测试中发现，即使是简体中文，如果字符串长度太长，也会显示不正常。</p>
+<h2 id="4-4-修改终端效果"><a href="#4-4-修改终端效果" class="headerlink" title="4.4 修改终端效果"></a>4.4 修改终端效果</h2><p>lubuntu使用的终端是lxterminal，其配置文件目录为：<br>/usr/share/lxterminal/<br>配置文件为（如终端默认字体、字体大小）：<br>/usr/share/lxterminal/lxterminal.conf<br>修改该文件即可对lxterminal进行定制，修改示例：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[general]</span><br><span class="line">fontname&#x3D;Ubuntu Mono 11</span><br><span class="line">selchars&#x3D;-A-Za-z0-9,.&#x2F;?%&amp;#:_</span><br><span class="line">scrollback&#x3D;100</span><br></pre></td></tr></table></figure>
+<p>修改的是fontname这一行。<br>说明：这是修改GUI的终端配置（字体选择和字体大小）。效果如下图红框所示。<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_lxterminal.png">  <br><br>说明：默认为Monospace 10，现改为Monospace 11。  </p>
+<h2 id="4-5-修改鼠标样式"><a href="#4-5-修改鼠标样式" class="headerlink" title="4.5 修改鼠标样式"></a>4.5 修改鼠标样式</h2><p>使用chroot进入squashfs-root目录。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm &#x2F;etc&#x2F;alternatives&#x2F;x-cursor-theme</span><br><span class="line">ln -s &#x2F;usr&#x2F;share&#x2F;icons&#x2F;DMZ-Black&#x2F;cursor.theme &#x2F;etc&#x2F;alternatives&#x2F;x-cursor-theme</span><br></pre></td></tr></table></figure>
+<p>此方法修改无效果，请参考下文。笔者认为理论上应该修改正确了，但却不生效，原因待查。  </p>
+<h2 id="4-6-修改桌面图标"><a href="#4-6-修改桌面图标" class="headerlink" title="4.6 修改桌面图标"></a>4.6 修改桌面图标</h2><p>lubuntu的桌面图标配置文件目录是：squashfs-root/usr/share/applications/，配置文件以.desktop结尾。<br>默认情况下启动，桌面会有安装系统的图标。下面修改图标的显示文字。<br>修改文件：squashfs-root/usr/share/applications/ubiquity.desktop<br>将  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安裝 RELEASE</span><br></pre></td></tr></table></figure>
+<p>改为  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安装我的！系统！ RELEASE</span><br></pre></td></tr></table></figure>
+<p>也可以修改为其它想显示的字符。重新制作ISO，启动ISO后，桌面出现效果如下：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_desktop_install.png">  <br><br>说明：通过修改配置文件，可以定制桌面图标显示的文字。  </p>
+<h2 id="4-7-放置图标快捷到桌面"><a href="#4-7-放置图标快捷到桌面" class="headerlink" title="4.7 放置图标快捷到桌面"></a>4.7 放置图标快捷到桌面</h2><p>为了方便在桌面直接双击打开程序，需要放程序图标放到桌面上。<br>使用chroot进入squashfs-root目录。<br>创建/etc/skel/Desktop目录，将需要显示到桌面的图标文件拷贝到该目录。下面将firefox和终端快捷方式放到桌面：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;etc&#x2F;skel&#x2F;Desktop</span><br><span class="line">cd &#x2F;etc&#x2F;skel&#x2F;Desktop&#x2F;</span><br><span class="line">cp &#x2F;usr&#x2F;share&#x2F;applications&#x2F;firefox.desktop .</span><br><span class="line">cp &#x2F;usr&#x2F;share&#x2F;applications&#x2F;lxterminal.desktop .</span><br><span class="line">chmod +x *</span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_desktop_icon.png">  <br></p>
+<p>说明：此方式适用于默认lubuntu用户的情况。（注意和以下方式有区别，如果使用自添加用户的话，则本节设置方法无效）<br>知识点：<br>/etc/skel/是新加用户时，该用户拥有的设置，系统启动时，会创建lubuntu用户，则这个目录的内容将会拷贝到lubuntu的home目录。</p>
+<h2 id="4-8-新加home目录和根目录到桌面"><a href="#4-8-新加home目录和根目录到桌面" class="headerlink" title="4.8 新加home目录和根目录到桌面"></a>4.8 新加home目录和根目录到桌面</h2><p>默认情况下，桌面是没有home目录和根目录的图标的。<br>根据《放置图标快捷到桌面》一节的启示，只要找到home目录的图标配置文件，将其放到/etc/skel/Desktop/，就能在桌面显示了。<br>lubuntu文件系统管理使用pcmanfm工具，其桌面配置文件为：<br>/usr/share/applications/pcmanfm.desktop<br>将该文件拷贝一份，重命名为pcmanfm_home.desktop（表示是home目录），要修改的内容如下（下面的内容已修改）：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Icon&#x3D;system-file-manager # 在桌面上的图案名称（需要搜索目录以确认要添加的图标名）</span><br><span class="line">Name&#x3D;Home # 显示的图标名（英文系统显示图标名称）</span><br><span class="line">Name[zh_CN]&#x3D;家目录 # 中文系统图标名</span><br><span class="line">Name[zh_TW]&#x3D;家目录 # 繁体系统图标名</span><br><span class="line">Exec&#x3D;pcmanfm %U # 要执行的命名，注：%U表示本次登陆的用户的home目录</span><br></pre></td></tr></table></figure>
+<p>再重新拷贝一份，重命名为pcmanfm_rootfs.desktop（表示是根目录），要修改的内容如下（下面的内容已修改）：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Icon&#x3D;system-file-manager</span><br><span class="line">Name&#x3D;File System</span><br><span class="line">Name[zh_CN]&#x3D;根目录</span><br><span class="line">Name[zh_TW]&#x3D;根目录</span><br><span class="line">Exec&#x3D;pcmanfm &#x2F;</span><br></pre></td></tr></table></figure>
+<p>内容注释参考前面，不再赘述。  </p>
+<p>效果如下图所示：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_desktop_home.png">  <br><br>（注：左为中文，右为英文，可以看到两者图标间距不同，猜测是字符编码原因，也可能是笔者截图导致的视觉误差。）</p>
+<h2 id="4-9-新加锁屏"><a href="#4-9-新加锁屏" class="headerlink" title="4.9 新加锁屏"></a>4.9 新加锁屏</h2><p>lubuntu默认使用lxlock作为锁屏工具。这里使用另一种锁屏方案：xlock。xlock官网为：<a target="_blank" rel="noopener" href="http://www.sillycycle.com/xlockmore.html">http://www.sillycycle.com/xlockmore.html</a>，源码下载地址为：<a target="_blank" rel="noopener" href="http://www.sillycycle.com/xlock/">http://www.sillycycle.com/xlock/</a>。<br>但是，笔者没有编译通过。限于时间，就直接使用livecd里面的xlock来实现。<br>实现方法：<br>1、将livecd的xlock和xlockless拷贝出来，再拷贝到/usr/bin目录，并修改其权限为777。<br>2、添加桌面图标文件xlock.desktop（参考/usr/share/applications/lubuntu-screenlock.desktop文件进行修改），内容如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Icon&#x3D;system-lock-screen</span><br><span class="line">Exec&#x3D;lxlockless</span><br><span class="line">Type&#x3D;Application</span><br><span class="line">Categories&#x3D;GTK;System;Utility;</span><br><span class="line"></span><br><span class="line">Name&#x3D;ScreenLock</span><br><span class="line">Name[zh_CN]&#x3D;锁屏</span><br><span class="line">Name[zh_TW]&#x3D;锁屏</span><br></pre></td></tr></table></figure>
+<p>注：Categories项的内容决定于图标显示在启动菜单的位置。Name为显示的名字（不同国家语言，显示的名字不同）<br>3、将xlock.desktop拷贝到/etc/skel/Desktop目录<br>4、安装缺少的工具：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y rxvt-unicode</span><br></pre></td></tr></table></figure>
+<p>5、由于xlock不是在本地编译的，其使用的链接器文件为/lib/ld-linux-x86-64.so.2，而x64平台的链接器为/lib64/ld-linux-x86-64.so.2，因此需要额外拷贝一份，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;lib64&#x2F;ld-linux-x86-64.so.2 &#x2F;lib&#x2F;</span><br></pre></td></tr></table></figure>
+<p>重启制作ISO，启动，在桌面上会看到锁屏图标，双击，然后输入2次相同的密码，就会锁屏（此时屏幕是黑色的）。按任意键后，在出现的界面中输入刚才的密码，即能解锁。效果图如下：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_xlock.png"> <br></p>
+<h2 id="4-10-启动菜单添加新图标"><a href="#4-10-启动菜单添加新图标" class="headerlink" title="4.10 启动菜单添加新图标"></a>4.10 启动菜单添加新图标</h2><p>在桌面左下角启动菜单新加项目，不需要修改panel相关文件。以新加的锁屏功能放到System Tools分类为例，在.desktop文件中关键的语句为：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Categories&#x3D;GTK;System;Utility;</span><br></pre></td></tr></table></figure>
+<p>效果图如下（左侧中文，右侧英文）：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_startmenu_xlock.png">  <br><br>注意，菜单中显示的图标上的文字，由.desktop文件的Name决定。  </p>
+<h2 id="4-11-启动菜单添加新分类"><a href="#4-11-启动菜单添加新分类" class="headerlink" title="4.11 启动菜单添加新分类"></a>4.11 启动菜单添加新分类</h2><p>以安装的vim添加到编程分类为例进行说明。<br>用apt-get install vim方式安装vim后，会自动在/usr/share/applications目录下创建vim.desktop文件。<br>将其拷贝一份，重命名为myvim.desktop，修改Categories，由  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Categories&#x3D;Utility;TextEditor;</span><br></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Categories&#x3D;Development;Programming;  </span><br></pre></td></tr></table></figure>
+<p>为了与vim.desktop作区别，修改名称，如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Name&#x3D;MyVim</span><br><span class="line">GenericName&#x3D;My Text Editor</span><br></pre></td></tr></table></figure>
+<p>重新制作ISO，启动后，效果图如下（左侧英文，右侧中文）<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_startmenu_pro.png"> <br></p>
+<p>总结：不管是新安装的软件还是系统已有的软件，如果要显示在桌面或菜单，都需要添加(或修改).desktop文件。放到桌面上，则要将.desktop文件拷贝到Desktop目录，菜单分类则需要将Categories修改为合适的字段。至于显示的名称，则由该文件的Name字段确定。参考其它的.desktop文件，进行学习了解。  </p>
+<h2 id="4-12-添加用户：普通用户latelee"><a href="#4-12-添加用户：普通用户latelee" class="headerlink" title="4.12 添加用户：普通用户latelee"></a>4.12 添加用户：普通用户latelee</h2><p>使用chroot进入squashfs-root目录。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser latelee (回车，然后输入2次密码，一路回车即可)  </span><br></pre></td></tr></table></figure>
+<p>将用户添加root权限： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">addgroup -system admin</span><br><span class="line">adduser latelee admin</span><br></pre></td></tr></table></figure>
+<p>命令说明：首先添加admin组，将latelee用户添加到admin组。  </p>
+<p>注：添加用户后，启动ISO时，会提示输入用户名密码，所以无法直接进入系统，是否需要此功能，三思而定。<br>登陆效果图如下：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_newuser_latelee.png"> <br><br>在此前提下，创建桌面快捷方式：<br>创建文件：/home/latelee/Desktop/lxterminal.desktop。Desktop目录默认没有，需要自行创建。<br>内容如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Type&#x3D;Link</span><br><span class="line">Name&#x3D;LXTerminal</span><br><span class="line">Icon&#x3D;lxterminal</span><br><span class="line">URL&#x3D;&#x2F;usr&#x2F;share&#x2F;applications&#x2F;lxterminal.desktop</span><br></pre></td></tr></table></figure>
+<p>启动ISO，登陆后，桌面有图标出现。想要其它桌面图标，操作同理。桌面“快捷方式”位于/usr/share/applications/目录下。  </p>
+<p>说明：这个操作主要是在ISO光盘添加一个用户，并以该用户运行系统。如果想要默认的lubuntu用户，则不需要新加用户。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">《《《《《《《《《《《《《《《《《《《《《《《《《《《《《《《TMPTMPTMPTMP</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;lightdm&#x2F;lightdm-gtk-greeter.conf.d&#x2F;30_lubuntu.conf</span><br><span class="line"></span><br><span class="line">修改该文件，无效果。</span><br><span class="line">[greeter]</span><br><span class="line">logo&#x3D;&#x2F;usr&#x2F;share&#x2F;icons&#x2F;lubuntu&#x2F;places&#x2F;64&#x2F;start-here.svg</span><br><span class="line">background&#x3D;&#x2F;usr&#x2F;share&#x2F;lubuntu&#x2F;wallpapers&#x2F;lubuntu-default-wallpaper.png</span><br><span class="line">theme-name&#x3D;Lubuntu-default</span><br><span class="line">icon-theme-name&#x3D;lubuntu</span><br><span class="line">font-name&#x3D;Ubuntu</span><br><span class="line">xft-antialias&#x3D;true</span><br><span class="line">#xft-dpi&#x3D;</span><br><span class="line">xft-hintstyle&#x3D;full</span><br><span class="line">xft-rgba&#x3D;rgb</span><br><span class="line"></span><br><span class="line">》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》TMPTMPTMPTMP</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-13-添加用户：root用户"><a href="#4-13-添加用户：root用户" class="headerlink" title="4.13 添加用户：root用户"></a>4.13 添加用户：root用户</h2><p>添加root密码：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># passwd root</span><br></pre></td></tr></table></figure>
+<p>TODO:经尝试，不生效。原因待查。  </p>
+<h2 id="4-14-修改主题、鼠标样式"><a href="#4-14-修改主题、鼠标样式" class="headerlink" title="4.14 修改主题、鼠标样式"></a>4.14 修改主题、鼠标样式</h2><p>下面是一种折中的方法。最好的方案暂时未找到。<br>使用livecd启动，开机，用默认的lubuntu用户登陆，先修改好自己想要的主题、鼠标样式，设置好桌面上显示的图标，之后得到配置文件在/home/lubuntu/目录(在.config和.icons目录)，将这个目录做成压缩包（lubunut.tar.bz2），然后拷贝到制作ISO镜像的主机（建议用scp通过ssh来拷贝，快速）。<br>在主机上，将上面lubuntu目录压缩包（lubunut.tar.bz2）解压出来（本示例是放到work/lubuntu目录），拷贝到目录squashfs-root/etc/skel/。下面是一个示例(注：下面命令的当前目录在iso，work目录存放一些配置文件、图片等，squashfs-root是iso文件系统所在目录)。<br>拷贝主题、字体，等等：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp work&#x2F;lubuntu&#x2F;.config&#x2F; squashfs-root&#x2F;etc&#x2F;skel&#x2F; -a</span><br></pre></td></tr></table></figure>
+<p>拷贝鼠标样式：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -a work&#x2F;lubuntu&#x2F;.icons&#x2F; squashfs-root&#x2F;etc&#x2F;skel&#x2F;</span><br></pre></td></tr></table></figure>
+<p>拷贝桌面图标：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -a work&#x2F;lubuntu&#x2F;Desktop&#x2F; squashfs-root&#x2F;etc&#x2F;skel&#x2F;</span><br></pre></td></tr></table></figure>
+<p>注意，为了防止权限问题造成无法读取文件，需要执行以下命令更改权限：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chroot squashfs-root # 进入chroot环境</span><br><span class="line">chmod 777 squashfs-root&#x2F;etc&#x2F;skel&#x2F;.* -R</span><br><span class="line">exit #退出chroot环境。</span><br></pre></td></tr></table></figure>
+<p>最后，制作光盘ISO，启动新的ISO，即可看到修改后的效果。<br>总结：<br>因为squashfs-root/etc/skel/存放的是默认用户lubuntu的配置文件，因此，只要将我们想要的效果配置文件拷贝到对应的位置即可（如.config、.icons）。  </p>
+<p>知识点：<br>work/lubuntu/.config/gtk-3.0/settings.ini：主题、字体大小、鼠标样式<br>work/lubuntu/.config/lxsession/Lubuntu/desktop.conf：桌面配置（主题、字体大小、鼠标样式）<br>work/lubuntu/.config/lxterminal/lxterminal.conf：终端配置<br>work/lubuntu/.icons/user-dirs.dirs：里面是home目录的默认目录（video等）<br>work/lubuntu/.icons/default/index.theme：主题<br>（为什么主题配置要写那么多文件，笔者也不懂&gt;_&gt;）  </p>
+<h2 id="4-15-修改时区"><a href="#4-15-修改时区" class="headerlink" title="4.15 修改时区"></a>4.15 修改时区</h2><p>livecd默认是UTC时间，为了方便定制与实际时间对应起来，需要修改默认的时区。<br>使用chroot进入squashfs-root目录。将所需时区文件链接到/etc/localtime文件。下面示例是设置系统时间为东八区（上海）：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm &#x2F;etc&#x2F;localtime</span><br><span class="line">ln -s &#x2F;usr&#x2F;share&#x2F;zoneinfo&#x2F;Asia&#x2F;Shanghai &#x2F;etc&#x2F;localtime</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-16-添加环境变量"><a href="#4-16-添加环境变量" class="headerlink" title="4.16 添加环境变量"></a>4.16 添加环境变量</h2><p>使用chroot进入squashfs-root目录。<br>编辑文件/etc/bash.bashrc，在文件最后添加想要的环境变量或命令别名。比如默认是没有ll命令的，则可以添加：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alias ll&#x3D;&#39;ls -alF&#39;</span><br><span class="line">alias la&#x3D;&#39;ls -A&#39;</span><br><span class="line">alias l&#x3D;&#39;ls -CF&#39;</span><br></pre></td></tr></table></figure>
+<p>测试：即时生效：source /etc/bash.bashrc，然后输入ll即可看到生效了。  </p>
+<p>说明：修改这个文件，主要是方便定制一些命令。如果没有这方面的需要，则不用理会。  </p>
+<h2 id="4-17-系统汉化"><a href="#4-17-系统汉化" class="headerlink" title="4.17 系统汉化"></a>4.17 系统汉化</h2><p>lubuntu默认情况下已经有部分界面汉化了，但不完整。系统的汉化需要对应语言包的支持（需要哪种语言则安装哪个语言支持包）。本节安装的是简体中文、繁体中文。语言包由世界各国志愿者维护（即每种语言，都需要人工进行翻译，放到mo或po文件里面）。<br>使用chroot进入squashfs-root，安装简体中文语言支持包：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y language-pack-zh-hans language-pack-gnome-zh-hans</span><br></pre></td></tr></table></figure>
+<p>繁体中文支持包：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y language-pack-zh-hant language-pack-gnome-zh-hant</span><br></pre></td></tr></table></figure>
+<p>英文包（注：默认已经安装了，所以会提示“升级”而不是安装）  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y language-pack-en language-pack-gnome-en</span><br></pre></td></tr></table></figure>
+<p>下面对比原版和定制版本的效果：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_i18n.png"> <br><br>从图中看到，有部分已经进行了汉化，但有部分依然没有被汉化。根据网络为数不多的资料猜测，应该是语言包并没有全部翻译造成的。如果要完全汉化，只能通过修改语言包文件达到目的，虽然4.18小节讲述了语言文件的修改方法，但整体而言，语言包的翻译是一个大工程，已超过本文范围了，故不再深入讲解。  </p>
+<h2 id="4-18-语言文件修改"><a href="#4-18-语言文件修改" class="headerlink" title="4.18 语言文件修改"></a>4.18 语言文件修改</h2><p>前面安装的语言包，实际上将mo文件放到合适的位置。不同语言，“合适的位置”也不同。<br>简体中文的mo文件位置：/usr/share/locale/zh_CN/LC_MESSAGES/<br>繁体中文：/usr/share/locale/zh_TW/LC_MESSAGES/<br>英文系统：/usr/share/locale/en/LC_MESSAGES/（注：似乎英文是天然支持的，因此该目录下的mo文件并不多。）<br>mo文件是二进制文件，无法直接修改，需要将其转换成po文件，修改po文件，再将其转成mo，这样才能完成更新的操作。<br>下面是文件系统管理器pcmanfm的语言文件为例说明。<br>找到/usr/share/locale/zh_CN/LC_MESSAGES/pcmanfm.mo，使用以下命令转换po文件：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msgunfmt pcmanfm.mo -o pcmanfm.po</span><br></pre></td></tr></table></figure>
+<p>然后编辑pcmanfm.po文件，此处修改示例如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msgid &quot;translator-credits&quot;</span><br><span class="line">msgstr &quot;Wylmer Wang &lt;wantinghard@gmail.com&gt;\nLate Lee &lt;li@latelee.org&gt;&quot;</span><br><span class="line"></span><br><span class="line">msgid &quot;using LibFM ver. %s\n&quot;</span><br><span class="line">msgstr &quot;--我的--使用 LibFM 版本 %s\n&quot;</span><br></pre></td></tr></table></figure>
+<p>然后再转换成mo文件：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msgfmt pcmanfm.po -o pcmanfm.mo</span><br></pre></td></tr></table></figure>
+<p>将重新生成的pcmanfm.mo拷贝到原处，制作ISO，启动，选择简体中文。得到的效果图如下所示：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_i18n2.png"> <br></p>
+<h2 id="4-19-添加拼音、五笔输入法"><a href="#4-19-添加拼音、五笔输入法" class="headerlink" title="4.19 添加拼音、五笔输入法"></a>4.19 添加拼音、五笔输入法</h2><p>安装fcitx拼音、五笔： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update # 更新源</span><br><span class="line">apt-get install -y fcitx-pinyin fcitx-table-wubi fcitx-table-wbpy # 依次是拼音、五笔、五笔拼音</span><br></pre></td></tr></table></figure>
+<p>另外，网上有说法要添加以下源：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add-apt-repository ppa:fcitx-team&#x2F;stable</span><br></pre></td></tr></table></figure>
+<p>经测试，不添加也可以正常安装。  </p>
+<p>输入法选择界面：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_fcitx.png"> <br><br>五笔输入界面：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_fcitx2.png"> <br><br>fcitx拼音、五笔在中文环境才能显示出来，英文环境无法使用。  </p>
+<p>注：fcitx从源码安装十分麻烦，依赖库有十多个，详细参考以下文章：<br><a target="_blank" rel="noopener" href="https://fcitx-im.org/wiki/Compile_from_source">https://fcitx-im.org/wiki/Compile_from_source</a></p>
+<h2 id="4-20-删除软件安装途径"><a href="#4-20-删除软件安装途径" class="headerlink" title="4.20 删除软件安装途径"></a>4.20 删除软件安装途径</h2><p>为防止源更新，需要删除ISO安装软件的途径。安装软件的途径有：apt、dpkg、新立得（synpatic）、软件中心。只要将其删除掉，则在启动ISO时就无法再安装软件了。  </p>
+<p>使用chroot进入squashfs-root目录。<br>卸载synpatic:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get autoremove -y synaptic</span><br></pre></td></tr></table></figure>
+<p>卸载软件中心：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get autoremove -y lubuntu-software-center</span><br></pre></td></tr></table></figure>
+<p>卸载gdebi：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get autoremove -y gdebi gdebi-gtk</span><br></pre></td></tr></table></figure>
+<p>卸载软件更新：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get autoremove -y software-properties-gtk update-manager</span><br></pre></td></tr></table></figure>
+
+<p>删除apt、dpkg：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf $(find &#x2F;usr -name &quot;*dpkg*&quot;) $(find &#x2F;usr -name &quot;*apt*&quot;)</span><br><span class="line">rm -rf $(find &#x2F;etc -name &quot;*dpkg*&quot;) $(find &#x2F;etc -name &quot;*apt*&quot;)</span><br></pre></td></tr></table></figure>
+<p>命令解释：删除所有带“dpkg”、“apt”字样的文件。  </p>
+<p>注意，此操作具备一定危险，需要谨慎操作。如果不是在chroot环境，会将主机的dpkg和apt删除掉。三思而定。  </p>
+<h1 id="5、最终定制效果及ISO下载"><a href="#5、最终定制效果及ISO下载" class="headerlink" title="5、最终定制效果及ISO下载"></a>5、最终定制效果及ISO下载</h1><p>定制效果图如下：<br><img src="/using-gnu-linux/lubuntu16-4-customize/p_desktop_final.png"> <br></p>
+<p>本工程定制的ISO镜像下载地址如下：<br>链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1jJ7bRNo">https://pan.baidu.com/s/1jJ7bRNo</a> 密码: 5c1u<br>md5sum：4ac0996167214e0b541be7016be19220  </p>
+<p>关于本文任何问题或建议，欢迎反馈给我：<a href="mailto:&#x6c;&#105;&#x40;&#x6c;&#x61;&#x74;&#x65;&#108;&#101;&#x65;&#46;&#111;&#x72;&#x67;">&#x6c;&#105;&#x40;&#x6c;&#x61;&#x74;&#x65;&#108;&#101;&#x65;&#46;&#111;&#x72;&#x67;</a>。<br>本教程花费大量时间，如果觉得有帮助，欢迎捐赠作者：<br><img src="https://latelee.github.io/assets/latelee_pay.png"></p>
+<h1 id="6、免责声明"><a href="#6、免责声明" class="headerlink" title="6、免责声明"></a>6、免责声明</h1><p>本文开源于此，旨在让自己（或他人）更深入地研究lubuntu(以及linux)系统内部结构及原理。lubuntu、ubuntu、linux的商标(和版权)归属各自所属组织/公司，笔者无意亦不愿侵犯。</p>
+<h1 id="7、附"><a href="#7、附" class="headerlink" title="7、附"></a>7、附</h1><p>在lubuntu安装不同国家（地区）的语言包，则可显示该国（地区）文字，完整的语言支持包列表如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line">language-pack-af                  language-pack-gnome-ka            language-pack-kde-pl</span><br><span class="line">language-pack-af-base             language-pack-gnome-ka-base       language-pack-kde-pt</span><br><span class="line">language-pack-am                  language-pack-gnome-kk            language-pack-kde-ro</span><br><span class="line">language-pack-am-base             language-pack-gnome-kk-base       language-pack-kde-ru</span><br><span class="line">language-pack-an                  language-pack-gnome-km            language-pack-kde-si</span><br><span class="line">language-pack-an-base             language-pack-gnome-km-base       language-pack-kde-sk</span><br><span class="line">language-pack-ar                  language-pack-gnome-kn            language-pack-kde-sl</span><br><span class="line">language-pack-ar-base             language-pack-gnome-kn-base       language-pack-kde-sr</span><br><span class="line">language-pack-as                  language-pack-gnome-ko            language-pack-kde-sv</span><br><span class="line">language-pack-as-base             language-pack-gnome-ko-base       language-pack-kde-tg</span><br><span class="line">language-pack-ast                 language-pack-gnome-ku            language-pack-kde-th</span><br><span class="line">language-pack-ast-base            language-pack-gnome-ku-base       language-pack-kde-tr</span><br><span class="line">language-pack-az                  language-pack-gnome-lt            language-pack-kde-ug</span><br><span class="line">language-pack-az-base             language-pack-gnome-lt-base       language-pack-kde-uk</span><br><span class="line">language-pack-be                  language-pack-gnome-lv            language-pack-kde-vi</span><br><span class="line">language-pack-be-base             language-pack-gnome-lv-base       language-pack-kde-zh-hans</span><br><span class="line">language-pack-bg                  language-pack-gnome-mai           language-pack-kde-zh-hant</span><br><span class="line">language-pack-bg-base             language-pack-gnome-mai-base      language-pack-kk</span><br><span class="line">language-pack-bn                  language-pack-gnome-mk            language-pack-kk-base</span><br><span class="line">language-pack-bn-base             language-pack-gnome-mk-base       language-pack-km</span><br><span class="line">language-pack-bo                  language-pack-gnome-ml            language-pack-km-base</span><br><span class="line">language-pack-bo-base             language-pack-gnome-ml-base       language-pack-kn</span><br><span class="line">language-pack-br                  language-pack-gnome-mn            language-pack-kn-base</span><br><span class="line">language-pack-br-base             language-pack-gnome-mn-base       language-pack-ko</span><br><span class="line">language-pack-bs                  language-pack-gnome-mr            language-pack-ko-base</span><br><span class="line">language-pack-bs-base             language-pack-gnome-mr-base       language-pack-ku</span><br><span class="line">language-pack-ca                  language-pack-gnome-ms            language-pack-ku-base</span><br><span class="line">language-pack-ca-base             language-pack-gnome-ms-base       language-pack-lt</span><br><span class="line">language-pack-crh                 language-pack-gnome-my            language-pack-lt-base</span><br><span class="line">language-pack-crh-base            language-pack-gnome-my-base       language-pack-lv</span><br><span class="line">language-pack-cs                  language-pack-gnome-nb            language-pack-lv-base</span><br><span class="line">language-pack-cs-base             language-pack-gnome-nb-base       language-pack-mai</span><br><span class="line">language-pack-cy                  language-pack-gnome-nds           language-pack-mai-base</span><br><span class="line">language-pack-cy-base             language-pack-gnome-nds-base      language-pack-mk</span><br><span class="line">language-pack-da                  language-pack-gnome-ne            language-pack-mk-base</span><br><span class="line">language-pack-da-base             language-pack-gnome-ne-base       language-pack-ml</span><br><span class="line">language-pack-de                  language-pack-gnome-nl            language-pack-ml-base</span><br><span class="line">language-pack-de-base             language-pack-gnome-nl-base       language-pack-mn</span><br><span class="line">language-pack-dz                  language-pack-gnome-nn            language-pack-mn-base</span><br><span class="line">language-pack-dz-base             language-pack-gnome-nn-base       language-pack-mr</span><br><span class="line">language-pack-el                  language-pack-gnome-oc            language-pack-mr-base</span><br><span class="line">language-pack-el-base             language-pack-gnome-oc-base       language-pack-ms</span><br><span class="line">language-pack-en                  language-pack-gnome-or            language-pack-ms-base</span><br><span class="line">language-pack-en-base             language-pack-gnome-or-base       language-pack-my</span><br><span class="line">language-pack-eo                  language-pack-gnome-pa            language-pack-my-base</span><br><span class="line">language-pack-eo-base             language-pack-gnome-pa-base       language-pack-nb</span><br><span class="line">language-pack-es                  language-pack-gnome-pl            language-pack-nb-base</span><br><span class="line">language-pack-es-base             language-pack-gnome-pl-base       language-pack-nds</span><br><span class="line">language-pack-et                  language-pack-gnome-pt            language-pack-nds-base</span><br><span class="line">language-pack-et-base             language-pack-gnome-pt-base       language-pack-ne</span><br><span class="line">language-pack-eu                  language-pack-gnome-ro            language-pack-ne-base</span><br><span class="line">language-pack-eu-base             language-pack-gnome-ro-base       language-pack-nl</span><br><span class="line">language-pack-fa                  language-pack-gnome-ru            language-pack-nl-base</span><br><span class="line">language-pack-fa-base             language-pack-gnome-ru-base       language-pack-nn</span><br><span class="line">language-pack-fi                  language-pack-gnome-si            language-pack-nn-base</span><br><span class="line">language-pack-fi-base             language-pack-gnome-si-base       language-pack-oc</span><br><span class="line">language-pack-fr                  language-pack-gnome-sk            language-pack-oc-base</span><br><span class="line">language-pack-fr-base             language-pack-gnome-sk-base       language-pack-or</span><br><span class="line">language-pack-ga                  language-pack-gnome-sl            language-pack-or-base</span><br><span class="line">language-pack-ga-base             language-pack-gnome-sl-base       language-pack-pa</span><br><span class="line">language-pack-gd                  language-pack-gnome-sq            language-pack-pa-base</span><br><span class="line">language-pack-gd-base             language-pack-gnome-sq-base       language-pack-pl</span><br><span class="line">language-pack-gl                  language-pack-gnome-sr            language-pack-pl-base</span><br><span class="line">language-pack-gl-base             language-pack-gnome-sr-base       language-pack-pt</span><br><span class="line">language-pack-gnome-af            language-pack-gnome-sv            language-pack-pt-base</span><br><span class="line">language-pack-gnome-af-base       language-pack-gnome-sv-base       language-pack-ro</span><br><span class="line">language-pack-gnome-am            language-pack-gnome-ta            language-pack-ro-base</span><br><span class="line">language-pack-gnome-am-base       language-pack-gnome-ta-base       language-pack-ru</span><br><span class="line">language-pack-gnome-an            language-pack-gnome-te            language-pack-ru-base</span><br><span class="line">language-pack-gnome-an-base       language-pack-gnome-te-base       language-pack-si</span><br><span class="line">language-pack-gnome-ar            language-pack-gnome-tg            language-pack-si-base</span><br><span class="line">language-pack-gnome-ar-base       language-pack-gnome-tg-base       language-pack-sk</span><br><span class="line">language-pack-gnome-as            language-pack-gnome-th            language-pack-sk-base</span><br><span class="line">language-pack-gnome-as-base       language-pack-gnome-th-base       language-pack-sl</span><br><span class="line">language-pack-gnome-ast           language-pack-gnome-tr            language-pack-sl-base</span><br><span class="line">language-pack-gnome-ast-base      language-pack-gnome-tr-base       language-pack-sq</span><br><span class="line">language-pack-gnome-az            language-pack-gnome-ug            language-pack-sq-base</span><br><span class="line">language-pack-gnome-az-base       language-pack-gnome-ug-base       language-pack-sr</span><br><span class="line">language-pack-gnome-be            language-pack-gnome-uk            language-pack-sr-base</span><br><span class="line">language-pack-gnome-be-base       language-pack-gnome-uk-base       language-pack-sv</span><br><span class="line">language-pack-gnome-bg            language-pack-gnome-uz            language-pack-sv-base</span><br><span class="line">language-pack-gnome-bg-base       language-pack-gnome-uz-base       language-pack-ta</span><br><span class="line">language-pack-gnome-bn            language-pack-gnome-vi            language-pack-ta-base</span><br><span class="line">language-pack-gnome-bn-base       language-pack-gnome-vi-base       language-pack-te</span><br><span class="line">language-pack-gnome-bo            language-pack-gnome-xh            language-pack-te-base</span><br><span class="line">language-pack-gnome-bo-base       language-pack-gnome-xh-base       language-pack-tg</span><br><span class="line">language-pack-gnome-br            language-pack-gnome-zh-hans       language-pack-tg-base</span><br><span class="line">language-pack-gnome-br-base       language-pack-gnome-zh-hans-base  language-pack-th</span><br><span class="line">language-pack-gnome-bs            language-pack-gnome-zh-hant       language-pack-th-base</span><br><span class="line">language-pack-gnome-bs-base       language-pack-gnome-zh-hant-base  language-pack-touch-ast</span><br><span class="line">language-pack-gnome-ca            language-pack-gu                  language-pack-touch-bg</span><br><span class="line">language-pack-gnome-ca-base       language-pack-gu-base             language-pack-touch-bs</span><br><span class="line">language-pack-gnome-crh           language-pack-he                  language-pack-touch-ca</span><br><span class="line">language-pack-gnome-crh-base      language-pack-he-base             language-pack-touch-cs</span><br><span class="line">language-pack-gnome-cs            language-pack-hi                  language-pack-touch-da</span><br><span class="line">language-pack-gnome-cs-base       language-pack-hi-base             language-pack-touch-de</span><br><span class="line">language-pack-gnome-cy            language-pack-hr                  language-pack-touch-el</span><br><span class="line">language-pack-gnome-cy-base       language-pack-hr-base             language-pack-touch-en</span><br><span class="line">language-pack-gnome-da            language-pack-hu                  language-pack-touch-es</span><br><span class="line">language-pack-gnome-da-base       language-pack-hu-base             language-pack-touch-eu</span><br><span class="line">language-pack-gnome-de            language-pack-ia                  language-pack-touch-fi</span><br><span class="line">language-pack-gnome-de-base       language-pack-ia-base             language-pack-touch-fr</span><br><span class="line">language-pack-gnome-dz            language-pack-id                  language-pack-touch-gd</span><br><span class="line">language-pack-gnome-dz-base       language-pack-id-base             language-pack-touch-gl</span><br><span class="line">language-pack-gnome-el            language-pack-is                  language-pack-touch-he</span><br><span class="line">language-pack-gnome-el-base       language-pack-is-base             language-pack-touch-hr</span><br><span class="line">language-pack-gnome-en            language-pack-it                  language-pack-touch-hu</span><br><span class="line">language-pack-gnome-en-base       language-pack-it-base             language-pack-touch-id</span><br><span class="line">language-pack-gnome-eo            language-pack-ja                  language-pack-touch-it</span><br><span class="line">language-pack-gnome-eo-base       language-pack-ja-base             language-pack-touch-ja</span><br><span class="line">language-pack-gnome-es            language-pack-ka                  language-pack-touch-ko</span><br><span class="line">language-pack-gnome-es-base       language-pack-ka-base             language-pack-touch-lt</span><br><span class="line">language-pack-gnome-et            language-pack-kde-ar              language-pack-touch-lv</span><br><span class="line">language-pack-gnome-et-base       language-pack-kde-bg              language-pack-touch-ms</span><br><span class="line">language-pack-gnome-eu            language-pack-kde-bs              language-pack-touch-nb</span><br><span class="line">language-pack-gnome-eu-base       language-pack-kde-ca              language-pack-touch-nl</span><br><span class="line">language-pack-gnome-fa            language-pack-kde-cs              language-pack-touch-oc</span><br><span class="line">language-pack-gnome-fa-base       language-pack-kde-da              language-pack-touch-pa</span><br><span class="line">language-pack-gnome-fi            language-pack-kde-de              language-pack-touch-pl</span><br><span class="line">language-pack-gnome-fi-base       language-pack-kde-el              language-pack-touch-pt</span><br><span class="line">language-pack-gnome-fr            language-pack-kde-en              language-pack-touch-ro</span><br><span class="line">language-pack-gnome-fr-base       language-pack-kde-es              language-pack-touch-ru</span><br><span class="line">language-pack-gnome-ga            language-pack-kde-et              language-pack-touch-sk</span><br><span class="line">language-pack-gnome-ga-base       language-pack-kde-eu              language-pack-touch-sl</span><br><span class="line">language-pack-gnome-gd            language-pack-kde-fa              language-pack-touch-sr</span><br><span class="line">language-pack-gnome-gd-base       language-pack-kde-fi              language-pack-touch-sv</span><br><span class="line">language-pack-gnome-gl            language-pack-kde-fr              language-pack-touch-tr</span><br><span class="line">language-pack-gnome-gl-base       language-pack-kde-ga              language-pack-touch-ug</span><br><span class="line">language-pack-gnome-gu            language-pack-kde-gl              language-pack-touch-uk</span><br><span class="line">language-pack-gnome-gu-base       language-pack-kde-he              language-pack-touch-zh-hans</span><br><span class="line">language-pack-gnome-he            language-pack-kde-hi              language-pack-touch-zh-hant</span><br><span class="line">language-pack-gnome-he-base       language-pack-kde-hr              language-pack-tr</span><br><span class="line">language-pack-gnome-hi            language-pack-kde-hu              language-pack-tr-base</span><br><span class="line">language-pack-gnome-hi-base       language-pack-kde-ia              language-pack-ug</span><br><span class="line">language-pack-gnome-hr            language-pack-kde-is              language-pack-ug-base</span><br><span class="line">language-pack-gnome-hr-base       language-pack-kde-it              language-pack-uk</span><br><span class="line">language-pack-gnome-hu            language-pack-kde-ja              language-pack-uk-base</span><br><span class="line">language-pack-gnome-hu-base       language-pack-kde-kk              language-pack-uz</span><br><span class="line">language-pack-gnome-ia            language-pack-kde-km              language-pack-uz-base</span><br><span class="line">language-pack-gnome-ia-base       language-pack-kde-ko              language-pack-vi</span><br><span class="line">language-pack-gnome-id            language-pack-kde-lt              language-pack-vi-base</span><br><span class="line">language-pack-gnome-id-base       language-pack-kde-lv              language-pack-xh</span><br><span class="line">language-pack-gnome-is            language-pack-kde-mr              language-pack-xh-base</span><br><span class="line">language-pack-gnome-is-base       language-pack-kde-nb              language-pack-zh-hans</span><br><span class="line">language-pack-gnome-it            language-pack-kde-nds             language-pack-zh-hans-base</span><br><span class="line">language-pack-gnome-it-base       language-pack-kde-nl              language-pack-zh-hant</span><br><span class="line">language-pack-gnome-ja            language-pack-kde-nn              language-pack-zh-hant-base</span><br><span class="line">language-pack-gnome-ja-base       language-pack-kde-pa</span><br></pre></td></tr></table></figure> </div>
+    <div id="donation_div"></div>
+
+
+<div style="width: 90%; text-align: center;">
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}"><span>打赏支持</span></button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block"><img id="wechat_qr" src="/images/wepay_240.png" width="50%" alt="微信支付"><p>微信支付</p></div>
+    
+      <div id="alipay" style="display: inline-block"><img id="alipay_qr" src="/images/alipay_240.png" width="50%" alt="支付宝"><p>支付宝</p></div>
+    <br>如觉得本文有用，可随意赞助以资鼓励。<br>如影响阅读体验，请再次点击关闭窗口。</div></div>
+      
+    <div class="authorinfo">
+      <img alt='' src='/author/latelee.jpg'  class='avatar avatar-64 photo' height='64' width='64' />
+      <ul><li><strong>本文作者：</strong>李迟</li> 
+      <li><strong>版权声明：</strong>原创文章，版权归署名作者，转载建议注明出处（当然不注明亦可）。</li>
+      <li><strong>本文链接：</strong><a href="/using-gnu-linux/lubuntu16-4-customize.html" title="Lubuntu16.4.3定制教程">http://www.latelee.org/using-gnu-linux/lubuntu16-4-customize.html</a></li></ul>
+    </div>
+    
+ 
+    <nav id="article-nav">      <a href="/toolslib/libuv-compile.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+        libuv编译及使用笔记</a> 
+  <a href="/docker/docker-note-3-speedup-pull-image.html" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">后一篇</strong> 我的docker随笔3：实现加速器，加快拉取镜像速度</a></nav>
+    <hr class="entry-footer-hr">
+    <footer class="entry-meta entry-footer">
+      
+<div id="comment"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'true' == true ? true : false;
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+    window.onload = function() {
+        new Valine({
+			//av: AV,
+            el: '#comment',
+            notify: notify,
+            verify: verify,
+            app_id: "X36fuJhKb5DzHu6Sv2AU1Aap-gzGzoHsz",
+            app_key: "bix54WVwzsQyxeHbvIcJGsyA",
+            avatar:"monsterid",
+            placeholder: "可自由评论，但勿恶意评论。上面那行可填可不填。",
+            guest_info:guest_info,
+			//visitor: true // 阅读量统计
+        });
+    }
+  </script></div></footer></div>
+</article>
+  <aside id="sidebar">
+  <div style="margin: 20px 0;">
+	<div id="search-form-wrap">
+
+    <form class="search-form">
+        <label style="width: 72%;">
+            <span class="screen-reader-text">Search for:</span>
+            <input type="search" class="search-field" style="height: 36px; width: 100%;" placeholder=" 搜索…" value="" name="s" title="Search for:">
+        </label>
+        <input type="submit" class="search-form-submit" value="搜索">
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+</div><div class="widget_athemes_tabs">
+    <ul id="widget-tab" class="clearfix widget-tab-nav"><li class="active"><a>最新文章</a></li></ul>
+    <div class="widget"><ul>
+        
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/docker/docker-30-deploy-for-c++.html" title=""><img width="50" height="50" src="/gallery/tech/docker1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/docker/docker-30-deploy-for-c++.html">我的docker随笔30：C++程序的自动化构建</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/vue/vue-notes-vue-basic.html" title=""><img width="50" height="50" src="/gallery/tech/vue.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/vue/vue-notes-vue-basic.html">vue实践录：vue基础学习</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/vue/vue-notes-starting.html" title=""><img width="50" height="50" src="/gallery/tech/vue.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/vue/vue-notes-starting.html">vue实践录：windows 10系统vue环境搭建</a></h6></div></li>
+          <li class="clearfix"><div class="widget-entry-summary" style="margin: 0;">
+              <h6 style="margin: 0;"><a href="/code-life/ruankao-pm1.html">软考路：高项1心得</a></h6></div></li>
+          <li class="clearfix"><div class="widget-entry-summary" style="margin: 0;">
+              <h6 style="margin: 0;"><a href="/pkc/kindle-usage.html">kindle使用及周边的记录</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-oracle-test.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-oracle-test.html">Golang实践录：oracle数据库实践</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-my-utils.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-my-utils.html">Golang实践录：我的工具包</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-cobra-note.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-cobra-note.html">Golang实践录：命令行cobra库实例</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/pkc/setting-ip-for-windows.html" title=""><img width="50" height="50" src="/gallery/tech/tools1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/pkc/setting-ip-for-windows.html">Windows设置IP脚本</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/pkc/database-practice.html" title=""><img width="50" height="50" src="/gallery/tech/tools1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/pkc/database-practice.html">格式化工具indent使用笔记</a></h6></div></li></ul></div></div>
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-linux/">GNU/Linux程序</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/category/using-gnu-linux/">GNU/Linux系统</a><span class="category-list-count">72</span></li><li class="category-list-item"><a class="category-list-link" href="/category/linux-kernel/">Linux内核研究</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/Qt/">Qt</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/category/porting-uboot/">U-Boot随笔</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-windows/">Windows程序</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/cicd/">cicd</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/category/delphi/">delphi</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/devops/">devops</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/docker/">docker</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/category/golang/">golang</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubeedge/">kubeedge</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubernetes/">kubernetes</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/category/nodejs/">nodejs</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/category/python/">python</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/vue/">vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/pkc/">个人知识中心</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/">人文社科</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/code-life/">代码生活</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/category/just-for-fun/">小玩意</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/embedded-linux/">嵌入式Linux</a><span class="category-list-count">58</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ellp/">嵌入式Linux入门与实践</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/firmware-bios/">嵌入式底层BIOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/category/toolslib/">工具编译使用</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/open-project/">开源项目</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-library/">我的程序代码</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-study/">技术杂铺</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/wireless/">无线WIFI</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ml/">机器学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/category/multistream/">流媒体学习</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/category/the-life/">生活掠影</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/category/answer4you/">答网友问</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/compilelinking/">编译链接</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/web/">网络/网站/web</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/net-study/">网络方面</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/">项目日志</a><span class="category-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+  <div class="widget-wrap"><h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud"><a href="/tag/4G%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">4G网卡</a> <a href="/tag/ARM/" style="font-size: 10.5px;">ARM</a> <a href="/tag/BIOS%E6%97%B6%E9%97%B4/" style="font-size: 10px;">BIOS时间</a> <a href="/tag/BMP/" style="font-size: 10px;">BMP</a> <a href="/tag/CPUID/" style="font-size: 10.5px;">CPUID</a> <a href="/tag/CPU%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">CPU寄存器</a> <a href="/tag/CPU%E9%A2%91%E7%8E%87/" style="font-size: 10px;">CPU频率</a> <a href="/tag/C%E8%AF%AD%E8%A8%80/" style="font-size: 15.5px;">C语言</a> <a href="/tag/FTP/" style="font-size: 10.5px;">FTP</a> <a href="/tag/GBK/" style="font-size: 11px;">GBK</a> <a href="/tag/H264/" style="font-size: 11px;">H264</a> <a href="/tag/H264%E7%A0%81%E6%B5%81/" style="font-size: 10.5px;">H264码流</a> <a href="/tag/H265/" style="font-size: 11.5px;">H265</a> <a href="/tag/H3C/" style="font-size: 10px;">H3C</a> <a href="/tag/HEVC/" style="font-size: 10.5px;">HEVC</a> <a href="/tag/HTML/" style="font-size: 10px;">HTML</a> <a href="/tag/ICH/" style="font-size: 10px;">ICH</a> <a href="/tag/Intel%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">Intel处理器</a> <a href="/tag/LCD/" style="font-size: 11px;">LCD</a> <a href="/tag/LPC/" style="font-size: 10px;">LPC</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/Linux%E4%B9%8B%E8%A1%8C/" style="font-size: 12px;">Linux之行</a> <a href="/tag/Linux%E4%BD%BF%E7%94%A8/" style="font-size: 12.5px;">Linux使用</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8/" style="font-size: 11.5px;">Linux内核</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/" style="font-size: 10px;">Linux内核编译</a> <a href="/tag/Linux%E7%A7%BB%E6%A4%8D%E9%9A%8F%E7%AC%94/" style="font-size: 12.5px;">Linux移植随笔</a> <a href="/tag/Linux%E7%BC%96%E7%A8%8B/" style="font-size: 14.5px;">Linux编程</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C/" style="font-size: 10.5px;">Linux网络</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10.5px;">Linux网络子系统</a> <a href="/tag/Linux%E9%A9%B1%E5%8A%A8/" style="font-size: 11.5px;">Linux驱动</a> <a href="/tag/MFC/" style="font-size: 19px;">MFC</a> <a href="/tag/Makefile/" style="font-size: 14.5px;">Makefile</a> <a href="/tag/PCI/" style="font-size: 11.5px;">PCI</a> <a href="/tag/PHY%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10.5px;">PHY寄存器</a> <a href="/tag/PHY%E7%8A%B6%E6%80%81/" style="font-size: 10px;">PHY状态</a> <a href="/tag/PHY%E9%A9%B1%E5%8A%A8/" style="font-size: 10px;">PHY驱动</a> <a href="/tag/Qt/" style="font-size: 13.5px;">Qt</a> <a href="/tag/SCSI/" style="font-size: 10px;">SCSI</a> <a href="/tag/SDL/" style="font-size: 11px;">SDL</a> <a href="/tag/SD%E5%8D%A1/" style="font-size: 10px;">SD卡</a> <a href="/tag/STL/" style="font-size: 11px;">STL</a> <a href="/tag/U-Boot%E9%9A%8F%E7%AC%94/" style="font-size: 18px;">U-Boot随笔</a> <a href="/tag/USB/" style="font-size: 12.5px;">USB</a> <a href="/tag/U%E7%9B%98%E5%88%B6%E4%BD%9C/" style="font-size: 10px;">U盘制作</a> <a href="/tag/V4L2/" style="font-size: 10px;">V4L2</a> <a href="/tag/VAAPI/" style="font-size: 10px;">VAAPI</a> <a href="/tag/VLAN/" style="font-size: 10px;">VLAN</a> <a href="/tag/Vagrant/" style="font-size: 10.5px;">Vagrant</a> <a href="/tag/WIFI/" style="font-size: 13.5px;">WIFI</a> <a href="/tag/YUV/" style="font-size: 15px;">YUV</a> <a href="/tag/YUV%E6%92%AD%E6%94%BE%E5%99%A8/" style="font-size: 13.5px;">YUV播放器</a> <a href="/tag/ap-hotspot/" style="font-size: 10px;">ap-hotspot</a> <a href="/tag/armdocker/" style="font-size: 12px;">armdocker</a> <a href="/tag/atom/" style="font-size: 10px;">atom</a> <a href="/tag/beidou/" style="font-size: 10.5px;">beidou</a> <a href="/tag/bios/" style="font-size: 16.5px;">bios</a> <a href="/tag/boa/" style="font-size: 11px;">boa</a> <a href="/tag/c-c/" style="font-size: 10px;">c&c++</a> <a href="/tag/cgi/" style="font-size: 10px;">cgi</a> <a href="/tag/cicd/" style="font-size: 15px;">cicd</a> <a href="/tag/coreboot/" style="font-size: 15px;">coreboot</a> <a href="/tag/coredump/" style="font-size: 11px;">coredump</a> <a href="/tag/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tag/crontab/" style="font-size: 10px;">crontab</a> <a href="/tag/cuda/" style="font-size: 10.5px;">cuda</a> <a href="/tag/debootstrap/" style="font-size: 11px;">debootstrap</a> <a href="/tag/delphi/" style="font-size: 11.5px;">delphi</a> <a href="/tag/dhcp/" style="font-size: 10px;">dhcp</a> <a href="/tag/docker/" style="font-size: 20px;">docker</a> <a href="/tag/dos%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">dos系统</a> <a href="/tag/doxygen/" style="font-size: 10.5px;">doxygen</a> <a href="/tag/dropbox/" style="font-size: 10px;">dropbox</a> <a href="/tag/emacs/" style="font-size: 10.5px;">emacs</a> <a href="/tag/ethtool/" style="font-size: 11px;">ethtool</a> <a href="/tag/ffmpeg/" style="font-size: 13px;">ffmpeg</a> <a href="/tag/flash/" style="font-size: 10px;">flash</a> <a href="/tag/freetype/" style="font-size: 10px;">freetype</a> <a href="/tag/gcc/" style="font-size: 11px;">gcc</a> <a href="/tag/gdbserver/" style="font-size: 10px;">gdbserver</a> <a href="/tag/getopt/" style="font-size: 10px;">getopt</a> <a href="/tag/git/" style="font-size: 14.5px;">git</a> <a href="/tag/git-cicd/" style="font-size: 10px;">git-cicd</a> <a href="/tag/gitbook/" style="font-size: 10px;">gitbook</a> <a href="/tag/github/" style="font-size: 10.5px;">github</a> <a href="/tag/golang/" style="font-size: 14.5px;">golang</a> <a href="/tag/gpio-ich/" style="font-size: 10px;">gpio_ich</a> <a href="/tag/grub/" style="font-size: 10px;">grub</a> <a href="/tag/h264/" style="font-size: 10.5px;">h264</a> <a href="/tag/hexo/" style="font-size: 10.5px;">hexo</a> <a href="/tag/hostapd/" style="font-size: 11.5px;">hostapd</a> <a href="/tag/i2c-gpio/" style="font-size: 10px;">i2c-gpio</a> <a href="/tag/iTCO-wdt/" style="font-size: 10px;">iTCO_wdt</a> <a href="/tag/ifconfig/" style="font-size: 10px;">ifconfig</a> <a href="/tag/inode/" style="font-size: 10px;">inode</a> <a href="/tag/iperf/" style="font-size: 10px;">iperf</a> <a href="/tag/iptables/" style="font-size: 13px;">iptables</a> <a href="/tag/kubeedge/" style="font-size: 16.5px;">kubeedge</a> <a href="/tag/kubernetes/" style="font-size: 19.5px;">kubernetes</a> <a href="/tag/leds-gpio/" style="font-size: 10px;">leds-gpio</a> <a href="/tag/libjpeg/" style="font-size: 13.5px;">libjpeg</a> <a href="/tag/libjpeg-turbo/" style="font-size: 10px;">libjpeg-turbo</a> <a href="/tag/linux%E5%86%85%E6%A0%B8/" style="font-size: 10px;">linux内核</a> <a href="/tag/linux%E5%A4%8D%E4%BD%8D/" style="font-size: 10px;">linux复位</a> <a href="/tag/linux%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">linux编程</a> <a href="/tag/live555/" style="font-size: 11px;">live555</a> <a href="/tag/malloc/" style="font-size: 10px;">malloc</a> <a href="/tag/mfd/" style="font-size: 10px;">mfd</a> <a href="/tag/mingw/" style="font-size: 10.5px;">mingw</a> <a href="/tag/nodejs/" style="font-size: 17.5px;">nodejs</a> <a href="/tag/ntfs/" style="font-size: 10px;">ntfs</a> <a href="/tag/ntp/" style="font-size: 11px;">ntp</a> <a href="/tag/onvif/" style="font-size: 13.5px;">onvif</a> <a href="/tag/openwrt/" style="font-size: 11px;">openwrt</a> <a href="/tag/osd/" style="font-size: 10.5px;">osd</a> <a href="/tag/pelco%E5%8D%8F%E8%AE%AE/" style="font-size: 10.5px;">pelco协议</a> <a href="/tag/platform/" style="font-size: 10px;">platform</a> <a href="/tag/proc/" style="font-size: 10px;">proc</a> <a href="/tag/python/" style="font-size: 10px;">python</a> <a href="/tag/radiotap/" style="font-size: 10px;">radiotap</a> <a href="/tag/rtc%E6%99%B6%E6%8C%AF/" style="font-size: 10px;">rtc晶振</a> <a href="/tag/shell/" style="font-size: 11px;">shell</a> <a href="/tag/socket/" style="font-size: 10px;">socket</a> <a href="/tag/spin-lock/" style="font-size: 10px;">spin_lock</a> <a href="/tag/sscanf/" style="font-size: 10px;">sscanf</a> <a href="/tag/ssh/" style="font-size: 11px;">ssh</a> <a href="/tag/staruml/" style="font-size: 10px;">staruml</a> <a href="/tag/sudo/" style="font-size: 10px;">sudo</a> <a href="/tag/sysfs/" style="font-size: 10px;">sysfs</a> <a href="/tag/syslog/" style="font-size: 10.5px;">syslog</a> <a href="/tag/tcpdump/" style="font-size: 10.5px;">tcpdump</a> <a href="/tag/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tag/unicode/" style="font-size: 10.5px;">unicode</a> <a href="/tag/vc2003/" style="font-size: 10px;">vc2003</a> <a href="/tag/visca%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">visca协议</a> <a href="/tag/vnstat/" style="font-size: 10px;">vnstat</a> <a href="/tag/vue/" style="font-size: 10.5px;">vue</a> <a href="/tag/web/" style="font-size: 11.5px;">web</a> <a href="/tag/web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">web服务器</a> <a href="/tag/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tag/x86/" style="font-size: 10px;">x86</a> <a href="/tag/xml/" style="font-size: 10px;">xml</a> <a href="/tag/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" style="font-size: 15.5px;">个人总结</a> <a href="/tag/%E4%B8%B2%E5%8F%A3/" style="font-size: 11px;">串口</a> <a href="/tag/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" style="font-size: 10px;">交叉编译</a> <a href="/tag/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/" style="font-size: 10px;">人文社科</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">代码生活</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%A7%AF%E7%B4%AF/" style="font-size: 12.5px;">代码积累</a> <a href="/tag/%E5%86%85%E5%AD%98%E5%B8%A6%E5%AE%BD/" style="font-size: 10px;">内存带宽</a> <a href="/tag/%E5%86%85%E5%AD%98%E9%A2%91%E7%8E%87/" style="font-size: 10px;">内存频率</a> <a href="/tag/%E5%86%85%E6%A0%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">内核学习笔记</a> <a href="/tag/%E5%8A%A8%E6%80%81%E5%BA%93/" style="font-size: 10.5px;">动态库</a> <a href="/tag/%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5/" style="font-size: 10px;">参数检查</a> <a href="/tag/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" style="font-size: 10px;">双向链表</a> <a href="/tag/%E5%8F%8C%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">双网卡</a> <a href="/tag/%E5%8F%A5%E6%9F%84/" style="font-size: 10px;">句柄</a> <a href="/tag/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/" style="font-size: 10.5px;">可变参数</a> <a href="/tag/%E5%90%AF%E5%8A%A8/" style="font-size: 10px;">启动</a> <a href="/tag/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tag/%E5%9B%BE%E7%89%87%E5%B7%A5%E5%85%B7%E6%8E%A5%E5%8F%A3/" style="font-size: 10px;">图片工具接口</a> <a href="/tag/%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">处理器</a> <a href="/tag/%E5%A4%87%E6%A1%88/" style="font-size: 10px;">备案</a> <a href="/tag/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E5%89%8D%E7%BC%80/" style="font-size: 10px;">子网掩码前缀</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" style="font-size: 11.5px;">字符编码</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87/" style="font-size: 10px;">字符设备</a> <a href="/tag/%E5%AD%A6%E4%BD%9B/" style="font-size: 12px;">学佛</a> <a href="/tag/%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">寄存器</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/" style="font-size: 10px;">嵌入式Linux</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux%E5%85%A5%E9%97%A8/" style="font-size: 16px;">嵌入式Linux入门</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8Fqemu/" style="font-size: 11px;">嵌入式qemu</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B9%8B%E8%A1%8C/" style="font-size: 16px;">嵌入式之行</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 12px;">嵌入式开发环境</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 16.5px;">工具使用</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E7%BC%96%E8%AF%91/" style="font-size: 15.5px;">工具编译</a> <a href="/tag/%E5%B7%A5%E7%A8%8B%E5%BA%93%E4%BB%A3%E7%A0%81/" style="font-size: 18.5px;">工程库代码</a> <a href="/tag/%E5%BA%93%E7%BC%96%E8%AF%91/" style="font-size: 13.5px;">库编译</a> <a href="/tag/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/tag/%E5%BC%80%E5%8F%91%E5%AE%9E%E5%BD%95/" style="font-size: 10px;">开发实录</a> <a href="/tag/%E5%BC%B1%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">弱链接</a> <a href="/tag/%E5%BE%AE%E6%9C%BA%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">微机知识</a> <a href="/tag/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" style="font-size: 15.5px;">技术笔记</a> <a href="/tag/%E6%8B%B7%E8%B4%9D%E7%A1%AC%E7%9B%98/" style="font-size: 10px;">拷贝硬盘</a> <a href="/tag/%E6%8C%82%E8%BD%BD/" style="font-size: 10px;">挂载</a> <a href="/tag/%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8D%E5%AE%9A%E5%90%91/" style="font-size: 10px;">控制台重定向</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11px;">数据库</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10.5px;">数据结构</a> <a href="/tag/%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组</a> <a href="/tag/%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96/" style="font-size: 10px;">数组初始化</a> <a href="/tag/%E6%96%87%E4%BB%B6%E5%8F%A5%E6%9F%84/" style="font-size: 10.5px;">文件句柄</a> <a href="/tag/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" style="font-size: 10px;">文件操作</a> <a href="/tag/%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" style="font-size: 10px;">新年计划</a> <a href="/tag/%E6%97%B6%E5%8C%BA/" style="font-size: 10.5px;">时区</a> <a href="/tag/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tag/%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">根文件系统</a> <a href="/tag/%E6%B1%87%E7%BC%96/" style="font-size: 12px;">汇编</a> <a href="/tag/%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81/" style="font-size: 10px;">汉字编码</a> <a href="/tag/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 12px;">源码分析</a> <a href="/tag/%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6/" style="font-size: 14px;">点阵字符</a> <a href="/tag/%E7%82%B9%E9%98%B5%E6%98%BE%E7%A4%BA/" style="font-size: 11px;">点阵显示</a> <a href="/tag/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 13.5px;">版本控制</a> <a href="/tag/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/" style="font-size: 11px;">电子邮件</a> <a href="/tag/%E7%9C%8B%E9%97%A8%E7%8B%97/" style="font-size: 10px;">看门狗</a> <a href="/tag/%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F/" style="font-size: 10px;">硬件加速</a> <a href="/tag/%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/" style="font-size: 10px;">磁盘空间</a> <a href="/tag/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84/" style="font-size: 10px;">端口映射</a> <a href="/tag/%E7%AD%94%E7%BD%91%E5%8F%8B%E9%97%AE/" style="font-size: 10.5px;">答网友问</a> <a href="/tag/%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" style="font-size: 10.5px;">简明教程</a> <a href="/tag/%E7%AE%A1%E9%81%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">管道函数</a> <a href="/tag/%E7%B3%BB%E7%BB%9F%E5%AE%9A%E5%88%B6/" style="font-size: 11.5px;">系统定制</a> <a href="/tag/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 10.5px;">编程规范</a> <a href="/tag/%E7%BC%96%E8%AF%91%E8%AD%A6%E5%91%8A/" style="font-size: 11.5px;">编译警告</a> <a href="/tag/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5/" style="font-size: 11px;">编译链接</a> <a href="/tag/%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">网卡</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E8%BD%AC%E5%8F%91/" style="font-size: 10px;">网络转发</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/" style="font-size: 10.5px;">网络问题</a> <a href="/tag/%E8%80%83%E8%AF%81/" style="font-size: 10px;">考证</a> <a href="/tag/%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86/" style="font-size: 10px;">视频采集</a> <a href="/tag/%E8%AF%97%E8%AF%8D%E9%9F%B5%E5%BE%8B/" style="font-size: 10px;">诗词韵律</a> <a href="/tag/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/" style="font-size: 10px;">语法高亮</a> <a href="/tag/%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%B9%BF%E6%92%AD%E5%8C%85/" style="font-size: 10px;">跨网段广播包</a> <a href="/tag/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 10px;">软件安装</a> <a href="/tag/%E9%97%AE%E9%A2%98%E9%9B%86/" style="font-size: 17px;">问题集</a> <a href="/tag/%E9%9D%99%E6%80%81%E5%BA%93/" style="font-size: 10px;">静态库</a> <a href="/tag/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/" style="font-size: 16.5px;">项目日志</a></div></div>
+ 
+<div class="widget-wrap"><h3 class="widget-title">友情链接</h3>
+  <div class="widget">
+    <ul class="clearfix">
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.blog.csdn.net/" target="_blank">李迟的专栏</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://i.latelee.org" target="_blank">李迟的个人主页</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.github.io/" target="_blank">本站备份网址</a>
+      </li>
+    </ul>
+  </div>
+</div>
+  </aside> </section></div></div>
+    <footer id="footer" class="site-footer">
+  
+  <div class="clearfix container text-center">
+        <ul class="list-inline text-center">
+          <li><a href="/sitemap.xml">网站地图</a></li>
+          <li>|</li>
+          <li><a href="/lisence">版权声明</a></li>
+          <li>|</li>
+          <li><a href="/donate">捐赠本站</a></li>
+          <li>|</li>
+          <li><a href="/news-for-my-website">建站记录</a></li>
+          <li>|</li>
+          <li><a href="/atom.xml">RSS订阅</a></li>
+          <li>|</li>
+          <li><a href="/about">关于</a></li>
+          </ul>
+      <div class="list-inline  text-center">
+	      &copy; 2010 - 2020 <a href="/" target="_blank"></a> 版权所有.
+          本博客由hexo强力驱动，主题修改自<a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a> &nbsp;&nbsp;
+          <a href="http://www.beian.miit.gov.cn/" target=_blank>桂ICP备10003672号-1</a> &nbsp;&nbsp <a href="https://uweb.umeng.com/v1/login.php?siteid=2137378" target="_blank">站长统计</a> </br></div>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div></footer>
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+    
+</script><!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/bootstrap.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=2137378&web_id=2137378" language="JavaScript"></script>
+  </div>
+
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <script type="text/javascript" src="/js/click_show_text.js"></script>
+</body>
+</html>

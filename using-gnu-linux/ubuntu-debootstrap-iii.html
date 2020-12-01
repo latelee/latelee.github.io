@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!--
+无上甚深微妙法，百千万劫难遭遇。
+我今见闻得受持，愿解如来真实义。
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu系统debootstrap的再三实验 | 迟思堂随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="0、背景及目的利用debootstrap构建一个可单独运行的镜像文件。环境：ubuntu 16.04 64bit，虚拟机软件：vmware 12。  " />
+<meta name="keywords" content="debootstrap, 系统定制 " />
+
+  <link rel="alternate" href="/atom.xml" title="迟思堂随笔" type="application/atom+xml">
+  <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  
+<link rel="stylesheet" href="/css/style.css">
+ 
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+   <link rel="stylesheet" href="/css/vdonate.css" > 
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+  <script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'}var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s)})();</script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body data-spy="scroll" data-target="#toc" data-offset="50">
+
+  
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    <a class="navbar-brand" href="/"></a></div>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_0" href="">
+                嵌入式/Linux<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/using-gnu-linux"> GUN/Linux系统</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/linux-kernel"> Linux内核研究</a></li>
+                <li><a href="/category/embedded-linux"> 嵌入式Linux</a></li>
+                <li><a href="/category/porting-uboot"> U-Boot随笔</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/firmware-bios"> 嵌入式底层BIOS</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/嵌入式qemu"> qemu</a></li>
+                <li><a href="/tag/raspberrypi"> 树莓派</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_1" href="">
+                程序开发<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/my-study"> 技术杂铺</a></li>
+                <li><a href="/category/open-project"> 开源项目</a></li>
+                <li><a href="/category/my-library"> 程序库</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/multistream"> 流媒体</a></li>
+                <li><a href="/category/wireless"> 无线WIFI</a></li>
+                <li><a href="/category/"> 网络/网站/web</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/just-for-fun"> 小玩意</a></li>
+                <li><a href="/category/answer4you"> 答网友问</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_2" href="">
+                编程语言<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/programming-under-linux"> GUN/Linux</a></li>
+                <li><a href="/category/programming-under-windows"> Windows</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/C语言/"> C/C++</a></li>
+                <li><a href="/category/python"> Python</a></li>
+                <li><a href="/category/nodejs"> NodeJS</a></li>
+                <li><a href="/tag/golang"> Golang</a></li>
+                <li><a href="/category/csharp"> C#</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_3" href="">
+                自动化群集运维<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/devops"> devops</a></li>
+                <li><a href="/category/docker"> Docker</a></li>
+                <li><a href="/category/cicd"> CICD</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_4" href="">
+                生活/随想<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/code-life"> 代码生活</a></li>
+                <li><a href="/category/the-life"> 生活掠影</a></li>
+                <li><a href="/category/人文社科"> 人文社科</a></li>
+                </ul></li>
+           
+        <li><a href="/archives">文章归档</a></li> 
+           
+        <li><a href="/webinfo">本站信息</a></li> 
+          </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="latelee" title="Late Lee&#39;s GitHub" target=_blank><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul></div></div></nav>
+<header id="allheader" class="site-header" role="banner"
+   >
+  <div class="clearfix container"><div class="site-branding"><h1 class="site-title">
+            
+              <!-- <a href="/" title="迟思堂随笔" rel="home"> 迟思堂随笔 </a> -->
+            </h1>
+          <!-- <div class="header-container" style="background: url('/bg.jpg')"></div> -->
+          <center>
+
+天不语而四时行 <br> 地不语而百物生 <br> --唐 李白 <br> 
+</center>
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    </ul></div></nav>
+</div></div></header>
+
+  <div id="container"><div id="wrap"><div id="content" class="outer">
+        <section id="main" style="float:none;"><article id="post-Linux使用/2019-10-29-ubuntu系统debootstrap的再三实验" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    <header class="article-header"><h1 class="thumb" class="article-title" itemprop="name">ubuntu系统debootstrap的再三实验</h1></header>
+    <ul class="breadcrumb">
+      <li><a href="/">首页</a></li>
+      <li><a href="/archives">所有文章</a></li>
+      <li><a href="/archives/2019/10">2019年10月</a></li>
+      <li><a class="article-category-link" href="/category/using-gnu-linux/">GNU/Linux系统</a>
+      </li>
+    </ul> 
+
+    <div class="article-meta">
+      <span class="ico-calendar"> </span><time datetime="2019-10-29T20:40:50+08:00" itemprop="datePublished">2019-10-29 20:40</time>
+      
+	<span class="ico-folder"> </span>
+    <a class="article-category-link" href="/category/using-gnu-linux/">GNU/Linux系统</a>
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/debootstrap/" rel="tag">debootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/%E7%B3%BB%E7%BB%9F%E5%AE%9A%E5%88%B6/" rel="tag">系统定制</a></li></ul>
+
+      <span class="ico-keyboard"> </span>3.8k 字
+      
+	<span id="busuanzi_container_page_pv" class="ico-eye">
+	 <span id="busuanzi_value_page_pv"></span> 次
+	</span>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+        <h2 id="0、背景及目的"><a href="#0、背景及目的" class="headerlink" title="0、背景及目的"></a>0、背景及目的</h2><p>利用debootstrap构建一个可单独运行的镜像文件。<br>环境：ubuntu 16.04 64bit，虚拟机软件：vmware 12。  </p>
+<a id="more"></a>
+
+<p>本文有如下假定和术语：  </p>
+<ul>
+<li>本文使用vmware实验。</li>
+<li>根文件系统源码位于<code>/mnt/rootfs/</code>。</li>
+<li>原系统是指原本的ubuntu系统，新系统是指用debootstrap下载的并自己添加了文件的系统。</li>
+<li>新磁盘指/dev/sdb（分区有sdb1、sdb2），sdb2为数据盘，将其格式化并挂载到<code>/tmp/latelee</code>。</li>
+<li>如无异常，实验后期<code>/mnt/rootfs/</code>和<code>/tmp/latelee</code>除磁盘id、启动文件外，其它文件几乎一致。</li>
+<li>本文实验有一定风险，请先对vmware的虚拟机系统做快照。  </li>
+<li>有部分步骤需要使用chroot，请一定要注意。在文中亦有标明。</li>
+<li>宿主机操作命令前带<code>sudo </code>表示其为root权限执行，如嫌麻烦先切换到root用户。chroot环境默认即为root。</li>
+<li>生成的文件需要通过虚拟机共享或samba共享。</li>
+<li>以上路径和名称，仅为本文采用，如读者参照，可相同，亦可更改为自己便利的方式。</li>
+<li>如果行文有磁盘大小无法对应之问题，因行文多次实验，会存在漏记，非Bug，但需要读者自行辨别。  </li>
+</ul>
+<h2 id="一、构建基本环境"><a href="#一、构建基本环境" class="headerlink" title="一、构建基本环境"></a>一、构建基本环境</h2><p>安装 debootstrap：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install debootstrap</span><br></pre></td></tr></table></figure>
+<p>debootstrap命令格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo debootstrap --arch [平台] [发行版本代号] [目录]</span><br></pre></td></tr></table></figure>
+<p>本文使用的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mkdir &#x2F;mnt&#x2F;rootfs</span><br><span class="line">$ sudo debootstrap xenial &#x2F;mnt&#x2F;rootfs&#x2F;</span><br></pre></td></tr></table></figure>
+<p>即安装的版本为xenial（亦即ubuntu 16.04)，系统位数自动检测（64bit）。</p>
+<p>注：在实验时，出现findutils无法下载的情况，手动下载之。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">包名：findutils_4.6.0+git+20160126-2_amd64.deb</span><br><span class="line">下载地址： https:&#x2F;&#x2F;packages.ubuntu.com&#x2F;xenial&#x2F;amd64&#x2F;findutils&#x2F;download</span><br></pre></td></tr></table></figure>
+
+<p>输入上述命令后，就会从网络下载相关的文件，当看到：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I: Configuring initramfs-tools...</span><br><span class="line">I: Configuring ureadahead...</span><br><span class="line">I: Configuring resolvconf...</span><br><span class="line">I: Base system installed successfully.</span><br></pre></td></tr></table></figure>
+<p>即表示成功。否则重新尝试。</p>
+<p>下面使用chroot进入/mnt/rootfs目录，并查看linux版本。本步骤亦可不做。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">latelee@ubuntu:~$ cd &#x2F;mnt&#x2F;rootfs&#x2F;</span><br><span class="line">latelee@ubuntu: &#x2F;mnt&#x2F;rootfs$ ls</span><br><span class="line">bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var</span><br><span class="line">latelee@ubuntu: &#x2F;mnt&#x2F;rootfs$ sudo -s</span><br><span class="line">[sudo] password for latelee:</span><br><span class="line">root@ubuntu: &#x2F;mnt&#x2F;rootfs# chroot .</span><br><span class="line">root@ubuntu:&#x2F;# ls</span><br><span class="line">bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var</span><br><span class="line">root@ubuntu:&#x2F;# cat etc&#x2F;issue</span><br><span class="line">Ubuntu 16.04 LTS \n \l</span><br><span class="line"></span><br><span class="line">root@ubuntu:&#x2F;# uname -a</span><br><span class="line">Linux ubuntu 4.8.0-36-generic #36~16.04.1-Ubuntu SMP Sun Feb 5 09:39:57 UTC 2017 x86_64 x86_64 x86_64 GNU&#x2F;Linux</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><h3 id="2-1-添加用户及密码"><a href="#2-1-添加用户及密码" class="headerlink" title="2.1 添加用户及密码"></a>2.1 添加用户及密码</h3><p><strong>本小节切换到新系统rootfs中，即用chroot切换，因为设置的用户是新系统的，如无用户，无法使用。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># adduser latelee  &#x2F;&#x2F; 添加用户latelee</span><br><span class="line">perl: warning: Setting locale failed.</span><br><span class="line">perl: warning: Please check that your locale settings:</span><br><span class="line">        LANGUAGE &#x3D; (unset),</span><br><span class="line">        LC_ALL &#x3D; (unset),</span><br><span class="line">        LANG &#x3D; &quot;en_US.UTF-8&quot;</span><br><span class="line">    are supported and installed on your system.</span><br><span class="line">perl: warning: Falling back to the standard locale (&quot;C&quot;).</span><br><span class="line">Adding user &#96;latelee&#39; ...</span><br><span class="line">Adding new group &#96;latelee&#39; (1000) ...</span><br><span class="line">Adding new user &#96;latelee&#39; (1000) with group &#96;latelee&#39; ...</span><br><span class="line">Creating home directory &#96;&#x2F;home&#x2F;latelee&#39; ...</span><br><span class="line">Copying files from &#96;&#x2F;etc&#x2F;skel&#39; ...</span><br><span class="line">Enter new UNIX password:  &#x2F;&#x2F; 输入密码</span><br><span class="line">Retype new UNIX password: &#x2F;&#x2F; 再输入密码 </span><br><span class="line">passwd: password updated successfully</span><br><span class="line">Changing the user information for latelee</span><br><span class="line">Enter the new value, or press ENTER for the default &#x2F;&#x2F; 下面的直接回车即可</span><br><span class="line">        Full Name []: </span><br><span class="line">        Room Number []: </span><br><span class="line">        Work Phone []: </span><br><span class="line">        Home Phone []: </span><br><span class="line">        Other []: </span><br><span class="line">Is the information correct? [Y&#x2F;n] </span><br><span class="line"></span><br><span class="line">root@ubuntu:&#x2F;# passwd root  &#x2F;&#x2F; 添加root密码</span><br><span class="line">Enter new UNIX password: </span><br><span class="line">Retype new UNIX password: </span><br><span class="line">passwd: password updated successfully</span><br></pre></td></tr></table></figure>
+
+<p>查看/etc/shadow看看root密码是否设置了。如设置，相应用户名后会有很长的字符串（看似乱码但有含义，此处不表）。下面是加了密码的文件：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># cat &#x2F;etc&#x2F;shadow</span><br><span class="line">root:$6$yNNKXy5B$nstwL.zjmqc2tVNNixKfanXS8vUfDVtFLNnzgUMg7R7h&#x2F;KSkio5Nn9aQF.6uunAotoPTFjgXOGrk4buCH0Dg2.:18196:0:99999:7:::</span><br><span class="line">...</span><br><span class="line">latelee:$6$sLcikQP5$egECjZCr1pPWjd7Nmh.LNtGICJWCffD&#x2F;CTejZb6WCaptW8lurPdQ4tK5OaebL1tHN73egZyAZIiSiWpGzlLB81:18196:0:99999:7:::</span><br></pre></td></tr></table></figure>
+<p>做一个标志文件，方便验证：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># date &gt; &#x2F;etc&#x2F;myinfo</span><br><span class="line"># echo &quot;Late Lee&quot; &gt;&gt; &#x2F;etc&#x2F;myinfo </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-安装常用工具"><a href="#2-2-安装常用工具" class="headerlink" title="2.2 安装常用工具"></a>2.2 安装常用工具</h3><p><strong>新构建的系统，只有常见工具，其它工具需要额外安装，如vim等，请根据需求安装，可以不安装。此小节命令需要在chroot环境中执行。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install build-essential</span><br></pre></td></tr></table></figure>
+<p>如果要编译内核，则要安装ncurses库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install libncurses5-dev libncurses5</span><br></pre></td></tr></table></figure>
+<p>安装其它杂七杂八的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install vim tree</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-添加硬盘"><a href="#2-3-添加硬盘" class="headerlink" title="2.3 添加硬盘"></a>2.3 添加硬盘</h3><p>在VMware添加外设十分简单，在<code>VM-&gt;Settings...-&gt;Add...</code>中已经有很多外设可添加。这里选Hard Disk，大小自定义，但至少2GB。如图1、图2所示。<br><img src="/using-gnu-linux/ubuntu-debootstrap-iii/1.png" alt="图1"><br><img src="/using-gnu-linux/ubuntu-debootstrap-iii/2.png" alt="图2"></p>
+<p>添加后要<strong>重启虚拟机系统</strong>才能被识别到，如无意外，新硬盘设备名为sdb。</p>
+<p>下面格式化之。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fdisk &#x2F;dev&#x2F;sdb</span><br></pre></td></tr></table></figure>
+<p>此处分2个区，sdb1是交换区，大小为1GB，剩下的是sdb2分区。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n 回车 回车 回车 +1GB  (第一个分区OK)</span><br><span class="line">n 回车 回车 回车 回车   (第二个分区OK)</span><br><span class="line">p (查看分了几个区)</span><br><span class="line">w (写入分区表并退出)</span><br></pre></td></tr></table></figure>
+<p>格式化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mkswap &#x2F;dev&#x2F;sdb1</span><br><span class="line">Setting up swapspace version 1, size &#x3D; 954 MiB (1000337408 bytes)</span><br><span class="line">no label, UUID&#x3D;c1f47190-2158-494f-918c-941d314d716b</span><br><span class="line"></span><br><span class="line">$ sudo mkfs.ext4 &#x2F;dev&#x2F;sdb2</span><br><span class="line">mke2fs 1.42.13 (17-May-2015)</span><br><span class="line">Creating filesystem with 279808 4k blocks and 69984 inodes</span><br><span class="line">Filesystem UUID: b07cf1a8-e1fa-45ba-a1fe-e7cc8e34586b</span><br><span class="line">Superblock backups stored on blocks: </span><br><span class="line">        32768, 98304, 163840, 229376</span><br><span class="line"></span><br><span class="line">Allocating group tables: done                            </span><br><span class="line">Writing inode tables: done                            </span><br><span class="line">Creating journal (8192 blocks): done</span><br><span class="line">Writing superblocks and filesystem accounting information: done</span><br></pre></td></tr></table></figure>
+
+<p>查看分区uuid：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo blkid</span><br><span class="line">&#x2F;dev&#x2F;sda1: UUID&#x3D;&quot;3d474681-e5f8-468d-973a-f2ff0348a785&quot; TYPE&#x3D;&quot;ext4&quot; PARTUUID&#x3D;&quot;39cf4ae2-01&quot;</span><br><span class="line">&#x2F;dev&#x2F;sda5: UUID&#x3D;&quot;8b9fb920-dd4f-4c4b-bf7d-9f8997ec24b1&quot; TYPE&#x3D;&quot;swap&quot; PARTUUID&#x3D;&quot;39cf4ae2-05&quot;</span><br><span class="line">&#x2F;dev&#x2F;sdb1: UUID&#x3D;&quot;c1f47190-2158-494f-918c-941d314d716b&quot; TYPE&#x3D;&quot;swap&quot; PARTUUID&#x3D;&quot;0136d3b5-01&quot;</span><br><span class="line">&#x2F;dev&#x2F;sdb2: UUID&#x3D;&quot;b07cf1a8-e1fa-45ba-a1fe-e7cc8e34586b&quot; TYPE&#x3D;&quot;ext4&quot; PARTUUID&#x3D;&quot;0136d3b5-02&quot;</span><br></pre></td></tr></table></figure>
+
+<p>将前面的新系统拷贝到sdb2中（注：根据机器性能，可能较耗时）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir &#x2F;tmp&#x2F;latelee</span><br><span class="line">sudo mount &#x2F;dev&#x2F;sdb2 &#x2F;tmp&#x2F;latelee</span><br><span class="line">sudo cp -a &#x2F;mnt&#x2F;rootfs&#x2F;* &#x2F;tmp&#x2F;latelee</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-内核"><a href="#2-4-内核" class="headerlink" title="2.4 内核"></a>2.4 内核</h3><p>直接使用宿主机上的/boot目录。拷贝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cp -a &#x2F;boot&#x2F; &#x2F;tmp&#x2F;latelee</span><br></pre></td></tr></table></figure>
+<p>为方便，建议拷贝一份到/mnt/roofs中。</p>
+<h3 id="2-5-磁盘和引导文件"><a href="#2-5-磁盘和引导文件" class="headerlink" title="2.5 磁盘和引导文件"></a>2.5 磁盘和引导文件</h3><p><strong>用chroot进入rootfs。如果在宿主上操作，可能因误操作影响原系统的文件。</strong><br>修改（或新建）/etc/fstab文件，参考宿主机编写，将UUID修改为新硬盘的。（注：文件注释使用宿主机的，未修改，根据分区格式名称选择UUID）  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;etc&#x2F;fstab: static file system information.</span><br><span class="line">#</span><br><span class="line"># Use &#39;blkid&#39; to print the universally unique identifier for a</span><br><span class="line"># device; this may be used with UUID&#x3D; as a more robust way to name devices</span><br><span class="line"># that works even if disks are added and removed. See fstab(5).</span><br><span class="line">#</span><br><span class="line"># &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;</span><br><span class="line"># &#x2F; was on &#x2F;dev&#x2F;sda1 during installation</span><br><span class="line">UUID&#x3D;b07cf1a8-e1fa-45ba-a1fe-e7cc8e34586b  &#x2F;               ext4    errors&#x3D;remount-ro 0       1</span><br><span class="line"># swap was on &#x2F;dev&#x2F;sda5 during installation</span><br><span class="line">UUID&#x3D;c1f47190-2158-494f-918c-941d314d716b none            swap    sw              0       0</span><br></pre></td></tr></table></figure>
+
+<p>修改（或新建）/boot/grub/grub.cfg 文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">set default&#x3D;0</span><br><span class="line">set timeout&#x3D;3</span><br><span class="line">menuentry &#39;Late Lee Ubuntu&#39; &#123;</span><br><span class="line">      set root&#x3D;&#39;hd0,msdos2&#39;</span><br><span class="line">      echo &quot;vmlinuz....&quot;</span><br><span class="line">      # linux  &#x2F;boot&#x2F;vmlinuz-4.8.0-36-generic root&#x3D;&#x2F;dev&#x2F;sda2 ro console&#x3D;tty0 console&#x3D;ttyS0,115200n8</span><br><span class="line">      linux &#x2F;boot&#x2F;vmlinuz-4.8.0-36-generic root&#x3D;UUID&#x3D;b07cf1a8-e1fa-45ba-a1fe-e7cc8e34586b ro find_preseed&#x3D;&#x2F;preseed.cfg auto noprompt priority&#x3D;critical locale&#x3D;en_US quiet splash $vt_handoff</span><br><span class="line"></span><br><span class="line">      initrd &#x2F;boot&#x2F;initrd.img-4.8.0-36-generic</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注1：grub.cfg可在宿主机基础上修改，也可自己编写。<br>注2：如果只有一个分区，挂载根文件“/”，则内核镜像必须使用<code>/boo/vmlinuz</code>路径形式，并指定为根文件系统分区的UUID，如果<code>/boot</code>单独一个分区，则只能使用<code>vmlinuz</code>形式，并指定为<code>/boot</code>分区的UUID。这点一定要注意。<br>注3：<code>hd0,msdos2</code>表示系统识别到的第一块硬盘的第二个分区。如从/dev/sdb启动，则启动的硬盘是第一块（哪怕还存在/dev/sda），本文根文件系统位于/dev/sdb2，所以是第二个分区。（sda和sdb是从宿主机角度描述，在系统启动时，会自动检测并重新赋设备名称）</p>
+<h3 id="2-6-使用原系统grub引导"><a href="#2-6-使用原系统grub引导" class="headerlink" title="2.6 使用原系统grub引导"></a>2.6 使用原系统grub引导</h3><p>安装grub：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ sudo grub-install &#x2F;dev&#x2F;sdb</span><br><span class="line">$ sudo update-grub</span><br><span class="line">Generating grub configuration file ...</span><br><span class="line">Warning: Setting GRUB_TIMEOUT to a non-zero value when GRUB_HIDDEN_TIMEOUT is set is no longer supported.</span><br><span class="line">Found linux image: &#x2F;boot&#x2F;vmlinuz-4.8.0-36-generic</span><br><span class="line">Found initrd image: &#x2F;boot&#x2F;initrd.img-4.8.0-36-generic</span><br><span class="line">Found memtest86+ image: &#x2F;boot&#x2F;memtest86+.elf</span><br><span class="line">Found memtest86+ image: &#x2F;boot&#x2F;memtest86+.bin</span><br><span class="line">Found Ubuntu 16.04 LTS (16.04) on &#x2F;dev&#x2F;sdb2 &#x2F;&#x2F; !!!!!</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p>即在原系统上添加了sdb2的启动。重启虚拟机，如图3所示：<br><img src="/using-gnu-linux/ubuntu-debootstrap-iii/3.png" alt="图3"><br>可以看到，第二块磁盘已经出现在grub选项中了。选择之即可启动新的系统。</p>
+<h2 id="三、启动试验"><a href="#三、启动试验" class="headerlink" title="三、启动试验"></a>三、启动试验</h2><p>本节尝试脱离原磁盘，即单独从新硬盘启动。</p>
+<h3 id="3-1-安装grub"><a href="#3-1-安装grub" class="headerlink" title="3.1 安装grub"></a>3.1 安装grub</h3><p>安装grub：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo grub-install &#x2F;dev&#x2F;sdb --root-directory&#x3D;&#x2F;tmp&#x2F;latelee</span><br><span class="line">Installing for i386-pc platform.</span><br><span class="line">Installation finished. No error reported.</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-制作镜像文件"><a href="#3-2-制作镜像文件" class="headerlink" title="3.2 制作镜像文件"></a>3.2 制作镜像文件</h3><p>将新磁盘全盘拷贝到镜像文件，<strong>使用dd命令拷贝可以保证磁盘分区的UUID一致性，对于批量操作而言，十分有用。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if&#x3D;&#x2F;dev&#x2F;sdb of&#x3D;myrootfs.img</span><br></pre></td></tr></table></figure>
+<p>（注：根据机器性能耗时会有差异，本次实验耗时约25分钟左右）</p>
+<p>得到的myrootfs.img文件可以通过虚拟机软件vmware共享或samba共享将其拷贝到Windows系统，方便使用。</p>
+<h3 id="3-3-使用虚拟机启动镜像文件"><a href="#3-3-使用虚拟机启动镜像文件" class="headerlink" title="3.3 使用虚拟机启动镜像文件"></a>3.3 使用虚拟机启动镜像文件</h3><p>前一小节得到了rootfs.img文件。<br>使用vmware重新启动原系统，启动时，按F2进入bios，选择第二块磁盘，可以启动，但依然是原系统Grub界面，<strong>失败</strong>。<br>在vmware新建虚拟机工程（此处略），添加软盘，指定该img文件，启动之，<strong>但是失败</strong>。</p>
+<h3 id="3-4-使用U盘启动镜像文件"><a href="#3-4-使用U盘启动镜像文件" class="headerlink" title="3.4 使用U盘启动镜像文件"></a>3.4 使用U盘启动镜像文件</h3><p>先进入原系统，再插入U盘，此时Linux才能识别出U盘，否则会被Windows识别。无无意外，U盘的设备名称应该为sdc。将新磁盘或镜像文件拷贝到U盘。（注：U盘无须分区）。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dd if&#x3D;myrootfs.img of&#x3D;&#x2F;dev&#x2F;sdc</span><br><span class="line">或</span><br><span class="line">dd if&#x3D;&#x2F;dev&#x2F;sdb of&#x3D;&#x2F;dev&#x2F;sdc</span><br></pre></td></tr></table></figure>
+<p>（注：此操作同样耗时，经测试，约半小时）<br>成功后，查看磁盘分区UUID：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;dev&#x2F;sdb1: UUID&#x3D;&quot;c1f47190-2158-494f-918c-941d314d716b&quot; TYPE&#x3D;&quot;swap&quot; PARTUUID&#x3D;&quot;0136d3b5-01&quot;</span><br><span class="line">&#x2F;dev&#x2F;sdb2: UUID&#x3D;&quot;b07cf1a8-e1fa-45ba-a1fe-e7cc8e34586b&quot; TYPE&#x3D;&quot;ext4&quot; PARTUUID&#x3D;&quot;0136d3b5-02&quot;</span><br><span class="line">&#x2F;dev&#x2F;sdc1: UUID&#x3D;&quot;c1f47190-2158-494f-918c-941d314d716b&quot; TYPE&#x3D;&quot;swap&quot; PARTUUID&#x3D;&quot;0136d3b5-01&quot;</span><br><span class="line">&#x2F;dev&#x2F;sdc2: UUID&#x3D;&quot;b07cf1a8-e1fa-45ba-a1fe-e7cc8e34586b&quot; TYPE&#x3D;&quot;ext4&quot; PARTUUID&#x3D;&quot;0136d3b5-02&quot;</span><br></pre></td></tr></table></figure>
+<p>可以看到，sdb和sdc的分区、UUID完全一致。  </p>
+<p>尝试使用vmware启动U盘，但当vmware未启动之时，U盘被windows识别，当vmware启动之时，快速进入vmware界面让其识别，但为时已晚，无法达到目的。故转向物理机操作。<br>重新启动<strong>物理机（即台式机或笔记本电脑）</strong>，进入BIOS选择U盘启动，保存退出。<br>从U盘启动后，出现错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error: no such device: 35524fsf-dfasdfdfa-dfasdf-dfasdfdfa-dfasdf-d</span><br><span class="line">Entering rescue mode...</span><br><span class="line">grub rescue&gt; </span><br></pre></td></tr></table></figure>
+
+<p>使用ls命令依次查看grub所在分区：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; ls</span><br><span class="line">(hd0) (hd0, msdos2) (hd0,msdos1) (hd1) (hd1,msdos3) ...</span><br><span class="line">grub rescue&gt; ls (hd0,msdos1)&#x2F;boot&#x2F;grub  &#x2F;&#x2F; 此分区无文件</span><br><span class="line">error: unknown filesystem.</span><br><span class="line">grub rescue&gt; ls (hd0,msdos2)&#x2F;boot&#x2F;grub  &#x2F;&#x2F; 此分区有文件</span><br><span class="line">.&#x2F; ..&#x2F; gfxblacklist.txt unicode.pf2 i386-pc&#x2F; grubenv grub.cfg locale&#x2F; fonts&#x2F;</span><br></pre></td></tr></table></figure>
+<p>经查，知道msdos2分区存在grub文件。查看启动参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; set</span><br><span class="line">cmdpath&#x3D;(hd0)</span><br><span class="line">prefix&#x3D;(hd0)&#x2F;boot&#x2F;grub</span><br><span class="line">root&#x3D;hd0</span><br></pre></td></tr></table></figure>
+<p>可见，启动参数不正确，故无法成功引导系统。<br>将参数更改为前面确定的路径：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; set root&#x3D;hd0,msdos2</span><br><span class="line">grub rescue&gt; set prefix&#x3D;(hd0,msdos2)&#x2F;boot&#x2F;grub</span><br><span class="line">grub rescue&gt; insmod normal &#x2F;&#x2F; 可理解为“安装normal命令”</span><br><span class="line">grub rescue&gt; normal  &#x2F;&#x2F; 后会出现grub界面</span><br></pre></td></tr></table></figure>
+<p><strong>注意！grub命令行功能不强大，而且路径不能有空格，如(hd0,msdos2)，逗号后不能有空格，否则无法识别</strong>。<br>真实演示如图4所示。<br><img src="/using-gnu-linux/ubuntu-debootstrap-iii/4.png" alt="图4"></p>
+<p>之后出现grub界面，默认有倒计时3秒，图5是暂停的图示：<br><img src="/using-gnu-linux/ubuntu-debootstrap-iii/5.png" alt="图4"></p>
+<p>启动系统后，可输入用户名和密码，图6是查看标志文件及内核的图示：<br><img src="/using-gnu-linux/ubuntu-debootstrap-iii/6.png" alt="图6"><br>经验证，与前面设置的预期一致。  </p>
+<p><strong>注：限于精力和能力，在物理机实验情况下，暂时不敢对U盘及硬盘做太多的试验，否则硬盘一旦损坏，后果不堪设想</strong>。</p>
+<p>2019.10.31：<strong>本文章实验还未算正式成功，仅做示例参考</strong>。</p>
+<h2 id="附"><a href="#附" class="headerlink" title="附"></a>附</h2><p>查看mbr，即磁盘第一个扇区：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dd if&#x3D;&#x2F;dev&#x2F;sdb of&#x3D;mbr.img bs&#x3D;512 count&#x3D;1</span><br><span class="line">$ hexdump -C mbr.img</span><br><span class="line">00000000  eb 63 90 00 00 00 00 00  00 00 00 00 00 00 00 00  |.c..............|</span><br><span class="line">00000010  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|</span><br><span class="line">*</span><br><span class="line">00000050  00 00 00 00 00 00 00 00  00 00 00 80 01 00 00 00  |................|</span><br><span class="line">00000060  00 00 00 00 ff fa 90 90  f6 c2 80 74 05 f6 c2 70  |...........t...p|</span><br><span class="line">00000070  74 02 b2 80 ea 79 7c 00  00 31 c0 8e d8 8e d0 bc  |t....y|..1......|</span><br><span class="line">00000080  00 20 fb a0 64 7c 3c ff  74 02 88 c2 52 bb 17 04  |. ..d|&lt;.t...R...|</span><br><span class="line">00000090  f6 07 03 74 06 be 88 7d  e8 17 01 be 05 7c b4 41  |...t...&#125;.....|.A|</span><br><span class="line">000000a0  bb aa 55 cd 13 5a 52 72  3d 81 fb 55 aa 75 37 83  |..U..ZRr&#x3D;..U.u7.|</span><br><span class="line">000000b0  e1 01 74 32 31 c0 89 44  04 40 88 44 ff 89 44 02  |..t21..D.@.D..D.|</span><br><span class="line">000000c0  c7 04 10 00 66 8b 1e 5c  7c 66 89 5c 08 66 8b 1e  |....f..\|f.\.f..|</span><br><span class="line">000000d0  60 7c 66 89 5c 0c c7 44  06 00 70 b4 42 cd 13 72  |&#96;|f.\..D..p.B..r|</span><br><span class="line">000000e0  05 bb 00 70 eb 76 b4 08  cd 13 73 0d 5a 84 d2 0f  |...p.v....s.Z...|</span><br><span class="line">000000f0  83 d0 00 be 93 7d e9 82  00 66 0f b6 c6 88 64 ff  |.....&#125;...f....d.|</span><br><span class="line">00000100  40 66 89 44 04 0f b6 d1  c1 e2 02 88 e8 88 f4 40  |@f.D...........@|</span><br><span class="line">00000110  89 44 08 0f b6 c2 c0 e8  02 66 89 04 66 a1 60 7c  |.D.......f..f.&#96;||</span><br><span class="line">00000120  66 09 c0 75 4e 66 a1 5c  7c 66 31 d2 66 f7 34 88  |f..uNf.\|f1.f.4.|</span><br><span class="line">00000130  d1 31 d2 66 f7 74 04 3b  44 08 7d 37 fe c1 88 c5  |.1.f.t.;D.&#125;7....|</span><br><span class="line">00000140  30 c0 c1 e8 02 08 c1 88  d0 5a 88 c6 bb 00 70 8e  |0........Z....p.|</span><br><span class="line">00000150  c3 31 db b8 01 02 cd 13  72 1e 8c c3 60 1e b9 00  |.1......r...&#96;...|</span><br><span class="line">00000160  01 8e db 31 f6 bf 00 80  8e c6 fc f3 a5 1f 61 ff  |...1..........a.|</span><br><span class="line">00000170  26 5a 7c be 8e 7d eb 03  be 9d 7d e8 34 00 be a2  |&amp;Z|..&#125;....&#125;.4...|</span><br><span class="line">00000180  7d e8 2e 00 cd 18 eb fe  47 52 55 42 20 00 47 65  |&#125;.......GRUB .Ge|</span><br><span class="line">00000190  6f 6d 00 48 61 72 64 20  44 69 73 6b 00 52 65 61  |om.Hard Disk.Rea|</span><br><span class="line">000001a0  64 00 20 45 72 72 6f 72  0d 0a 00 bb 01 00 b4 0e  |d. Error........|</span><br><span class="line">000001b0  cd 10 ac 3c 00 75 f4 c3  b5 d3 36 01 00 00 00 20  |...&lt;.u....6.... |</span><br><span class="line">000001c0  21 00 83 be 05 79 00 08  00 00 00 d0 1d 00 00 be  |!....y..........|</span><br><span class="line">000001d0  06 79 83 15 50 05 00 d8  1d 00 00 28 22 00 00 00  |.y..P......(&quot;...|</span><br><span class="line">000001e0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|</span><br><span class="line">000001f0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 55 aa  |..............U.|</span><br><span class="line">00000200</span><br></pre></td></tr></table></figure> </div>
+    <div id="donation_div"></div>
+
+
+<div style="width: 90%; text-align: center;">
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}"><span>打赏支持</span></button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block"><img id="wechat_qr" src="/images/wepay_240.png" width="50%" alt="微信支付"><p>微信支付</p></div>
+    
+      <div id="alipay" style="display: inline-block"><img id="alipay_qr" src="/images/alipay_240.png" width="50%" alt="支付宝"><p>支付宝</p></div>
+    <br>如觉得本文有用，可随意赞助以资鼓励。<br>如影响阅读体验，请再次点击关闭窗口。</div></div>
+      
+    <div class="authorinfo">
+      <img alt='' src='/author/latelee.jpg'  class='avatar avatar-64 photo' height='64' width='64' />
+      <ul><li><strong>本文作者：</strong>李迟</li> 
+      <li><strong>版权声明：</strong>原创文章，版权归署名作者，转载建议注明出处（当然不注明亦可）。</li>
+      <li><strong>本文链接：</strong><a href="/using-gnu-linux/ubuntu-debootstrap-iii.html" title="ubuntu系统debootstrap的再三实验">http://www.latelee.org/using-gnu-linux/ubuntu-debootstrap-iii.html</a></li></ul>
+    </div>
+    
+ 
+    <nav id="article-nav">      <a href="/cicd/git-for-cicd-10-gitee-webhook-i.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+        git在CICD实践中的应用10：Gitee仓库webhook使用(上)</a> 
+  <a href="/nodejs/nodejs-notes-curl-post-get.html" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">后一篇</strong> nodejs实践录：使用curl测试post请求</a></nav>
+    <hr class="entry-footer-hr">
+    <footer class="entry-meta entry-footer">
+      
+<div id="comment"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'true' == true ? true : false;
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+    window.onload = function() {
+        new Valine({
+			//av: AV,
+            el: '#comment',
+            notify: notify,
+            verify: verify,
+            app_id: "X36fuJhKb5DzHu6Sv2AU1Aap-gzGzoHsz",
+            app_key: "bix54WVwzsQyxeHbvIcJGsyA",
+            avatar:"monsterid",
+            placeholder: "可自由评论，但勿恶意评论。上面那行可填可不填。",
+            guest_info:guest_info,
+			//visitor: true // 阅读量统计
+        });
+    }
+  </script></div></footer></div>
+</article>
+  <aside id="sidebar">
+  <div style="margin: 20px 0;">
+	<div id="search-form-wrap">
+
+    <form class="search-form">
+        <label style="width: 72%;">
+            <span class="screen-reader-text">Search for:</span>
+            <input type="search" class="search-field" style="height: 36px; width: 100%;" placeholder=" 搜索…" value="" name="s" title="Search for:">
+        </label>
+        <input type="submit" class="search-form-submit" value="搜索">
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+</div><div class="widget_athemes_tabs">
+    <ul id="widget-tab" class="clearfix widget-tab-nav"><li class="active"><a>最新文章</a></li></ul>
+    <div class="widget"><ul>
+        
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/docker/docker-30-deploy-for-c++.html" title=""><img width="50" height="50" src="/gallery/tech/docker1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/docker/docker-30-deploy-for-c++.html">我的docker随笔30：C++程序的自动化构建</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/vue/vue-notes-vue-basic.html" title=""><img width="50" height="50" src="/gallery/tech/vue.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/vue/vue-notes-vue-basic.html">vue实践录：vue基础学习</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/vue/vue-notes-starting.html" title=""><img width="50" height="50" src="/gallery/tech/vue.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/vue/vue-notes-starting.html">vue实践录：windows 10系统vue环境搭建</a></h6></div></li>
+          <li class="clearfix"><div class="widget-entry-summary" style="margin: 0;">
+              <h6 style="margin: 0;"><a href="/code-life/ruankao-pm1.html">软考路：高项1心得</a></h6></div></li>
+          <li class="clearfix"><div class="widget-entry-summary" style="margin: 0;">
+              <h6 style="margin: 0;"><a href="/pkc/kindle-usage.html">kindle使用及周边的记录</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-oracle-test.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-oracle-test.html">Golang实践录：oracle数据库实践</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-my-utils.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-my-utils.html">Golang实践录：我的工具包</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-cobra-note.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-cobra-note.html">Golang实践录：命令行cobra库实例</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/pkc/setting-ip-for-windows.html" title=""><img width="50" height="50" src="/gallery/tech/tools1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/pkc/setting-ip-for-windows.html">Windows设置IP脚本</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/pkc/database-practice.html" title=""><img width="50" height="50" src="/gallery/tech/tools1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/pkc/database-practice.html">格式化工具indent使用笔记</a></h6></div></li></ul></div></div>
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-linux/">GNU/Linux程序</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/category/using-gnu-linux/">GNU/Linux系统</a><span class="category-list-count">72</span></li><li class="category-list-item"><a class="category-list-link" href="/category/linux-kernel/">Linux内核研究</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/Qt/">Qt</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/category/porting-uboot/">U-Boot随笔</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-windows/">Windows程序</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/cicd/">cicd</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/category/delphi/">delphi</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/devops/">devops</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/docker/">docker</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/category/golang/">golang</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubeedge/">kubeedge</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubernetes/">kubernetes</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/category/nodejs/">nodejs</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/category/python/">python</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/vue/">vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/pkc/">个人知识中心</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/">人文社科</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/code-life/">代码生活</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/category/just-for-fun/">小玩意</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/embedded-linux/">嵌入式Linux</a><span class="category-list-count">58</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ellp/">嵌入式Linux入门与实践</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/firmware-bios/">嵌入式底层BIOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/category/toolslib/">工具编译使用</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/open-project/">开源项目</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-library/">我的程序代码</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-study/">技术杂铺</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/wireless/">无线WIFI</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ml/">机器学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/category/multistream/">流媒体学习</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/category/the-life/">生活掠影</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/category/answer4you/">答网友问</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/compilelinking/">编译链接</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/web/">网络/网站/web</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/net-study/">网络方面</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/">项目日志</a><span class="category-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+  <div class="widget-wrap"><h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud"><a href="/tag/4G%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">4G网卡</a> <a href="/tag/ARM/" style="font-size: 10.5px;">ARM</a> <a href="/tag/BIOS%E6%97%B6%E9%97%B4/" style="font-size: 10px;">BIOS时间</a> <a href="/tag/BMP/" style="font-size: 10px;">BMP</a> <a href="/tag/CPUID/" style="font-size: 10.5px;">CPUID</a> <a href="/tag/CPU%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">CPU寄存器</a> <a href="/tag/CPU%E9%A2%91%E7%8E%87/" style="font-size: 10px;">CPU频率</a> <a href="/tag/C%E8%AF%AD%E8%A8%80/" style="font-size: 15.5px;">C语言</a> <a href="/tag/FTP/" style="font-size: 10.5px;">FTP</a> <a href="/tag/GBK/" style="font-size: 11px;">GBK</a> <a href="/tag/H264/" style="font-size: 11px;">H264</a> <a href="/tag/H264%E7%A0%81%E6%B5%81/" style="font-size: 10.5px;">H264码流</a> <a href="/tag/H265/" style="font-size: 11.5px;">H265</a> <a href="/tag/H3C/" style="font-size: 10px;">H3C</a> <a href="/tag/HEVC/" style="font-size: 10.5px;">HEVC</a> <a href="/tag/HTML/" style="font-size: 10px;">HTML</a> <a href="/tag/ICH/" style="font-size: 10px;">ICH</a> <a href="/tag/Intel%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">Intel处理器</a> <a href="/tag/LCD/" style="font-size: 11px;">LCD</a> <a href="/tag/LPC/" style="font-size: 10px;">LPC</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/Linux%E4%B9%8B%E8%A1%8C/" style="font-size: 12px;">Linux之行</a> <a href="/tag/Linux%E4%BD%BF%E7%94%A8/" style="font-size: 12.5px;">Linux使用</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8/" style="font-size: 11.5px;">Linux内核</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/" style="font-size: 10px;">Linux内核编译</a> <a href="/tag/Linux%E7%A7%BB%E6%A4%8D%E9%9A%8F%E7%AC%94/" style="font-size: 12.5px;">Linux移植随笔</a> <a href="/tag/Linux%E7%BC%96%E7%A8%8B/" style="font-size: 14.5px;">Linux编程</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C/" style="font-size: 10.5px;">Linux网络</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10.5px;">Linux网络子系统</a> <a href="/tag/Linux%E9%A9%B1%E5%8A%A8/" style="font-size: 11.5px;">Linux驱动</a> <a href="/tag/MFC/" style="font-size: 19px;">MFC</a> <a href="/tag/Makefile/" style="font-size: 14.5px;">Makefile</a> <a href="/tag/PCI/" style="font-size: 11.5px;">PCI</a> <a href="/tag/PHY%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10.5px;">PHY寄存器</a> <a href="/tag/PHY%E7%8A%B6%E6%80%81/" style="font-size: 10px;">PHY状态</a> <a href="/tag/PHY%E9%A9%B1%E5%8A%A8/" style="font-size: 10px;">PHY驱动</a> <a href="/tag/Qt/" style="font-size: 13.5px;">Qt</a> <a href="/tag/SCSI/" style="font-size: 10px;">SCSI</a> <a href="/tag/SDL/" style="font-size: 11px;">SDL</a> <a href="/tag/SD%E5%8D%A1/" style="font-size: 10px;">SD卡</a> <a href="/tag/STL/" style="font-size: 11px;">STL</a> <a href="/tag/U-Boot%E9%9A%8F%E7%AC%94/" style="font-size: 18px;">U-Boot随笔</a> <a href="/tag/USB/" style="font-size: 12.5px;">USB</a> <a href="/tag/U%E7%9B%98%E5%88%B6%E4%BD%9C/" style="font-size: 10px;">U盘制作</a> <a href="/tag/V4L2/" style="font-size: 10px;">V4L2</a> <a href="/tag/VAAPI/" style="font-size: 10px;">VAAPI</a> <a href="/tag/VLAN/" style="font-size: 10px;">VLAN</a> <a href="/tag/Vagrant/" style="font-size: 10.5px;">Vagrant</a> <a href="/tag/WIFI/" style="font-size: 13.5px;">WIFI</a> <a href="/tag/YUV/" style="font-size: 15px;">YUV</a> <a href="/tag/YUV%E6%92%AD%E6%94%BE%E5%99%A8/" style="font-size: 13.5px;">YUV播放器</a> <a href="/tag/ap-hotspot/" style="font-size: 10px;">ap-hotspot</a> <a href="/tag/armdocker/" style="font-size: 12px;">armdocker</a> <a href="/tag/atom/" style="font-size: 10px;">atom</a> <a href="/tag/beidou/" style="font-size: 10.5px;">beidou</a> <a href="/tag/bios/" style="font-size: 16.5px;">bios</a> <a href="/tag/boa/" style="font-size: 11px;">boa</a> <a href="/tag/c-c/" style="font-size: 10px;">c&c++</a> <a href="/tag/cgi/" style="font-size: 10px;">cgi</a> <a href="/tag/cicd/" style="font-size: 15px;">cicd</a> <a href="/tag/coreboot/" style="font-size: 15px;">coreboot</a> <a href="/tag/coredump/" style="font-size: 11px;">coredump</a> <a href="/tag/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tag/crontab/" style="font-size: 10px;">crontab</a> <a href="/tag/cuda/" style="font-size: 10.5px;">cuda</a> <a href="/tag/debootstrap/" style="font-size: 11px;">debootstrap</a> <a href="/tag/delphi/" style="font-size: 11.5px;">delphi</a> <a href="/tag/dhcp/" style="font-size: 10px;">dhcp</a> <a href="/tag/docker/" style="font-size: 20px;">docker</a> <a href="/tag/dos%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">dos系统</a> <a href="/tag/doxygen/" style="font-size: 10.5px;">doxygen</a> <a href="/tag/dropbox/" style="font-size: 10px;">dropbox</a> <a href="/tag/emacs/" style="font-size: 10.5px;">emacs</a> <a href="/tag/ethtool/" style="font-size: 11px;">ethtool</a> <a href="/tag/ffmpeg/" style="font-size: 13px;">ffmpeg</a> <a href="/tag/flash/" style="font-size: 10px;">flash</a> <a href="/tag/freetype/" style="font-size: 10px;">freetype</a> <a href="/tag/gcc/" style="font-size: 11px;">gcc</a> <a href="/tag/gdbserver/" style="font-size: 10px;">gdbserver</a> <a href="/tag/getopt/" style="font-size: 10px;">getopt</a> <a href="/tag/git/" style="font-size: 14.5px;">git</a> <a href="/tag/git-cicd/" style="font-size: 10px;">git-cicd</a> <a href="/tag/gitbook/" style="font-size: 10px;">gitbook</a> <a href="/tag/github/" style="font-size: 10.5px;">github</a> <a href="/tag/golang/" style="font-size: 14.5px;">golang</a> <a href="/tag/gpio-ich/" style="font-size: 10px;">gpio_ich</a> <a href="/tag/grub/" style="font-size: 10px;">grub</a> <a href="/tag/h264/" style="font-size: 10.5px;">h264</a> <a href="/tag/hexo/" style="font-size: 10.5px;">hexo</a> <a href="/tag/hostapd/" style="font-size: 11.5px;">hostapd</a> <a href="/tag/i2c-gpio/" style="font-size: 10px;">i2c-gpio</a> <a href="/tag/iTCO-wdt/" style="font-size: 10px;">iTCO_wdt</a> <a href="/tag/ifconfig/" style="font-size: 10px;">ifconfig</a> <a href="/tag/inode/" style="font-size: 10px;">inode</a> <a href="/tag/iperf/" style="font-size: 10px;">iperf</a> <a href="/tag/iptables/" style="font-size: 13px;">iptables</a> <a href="/tag/kubeedge/" style="font-size: 16.5px;">kubeedge</a> <a href="/tag/kubernetes/" style="font-size: 19.5px;">kubernetes</a> <a href="/tag/leds-gpio/" style="font-size: 10px;">leds-gpio</a> <a href="/tag/libjpeg/" style="font-size: 13.5px;">libjpeg</a> <a href="/tag/libjpeg-turbo/" style="font-size: 10px;">libjpeg-turbo</a> <a href="/tag/linux%E5%86%85%E6%A0%B8/" style="font-size: 10px;">linux内核</a> <a href="/tag/linux%E5%A4%8D%E4%BD%8D/" style="font-size: 10px;">linux复位</a> <a href="/tag/linux%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">linux编程</a> <a href="/tag/live555/" style="font-size: 11px;">live555</a> <a href="/tag/malloc/" style="font-size: 10px;">malloc</a> <a href="/tag/mfd/" style="font-size: 10px;">mfd</a> <a href="/tag/mingw/" style="font-size: 10.5px;">mingw</a> <a href="/tag/nodejs/" style="font-size: 17.5px;">nodejs</a> <a href="/tag/ntfs/" style="font-size: 10px;">ntfs</a> <a href="/tag/ntp/" style="font-size: 11px;">ntp</a> <a href="/tag/onvif/" style="font-size: 13.5px;">onvif</a> <a href="/tag/openwrt/" style="font-size: 11px;">openwrt</a> <a href="/tag/osd/" style="font-size: 10.5px;">osd</a> <a href="/tag/pelco%E5%8D%8F%E8%AE%AE/" style="font-size: 10.5px;">pelco协议</a> <a href="/tag/platform/" style="font-size: 10px;">platform</a> <a href="/tag/proc/" style="font-size: 10px;">proc</a> <a href="/tag/python/" style="font-size: 10px;">python</a> <a href="/tag/radiotap/" style="font-size: 10px;">radiotap</a> <a href="/tag/rtc%E6%99%B6%E6%8C%AF/" style="font-size: 10px;">rtc晶振</a> <a href="/tag/shell/" style="font-size: 11px;">shell</a> <a href="/tag/socket/" style="font-size: 10px;">socket</a> <a href="/tag/spin-lock/" style="font-size: 10px;">spin_lock</a> <a href="/tag/sscanf/" style="font-size: 10px;">sscanf</a> <a href="/tag/ssh/" style="font-size: 11px;">ssh</a> <a href="/tag/staruml/" style="font-size: 10px;">staruml</a> <a href="/tag/sudo/" style="font-size: 10px;">sudo</a> <a href="/tag/sysfs/" style="font-size: 10px;">sysfs</a> <a href="/tag/syslog/" style="font-size: 10.5px;">syslog</a> <a href="/tag/tcpdump/" style="font-size: 10.5px;">tcpdump</a> <a href="/tag/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tag/unicode/" style="font-size: 10.5px;">unicode</a> <a href="/tag/vc2003/" style="font-size: 10px;">vc2003</a> <a href="/tag/visca%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">visca协议</a> <a href="/tag/vnstat/" style="font-size: 10px;">vnstat</a> <a href="/tag/vue/" style="font-size: 10.5px;">vue</a> <a href="/tag/web/" style="font-size: 11.5px;">web</a> <a href="/tag/web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">web服务器</a> <a href="/tag/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tag/x86/" style="font-size: 10px;">x86</a> <a href="/tag/xml/" style="font-size: 10px;">xml</a> <a href="/tag/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" style="font-size: 15.5px;">个人总结</a> <a href="/tag/%E4%B8%B2%E5%8F%A3/" style="font-size: 11px;">串口</a> <a href="/tag/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" style="font-size: 10px;">交叉编译</a> <a href="/tag/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/" style="font-size: 10px;">人文社科</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">代码生活</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%A7%AF%E7%B4%AF/" style="font-size: 12.5px;">代码积累</a> <a href="/tag/%E5%86%85%E5%AD%98%E5%B8%A6%E5%AE%BD/" style="font-size: 10px;">内存带宽</a> <a href="/tag/%E5%86%85%E5%AD%98%E9%A2%91%E7%8E%87/" style="font-size: 10px;">内存频率</a> <a href="/tag/%E5%86%85%E6%A0%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">内核学习笔记</a> <a href="/tag/%E5%8A%A8%E6%80%81%E5%BA%93/" style="font-size: 10.5px;">动态库</a> <a href="/tag/%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5/" style="font-size: 10px;">参数检查</a> <a href="/tag/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" style="font-size: 10px;">双向链表</a> <a href="/tag/%E5%8F%8C%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">双网卡</a> <a href="/tag/%E5%8F%A5%E6%9F%84/" style="font-size: 10px;">句柄</a> <a href="/tag/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/" style="font-size: 10.5px;">可变参数</a> <a href="/tag/%E5%90%AF%E5%8A%A8/" style="font-size: 10px;">启动</a> <a href="/tag/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tag/%E5%9B%BE%E7%89%87%E5%B7%A5%E5%85%B7%E6%8E%A5%E5%8F%A3/" style="font-size: 10px;">图片工具接口</a> <a href="/tag/%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">处理器</a> <a href="/tag/%E5%A4%87%E6%A1%88/" style="font-size: 10px;">备案</a> <a href="/tag/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E5%89%8D%E7%BC%80/" style="font-size: 10px;">子网掩码前缀</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" style="font-size: 11.5px;">字符编码</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87/" style="font-size: 10px;">字符设备</a> <a href="/tag/%E5%AD%A6%E4%BD%9B/" style="font-size: 12px;">学佛</a> <a href="/tag/%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">寄存器</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/" style="font-size: 10px;">嵌入式Linux</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux%E5%85%A5%E9%97%A8/" style="font-size: 16px;">嵌入式Linux入门</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8Fqemu/" style="font-size: 11px;">嵌入式qemu</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B9%8B%E8%A1%8C/" style="font-size: 16px;">嵌入式之行</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 12px;">嵌入式开发环境</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 16.5px;">工具使用</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E7%BC%96%E8%AF%91/" style="font-size: 15.5px;">工具编译</a> <a href="/tag/%E5%B7%A5%E7%A8%8B%E5%BA%93%E4%BB%A3%E7%A0%81/" style="font-size: 18.5px;">工程库代码</a> <a href="/tag/%E5%BA%93%E7%BC%96%E8%AF%91/" style="font-size: 13.5px;">库编译</a> <a href="/tag/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/tag/%E5%BC%80%E5%8F%91%E5%AE%9E%E5%BD%95/" style="font-size: 10px;">开发实录</a> <a href="/tag/%E5%BC%B1%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">弱链接</a> <a href="/tag/%E5%BE%AE%E6%9C%BA%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">微机知识</a> <a href="/tag/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" style="font-size: 15.5px;">技术笔记</a> <a href="/tag/%E6%8B%B7%E8%B4%9D%E7%A1%AC%E7%9B%98/" style="font-size: 10px;">拷贝硬盘</a> <a href="/tag/%E6%8C%82%E8%BD%BD/" style="font-size: 10px;">挂载</a> <a href="/tag/%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8D%E5%AE%9A%E5%90%91/" style="font-size: 10px;">控制台重定向</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11px;">数据库</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10.5px;">数据结构</a> <a href="/tag/%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组</a> <a href="/tag/%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96/" style="font-size: 10px;">数组初始化</a> <a href="/tag/%E6%96%87%E4%BB%B6%E5%8F%A5%E6%9F%84/" style="font-size: 10.5px;">文件句柄</a> <a href="/tag/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" style="font-size: 10px;">文件操作</a> <a href="/tag/%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" style="font-size: 10px;">新年计划</a> <a href="/tag/%E6%97%B6%E5%8C%BA/" style="font-size: 10.5px;">时区</a> <a href="/tag/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tag/%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">根文件系统</a> <a href="/tag/%E6%B1%87%E7%BC%96/" style="font-size: 12px;">汇编</a> <a href="/tag/%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81/" style="font-size: 10px;">汉字编码</a> <a href="/tag/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 12px;">源码分析</a> <a href="/tag/%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6/" style="font-size: 14px;">点阵字符</a> <a href="/tag/%E7%82%B9%E9%98%B5%E6%98%BE%E7%A4%BA/" style="font-size: 11px;">点阵显示</a> <a href="/tag/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 13.5px;">版本控制</a> <a href="/tag/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/" style="font-size: 11px;">电子邮件</a> <a href="/tag/%E7%9C%8B%E9%97%A8%E7%8B%97/" style="font-size: 10px;">看门狗</a> <a href="/tag/%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F/" style="font-size: 10px;">硬件加速</a> <a href="/tag/%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/" style="font-size: 10px;">磁盘空间</a> <a href="/tag/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84/" style="font-size: 10px;">端口映射</a> <a href="/tag/%E7%AD%94%E7%BD%91%E5%8F%8B%E9%97%AE/" style="font-size: 10.5px;">答网友问</a> <a href="/tag/%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" style="font-size: 10.5px;">简明教程</a> <a href="/tag/%E7%AE%A1%E9%81%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">管道函数</a> <a href="/tag/%E7%B3%BB%E7%BB%9F%E5%AE%9A%E5%88%B6/" style="font-size: 11.5px;">系统定制</a> <a href="/tag/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 10.5px;">编程规范</a> <a href="/tag/%E7%BC%96%E8%AF%91%E8%AD%A6%E5%91%8A/" style="font-size: 11.5px;">编译警告</a> <a href="/tag/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5/" style="font-size: 11px;">编译链接</a> <a href="/tag/%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">网卡</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E8%BD%AC%E5%8F%91/" style="font-size: 10px;">网络转发</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/" style="font-size: 10.5px;">网络问题</a> <a href="/tag/%E8%80%83%E8%AF%81/" style="font-size: 10px;">考证</a> <a href="/tag/%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86/" style="font-size: 10px;">视频采集</a> <a href="/tag/%E8%AF%97%E8%AF%8D%E9%9F%B5%E5%BE%8B/" style="font-size: 10px;">诗词韵律</a> <a href="/tag/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/" style="font-size: 10px;">语法高亮</a> <a href="/tag/%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%B9%BF%E6%92%AD%E5%8C%85/" style="font-size: 10px;">跨网段广播包</a> <a href="/tag/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 10px;">软件安装</a> <a href="/tag/%E9%97%AE%E9%A2%98%E9%9B%86/" style="font-size: 17px;">问题集</a> <a href="/tag/%E9%9D%99%E6%80%81%E5%BA%93/" style="font-size: 10px;">静态库</a> <a href="/tag/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/" style="font-size: 16.5px;">项目日志</a></div></div>
+ 
+<div class="widget-wrap"><h3 class="widget-title">友情链接</h3>
+  <div class="widget">
+    <ul class="clearfix">
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.blog.csdn.net/" target="_blank">李迟的专栏</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://i.latelee.org" target="_blank">李迟的个人主页</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.github.io/" target="_blank">本站备份网址</a>
+      </li>
+    </ul>
+  </div>
+</div>
+  </aside> </section></div></div>
+    <footer id="footer" class="site-footer">
+  
+  <div class="clearfix container text-center">
+        <ul class="list-inline text-center">
+          <li><a href="/sitemap.xml">网站地图</a></li>
+          <li>|</li>
+          <li><a href="/lisence">版权声明</a></li>
+          <li>|</li>
+          <li><a href="/donate">捐赠本站</a></li>
+          <li>|</li>
+          <li><a href="/news-for-my-website">建站记录</a></li>
+          <li>|</li>
+          <li><a href="/atom.xml">RSS订阅</a></li>
+          <li>|</li>
+          <li><a href="/about">关于</a></li>
+          </ul>
+      <div class="list-inline  text-center">
+	      &copy; 2010 - 2020 <a href="/" target="_blank"></a> 版权所有.
+          本博客由hexo强力驱动，主题修改自<a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a> &nbsp;&nbsp;
+          <a href="http://www.beian.miit.gov.cn/" target=_blank>桂ICP备10003672号-1</a> &nbsp;&nbsp <a href="https://uweb.umeng.com/v1/login.php?siteid=2137378" target="_blank">站长统计</a> </br></div>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div></footer>
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+    
+</script><!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/bootstrap.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=2137378&web_id=2137378" language="JavaScript"></script>
+  </div>
+
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <script type="text/javascript" src="/js/click_show_text.js"></script>
+</body>
+</html>

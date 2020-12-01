@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<!--
+无上甚深微妙法，百千万劫难遭遇。
+我今见闻得受持，愿解如来真实义。
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>git在CICD实践中的应用4：GitHub与Docker | 迟思堂随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Here’s something encrypted, password is required to continue reading.
+" />
+<meta name="keywords" content="git, cicd " />
+
+  <link rel="alternate" href="/atom.xml" title="迟思堂随笔" type="application/atom+xml">
+  <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  
+<link rel="stylesheet" href="/css/style.css">
+ 
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+   <link rel="stylesheet" href="/css/vdonate.css" > 
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+  <script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'}var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s)})();</script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body data-spy="scroll" data-target="#toc" data-offset="50">
+
+  
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    <a class="navbar-brand" href="/"></a></div>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_0" href="">
+                嵌入式/Linux<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/using-gnu-linux"> GUN/Linux系统</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/linux-kernel"> Linux内核研究</a></li>
+                <li><a href="/category/embedded-linux"> 嵌入式Linux</a></li>
+                <li><a href="/category/porting-uboot"> U-Boot随笔</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/firmware-bios"> 嵌入式底层BIOS</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/嵌入式qemu"> qemu</a></li>
+                <li><a href="/tag/raspberrypi"> 树莓派</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_1" href="">
+                程序开发<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/my-study"> 技术杂铺</a></li>
+                <li><a href="/category/open-project"> 开源项目</a></li>
+                <li><a href="/category/my-library"> 程序库</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/multistream"> 流媒体</a></li>
+                <li><a href="/category/wireless"> 无线WIFI</a></li>
+                <li><a href="/category/"> 网络/网站/web</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/just-for-fun"> 小玩意</a></li>
+                <li><a href="/category/answer4you"> 答网友问</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_2" href="">
+                编程语言<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/programming-under-linux"> GUN/Linux</a></li>
+                <li><a href="/category/programming-under-windows"> Windows</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/C语言/"> C/C++</a></li>
+                <li><a href="/category/python"> Python</a></li>
+                <li><a href="/category/nodejs"> NodeJS</a></li>
+                <li><a href="/tag/golang"> Golang</a></li>
+                <li><a href="/category/csharp"> C#</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_3" href="">
+                自动化群集运维<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/devops"> devops</a></li>
+                <li><a href="/category/docker"> Docker</a></li>
+                <li><a href="/category/cicd"> CICD</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_4" href="">
+                生活/随想<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/code-life"> 代码生活</a></li>
+                <li><a href="/category/the-life"> 生活掠影</a></li>
+                <li><a href="/category/人文社科"> 人文社科</a></li>
+                </ul></li>
+           
+        <li><a href="/archives">文章归档</a></li> 
+           
+        <li><a href="/webinfo">本站信息</a></li> 
+          </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="latelee" title="Late Lee&#39;s GitHub" target=_blank><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul></div></div></nav>
+<header id="allheader" class="site-header" role="banner"
+   >
+  <div class="clearfix container"><div class="site-branding"><h1 class="site-title">
+            
+              <!-- <a href="/" title="迟思堂随笔" rel="home"> 迟思堂随笔 </a> -->
+            </h1>
+          <!-- <div class="header-container" style="background: url('/bg.jpg')"></div> -->
+          <center>
+
+天不语而四时行 <br> 地不语而百物生 <br> --唐 李白 <br> 
+</center>
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    </ul></div></nav>
+</div></div></header>
+
+  <div id="container"><div id="wrap"><div id="content" class="outer">
+        <section id="main" style="float:none;"><article id="post-虚拟化-cicd/2019-06-20-git在CICD实践中的应用4：GitHub与Docker" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    <header class="article-header"><h1 class="thumb" class="article-title" itemprop="name">git在CICD实践中的应用4：GitHub与Docker</h1></header>
+    <ul class="breadcrumb">
+      <li><a href="/">首页</a></li>
+      <li><a href="/archives">所有文章</a></li>
+      <li><a href="/archives/2019/06">2019年06月</a></li>
+      <li><a class="article-category-link" href="/category/cicd/">cicd</a>
+      </li>
+    </ul> 
+
+    <div class="article-meta">
+      <span class="ico-calendar"> </span><time datetime="2019-06-22T00:00:04+08:00" itemprop="datePublished">2019-06-22 00:00</time>
+      
+	<span class="ico-folder"> </span>
+    <a class="article-category-link" href="/category/cicd/">cicd</a>
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/cicd/" rel="tag">cicd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/git/" rel="tag">git</a></li></ul>
+
+      <span class="ico-keyboard"> </span>18 字
+      
+	<span id="busuanzi_container_page_pv" class="ico-eye">
+	 <span id="busuanzi_value_page_pv"></span> 次
+	</span>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+        <div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">本文访问需要使用密码，请输入密码“1+1=?”</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="6d5d7987e9ee4bdaea505e9951fe2fb0cdaecaeb294ff712db07400d902358cb">18eb59b3717524d91643661b35a8deb8b03b9bf1607f54ab390263327fed639a2ddd68aa725367cf5d730a87edba7e2c6d3ab526bce70a0a6d5da1a1a70279bf68e23222feafd8fe77d02e0dbf19e39de606fe17f42c42b7fbc98aa8b5ef5e85072d814e42e38de5248b1970d4de1536c1cdea241770b29bf2e9e369bd11894ef6953b261302412e27d638d67fc8952ad8fd1cd9121dae7e95f33c034e711b33f22c633c3b29fed6c1f72b580b13393fa0f45a65d3045effe5949be0c6d0f367da068cab0d00ed16e0b3e8da78a5cc0203243d48ce7f1f113add02e6e1e8b3939a580592d9983d9a0f41c9a2feb561f0050df8ab1d4d8f088f29e7f87f556386ac04ae294790a59a38dd42ec52b0dfd778d0d0b537c1eec929293515117adedbbbc7c583cf0ece01ee5d49b7dab0ec71819e9f5a3e74a72a65b6e0ffab013eeefcf769737e7e2f5627c2eb9d405604f34a5aa13ecef27c297735bd84c2397cb09dcb7ed758535a94d4660b0f13f23400bbfdb61aaee78cf80afde768a75a709a4e4e493e5dde9c90de30e86fbf61ab266879fe0cacb91b38f81342e651a5c3ba26ca6710bc6e7250a9d5fd1a42a3c53e56f7494ebb4fade6dcfc3ba85ecf9ca99f3d35bfa62c5bea229b5111a5a07dc917523ec6b151fdd3dec02a8ac8c9f00d53448211c6f06bf8ba21f7a7947a0226f181c24e23ba83fd9fadea1414d79341b1c26c05711d3cf94ab5d123de9c595447d3daa1439540608c3abfcec1dbfd4146720811893cd9303add9dbe6de584720a24b75fb00d793ad315e39ccda8c1a70421b189188275aab9cff2b52f5dacc4c9d892056f5886ce047ea47cbb9e7ae9782c1493cd7d13c2982ef0a1b1b22128860a21e0f5870c1f0a435faef3fe56d0757c9f13fa8324ea9e84d84d9a735a00daf9baf82328c3ab24f7dd31843fd54b0b203f799e87f5bf101957d459840ddc921e93cf008a232d0a1817454985b8b74ae92f0464d26ac2fca1afacc7d852eb12b1c578bb6cad9091bbf3f512d5b25bef69e13eb48320cdc23e254532763779fc54f013dbd0213efc5a30604abe1f3f6626788c907889b399cb42a100f015d7fefc247d6c52abe2adaf0df049505915676fa2f9ce3cef44b49821ac6843d6f560345597753e95db1e6ccd8429f7ec1ac0f08c41a2b190be8bac68a44e0ef9b3c5201d8c69f6be90e7b0ba82505741fe79540e55e7054c1270ba2adb4ce6c2f5c55964b3e3abb29120458787fe36552a503359be15e7d7494978121ecfd5a23ca84258ef58b5c48f6c5e4c64070fb70b390dc8f376921299f7b3b83d9d16376d5610c7db93dfa11b91fa7ead89ad8aec538fb7aa47156ed67b3abca30e86457ed935765ce6e0936044c394b107bb604d7c6d08284f978a86a5a79f59205a7f002a9786decf23906a593e1fdbea58e0582591a0aeb2374b750ad30ef84ea123484d108e0cd00cce778a45b2bbd7a01c91f9f9d396e917bad357c0678f620b9d2571b5a7ffe2e4991b4a6418e7cb46f18b0f6c70d62a2489e8a3170d2f2239fee06ca4327c0de240e11c9c661e768123c3f3a66f7e01b2c4dbbf6e12e56d5368653fe2abf4e9d2664ea95f05634b00a6e3244515f49d8c442fc1379244cbafbcb11e213969e842ea8eb3afdaeb764c5a73dd2c3f919dd60e1f490b846847825900c98a2210b3932b5a875b94c64e64b3e34a270c4f093e579413efadb697a1e34af6dbf57279e8cf4fa10e79ab74dd52bf7abf88d07d51e60607f493f329e505fe129149e22b8e765eb9f9d44a84f901b414af435f00c8f6b597609a1f4b6c5f1c7a9de38ac54efc1aec1d274e367eb5ddec83f63a6a2262bdfa0cb1adb48344f00aa3578cdca1a3b640ede7ded1b3b7c6601ce70b4153ef477f720b2729edc72e90a4e0bfa732482098d7bcdd7ad6c09ad8080a25a12ef8eb52b7a5876dfe44c6b72dccf81e898b34dca8b14a900c547981390e1179933927ab1bc1f46826c6398a7227e29aa7b4cdffc7a444978abcd7197a019570fe985cf3d68cfd46a3e375124ad6b467acf6142583943966026f27928663d48b1323efaf67fa60bc3ff3c7569903a4bf64bf4721cc7841a6043ed37aebad4c38102a6cac6750d6d63fe4adb7a3e1e6be070a33426860e5e245d6cce589a3decc5913579cd4e32412486bd850e24418294eb782d11cb8fb9a895269b92cfa048c33f97ed0f3a01e422c8e7ba2237d914a1803e239f1987224dff6171bcc05fcbf3f441e7764a78e523180641ee8275826612f1e43310a6c12453af3f19de0fbb7638dc1236b724c9e445e5fc0537ed1c49a8a3f2558c45faf66c05df2b75187d3b5e9de2f73b9cd0b5fabe5d1e78eaaa72aeda929545f34bda52fe018587b6a1c8647181f3929ab767f24eed586298ba73e70aeb9c4dd011eaa958a2a51108e4ec93f083fab7f58dee28e83689bcb4fe4665815e522358caaeef099c5999501a47263c348da944218ed22b97cb47a3d3e98d6e00ed2923c6e77d67ee74b6596c97060a252e8d0b824a9392158c2bb5795099c4b7e19e1edbdb6cdd586eb8f76107298f0d841b000f207f96ec5129c9bfea76ec6292e890bdf9dc6fa8f804760270770f3d316ad25568244994d6d79a95b1256711c731c6732eeecfef384d68e4937ff310a75995982929fbcb89172d43d6c05fcf87109e3430f165880cd8daabf1de78aa633d47a0d9f002691bd61dd912bb26dd4f585d2e53d407240d1c33c6140343201838b5abd1dbd13aa2cc9c54d441cb2e723f6ee39d7c294df7e749807dd855f711b83752d7b683e4eb7975be591a27d16ea7a6d08a7d55bef315c1994912f556836936cd2cc973fe8b00ccf7de87bd231c7c9105d552af4159f644fc8c64f82cc6bd2574417276ee457aa2520cf4fac364a4c7c6a242e2ddb099e2d10c45ccc13f97cf4fb80818abaca936159913fd3111a3c9a345fb040219541bfe797c30ee61d789473ecbe437af8dfa4b26aa792ba103a1df668ab2de0f7bd0087e560e748c06555d905969f615837e3328695c5944e16e8ce06081ecfce6fcef89ab69aa266c63f6db52246d1846163d2d8b1298c39c0997fe673f986a16e9941330997c8234d2ba24e32fe26c44f9eec68ed85c801a8cd7fac5d032688f65124596d3cc8e88c14909e5d563de522e907877cfeea517103afe8c58f1985a36b5564734a45982684cd6b210090618a8e27f393ebfa7bac11718e0c010a2215844c4d43e0cd7833e2923eb1869382273ac5026f985ed2f707da29696713e01fceee2d663d0203cc9e5061843337c20337204f69f8f6a6feb3ca3f7d87bc72b67dbe0c1f7911c5122c7087b989d9830b6a655d4bc7d206fc2b97dad4f828fd0ac2a5cb44ab7243e995da15c6a2c44b8b6f5722900e42a75acaceb64e41bf7c8a4515c0be050ba8bbd2852f43edfa3d208b37a04199a21a69f5a9ef726d8142d80b6f6c1846fdb6b5ab710f669323e67122ddfd7f9e0129cde4f9d028732a96d9b427354ae7e95685c6e91053c1d6652fc74896b227bbce3de74a65eb80a9a3f706a990d86ef0882bd228bd04a23ed52dfe56aff4623d75db874e6a30a2ea5de8a310025e529efc906b7303737c639fa5c9bc69cdec3910c7bbd2c2e4d9d549fb24a9064fbd3ca1b68fc015e1d2ce8f2e59544a83aa3e126cd6e9775acec8d804f2e18190f3cdebd5ac38991348ad659c19686e03c139a352cf3eb3645ef4fc435c054f471ebd15223d2bd8416bf80c754ec3f6f30b549bb2c099d1324a78a89f6cb2ae1e31551ad5e17af1cd72f0d3a942e997584c5e0bcfc554f5fc92a699048aee07c63bcba2490ec7c36a9c8b9e16af0242e9faf4f0bfdc2d33efbfcc3c1227e368a44fa8092088c4dfc84a3a9b13b83f72653e37cfe604dfc0d614a866a0ef9148980a27ef585094c6958d920a8f8318ddf8ee8781feec7ead239570689040fe2a11e7c7743bdc8feb5c74b45ae012a6072df98c39727e62be78dda19f2c4936d11872a5e42999693d8af318636340a798b172430f9196e991a0fc76ea0937cfe4aa2f7ae1d92b14cc42ea4e0c35f93bae1102c7a884e2658f066efea7c7fa5deb5c289af87a385e7751e4f26e6885fcd4fda41ba4374a7f29c836ba005644c6cf63410b092ee3857160a1330bc45e41b119cbd2a3f82b7ba318ca16d1bdd7e7cf729cef1ed35dae6a60e4ee1ab60aea24bb61837519f84de75da4a01a664ab37769a133ab374a24438aadaab611757fbd94eb29ae7fb4f00ec65fbdec452065c49cd25afeb8bb92acc4e5b7890e2cb32bcb5a384815a8b7415d157d24fc30d8a659d02da0f6429bdec6c268153e7985e752d26e8e56150c50562b7195ed1f45c7151a542866e8c93819ad8d73aa71f5ae98e618c996a30d8b0faf4ac35e4f29a6327c3669791843b76dab30c9e68f7e550770b21a286d57ada3a3308d0544c4178c8ec46fdd4fe565e37c5e0a47b0fdb51df9cf34cc202550a7cb36b0ecfdd5177863cfe2c27594ff59dfda3a9decbd37ae274abcdfe030c7fa29bad891a1db660b0d34daacfbd0f4ed2f19a6cf0cd7596a7b16b86fb4ff8a1b955f7c3f3fe3f0e6669f3391110d0b87db8d993a60c09eecadf6851262a3d4d20d1d709f1fb8c5d82682fbe7572d9dc7c4a785c737e83aec994305d5f0742fb6598b4205fa9a9aa17ac277acfdffaccc6c31cafc95fde9165592c87954fb8e36884d5c344e6d949f944d2d71cba58b31f921fe525a3cac51d8c3e43f8391ee201454741de366e185f193b693e7e6ba70a6574fd06b116165eeeadc1554726741ede13c02c3e65549ea11e896d33723206f8262079adc25013f895c5b8d3aca96707fc52d512f000d5f8828c0cdbe77fb6738851c56f50f7ab80d8fd5de87d637e07d2af302f77cbf14a05631f205a9f566c0efaa74e8be8c816f8d305fdb01f85d57887e258e1a8e32413ef0f422aabab06b14ff83d4833b5357dfef791488d2653650333ded2af001d7781632b8897e28dffbb2b6a5897db4dca08ef954fdc1486ac78257e8ba479e743e2beab7b92f7d2b6eba5780ea37474c4a882aa22485b3beea5ccfddfc5f9094162461606bc3584414d19e8f4f77d84aafdf9b1d666856b066f7e5041929a376db332d3003e3b2fb6ec17066bdc2f3bdb692469dc634f830681a5e004e80113b01fc5f13903a0931a3dab94d454688ccbbde07ce1eaf98c72d87b808dc699427053d072aecfceeda75fd59a0985df3a5dd3e602f6559c36a0fd74270f903ebd137a650c57c38c33a9eb8d7181c2f9ad56977de0ed92a9300365d506203b31cb6747b0db94a443b3be1fa9a1907859412d7b7f91798de043ef508592c5660472608f7eb3bb251548ae2f2873eb25a5677b976c5e54bf4ec45ed514b1e3f267caa565154a2cdfc91c37e84b42e0bb8ad723516468007cc9501e99c2c97edad04360c124dbddf1ec7e89b7bff5e38ba3706e82d41c857e9027d4bd3b09b9d3378f9ee2eb20b8e0d8ab734af976bfd4b89619d0c4942db3047899f86f24c4fab22cf91683d07643a2512bee72417a9ad1751cd90d5fb6335222441d8b315996251c34a5063bf86ce735a6ddbc230b9550acb7f760bd0ab24aa03de6f3660a99937425a5e2563eb6cfa97a43ea28febeee6e8d7f29fd4d063e224b82cf48a900294a7372d072152947420fcb6f983c5b7e5546fcac7a4a551e4e71af5ca9886a1b0f04addab80f758655f35768c1a91f0d18f96617639ca5c2848162e385c98b2a6c92fa842474333068716fa59ffff0ebc654c4967f1f30e3a00a55fde4be0437fbc9f51c1bec45ef74e31082c7495d0e178e5ee38b977a16b322a82ffaca45cc6a964e15765e0d78909c782505c8f1b7b163b09401dfb15ce92e04d7b15225b177c47f3711e959a3d590a2d47d73533ec15b7cc245f976a5b54e44bc5efc9b84ee8203a3760f564dbafd0781cf98cd09952ea074fea98b410c58f9f5d723353e7670edf6e6f0ebfdee1df46a3ee1eae266eb51fc35553fdb3875ac3debc45868995bb2f0725450302587c71b77b55bea71110f717ce32886b3ea3c05ad3048a357d461b0a291c8e0a96d47bfcdb764dfc9456df78dffc7c43e7281527666ea0187994d742ff09366adc0dd14209a63c9f23ff0d53622201ebbeeb2383f0e30d10fb300d86a4328b63db245ffc2836ef6fe4d1d0e5481da59e88f7d10e0140754c993cf403b03f20bb375e8c5f96298fa8f64b20dc94f9a10986f0a7c50def2a80dbb507dcafda437db23430b255c6379fb804efbda01de78c4e5cb3a235750e330e42caf378c9c759cd2584d0ba081e1ec562c0cfd2eaa9777200e9fca4b7027b489d452021a5fc4daa8c706b91a8a4fd2074e6302be6a0ad9777e80bc5b20f9b0f6a1f2b00d02443d3f21dc7393c28965c7eb93bde972bf9a670c76e0fa0e81786ca1e814b7a42703577b9805e6f8bb0226efe0bc5e1a32e14ca2d84765621f9d62d4d85d5555a29fbdb4698c7ecfc8082d55a8da63d2f0d1bd8b70a6bb58e8ae3609f3715e6205c285bf3eef76fbd313f4f466351680865ff3c4024da53d273ad612dc90a83bdb31afdefdc4ba39a60bb72bdaa7e23955ca1517c17c6d822b5e4eddca6537719acff4516427d0c4d41c6e0469e1facdfcfa71b9c2021395dc7ee0c90949bc58c7e0f6b1b7c53ca678788ee268b38821d5aff676735dd54bdd1e73cec6716fd2514258911f9c7757b7c9a48cb526467a3d1f579570cf23588d94ec7f9614ba28d26262b6695525eefbadddf71bf0b4b0a9aadd32b59048633c152182660011115777e1b3c8a51cdf7b165caa8e55adde37b53f4ffc3e36128e9cc9ec453818c9faeb45750dc19769e332bfcc10e53b82f39dc4745154b998f8db1e1931fbd1777b83218a67bafffc4b5f2a3350b111de0341ef913cbb9091b395e1c663b1efad7b0f7e947139d2c133201b191774adca43e58e9d0010f2d6f0bc26d72cf432286e6afad2a58c91217ea2686e87a57a8dfa048bee4aba094ccb2bd190df08f61d6e9d83b2bd1da2446244c47f390778d6f191486647982706cb8bd4d070dc473f54a2e6b6886380a3de9c88d0e5acb72f2f1e4b37723b2dd80f68b7ee466c538e4e34fcbf19880281861ffd95e7350dc7e6c5c92227c1a41f06eb10f951af10ba04d42482c7486dc5297e5b4a9101fddd0249072bc3743633593b05596d09d679642a4726745071a7d83d836cc735821f8513ec11ddfde196f4eb50de9123b208155f441c102d71b68c9dccf59aaa956f2e8be93489895ae0eef641c7479ef4e42431c5ae48d067305182d9963d2ebf7e85905580f592391bcbacdd17df19a42b11f49ea2d552bad777d88e0a97c1cca678c370c20b97b9ec579c6d4714c1e4529962ff40d0eab9151d0db49dd3cd3d08c74a8ceac3d39c4841086460dca53c4e40ff146d8bfd7f643e88aa46dcc5ef730b479cbe35b05341d78722f28fcffa9cb1e8399726b965fd1fed1dc73fea49270b3bd84032db2fb45c271f783d42015664a0651d00b76d7b4c8f6d3bc52baa7beefa4b5108109d4e74712d645a8082852461348bea4e5bed3f7236f7023f4080659970ebf891c8b0e0114c2b9a028af0f2cb8e6925f6c0e0085ec671ab45958277ad6241dc92eae3a349224144ed51dea6655d3595ce0c343c694ecd517c5a8f0115a1eed4b281e7c96ee10d9a6e200fdab6169966da68be1d33ac5c41623eabc409896bbc308cc8165093c3a929e9c272a9593fafdf448a797c2cc129447ba071c7ca60d2da546f37fb1d9c9c26b377ac13313860e1eff4f008980408c52fef73762e4b447a9b8d0f5d392e0626ae4482a8a73a5f9c476d0d6bc11c90bf3ded74fcff416ddece37155d3c65be59b4e7814b81c2271a99b7ceacc71451834028bd2544b30edec1115b3f88b04e0ce54653ab9ac17b69f7e2a800f4643b8088279460bbfd499c89656c0600d6fdc5d0bda1bd6de5778fcdb3411fbd6806b7e7b87da765035b420da8d99d3886d6461a9cac4c6da9cc846d812d3dd8aa0240e759f27da074232585455a488c517c0eb78f746a9aa18ab0f373ddc2ee5d00fade817a6c0d68678570c553af9947246c339b54e0671f6beb32c3b41350194b963db0307f958d00f2c2bfca8ec5b8018fd9c050a9750a4eeba7846efb680bfd92bf355ea2b22e1bd1b00c0509c23b20aaff004fbe232a33fb4c1f3f5a8d9eba29019ed7a6e88f2ec9bb13cb8d11cff51e64e2c3352c4229be78ff8669e52e49d8bb0436c88457159b67faf493ab330a0db30919e70c498d05253c074cdcc3313a880fb5b03f16b909b8bc365dbd7b2ed75799e338866888041eaa07af8bf8bd210596b44a51e62be69afbc3a18f5e2520c58addc28620bcaaff441350bc9738a3a9e4051c4585a25d413a16d4462538135f42bdd9ced24d5779a6b778d31d7cd7f69fd9ad8b7e5334e2ca43f529431bb88b27d1614203d0cf5d4c2a2321ec518f1648bf02b48ef24e081bfd152b2c8f716313a677726eec593fc2311c7d5bde48ccdceb8569f47146a4f484c6ce39debe7a4b6deb8e58e712b98f6368078cb43cdc375b92e916c4c326f0df1f356f2aed0f0d1402d9ad26ac03d558601cd980be33619d97836b06b0354c273564ddb2b71cb431bce24b0cce60fb1ad65ba4cc245e88af308e0f6640307e83f2bb4e3e00a1c6996274cd4d952f0ce3a0ad14c95a3d4f4432af972ccf40f42f9b79d72ebcdbec04d7a8e2d78990b3dd7a070610dcc0b13233d6b264424eb3e04541ab20e3414721d64ebb9df3573bed4dc24012b0557d661169f7537fda0c9d24d535c8f821dd31ff8c2c3a31147498ed4e87273d06927e3ee3a371ea5bd2a1fff37ce58d77fce5d75d053934309b445afae67e29c8259b3ebf435b337518ef46ede64cfa78962ead2e47a3024f53c980f86ac10542280e2b9c0b94ee10570c70bb1087d6a1f2d8c7624c3486a47a00dfffed5abc7ad810d453ee5e14d39df12d001ff7fd80e671b4c1569eb82322953b28b4dbd68cb03cd15d860f195f8da49ab2be075c03448c86162d0181554e10216669b72ee6928c3ebb776557d687179a0759c66e2945296be5eb7449fa45fe5ece2ba41c349ecf096c3b0119b7457d602976200de091179eadc022f420b1ef48b5e5de2049ac570cac6d40dc7b1049b631b1438fce9447b0402766caeefa91ee864c37cd0b0812be78f9e775b749b712884caa96969e1e8b73a1f3008ad216c298a5e8d7d9cc769b9ee88b46d20a22a98b17d9f0e0bef76974f978fd2b52758a6a555a9d774ae5e3e92b643a090065c730ead5a73ab116ab999246f3b02e520f227b7e4e631494b50b08916fe62e59cb6bef0a287d04e5e74f85d2e7740f78aa18d2c7e6b2f7bb2b8a6aeb0b791b57b5182b5dd1324c0f7190da5c6f683846b5311d90dd9db748ce1a2345031623f1f79aa97de8cda16912307e6de1cb4998939bf06939ad36a11dec4da6e6ef34beadcda31919d7169c5c4a428282fc74fbc8cb397fe4f38b5c1610f548c814b48328ac3624ce9d4a225e2f562158672ef97b3a71410505f5e5b9a3de74d9e240f77d10c71b2a0251f39fab66e1a59aa3da52f79bb33ba728e5aca039faee149227e7dad3d8c629571ddbe14c22c45795b5311285cc382158977647a4b35b391bb4e76badbf39a6d5d23c11e7c4313f50f338e1ed97fbaaad8c107698ae78e92424306863cfa46b539adc30c1cfeb2f398666a2b46f8cec50303d80fa4ca6b40366b6c463bbb5bd44438eaef43e45870cad5781e7f986e938ec1bde3ef65b22ee60994f3660d26a3d432222e49d030aa8b25dfd47533e08eb9a60daaa9fe0fe55dec074328474547f9f8dd7538546070af6f4ec286b05c11d888ae9cc0c07ae2797b20d6fbefebb4f3433acbd00220f4738064a1353eef51d5f3bab43dcfb692bb37bbfdbc061c906e1f16ff2ab95f1ec56389eb791d3ae9bb5cfffc219ff8d8b2f17550b2042ba946f0d8dfd9902a626080805b8e1008d3a7223a6d417ffafd9bc4f41fa46e115f938a25966e2c462b60f0da5790e892db66c0c70bf7f23c367931b602a44e450818c5d6e67cbf883e79339d88797ff9d6a36db6218f4fb372041e0451ccf1d1025e2d7b5ab14f93076f181793a442f82e532dc25c8f47683fe1c1b65b0dbba263a1eaacbea0d689d89f9a65fe78c8b58768aa0330af7a43c07d066d84546075ba562fe210ce66fe7a1baa3faac652e5eb930dc26c6ec6a2b56058d1656135af2414a2b36fb7099b05ea7b602fd93d2deb11889f57478a096eadff00a82dd62c2d86956c98ea69837ae741d6393ccac6fbc26fe9dadd6e043f9173439de1f1e5e36cafda86ad415e0fa1df82f5a6822b9479a51be1aa21fa8cb242ed002bbe8ceedb18637d2bfe1c53f3fa0d821e69f270a7b7eb36d743a3fb1c96dfa9790c7be5bdbba162d9cb7be0252a25cfd1b1ffa482c7e695e27c9fbc4c3b4c3c38d152095a00f4e982706589773c940d124986771a60b2a8abbefa421838dc06f9440db154ef6b537e9d57361ad06bb692e1fd4099c4519302d9f47f6a9985371c66b50b82a812482a82d9f03d30db23ccf87b23f26f34cad3e6e97dbf54bf9dbaf8e67974bc11af7ae890e73690be5cd896e2d06d02b1c517bd9f9305afca25f9c666db60bf833b70a70ec7eca9c53a5202a53468a10aaec69b2e3b6cc5202224d8deedaebd93ea27e3f1112c7a595a654a1c5f5f06de81efc33a70a96e6c703cde9631dbbbbc3fa5cc1f0dfa9202238de0d383ac35ca6fe3f2b4437370609cf5e28e78b6f58a4308ffe521645ff67cfe402462837b47179542188419d866e3531f2a34f2ce05ec2f18326f78089322705e65d3c5ffb9d3d23cdc23d7a5141e2c3ef7a01d856007c0f58edd11f53927f0644b2fc2e838d7bf1eef0bd22347b1bb2a799f142a2f71f677c6fc42959ef139450fcc29f63cc1d5d6ea6c5eaf19820a491c80c26968b0d632f95dd83259bba29d68fc7563e97004a650eb1ce9e80af27942e4ae2beb3d7332b4a1f37f078bf291e95d8f91fcbf51673b66f74f763bfbc7d7b07de09e54a7ea646b4b8cc596261b6bffb0a846a14c2ef6bded7290d60f6f90bd61ea5aaddc81dc51752c08f741ed4f06784d8b1befe192efcd5e8b2381be587e3b4c07d861aa6e25dae8cbce775bc49ec4aaffade1b22d4bad173bb6d594b69df0f861a4cb1e754818d7de0fcceb771baab0dfa14c008840cdef18b1250e16ee18fbff15947538dc05626209b9de3ef10f479653a8274112474b051cbc5426ddc94b64e0b21e9a91fe3c5ce97b4ee6675570ac60652e575d0865e37ac24d322c919b23a720b17acd98a6a1123f7cd1ebb8e8001edf51e700d776b1bbc18b8fb78a322fecc6a70ca938190a5166f4e9addd80456367740e1ada50a2418615fe337819471da6620e2bbc616c5f9ddbdd81e2561367c01ee3e16059f9cc95800629b8f8943f809cb73d5044b40b3fd653541c8f1ae9ebd9d0a6ca6555a2fe0f77eaa246431dac564d6c8b311974e6b765efccd6971a92f7a72ae68b32e4c938d6e82fd964d3548a1aab974a8ec9b5f4d70b40c11e1bc78cfd388af6725aefffd078eafbf7566a5cf5fffe859e247da0b7e588d79cab33c5ea683175b90e5b0fb393179ead396497f650863f201da551c81abc1e2104e9f1ed4eaa44f707bf2042ef14a9efa334b4dfddaa45031eb0fdf67e009288987b3b32ac8fdebfb91dfb34c9eb5fab4f523b5b391422fc24e316a8dc7913d70f6679dccc7b28587c4940752dc72604f41dc54278a7a945554fe3a80c977ab1bde9c3ed1f64104c555804b8974b5596cf4150932bedcad5fc30dc71c3c52ce6ebc9c76f2d3c351bd6ddb3c986eac0d33be06a1edad410b515887d9deb516c52e3803e020b31dd70fa560c65a83fd841c8b416ea42628abf00353d557026fb08d7728190150ef575a5b4c4ce05b7765b1a29cb54ad42e3b68161624700cd58b135d0735d2086e4539564eb834c785e1e2f83647826ea45d80e1d86aad2fa53c54062a544a85ac8c61352fafbe90282e4d054c9d2ef2edd2835bec815f3fac7a7cde7dfd5cedd92530831c109b7c4a86a71a9f8ff9541bf8f50af1c60b6b61e91024c534fc0614e787b332addc8adaff3a5bf742cb29d8ea6a76c4092cbe8b60674d7080b8bc0cf3287bd9d3c5f5076c3c8a4a87ff8e023eac9a44aa5010ea205e871a7cb0a0cfb391f0a7236da217a96298ced3dc17b07ab73f5c2b2700571e6a943d84c4e0e0627714df34e8428423eed958ea5b74b7d08727e123dba7ba682c34ea5c11bbd8a61fe940d1c8d1f6910cd3358b40d8d9623879b536ed3564355be8104c16f37db3340d988273889ee99f55f1aa7264339c170e82fefe54a160d89b96658a84e192b5b6f91b5d39bfbcc0ac64618bab4ee27e83ff95d48f2b7236fa61a0bd7df94265c10df62483695007ceceb66b4be9c9d1c190fad5ca2836132655069e4ff0208ce8bc6e4aa9585a6e14b8fdb6505739ec985273d870e74e17658703e16ee42cbb97d5e07f5e6877f1e504b8b1df6515fb284852e8b418d501cf4609f09b06bb0ecae8a882c3a7f3d6a95a7d591e359d97eedffa14da9dae46f6cbce1dc946b17c4424778fb99434b84d42c217fd1df107b4bb5a5985e8d26b1f23368d1b4d504f7151811ed0f61861abe09d1e94c3bffb24e0c7659461910968ebee1042533fe44054737311a86ef41f1763f7e5936e85590889c2091301c001a23d591382c2d5e0790c97fede3e5efdd763eff2339220a45265a603a1c17efa60d9b3ef115948d375b4b1fef11713546243e2e8a887ad431c240ca61f6a334f232cd866435afd744f8f041a7a662fb195d83f2b4dfb4422f8338eaa44140e0bb50484bd323206e5067ab170723f95ce12c353b37e198dcf8e250394e5a09086b1c8d6204c01d55da646dd3764d9d52d95671864ba6453713fc2bb7f0e7b1f345b5d031efbb2450fe6f9fb563a62c689808e4dcb9498fc89ec96be7682cbec4140d5797aa053ff6a7cb1d52931d78ef3e925ff42172081385ced904c218e8984da5309c69797110db953e77b501ea445873107efc627fef235fc7152838bf4f0647bb99ddf1f9a9fd1bb2a7e0c72cf2ed0b78ef8a38c21c3ba4e4a11c1eb3e420dec45c5e0e772baa3a1a70eedb70f2787ad49002fd48e2753ad912cfaf8f8f84fe88f50d01cd9f58436e936409a37e38ea147e5807c6700d89fcf883420f2455e17c368a98b9d3fa632ae939a082900997890066547c7798606da62dbb98bb74ceefdcccbdfc168ae3cd0ebdb5b93e6235379906bd0a34a67d7cfc8ed2b9668665195236df52b542bd957fbea8f1bbd373b625b1ae95bf86e3c739501544107857ec8e90b41d02ebabf213a7cc1f10d8c1ca350bcf66d37a4c8f4c16e745f3750167ec69e1f830fbfb64d5a298f9075806707ffbfc61cf79115e382d45a7effef23046abdf27acafc45502c9da6ac70d094466fb394a962b3249c2ff2693449e2d0a3325b7aba74b3dbda1ab4adf165175f9cc1c776d5952ed03d20ce7d73702afc2b5e5fc873fa3d0e9f0186e9b76026bede9a0cc609d03381ae2f4de1fedbf605c97eb3d7077ec3132baf2ee937129bb853962e90a1d78f74770c6c479579c40ae0d93cdbe11e9b9c9ecf7b0eef42b634b598b7526faff628322096f6853cc7437db2dc42c0debe32e0a96e3a7540896455f1a5f4edecfafbef2d1f9e39059a04573d55a9267d9b0d32d4aba46223d5f824b72456cff9669cb87f68624a933cd5063e855b5713c260d45cca7f0ed2f1c7e5ae6614fc1765fdef121ab5bb3fc8b1635f3bab979928b45ff9adc404eb8477ea5974827f3ebe6407eb05008f52d950433f643189aa07ff02b3de31f982fb10f65b92396beca4335b553383d777c5366a539553d1b815bbb81d65b324f0161a4f7ace1b6e0dacacde3743b86662365548dc72459696b7b7b4e34ee688cd573f5034c8e8dc29d383947bcfd2f56a4f4a12492d2a923f65edd7d109476c96dd1935ffdee611adb09daff9f64fa263e2ea77c54f81ace1c53b67454cb878372172fe25a5c23f44763a0332202c9698c54c7fc624e2848dfe69aee7c6a8ebd040fb3c09ce387f88e97ae98027696da4fb5ac489e113cd3ff510b61506fb2b2fefac8e176b6e011c7f119fc21ed9679d2f47ca352e92d43a859f849c30f5d47524e8e8a065a990f2e2460a018eb31ad68da51c7e657fea9860852a926609a43d786340bc4a6a320c17570da43c878d23ff343018c260367947e9f42b0df7f159d51998496a9eebf32a7534b9f904c89fffc87e55f9a526e46762ac78c495a5709f017cb493a5cb8fd744a503128aa9fac23ed734cac3bfe237ba97ba600ab614c1c077ab5d572648c8b87246868d40b9156416fb8c105193e1f8327c54a87fc48e0e42b5b70df880ba1463dabe6a88d05f880244035b66f451ccff47aef34b57425102c43dcfadb76ed6663a42a771bcdd74a12452a3d531e53b8598a89a1bf53b40e1c953ab64952d4639b16c658906c820211d3d9fd7edc8e250c8d6ed38afad580e95ba850b02d1d6deeea5690d66dd23bdce8d0ebd5cee95739d5f8150ee54b90afd0726d0bc579f63c9b298bcfbaf6975a64656535375f7738c10f1c8694ec29bf3aa6f4888b9abeee6d9d198b1ba019ab3aad1df714cac861802f2a3d60c947d358ba812a1df09700bd16c8477ea4d482c84411fbfd0b5f0bdfcadd576e5dce0fcae6a7511fdc7d096eeec46268c2e4fbaf8204b1e2065b044a98</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"> </div>
+    <div id="donation_div"></div>
+
+
+<div style="width: 90%; text-align: center;">
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}"><span>打赏支持</span></button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block"><img id="wechat_qr" src="/images/wepay_240.png" width="50%" alt="微信支付"><p>微信支付</p></div>
+    
+      <div id="alipay" style="display: inline-block"><img id="alipay_qr" src="/images/alipay_240.png" width="50%" alt="支付宝"><p>支付宝</p></div>
+    <br>如觉得本文有用，可随意赞助以资鼓励。<br>如影响阅读体验，请再次点击关闭窗口。</div></div>
+      
+    <div class="authorinfo">
+      <img alt='' src='/author/latelee.jpg'  class='avatar avatar-64 photo' height='64' width='64' />
+      <ul><li><strong>本文作者：</strong>李迟</li> 
+      <li><strong>版权声明：</strong>原创文章，版权归署名作者，转载建议注明出处（当然不注明亦可）。</li>
+      <li><strong>本文链接：</strong><a href="/cicd/git-for-cicd-4-github-and-docker.html" title="git在CICD实践中的应用4：GitHub与Docker">http://www.latelee.org/cicd/git-for-cicd-4-github-and-docker.html</a></li></ul>
+    </div>
+    
+ 
+    <nav id="article-nav">      <a href="/cicd/git-for-cicd-4-sending-email.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+        git在CICD实践中的应用5：实例之发送邮件</a> 
+  <a href="/cicd/git-for-cicd-3-bitbucket-and-circleci.html" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">后一篇</strong> git在CICD实践中的应用3：Bitbucket与CircleCI</a></nav>
+    <hr class="entry-footer-hr">
+    <footer class="entry-meta entry-footer">
+      
+<div id="comment"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'true' == true ? true : false;
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+    window.onload = function() {
+        new Valine({
+			//av: AV,
+            el: '#comment',
+            notify: notify,
+            verify: verify,
+            app_id: "X36fuJhKb5DzHu6Sv2AU1Aap-gzGzoHsz",
+            app_key: "bix54WVwzsQyxeHbvIcJGsyA",
+            avatar:"monsterid",
+            placeholder: "可自由评论，但勿恶意评论。上面那行可填可不填。",
+            guest_info:guest_info,
+			//visitor: true // 阅读量统计
+        });
+    }
+  </script></div></footer></div>
+</article>
+  <aside id="sidebar">
+  <div style="margin: 20px 0;">
+	<div id="search-form-wrap">
+
+    <form class="search-form">
+        <label style="width: 72%;">
+            <span class="screen-reader-text">Search for:</span>
+            <input type="search" class="search-field" style="height: 36px; width: 100%;" placeholder=" 搜索…" value="" name="s" title="Search for:">
+        </label>
+        <input type="submit" class="search-form-submit" value="搜索">
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+</div><div class="widget_athemes_tabs">
+    <ul id="widget-tab" class="clearfix widget-tab-nav"><li class="active"><a>最新文章</a></li></ul>
+    <div class="widget"><ul>
+        
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/docker/docker-30-deploy-for-c++.html" title=""><img width="50" height="50" src="/gallery/tech/docker1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/docker/docker-30-deploy-for-c++.html">我的docker随笔30：C++程序的自动化构建</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/vue/vue-notes-vue-basic.html" title=""><img width="50" height="50" src="/gallery/tech/vue.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/vue/vue-notes-vue-basic.html">vue实践录：vue基础学习</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/vue/vue-notes-starting.html" title=""><img width="50" height="50" src="/gallery/tech/vue.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/vue/vue-notes-starting.html">vue实践录：windows 10系统vue环境搭建</a></h6></div></li>
+          <li class="clearfix"><div class="widget-entry-summary" style="margin: 0;">
+              <h6 style="margin: 0;"><a href="/code-life/ruankao-pm1.html">软考路：高项1心得</a></h6></div></li>
+          <li class="clearfix"><div class="widget-entry-summary" style="margin: 0;">
+              <h6 style="margin: 0;"><a href="/pkc/kindle-usage.html">kindle使用及周边的记录</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-oracle-test.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-oracle-test.html">Golang实践录：oracle数据库实践</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-my-utils.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-my-utils.html">Golang实践录：我的工具包</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-cobra-note.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-cobra-note.html">Golang实践录：命令行cobra库实例</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/pkc/setting-ip-for-windows.html" title=""><img width="50" height="50" src="/gallery/tech/tools1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/pkc/setting-ip-for-windows.html">Windows设置IP脚本</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/pkc/database-practice.html" title=""><img width="50" height="50" src="/gallery/tech/tools1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/pkc/database-practice.html">格式化工具indent使用笔记</a></h6></div></li></ul></div></div>
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-linux/">GNU/Linux程序</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/category/using-gnu-linux/">GNU/Linux系统</a><span class="category-list-count">72</span></li><li class="category-list-item"><a class="category-list-link" href="/category/linux-kernel/">Linux内核研究</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/Qt/">Qt</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/category/porting-uboot/">U-Boot随笔</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-windows/">Windows程序</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/cicd/">cicd</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/category/delphi/">delphi</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/devops/">devops</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/docker/">docker</a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/category/golang/">golang</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubeedge/">kubeedge</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubernetes/">kubernetes</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/category/nodejs/">nodejs</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/category/python/">python</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/vue/">vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/pkc/">个人知识中心</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/">人文社科</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/code-life/">代码生活</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/category/just-for-fun/">小玩意</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/embedded-linux/">嵌入式Linux</a><span class="category-list-count">58</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ellp/">嵌入式Linux入门与实践</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/firmware-bios/">嵌入式底层BIOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/category/toolslib/">工具编译使用</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/open-project/">开源项目</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-library/">我的程序代码</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-study/">技术杂铺</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/wireless/">无线WIFI</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ml/">机器学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/category/multistream/">流媒体学习</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/category/the-life/">生活掠影</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/category/answer4you/">答网友问</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/compilelinking/">编译链接</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/web/">网络/网站/web</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/net-study/">网络方面</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/">项目日志</a><span class="category-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+  <div class="widget-wrap"><h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud"><a href="/tag/4G%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">4G网卡</a> <a href="/tag/ARM/" style="font-size: 10.5px;">ARM</a> <a href="/tag/BIOS%E6%97%B6%E9%97%B4/" style="font-size: 10px;">BIOS时间</a> <a href="/tag/BMP/" style="font-size: 10px;">BMP</a> <a href="/tag/CPUID/" style="font-size: 10.5px;">CPUID</a> <a href="/tag/CPU%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">CPU寄存器</a> <a href="/tag/CPU%E9%A2%91%E7%8E%87/" style="font-size: 10px;">CPU频率</a> <a href="/tag/C%E8%AF%AD%E8%A8%80/" style="font-size: 15.5px;">C语言</a> <a href="/tag/FTP/" style="font-size: 10.5px;">FTP</a> <a href="/tag/GBK/" style="font-size: 11px;">GBK</a> <a href="/tag/H264/" style="font-size: 11px;">H264</a> <a href="/tag/H264%E7%A0%81%E6%B5%81/" style="font-size: 10.5px;">H264码流</a> <a href="/tag/H265/" style="font-size: 11.5px;">H265</a> <a href="/tag/H3C/" style="font-size: 10px;">H3C</a> <a href="/tag/HEVC/" style="font-size: 10.5px;">HEVC</a> <a href="/tag/HTML/" style="font-size: 10px;">HTML</a> <a href="/tag/ICH/" style="font-size: 10px;">ICH</a> <a href="/tag/Intel%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">Intel处理器</a> <a href="/tag/LCD/" style="font-size: 11px;">LCD</a> <a href="/tag/LPC/" style="font-size: 10px;">LPC</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/Linux%E4%B9%8B%E8%A1%8C/" style="font-size: 12px;">Linux之行</a> <a href="/tag/Linux%E4%BD%BF%E7%94%A8/" style="font-size: 12.5px;">Linux使用</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8/" style="font-size: 11.5px;">Linux内核</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/" style="font-size: 10px;">Linux内核编译</a> <a href="/tag/Linux%E7%A7%BB%E6%A4%8D%E9%9A%8F%E7%AC%94/" style="font-size: 12.5px;">Linux移植随笔</a> <a href="/tag/Linux%E7%BC%96%E7%A8%8B/" style="font-size: 14.5px;">Linux编程</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C/" style="font-size: 10.5px;">Linux网络</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10.5px;">Linux网络子系统</a> <a href="/tag/Linux%E9%A9%B1%E5%8A%A8/" style="font-size: 11.5px;">Linux驱动</a> <a href="/tag/MFC/" style="font-size: 19px;">MFC</a> <a href="/tag/Makefile/" style="font-size: 14.5px;">Makefile</a> <a href="/tag/PCI/" style="font-size: 11.5px;">PCI</a> <a href="/tag/PHY%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10.5px;">PHY寄存器</a> <a href="/tag/PHY%E7%8A%B6%E6%80%81/" style="font-size: 10px;">PHY状态</a> <a href="/tag/PHY%E9%A9%B1%E5%8A%A8/" style="font-size: 10px;">PHY驱动</a> <a href="/tag/Qt/" style="font-size: 13.5px;">Qt</a> <a href="/tag/SCSI/" style="font-size: 10px;">SCSI</a> <a href="/tag/SDL/" style="font-size: 11px;">SDL</a> <a href="/tag/SD%E5%8D%A1/" style="font-size: 10px;">SD卡</a> <a href="/tag/STL/" style="font-size: 11px;">STL</a> <a href="/tag/U-Boot%E9%9A%8F%E7%AC%94/" style="font-size: 18px;">U-Boot随笔</a> <a href="/tag/USB/" style="font-size: 12.5px;">USB</a> <a href="/tag/U%E7%9B%98%E5%88%B6%E4%BD%9C/" style="font-size: 10px;">U盘制作</a> <a href="/tag/V4L2/" style="font-size: 10px;">V4L2</a> <a href="/tag/VAAPI/" style="font-size: 10px;">VAAPI</a> <a href="/tag/VLAN/" style="font-size: 10px;">VLAN</a> <a href="/tag/Vagrant/" style="font-size: 10.5px;">Vagrant</a> <a href="/tag/WIFI/" style="font-size: 13.5px;">WIFI</a> <a href="/tag/YUV/" style="font-size: 15px;">YUV</a> <a href="/tag/YUV%E6%92%AD%E6%94%BE%E5%99%A8/" style="font-size: 13.5px;">YUV播放器</a> <a href="/tag/ap-hotspot/" style="font-size: 10px;">ap-hotspot</a> <a href="/tag/armdocker/" style="font-size: 12px;">armdocker</a> <a href="/tag/atom/" style="font-size: 10px;">atom</a> <a href="/tag/beidou/" style="font-size: 10.5px;">beidou</a> <a href="/tag/bios/" style="font-size: 16.5px;">bios</a> <a href="/tag/boa/" style="font-size: 11px;">boa</a> <a href="/tag/c-c/" style="font-size: 10px;">c&c++</a> <a href="/tag/cgi/" style="font-size: 10px;">cgi</a> <a href="/tag/cicd/" style="font-size: 15px;">cicd</a> <a href="/tag/coreboot/" style="font-size: 15px;">coreboot</a> <a href="/tag/coredump/" style="font-size: 11px;">coredump</a> <a href="/tag/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tag/crontab/" style="font-size: 10px;">crontab</a> <a href="/tag/cuda/" style="font-size: 10.5px;">cuda</a> <a href="/tag/debootstrap/" style="font-size: 11px;">debootstrap</a> <a href="/tag/delphi/" style="font-size: 11.5px;">delphi</a> <a href="/tag/dhcp/" style="font-size: 10px;">dhcp</a> <a href="/tag/docker/" style="font-size: 20px;">docker</a> <a href="/tag/dos%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">dos系统</a> <a href="/tag/doxygen/" style="font-size: 10.5px;">doxygen</a> <a href="/tag/dropbox/" style="font-size: 10px;">dropbox</a> <a href="/tag/emacs/" style="font-size: 10.5px;">emacs</a> <a href="/tag/ethtool/" style="font-size: 11px;">ethtool</a> <a href="/tag/ffmpeg/" style="font-size: 13px;">ffmpeg</a> <a href="/tag/flash/" style="font-size: 10px;">flash</a> <a href="/tag/freetype/" style="font-size: 10px;">freetype</a> <a href="/tag/gcc/" style="font-size: 11px;">gcc</a> <a href="/tag/gdbserver/" style="font-size: 10px;">gdbserver</a> <a href="/tag/getopt/" style="font-size: 10px;">getopt</a> <a href="/tag/git/" style="font-size: 14.5px;">git</a> <a href="/tag/git-cicd/" style="font-size: 10px;">git-cicd</a> <a href="/tag/gitbook/" style="font-size: 10px;">gitbook</a> <a href="/tag/github/" style="font-size: 10.5px;">github</a> <a href="/tag/golang/" style="font-size: 14.5px;">golang</a> <a href="/tag/gpio-ich/" style="font-size: 10px;">gpio_ich</a> <a href="/tag/grub/" style="font-size: 10px;">grub</a> <a href="/tag/h264/" style="font-size: 10.5px;">h264</a> <a href="/tag/hexo/" style="font-size: 10.5px;">hexo</a> <a href="/tag/hostapd/" style="font-size: 11.5px;">hostapd</a> <a href="/tag/i2c-gpio/" style="font-size: 10px;">i2c-gpio</a> <a href="/tag/iTCO-wdt/" style="font-size: 10px;">iTCO_wdt</a> <a href="/tag/ifconfig/" style="font-size: 10px;">ifconfig</a> <a href="/tag/inode/" style="font-size: 10px;">inode</a> <a href="/tag/iperf/" style="font-size: 10px;">iperf</a> <a href="/tag/iptables/" style="font-size: 13px;">iptables</a> <a href="/tag/kubeedge/" style="font-size: 16.5px;">kubeedge</a> <a href="/tag/kubernetes/" style="font-size: 19.5px;">kubernetes</a> <a href="/tag/leds-gpio/" style="font-size: 10px;">leds-gpio</a> <a href="/tag/libjpeg/" style="font-size: 13.5px;">libjpeg</a> <a href="/tag/libjpeg-turbo/" style="font-size: 10px;">libjpeg-turbo</a> <a href="/tag/linux%E5%86%85%E6%A0%B8/" style="font-size: 10px;">linux内核</a> <a href="/tag/linux%E5%A4%8D%E4%BD%8D/" style="font-size: 10px;">linux复位</a> <a href="/tag/linux%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">linux编程</a> <a href="/tag/live555/" style="font-size: 11px;">live555</a> <a href="/tag/malloc/" style="font-size: 10px;">malloc</a> <a href="/tag/mfd/" style="font-size: 10px;">mfd</a> <a href="/tag/mingw/" style="font-size: 10.5px;">mingw</a> <a href="/tag/nodejs/" style="font-size: 17.5px;">nodejs</a> <a href="/tag/ntfs/" style="font-size: 10px;">ntfs</a> <a href="/tag/ntp/" style="font-size: 11px;">ntp</a> <a href="/tag/onvif/" style="font-size: 13.5px;">onvif</a> <a href="/tag/openwrt/" style="font-size: 11px;">openwrt</a> <a href="/tag/osd/" style="font-size: 10.5px;">osd</a> <a href="/tag/pelco%E5%8D%8F%E8%AE%AE/" style="font-size: 10.5px;">pelco协议</a> <a href="/tag/platform/" style="font-size: 10px;">platform</a> <a href="/tag/proc/" style="font-size: 10px;">proc</a> <a href="/tag/python/" style="font-size: 10px;">python</a> <a href="/tag/radiotap/" style="font-size: 10px;">radiotap</a> <a href="/tag/rtc%E6%99%B6%E6%8C%AF/" style="font-size: 10px;">rtc晶振</a> <a href="/tag/shell/" style="font-size: 11px;">shell</a> <a href="/tag/socket/" style="font-size: 10px;">socket</a> <a href="/tag/spin-lock/" style="font-size: 10px;">spin_lock</a> <a href="/tag/sscanf/" style="font-size: 10px;">sscanf</a> <a href="/tag/ssh/" style="font-size: 11px;">ssh</a> <a href="/tag/staruml/" style="font-size: 10px;">staruml</a> <a href="/tag/sudo/" style="font-size: 10px;">sudo</a> <a href="/tag/sysfs/" style="font-size: 10px;">sysfs</a> <a href="/tag/syslog/" style="font-size: 10.5px;">syslog</a> <a href="/tag/tcpdump/" style="font-size: 10.5px;">tcpdump</a> <a href="/tag/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/tag/unicode/" style="font-size: 10.5px;">unicode</a> <a href="/tag/vc2003/" style="font-size: 10px;">vc2003</a> <a href="/tag/visca%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">visca协议</a> <a href="/tag/vnstat/" style="font-size: 10px;">vnstat</a> <a href="/tag/vue/" style="font-size: 10.5px;">vue</a> <a href="/tag/web/" style="font-size: 11.5px;">web</a> <a href="/tag/web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">web服务器</a> <a href="/tag/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tag/x86/" style="font-size: 10px;">x86</a> <a href="/tag/xml/" style="font-size: 10px;">xml</a> <a href="/tag/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" style="font-size: 15.5px;">个人总结</a> <a href="/tag/%E4%B8%B2%E5%8F%A3/" style="font-size: 11px;">串口</a> <a href="/tag/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" style="font-size: 10px;">交叉编译</a> <a href="/tag/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/" style="font-size: 10px;">人文社科</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">代码生活</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%A7%AF%E7%B4%AF/" style="font-size: 12.5px;">代码积累</a> <a href="/tag/%E5%86%85%E5%AD%98%E5%B8%A6%E5%AE%BD/" style="font-size: 10px;">内存带宽</a> <a href="/tag/%E5%86%85%E5%AD%98%E9%A2%91%E7%8E%87/" style="font-size: 10px;">内存频率</a> <a href="/tag/%E5%86%85%E6%A0%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">内核学习笔记</a> <a href="/tag/%E5%8A%A8%E6%80%81%E5%BA%93/" style="font-size: 10.5px;">动态库</a> <a href="/tag/%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5/" style="font-size: 10px;">参数检查</a> <a href="/tag/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" style="font-size: 10px;">双向链表</a> <a href="/tag/%E5%8F%8C%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">双网卡</a> <a href="/tag/%E5%8F%A5%E6%9F%84/" style="font-size: 10px;">句柄</a> <a href="/tag/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/" style="font-size: 10.5px;">可变参数</a> <a href="/tag/%E5%90%AF%E5%8A%A8/" style="font-size: 10px;">启动</a> <a href="/tag/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tag/%E5%9B%BE%E7%89%87%E5%B7%A5%E5%85%B7%E6%8E%A5%E5%8F%A3/" style="font-size: 10px;">图片工具接口</a> <a href="/tag/%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">处理器</a> <a href="/tag/%E5%A4%87%E6%A1%88/" style="font-size: 10px;">备案</a> <a href="/tag/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E5%89%8D%E7%BC%80/" style="font-size: 10px;">子网掩码前缀</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" style="font-size: 11.5px;">字符编码</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87/" style="font-size: 10px;">字符设备</a> <a href="/tag/%E5%AD%A6%E4%BD%9B/" style="font-size: 12px;">学佛</a> <a href="/tag/%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">寄存器</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/" style="font-size: 10px;">嵌入式Linux</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux%E5%85%A5%E9%97%A8/" style="font-size: 16px;">嵌入式Linux入门</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8Fqemu/" style="font-size: 11px;">嵌入式qemu</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B9%8B%E8%A1%8C/" style="font-size: 16px;">嵌入式之行</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 12px;">嵌入式开发环境</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 16.5px;">工具使用</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E7%BC%96%E8%AF%91/" style="font-size: 15.5px;">工具编译</a> <a href="/tag/%E5%B7%A5%E7%A8%8B%E5%BA%93%E4%BB%A3%E7%A0%81/" style="font-size: 18.5px;">工程库代码</a> <a href="/tag/%E5%BA%93%E7%BC%96%E8%AF%91/" style="font-size: 13.5px;">库编译</a> <a href="/tag/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/tag/%E5%BC%80%E5%8F%91%E5%AE%9E%E5%BD%95/" style="font-size: 10px;">开发实录</a> <a href="/tag/%E5%BC%B1%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">弱链接</a> <a href="/tag/%E5%BE%AE%E6%9C%BA%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">微机知识</a> <a href="/tag/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" style="font-size: 15.5px;">技术笔记</a> <a href="/tag/%E6%8B%B7%E8%B4%9D%E7%A1%AC%E7%9B%98/" style="font-size: 10px;">拷贝硬盘</a> <a href="/tag/%E6%8C%82%E8%BD%BD/" style="font-size: 10px;">挂载</a> <a href="/tag/%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8D%E5%AE%9A%E5%90%91/" style="font-size: 10px;">控制台重定向</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11px;">数据库</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10.5px;">数据结构</a> <a href="/tag/%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组</a> <a href="/tag/%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96/" style="font-size: 10px;">数组初始化</a> <a href="/tag/%E6%96%87%E4%BB%B6%E5%8F%A5%E6%9F%84/" style="font-size: 10.5px;">文件句柄</a> <a href="/tag/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" style="font-size: 10px;">文件操作</a> <a href="/tag/%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" style="font-size: 10px;">新年计划</a> <a href="/tag/%E6%97%B6%E5%8C%BA/" style="font-size: 10.5px;">时区</a> <a href="/tag/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tag/%E6%A0%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">根文件系统</a> <a href="/tag/%E6%B1%87%E7%BC%96/" style="font-size: 12px;">汇编</a> <a href="/tag/%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81/" style="font-size: 10px;">汉字编码</a> <a href="/tag/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 12px;">源码分析</a> <a href="/tag/%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6/" style="font-size: 14px;">点阵字符</a> <a href="/tag/%E7%82%B9%E9%98%B5%E6%98%BE%E7%A4%BA/" style="font-size: 11px;">点阵显示</a> <a href="/tag/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 13.5px;">版本控制</a> <a href="/tag/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/" style="font-size: 11px;">电子邮件</a> <a href="/tag/%E7%9C%8B%E9%97%A8%E7%8B%97/" style="font-size: 10px;">看门狗</a> <a href="/tag/%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F/" style="font-size: 10px;">硬件加速</a> <a href="/tag/%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/" style="font-size: 10px;">磁盘空间</a> <a href="/tag/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84/" style="font-size: 10px;">端口映射</a> <a href="/tag/%E7%AD%94%E7%BD%91%E5%8F%8B%E9%97%AE/" style="font-size: 10.5px;">答网友问</a> <a href="/tag/%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" style="font-size: 10.5px;">简明教程</a> <a href="/tag/%E7%AE%A1%E9%81%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">管道函数</a> <a href="/tag/%E7%B3%BB%E7%BB%9F%E5%AE%9A%E5%88%B6/" style="font-size: 11.5px;">系统定制</a> <a href="/tag/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 10.5px;">编程规范</a> <a href="/tag/%E7%BC%96%E8%AF%91%E8%AD%A6%E5%91%8A/" style="font-size: 11.5px;">编译警告</a> <a href="/tag/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5/" style="font-size: 11px;">编译链接</a> <a href="/tag/%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">网卡</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E8%BD%AC%E5%8F%91/" style="font-size: 10px;">网络转发</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/" style="font-size: 10.5px;">网络问题</a> <a href="/tag/%E8%80%83%E8%AF%81/" style="font-size: 10px;">考证</a> <a href="/tag/%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86/" style="font-size: 10px;">视频采集</a> <a href="/tag/%E8%AF%97%E8%AF%8D%E9%9F%B5%E5%BE%8B/" style="font-size: 10px;">诗词韵律</a> <a href="/tag/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/" style="font-size: 10px;">语法高亮</a> <a href="/tag/%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%B9%BF%E6%92%AD%E5%8C%85/" style="font-size: 10px;">跨网段广播包</a> <a href="/tag/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 10px;">软件安装</a> <a href="/tag/%E9%97%AE%E9%A2%98%E9%9B%86/" style="font-size: 17px;">问题集</a> <a href="/tag/%E9%9D%99%E6%80%81%E5%BA%93/" style="font-size: 10px;">静态库</a> <a href="/tag/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/" style="font-size: 16.5px;">项目日志</a></div></div>
+ 
+<div class="widget-wrap"><h3 class="widget-title">友情链接</h3>
+  <div class="widget">
+    <ul class="clearfix">
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.blog.csdn.net/" target="_blank">李迟的专栏</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://i.latelee.org" target="_blank">李迟的个人主页</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.github.io/" target="_blank">本站备份网址</a>
+      </li>
+    </ul>
+  </div>
+</div>
+  </aside> </section></div></div>
+    <footer id="footer" class="site-footer">
+  
+  <div class="clearfix container text-center">
+        <ul class="list-inline text-center">
+          <li><a href="/sitemap.xml">网站地图</a></li>
+          <li>|</li>
+          <li><a href="/lisence">版权声明</a></li>
+          <li>|</li>
+          <li><a href="/donate">捐赠本站</a></li>
+          <li>|</li>
+          <li><a href="/news-for-my-website">建站记录</a></li>
+          <li>|</li>
+          <li><a href="/atom.xml">RSS订阅</a></li>
+          <li>|</li>
+          <li><a href="/about">关于</a></li>
+          </ul>
+      <div class="list-inline  text-center">
+	      &copy; 2010 - 2020 <a href="/" target="_blank"></a> 版权所有.
+          本博客由hexo强力驱动，主题修改自<a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a> &nbsp;&nbsp;
+          <a href="http://www.beian.miit.gov.cn/" target=_blank>桂ICP备10003672号-1</a> &nbsp;&nbsp <a href="https://uweb.umeng.com/v1/login.php?siteid=2137378" target="_blank">站长统计</a> </br></div>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div></footer>
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+    
+</script><!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/bootstrap.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=2137378&web_id=2137378" language="JavaScript"></script>
+  </div>
+
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <script type="text/javascript" src="/js/click_show_text.js"></script>
+</body>
+</html>
