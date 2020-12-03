@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.latelee.org/yetanothertest/province-gbk-code.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/serialport-html/bug.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/serialport-html/debug-msg_8h.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/yetanothertest/serialport-html/debug-msg_8h_source.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -94,34 +115,6 @@
   
   <url>
     <loc>http://www.latelee.org/yetanothertest/serialport-html/todo.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/tools/index.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/province-gbk-code.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/serialport-html/bug.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/serialport-html/debug-msg_8h.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -226,14 +219,14 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/program/src/index.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/tools/index.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/index.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/program/src/index.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -248,6 +241,83 @@
   
   <url>
     <loc>http://www.latelee.org/yetanothertest/display-hz-on-touch-screen.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/index.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/test.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/unionhufftblp-members.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/unionhufftblp.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/utils_8h-source.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/utils_8h_source.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/v4l2uvc_8h-source.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/display.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/v4l2uvc_8c.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/v4l2uvc_8h.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/v4l2uvc_8h_source.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -415,42 +485,35 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/test.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/search/all_62.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/unionhufftblp-members.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/search/all_63.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/unionhufftblp.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/search/all_64.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/utils_8h-source.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/search/all_65.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/utils_8h_source.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/v4l2uvc_8h-source.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/search/all_66.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -765,13 +828,6 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/display.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.latelee.org/yetanothertest/camera-html-cn/structvideo__info.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -779,56 +835,56 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/v4l2uvc_8c.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/huffman_8h-source.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/v4l2uvc_8h.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/huffman_8h_source.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/v4l2uvc_8h_source.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/index.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/search/all_62.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/main_8c.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/search/all_63.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/my-types_8h-source.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/search/all_64.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/my-types_8h.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/search/all_65.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/my-types_8h_source.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/search/all_66.html</loc>
+    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/pages.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -955,62 +1011,6 @@
   
   <url>
     <loc>http://www.latelee.org/yetanothertest/camera-html-cn/globals_vars.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/huffman_8h-source.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/huffman_8h_source.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/index.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/main_8c.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/my-types_8h-source.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/my-types_8h.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/my-types_8h_source.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/yetanothertest/camera-html-cn/pages.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -1262,20 +1262,6 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/kubernetes/k8s-deploy-issue.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/kubernetes/k8s-deploy-1.17.0-detail.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.latelee.org/kubernetes/k8s-cmd-practice.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -1424,13 +1410,6 @@
   
   <url>
     <loc>http://www.latelee.org/devops/attack.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/docker/docker-30-deploy-for-c++.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -1640,6 +1619,20 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/kubernetes/k8s-deploy-issue.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/kubernetes/k8s-deploy-1.17.0-detail.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/kubernetes/k8s-deploy-1.17.0.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -1648,27 +1641,6 @@
   
   <url>
     <loc>http://www.latelee.org/docker/dockerdigger-runC.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/docker/armdocker-cross-comiple-for-arm-on-x86.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/docker/armdocker-run-docker-on-arm.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/docker/armdocker-build-docker-on-arm.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -1697,6 +1669,13 @@
   
   <url>
     <loc>http://www.latelee.org/docker/docker-note-make-my-images-2.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/docker/docker-30-deploy-for-c++.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -1773,6 +1752,27 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/docker/armdocker-cross-comiple-for-arm-on-x86.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/docker/armdocker-run-docker-on-arm.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/docker/armdocker-build-docker-on-arm.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/docker/docker-note-19-deploy-nextcloud.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -1794,6 +1794,13 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/cicd/git-for-cicd-11-gitee-webhook-ii.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/docker/docker-note-16-build-a-nodejs-image.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -1809,41 +1816,6 @@
   
   <url>
     <loc>http://www.latelee.org/docker/docker-note-14-mysql-practice.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/cicd/git-for-cicd-11-gitee-webhook-ii.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/cicd/git-for-cicd-10-gitee-webhook-i.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/cicd/git-for-cicd-9-summary.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/cicd/git-for-cicd-8-fetching-sth-using-dockerhub.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/cicd/git-for-cicd-7-building-hexo-blog.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -1941,6 +1913,34 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/cicd/git-for-cicd-10-gitee-webhook-i.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/cicd/git-for-cicd-9-summary.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/cicd/git-for-cicd-8-fetching-sth-using-dockerhub.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/cicd/git-for-cicd-7-building-hexo-blog.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/cicd/git-for-cicd-6-ssh.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -2011,7 +2011,56 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/web/some-websites.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/cicd/github-private-repos-howto.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/net-study/linux-network-data-recv-send.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/net-study/linux-capture-net-packet.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/net-study/openwrt-menuconfig-note.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/net-study/linux-iptables-compile-usage.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/net-study/new-to-openwrt-ii.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/net-study/new-to-openwrt.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -2026,13 +2075,6 @@
   
   <url>
     <loc>http://www.latelee.org/my-library/map-value-for-struct-using-c++.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/web/some-websites.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -2165,146 +2207,6 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/net-study/linux-network-data-recv-send.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/net-study/linux-capture-net-packet.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/net-study/openwrt-menuconfig-note.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/net-study/linux-iptables-compile-usage.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/net-study/new-to-openwrt-ii.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/net-study/new-to-openwrt.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/web/h3c-vlan-example.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/web/my-website-beian.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/web/rebuild-my-website-ii.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/web/rebuild-my-website-i.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/web/wordpress-error-prepare.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/toolslib/libiconv-cross-compile.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/toolslib/dropbear-compile.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/toolslib/boa-compile.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/toolslib/openssl-compile.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/toolslib/opencore-amr-compile.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/toolslib/boost-compile.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/toolslib/openssl-c-code.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/toolslib/mosquitto-compile.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/toolslib/libuv-compile.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.latelee.org/my-library/my-doubly-linked-list-ef-bc-8dsort.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -2375,6 +2277,13 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/web/h3c-vlan-example.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/my-library/another-sscanf-problem.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -2382,7 +2291,35 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/web/my-website-beian.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/web/rebuild-my-website-ii.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/web/rebuild-my-website-i.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/my-library/parse-pelco-d-data.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/web/wordpress-error-prepare.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -2425,6 +2362,160 @@
   
   <url>
     <loc>http://www.latelee.org/my-library/first-time-to-tinyxml2.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/usb-note-hidapi.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/usb-note-develop-record.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/usb-note-detect-usb-in-mfc.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/usb-note-guid-list.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/multistream/onvif-note10-GetStreamUri.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/toolslib/libiconv-cross-compile.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/toolslib/dropbear-compile.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/toolslib/boa-compile.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/toolslib/openssl-compile.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/toolslib/opencore-amr-compile.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/toolslib/boost-compile.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/toolslib/openssl-c-code.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/toolslib/mosquitto-compile.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/toolslib/libuv-compile.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/multistream/onvif-note9-osd-learning.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/multistream/onvif-note8-onvif-client-note.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/multistream/ffmpeg-2-6-3-windows-mingw-compile-note.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/multistream/onvif-note7-ubuntu-onvif.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/multistream/onvif-note6-osd-coordinates.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/multistream/onvif-note5-onvif-framework.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/multistream/onvif-note4-gsoap-generate-under-windows.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/multistream/live555-packet.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -2488,97 +2579,6 @@
   
   <url>
     <loc>http://www.latelee.org/my-library/linux-cpp-note.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/programming-under-windows/usb-note-hidapi.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/programming-under-windows/usb-note-develop-record.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/programming-under-windows/usb-note-detect-usb-in-mfc.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/programming-under-windows/usb-note-guid-list.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/multistream/onvif-note10-GetStreamUri.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/multistream/onvif-note9-osd-learning.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/multistream/onvif-note8-onvif-client-note.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/multistream/ffmpeg-2-6-3-windows-mingw-compile-note.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/multistream/onvif-note7-ubuntu-onvif.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/multistream/onvif-note6-osd-coordinates.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/multistream/onvif-note5-onvif-framework.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/multistream/onvif-note4-gsoap-generate-under-windows.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/multistream/live555-packet.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -3040,6 +3040,13 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/my-study/fill-yuv444-yuyv-buffer.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/firmware-bios/x86-platform-interface-note.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -3159,6 +3166,13 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/firmware-bios/gcc-inline-asm.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/my-study/yuv-learning-nv12-to-yuv420p.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -3201,13 +3215,6 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/my-study/fill-yuv444-yuyv-buffer.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.latelee.org/my-study/file-handle-occupy.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -3230,13 +3237,6 @@
   
   <url>
     <loc>http://www.latelee.org/my-study/gcc-version-problem.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/gcc-inline-asm.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -3335,6 +3335,27 @@
   
   <url>
     <loc>http://www.latelee.org/porting-uboot/u-boot-porting-memory-allocation.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-problem-and-solution.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-svn.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-shell-and-ascii.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -3453,21 +3474,14 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-problem-and-solution.html</loc>
+    <loc>http://www.latelee.org/embedded-linux/linux-kernel-debug-util.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-svn.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-shell-and-ascii.html</loc>
+    <loc>http://www.latelee.org/embedded-linux/pci-note-ii.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -3489,20 +3503,6 @@
   
   <url>
     <loc>http://www.latelee.org/porting-uboot/u-boot-porting-sysmap.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/linux-kernel-debug-util.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/pci-note-ii.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -3740,6 +3740,13 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/undefined.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/promotion-raise-money.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -3887,13 +3894,6 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/the-life/my-baby-II.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.latelee.org/pkc/curl-usage.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -3915,20 +3915,6 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/the-life/my-ten-years-after-graduation.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/the-life/my-ten-years-for-coding.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.latelee.org/pkc/linux-little-tips.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -3937,13 +3923,6 @@
   
   <url>
     <loc>http://www.latelee.org/pkc/ubuntu-new-systemd-service.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/undefined.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -4111,20 +4090,6 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/pkc/linux-command-practice.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/pkc/ubuntu-op-tips.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.latelee.org/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/undefined.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -4147,13 +4112,6 @@
   
   <url>
     <loc>http://www.latelee.org/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/undefined.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/the-life/2020-Spring-Festival.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -4167,7 +4125,28 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/the-life/my-baby-II.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/the-life/my-ten-years-for-work.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/the-life/my-ten-years-after-graduation.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/the-life/my-ten-years-for-coding.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -4217,6 +4196,20 @@
   
   <url>
     <loc>http://www.latelee.org/the-life/one-year-in-new-company.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/pkc/linux-command-practice.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/pkc/ubuntu-op-tips.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -4279,6 +4272,13 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/the-life/2020-Spring-Festival.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/the-life/in-memory-of-lei-xiao-hua.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -4321,7 +4321,21 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/code-life/a-project-note4.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/code-life/a-project-note3.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/code-life/a-project-note2.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -4392,20 +4406,6 @@
   
   <url>
     <loc>http://www.latelee.org/the-life/my-2010.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/code-life/a-project-note4.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/code-life/a-project-note2.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -4489,6 +4489,48 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/code-life/dos-on-udisk.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/code-life/fix-little-error-of-crosstool-ng.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/code-life/my-github-config.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/code-life/dropbox-down-git.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/code-life/shell-promot-error.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/code-life/note-hz-on-lcd.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/programming-under-linux/gcc-warning-ii.html</loc>
     
     <lastmod>2020-12-03</lastmod>
@@ -4539,48 +4581,6 @@
   
   <url>
     <loc>http://www.latelee.org/programming-under-linux/ftp-active-mode-and-passive-mode.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/code-life/dos-on-udisk.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/code-life/fix-little-error-of-crosstool-ng.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/code-life/my-github-config.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/code-life/dropbox-down-git.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/code-life/shell-promot-error.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/code-life/note-hz-on-lcd.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -4686,6 +4686,13 @@
   
   <url>
     <loc>http://www.latelee.org/linux-kernel/kernel-note-11-leds-gpio-driver.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/linux-kernel/kernel-note-10-intel-gpio-driver.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -4832,7 +4839,14 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/linux-kernel/kernel-note-10-intel-gpio-driver.html</loc>
+    <loc>http://www.latelee.org/using-gnu-linux/update-nvidia-cuda-9-0.html</loc>
+    
+    <lastmod>2020-12-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/fix-aliyun-ecs-ubuntu-16-04-bug.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -4903,20 +4917,6 @@
   
   <url>
     <loc>http://www.latelee.org/embedded-linux/kernel-note-0-env.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/update-nvidia-cuda-9-0.html</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/fix-aliyun-ecs-ubuntu-16-04-bug.html</loc>
     
     <lastmod>2020-12-03</lastmod>
     
@@ -6115,6 +6115,13 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/tag/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2020-12-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/tag/dropbox/</loc>
     <lastmod>2020-12-03</lastmod>
     <changefreq>daily</changefreq>
@@ -6123,13 +6130,6 @@
   
   <url>
     <loc>http://www.latelee.org/tag/github/</loc>
-    <lastmod>2020-12-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/tag/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2020-12-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -6570,6 +6570,20 @@
   </url>
   
   <url>
+    <loc>http://www.latelee.org/tag/osd/</loc>
+    <lastmod>2020-12-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.latelee.org/tag/%E5%BA%93%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2020-12-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.latelee.org/tag/vc2003/</loc>
     <lastmod>2020-12-03</lastmod>
     <changefreq>daily</changefreq>
@@ -6613,20 +6627,6 @@
   
   <url>
     <loc>http://www.latelee.org/tag/USB/</loc>
-    <lastmod>2020-12-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/tag/osd/</loc>
-    <lastmod>2020-12-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.latelee.org/tag/%E5%BA%93%E7%BC%96%E8%AF%91/</loc>
     <lastmod>2020-12-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -7111,14 +7111,14 @@
   </url>
   
   <url>
-    <loc>http://www.latelee.org/category/programming-under-windows/</loc>
+    <loc>http://www.latelee.org/category/toolslib/</loc>
     <lastmod>2020-12-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.latelee.org/category/toolslib/</loc>
+    <loc>http://www.latelee.org/category/programming-under-windows/</loc>
     <lastmod>2020-12-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
