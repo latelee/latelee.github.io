@@ -1,2627 +1,2683 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.latelee.org/Qt/qt-start.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/Qt/qt-tcp-tool.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/Qt/qt-window-code-slice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/Qt/qt-code-slice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/Qt/qt-control-code-slice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/Qt/qt-control-code-slice2.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/Qt/qt-control-code-slice3.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/delphi/delphi-notes-1.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/delphi/delphi-notes-2.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/delphi/delphi-notes-3.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/delphi/delphi-notes-4.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/python/python-mac-to-oui-info.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/python/python-oui-txt-to-mac-org.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/python/python-gbk-to-unicode-table.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/python/python-yangli-to-nongli.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/python/install-python-under-windows10.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/devops/vagrant-usage-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-start.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-project-manage.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-testing.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-notes-xorm.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-notes-database-migrate-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-code-slice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-notes-oracle-test.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-notes-cobra-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-notes-my-utils.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-notes-cobra-note-ii.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/golang/golang-notes-cobra-note-iii.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-using-pm2.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-pm2-ecosystem-config-js.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-build-nodejs-on-ubuntu.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-build-nodejs-on-win10.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-reload-service-using-pm2.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-start.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-build-nodejs-on-win10.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-using-log4js-module.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-a-simple-log-module.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-testing-pm2.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-nodejs-code-slice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-test-connecting-and-send-email.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/nodejs/nodejs-notes-webserver-using-koa.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
     <loc>http://www.latelee.org/nodejs/nodejs-notes-readline-sample.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/nodejs/nodejs-notes-curl-post-get.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/vue/vue-notes-starting.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/vue/vue-notes-vue-basic.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/Qt/qt-start.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/Qt/qt-tcp-tool.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/Qt/qt-window-code-slice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/Qt/qt-code-slice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/Qt/qt-control-code-slice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/Qt/qt-control-code-slice2.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/Qt/qt-control-code-slice3.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/delphi/delphi-notes-1.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/delphi/delphi-notes-2.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/delphi/delphi-notes-3.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/delphi/delphi-notes-4.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/python/python-mac-to-oui-info.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/python/python-oui-txt-to-mac-org.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/python/python-gbk-to-unicode-table.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/python/python-yangli-to-nongli.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/python/install-python-under-windows10.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/Qt/qt-serial-tool.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-note-make-my-images.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/dockerdigger-runC.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-src-0.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-src-1.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-src-2.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-src-3.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-src-4.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-edge-on-arm.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-practice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-first-deploy.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-led.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-temperature.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubernetes/k8s-practice-rc.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubernetes/k8s-practice-namespace.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubernetes/k8s-practice-volume.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubernetes/k8s-practice-statefulset.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubernetes/k8s-practice-pod.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubernetes/k8s-practice-rc.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubernetes/k8s-practice-rs.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubernetes/k8s-practice-deployment.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-practice-service.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-practice-daemonset.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-practice-configmap.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-practice-secret.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-practice-job.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-hp-wordpress-deployment.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-deploy-1.17.0.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-deploy-output-infomation.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-deploy-issue-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-cmd-practice.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/devops/web-admin-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/devops/aliyun-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/devops/attack.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/devops/docker-k8s-source.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/devops/attack-tsm.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/devops/vagrant-cluster.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/docker/docker-note-make-my-images-2.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/devops/vagrant-usage-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-v1.2.0.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/csharp/csharp-dotnet-introduction.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-v1.3.0.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/csharp/csharp-notes-start.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/csharp/csharp-dotnet-core.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/csharp/csharp-dotnet-introduction.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/csharp/csharp-dotnet-introduction.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-start.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-project-manage.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-code-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-testing.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-code-note-ii.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-gin-usage.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-notes-tcpserver.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-notes-xorm.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-notes-tcpserver.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-notes-database-migrate-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-notes-tcpserver.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-code-slice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-notes-oracle-test.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-notes-cobra-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-notes-my-utils.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-notes-cobra-note-ii.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/golang/golang-notes-cobra-note-iii.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-using-pm2.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-pm2-ecosystem-config-js.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-build-nodejs-on-ubuntu.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-build-nodejs-on-win10.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-reload-service-using-pm2.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-start.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-build-nodejs-on-win10.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-using-log4js-module.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-a-simple-log-module.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-testing-pm2.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-nodejs-code-slice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-test-connecting-and-send-email.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/nodejs/nodejs-notes-webserver-using-koa.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-deploy-1.18.0-detail-for-centos.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-deploy-issue.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/kubernetes/k8s-deploy-1.17.0-detail.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-output-infomation.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-note-12-docker-compiling.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-note-13-docker-compiling2.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-note-14-mysql-practice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-note-15-mysql-create-db-after-run.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-note-16-build-a-nodejs-image.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-note-17-start-mysql-redis-mongo-using-docker-compose.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-note-18-aliyun-docker.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-note-19-deploy-nextcloud.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-20-pull-multi-arch-image.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-21-deploy-web-server.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/docker/docker-22-deploy-mult-domain-on-one-machine.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-23-change-timezone.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-24-generate-coredump-file.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-25-generate-a-docker.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-27-sqlite-test-in-docker.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-28-update-using-docker.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-29-deploy-oracle.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-30-deploy-for-c++.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/armdocker-run-docker-on-arm.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/armdocker-cross-comiple-for-arm-on-x86.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/armdocker-run-arm-docker-on-x86.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-make-my-images-list.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-note-make-my-images.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/dockerdigger-runC.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/Using-Alpine-can-make-Python-Docker-builds-50x-slower.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-src-0.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-src-1.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-src-2.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-src-3.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-src-4.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-edge-on-arm.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-practice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-first-deploy.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-led.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-temperature.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubernetes/k8s-practice-rc.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubernetes/k8s-practice-namespace.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubernetes/k8s-practice-volume.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubernetes/k8s-practice-statefulset.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubernetes/k8s-practice-pod.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubernetes/k8s-practice-rc.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubernetes/k8s-practice-rs.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubernetes/k8s-practice-deployment.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-26-arm-docker-for-python-pandas.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-32-deploy-oracle-again.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/armdocker-build-docker-on-arm.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/cicd/git-for-cicd-9-summary.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/docker/docker-note-make-my-images-2.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/cicd/git-for-cicd-10-gitee-webhook-i.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-v1.2.0.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/cicd/git-for-cicd-11-gitee-webhook-ii.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-v1.3.0.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/kubeedge/kubeedge-deploy-output-infomation.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/cicd-exmaple-deploy-for-c++.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/cicd-exmaple-deploy-for-nodejs.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-1-startup.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-2-install-docker-on-ubuntu.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-3-speedup-pull-image.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-4-docker-command.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-5-install-docker-compose.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-6-bash-completion.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-7-copy-file.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-8-docker-comm.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-9-install-docker-on-centos.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-10-docker-access-docker.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/docker/docker-note-11-dockefile.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/cicd/git-for-cicd-4-sending-email.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/docker/docker-note-12-docker-compiling.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-note-13-docker-compiling2.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-note-14-mysql-practice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-note-15-mysql-create-db-after-run.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-note-16-build-a-nodejs-image.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-note-17-start-mysql-redis-mongo-using-docker-compose.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-note-18-aliyun-docker.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-note-19-deploy-nextcloud.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-20-pull-multi-arch-image.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-21-deploy-web-server.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/docker/docker-22-deploy-mult-domain-on-one-machine.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/git-for-cicd-6-ssh.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/git-for-cicd-7-building-hexo-blog.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/git-for-cicd-8-fetching-sth-using-dockerhub.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/cicd/git-for-cicd-3-bitbucket-and-circleci.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/cicd/git-for-cicd-9-summary.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/cicd/git-for-cicd-10-gitee-webhook-i.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/cicd/git-for-cicd-11-gitee-webhook-ii.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/git-for-cicd-4-github-and-docker.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/cicd/git-for-cicd-4-sending-email.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/git-for-cicd-2-gitlab-ci.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/cicd/git-for-cicd-3-bitbucket-and-circleci.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/github-private-repos-howto.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/send-email-using-golang.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/send-email-using-nodejs.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/send-email-using-python.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/git-for-cicd-0-forward.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/cicd/git-for-cicd-1-github-and-travis-ci.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-library/parse-domain-using-linux-c.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-library/c-code-slice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-library/get-error-code-using-linux-c.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-library/same-bin-for-different-program-as-busybox.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-library/map-value-for-struct-using-c++.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-library/printf-format-alignment-in-golang-and-c.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-library/cmdline-in-c++.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-library/parsing-yaml-in-c++.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-library/parsing-yaml-in-nodejs.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-library/parsing-yaml-in-golang.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/compilelinking/gcc-a-so-difference.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/compilelinking/Makefile-template.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/compilelinking/Makefile-template-ii.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/compilelinking/Makefile-template-iii.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/compilelinking/helloworld-nasm-source.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/compilelinking/Makefile-for-stm32.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/web/wordpress-error-prepare.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/web/rebuild-my-website-i.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/web/rebuild-my-website-ii.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/web/my-website-beian.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/web/h3c-vlan-example.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/web/website-guide.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/web/hexo-learning.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/web/from-wordpress-to-hexo.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/web/rebuild-my-website-iii.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/web/some-websites.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/net-study/new-to-openwrt.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/net-study/new-to-openwrt-ii.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/net-study/linux-iptables-compile-usage.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/net-study/openwrt-menuconfig-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/net-study/linux-capture-net-packet.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/net-study/linux-network-data-recv-send.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/multistream/onvif-note9-osd-learning.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/multistream/onvif-note10-GetStreamUri.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/toolslib/libuv-compile.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/toolslib/mosquitto-compile.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/toolslib/openssl-c-code.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/toolslib/boost-compile.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/toolslib/opencore-amr-compile.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/toolslib/openssl-compile.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/toolslib/boa-compile.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/toolslib/dropbear-compile.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/toolslib/libiconv-cross-compile.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/linux-cpp-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/c-macro-tricks.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/code-for-march-2011.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/code-for-april-2011.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/concentric-matrix.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/making-my-info-in-png-jpeg.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/my-itoa.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/fill-color-bar.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/yuv422sp-to-yuv422p.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/first-time-to-tinyxml2.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/undefined.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/a-little-while-problem.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/user-interface-mtd-utils.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/visca-protocol-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/pelco-protocol-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/parse-pelco-d-data.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/another-sscanf-problem.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/netmask-prefix-to-netmask.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/remove-vector-multiple-item-using-stl.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/stl-vector-sort-example.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/new-to-c11.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/linux-c-parse-main-arguments.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/linux-c-read-config-file-example.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/linux-gnu-c-struct-init.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/my-doubly-linked-list-code.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/my-doubly-linked-list-ef-bc-8dsort.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/cst-code-style.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/c++-string-to-number.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/linux-c-parse-cmd.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/linux-c-simple-log.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/same-bin-for-different-program.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-library/parse-domain-using-linux-c.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-library/c-code-slice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-library/get-error-code-using-linux-c.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-library/same-bin-for-different-program-as-busybox.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-library/map-value-for-struct-using-c++.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-library/printf-format-alignment-in-golang-and-c.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-library/cmdline-in-c++.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-library/parsing-yaml-in-c++.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-library/parsing-yaml-in-nodejs.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-library/parsing-yaml-in-golang.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/compilelinking/gcc-a-so-difference.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/compilelinking/Makefile-template.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/compilelinking/Makefile-template-ii.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/compilelinking/Makefile-template-iii.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/compilelinking/helloworld-nasm-source.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/compilelinking/Makefile-for-stm32.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/web/wordpress-error-prepare.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-library/my-bmp-utils.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/usb-note-guid-list.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/usb-note-detect-usb-in-mfc.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/usb-note-hidapi.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/usb-note-develop-record.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/multistream/live555-packet.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/multistream/onvif-note4-gsoap-generate-under-windows.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/multistream/onvif-note5-onvif-framework.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/multistream/onvif-note6-osd-coordinates.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/multistream/onvif-note7-ubuntu-onvif.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/multistream/ffmpeg-2-6-3-windows-mingw-compile-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/multistream/onvif-note8-onvif-client-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/my-h264bsanalyze2-html.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/multistream/onvif-note9-osd-learning.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/hevc-tool-tree-control-window-scale.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/multistream/onvif-note10-GetStreamUri.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/mfc-init-tab-improve.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/toolslib/libuv-compile.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/mfc-tabctrl-post-message.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/toolslib/mosquitto-compile.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/mfc-spin-edit-control.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/toolslib/openssl-c-code.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/mfc-autorun-when-startup.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/toolslib/boost-compile.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/mfc-post-message-between-parent-child-window.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/toolslib/opencore-amr-compile.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/mfc-simple-drawing.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/programming-under-windows/mfc-system-tray.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/programming-under-windows/mfc-control-window-resize.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/programming-under-windows/usb-note-first-meet.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/toolslib/openssl-compile.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/usb-note-package.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/sdl-draw-line.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/my-h264bsanalyze2-html.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/my-h264bsanalyze.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/hevc-tool-tree-control-window-scale.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/fix-h264bitstream-little-bug.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/mfc-init-tab-improve.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-black-bg-and-window-scale.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/mfc-tabctrl-post-message.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-modeless-dialog-box.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/mfc-spin-edit-control.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-menu-and-drag.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/mfc-autorun-when-startup.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-registration-write.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/mfc-post-message-between-parent-child-window.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-find-resolution.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/mfc-simple-drawing.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-unicode-wchar.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/mfc-system-tray.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-custom-resolution.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/mfc-control-window-resize.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-windows/my-yuvplayer.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/architecture/software-architecture-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-windows/usb-note-first-meet.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/architecture/software-architecture-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/architecture/software-design-principles.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/architecture/architect-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/architecture/architect-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/architecture/architect-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/architecture/architect-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/dynamic-lib-vc2003.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/compile-sdl-under-windows.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/compile-libjpeg-under-windows.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/sdl-gfx-under-windows.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/windows-makefile.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-windows/mfc-slider-edit.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/sdl-draw-line.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/my-h264bsanalyze.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/fix-h264bitstream-little-bug.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-black-bg-and-window-scale.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-modeless-dialog-box.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-menu-and-drag.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-registration-write.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-find-resolution.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-unicode-wchar.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/yuvplayer-custom-resolution.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-windows/my-yuvplayer.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/architecture/architect-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/ml/nvidia-sample.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/architecture/software-architecture-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/ml/nvidia-deepstream-sample.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/ml/%E6%9D%83%E9%87%8D%E5%88%9D%E5%A7%8B%E5%8C%96.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/open-project/clock-monotonic-bug-in-horst.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-study/asio-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-study/redis-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-study/mysql-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-study/zentao-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-study/mosquitto-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-study/stun-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-study/beanstalk-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/my-study/RabbitMQ-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/redis-note1.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/redis-note1.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/wireless/my-wifi-notes.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/wireless/hostapd-usage-under-ubuntu14-04.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/wireless/wifi-hotspot-shell-script.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/wireless/wifi-5ghz-problem-under-linux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/wireless/ieee802-11-radiotap.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/answer4you/faq-file-not-found-on-elinux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/answer4you/faq-abs-function-tips.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/multistream/ffmpeg-memory-transcoder.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/ml/nvidia-flash-to-tx2%EF%BC%8Dusing-sdkmanager.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/ml/nvidia-flash-to-tx2-using-sdkmanager.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/generate-live555-class-diagram-using-staruml.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/live555-simple-example.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/linux-hostapd-force-to-40mhz.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/a-tittle-valgrind-bug.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/linux-occupy-disk-after-delete-file.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/gitbook-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/beidou-system-note1.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/beidou-system-jtt808.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/my-terminal-1.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/my-terminal-2.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/my-terminal-3.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/multistream/failed-to-save-avi-to-ftp-server-using-ffmpeg.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/open-project/ffmpeg-0-8-7-mingw-compile-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/open-project/ffmpeg-2-6-3-linux-compile.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/open-project/clock-monotonic-bug-in-horst.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-study/asio-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-study/redis-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-study/mysql-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-study/zentao-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-study/mosquitto-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-study/stun-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-study/beanstalk-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/my-study/RabbitMQ-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/multistream/ffmpeg-memory-transcoder.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/firmware-bios/coreboot-note-6-ramstage-chip-init.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/firmware-bios/coreboot-note-7-dev-enumerate.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/firmware-bios/coreboot-note-10-stage-1-over.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/firmware-bios/coreboot-note-8-dev-configure.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/firmware-bios/coreboot-note-9-dev-initialize.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/firmware-bios/x86-platform-interface-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/gcc-version-problem.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/file-open-way-problem.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/int-gdk-double-netcard.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/file-handle-occupy.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/yuv-learning-nv12-to-yuv420p.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/yuv-learning-ef-bc-9anv16-to-yuv422p.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/yuv-learning-yuv420p-to-rgb24.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/yuv-learning-yuv422p-to-rgb24.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/yuv-learning-yuv444-to-rgb24.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/yuv-learning-yuyv-torgb24.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/fill-yuv444-yuyv-buffer.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/yuv-learning-y-to-rgb24.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/multistream/ffmpeg-memory-transcoder2.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/new-to-hevc-h265.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/x264-compile-example.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/x265-compile-example.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/get-width-height-framerate-from-bitstream.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/update-h264bitstream-bug.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/ffmpeg-decode-h264-frame.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/my-study/onvif-note3-ntp-command-example.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-svn-again.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-skill-of-uboot.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-memory-again.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/at-t-asm.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/intel-x86-cpu-register-notes.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/gcc-inline-asm.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/intel-cpu-family-model-stepping-notes.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/intel-cpuid-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/intel-msr-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/linux-c-cpuid-example.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/bios-search-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/coreboot-note-0-see-again.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/coreboot-note-1-compile-and-run-qemu.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/coreboot-note-2-source-code.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/coreboot-note-3-bootblock-stage.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/coreboot-note-4-romstage.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/firmware-bios/coreboot-note-5-ramstage-main-flow.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/ellp/ellp-qemu-vexpress-a9.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-sysmap.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-shell.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-led.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-svn.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-problem-and-solution.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-memory-allocation.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-bootstrap.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/porting-uboot/u-boot-porting-eeprom.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/porting-uboot/u-boot-porting-nor-flash.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/porting-uboot/u-boot-porting-booting-kernel.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/porting-uboot/u-boot-porting-gdt-bdt.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/porting-uboot/u-boot-porting-machine-id.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/porting-uboot/u-boot-porting-nor-flash-2.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/porting-uboot/u-boot-porting-difficult.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-shell-and-ascii.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-svn-again.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/a-simple-char-driver.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-skill-of-uboot.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/mutil-channel-adc-of-s3c2410.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-memory-again.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/use-tslib-to-display-chinese-character.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/at-t-asm.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/library-about-picture.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/intel-x86-cpu-register-notes.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/display-picture-on-lcd-using-libjpeg.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/gcc-inline-asm.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/example-of-picture-into-executable.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/intel-cpu-family-model-stepping-notes.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/clock-on-lcd.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/intel-cpuid-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/register-bit-operation.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/intel-msr-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/some-problem-of-porting-linux-kernel.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/linux-c-cpuid-example.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/print-info-before-wdt-timeout.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/bios-search-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/x86-spi-flash-porting-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/coreboot-note-0-see-again.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/ethdevice-work-mode-from-ethtool.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/coreboot-note-1-compile-and-run-qemu.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/pci-note-ii.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/coreboot-note-2-source-code.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/linux-kernel-debug-util.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/coreboot-note-3-bootblock-stage.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-2-windows-tools.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/coreboot-note-4-romstage.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-3-linuxserver.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/firmware-bios/coreboot-note-5-ramstage-main-flow.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-4-git.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-5-how-to-porting.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-6-u-boot.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-7-kernel.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-8-rootfs.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-8-using-linux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-10-Makefile.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-11-linux-application.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-12-coding-style.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-13-application-debug.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/ellp/ellp-qemu-start.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/ellp/ellp-qemu-vexpress-a9-porting.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/mutil-channel-adc-of-s3c2410-write.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/ellp/ellp-qemu-vexpress-a9.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/ethtool-linux-kernel-source.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-sysmap.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-1-sum.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-shell.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/learning-elinux-9-code-style.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-led.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/my-makefile-for-driver.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-svn.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/nor-flash-to-kernel.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-problem-and-solution.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/embedded-linux/linux-note-using-git.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-memory-allocation.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-bootstrap.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/porting-uboot/u-boot-porting-shell-and-ascii.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/porting-linux-the-case.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/porting-linux-from-tsconfig.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/porting-linux-tslib.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/driver-makefile-multi.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/a-simple-char-driver.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/mutil-channel-adc-of-s3c2410.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/use-tslib-to-display-chinese-character.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/library-about-picture.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/display-picture-on-lcd-using-libjpeg.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/example-of-picture-into-executable.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/clock-on-lcd.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/register-bit-operation.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/some-problem-of-porting-linux-kernel.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/print-info-before-wdt-timeout.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/x86-spi-flash-porting-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/ethdevice-work-mode-from-ethtool.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/pci-note-ii.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/linux-kernel-debug-util.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-2-windows-tools.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-3-linuxserver.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/porting-linux-tstest-code.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/mutil-channel-adc-of-s3c2410-write.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/ethtool-linux-kernel-source.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/new-for-embeddedlinux-1-sum.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/learning-elinux-9-code-style.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/my-makefile-for-driver.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/nor-flash-to-kernel.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/linux-note-using-git.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/learning-elinux-7-cvs.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/learning-elinux-8-video-on-linux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/learning-elinux-5-my-makefile.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/learning-elinux-6-sharing.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/learning-embeddedlinux-1-sum.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/learning-embeddedlinux-2-env.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/learning-elinux-3-kernel-and-rootfs.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/learning-elinux-4-my-emacs-i.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/learning-elinux-4-my-emacs-ii.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/promotion-raise-money.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/learning-embeddedlinux-00-start.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/learning-embeddedlinux-01-breakdown.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/charging-pile-test.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/embedded-linux/learning-embeddedlinux-1-sum.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/learning-embeddedlinux-2-env.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/learning-elinux-3-kernel-and-rootfs.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/learning-elinux-4-my-emacs-i.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/learning-elinux-4-my-emacs-ii.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/undefined.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/undefined.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/undefined.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/project-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/x86-pci-project-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/arm-cross-comiple-on-pc.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/esp8266-project-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/onvif-project-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/stm32-project-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/build-docker-on-arm.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/update-drm-on-cdlinux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/ir-tp-tool-project-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/charger-pro.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/devops/ssh-auto-login.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/promotion-raise-money.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/pkc/installmysql8-in-centos7-using-rpm.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/linux-little-tips.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/ubuntu-new-systemd-service.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/buildroot-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/centos-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/centos-op-tips.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/ubuntu-vnc.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/ubuntu-nfs-server.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/ubuntu-samba-server.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/ubuntu-ssh-server.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/ubuntu-telnet-server.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/ubuntu-tftp-server.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/vs2015-usage.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/vs-code-usage.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/vs-code-lang.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/ffmpeg-usage.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/notepad-plus-plus-usage.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/just-for-fun/markdown-for-the-website.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/just-for-fun/writing-chs-eng.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/git-usage.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/curl-usage.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/mysql-practice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/oracle-practice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/database-practice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/database-practice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/setting-ip-for-windows.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/kindle-usage.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/redis-note1.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/my-coding-style.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/pkc/esp8266-develope-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/embedded-linux/learning-embeddedlinux-00-start.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/pkc/ascii-table.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/pkc/pc-abbreviations.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/pkc/province-table.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/undefined.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/%E3%80%8A%E5%A3%B0%E5%BE%8B%E5%90%AF%E8%92%99%E3%80%8B%E5%85%A8%E6%96%87.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/charging-pile-test.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/pkc/gb2312.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/undefined.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/my-study-experience-onvif.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/my-study-experience-wifi.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/my-study-experience-0.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/my-study-experience-networking.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/device-network-bug.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/chargingpile-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/ruankao-pm1.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/ruankao-pm2.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/ruankao-pm3.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/refactor-a-project.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/backup-works.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/code-life/backup-works.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/just-for-fun/how-to-make-my-logo.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/just-for-fun/the-income-tax-calculation-excel-for-2019.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/the-life/my-2010.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/the-life/my-2011.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/the-life/my-2013.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/the-life/my-wedding.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/into-a-x86-project.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/2015-new-plan.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/four-year-today.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/guillin-longsheng-travel.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-2015.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/wife-pregnant.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/in-memory-of-lei-xiao-hua.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/2016-mid-autumn-festival.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-baby.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-2016.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-2017.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/one-year-in-new-company.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-2018.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-thinking-of-2019.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-ten-years-for-work.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-ten-years-after-graduation.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-ten-years-for-coding.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/2020-Spring-Festival.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-baby-II.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/2021-new-plan.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/pkc/linux-command-practice.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/pkc/ubuntu-op-tips.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/devops/ssh-port-forward.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/devops/ssh-login-with-password.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/devops/ssh-auto-login.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/installmysql8-in-centos7-using-rpm.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/linux-little-tips.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/buildroot-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/centos-op-tips.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/ubuntu-nfs-server.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/ubuntu-samba-server.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/ubuntu-ssh-server.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/ubuntu-telnet-server.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/ubuntu-tftp-server.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/vs2015-usage.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/vs-code-usage.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/vs-code-lang.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/ffmpeg-usage.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/notepad-plus-plus-usage.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/just-for-fun/markdown-for-the-website.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/just-for-fun/writing-chs-eng.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/git-usage.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/curl-usage.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/mysql-practice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/oracle-practice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/database-practice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/database-practice.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/setting-ip-for-windows.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/kindle-usage.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/redis-note1.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/my-coding-style.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/pkc/esp8266-develope-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-2014.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-2019.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/the-life/my-2020.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/just-for-fun/html-color-ref.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/linux-broadcast-cross-netwok.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/tail-problem.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/intel-atom-processor.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/a-project-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/a-project-note4.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/a-project-note3.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/sth-nearly.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/strip-object-file-problem.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/my-study-experience-onvif.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/my-study-experience-wifi.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/my-study-experience-0.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/my-study-experience-networking.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/device-network-bug.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/chargingpile-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/ruankao-pm1.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/ruankao-pm2.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/ruankao-pm3.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/refactor-a-project.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/backup-works.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/code-life/backup-works.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/just-for-fun/how-to-make-my-logo.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/just-for-fun/the-income-tax-calculation-excel-for-2019.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/the-life/my-2010.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/the-life/my-2011.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/the-life/my-2013.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/the-life/my-wedding.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/a-project-note2.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-linux/gcc-weak-attribute-link.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/programming-under-linux/compile-libjpeg-turbo-under-vs2010.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/just-for-fun/html-color-ref.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/linux-coredump-debug-1-usage.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/linux-coredump-debug-2-examples.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/linux-coredump-debug-3-more-notes.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/capture-wifi-mac-using-socket.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/note-hz-on-lcd.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/shell-promot-error.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/dropbox-down-git.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/my-github-config.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/fix-little-error-of-crosstool-ng.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/code-life/dos-on-udisk.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/gcc-warning.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/example-of-variable-parameter.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/ftp-active-mode-and-passive-mode.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/libjpeg-learning1.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/libjpeg-learning2.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/libjpeg-learning3-turbojpeg.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/libjpeg-learning4-libjpeg-turbo2yuv.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/ftp-unclose-socket-fd.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/malloc-more-memory.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/gcc-warning-ii.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/gcc-warning-notes.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-linux/gbk-to-unicode-table-improve.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-linux/gcc-weak-attribute-link.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/programming-under-linux/print-color-info-on-linux-shell.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/programming-under-linux/ifconfig-eth0-up-down-code.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/programming-under-linux/ethtool-source-code-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/programming-under-linux/compile-libjpeg-turbo-under-vs2010.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/linux-phy-state.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/linux-phy-driver.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/phy-register-analysis.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/ethernet-pause-frame-study.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/kernel-note-6-pci-driver-probe.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/kernel-note-7-ef-bc-8dintel-lpc-ich-driver.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/embedded-linux/kernel-note-8-mfd-driver.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/linux-kernel/kernel-note-9-intel-itco-wdt-driver.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/linux-kernel/kernel-note-10-intel-gpio-driver.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/linux-kernel/kernel-note-11-leds-gpio-driver.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/linux-kernel/kernel-note-12-i2c-gpio-driver.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/linux-kernel/linux-kernel-cant-use-sleep-inside-spinlock.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/linux-kernel/kernel-note-13-x86-linux-reboot-source-htm.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/linux-kernel/kernel-note-14-linux-kernel-device-tree.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/linux-kernel/kernel-note-15-gpio-note-for-hi3516.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/linux-kernel/kernel-note-16-pwm-note-for-hi3516.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/serialport-programming.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/utf-notes.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/video-capture-under-linux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/boa-test1.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/multi-makefile-for-app.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/dot-font-ascii-code.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/dot-font-hz.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/dot-font-code-to-array.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/dot-font-24.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/c-syntax-coloring.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/linux-pipe-function.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/arm-linux-alignment-trap.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/gbk-to-unicode-table.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-linux/gbk-to-unicode-table-improve.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-linux/print-color-info-on-linux-shell.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-linux/ifconfig-eth0-up-down-code.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/programming-under-linux/ethtool-source-code-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/library-on-linux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/programming-under-linux/dot-font-hz-ncurses.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/fix-aliyun-ecs-ubuntu-16-04-bug.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/update-nvidia-cuda-9-0.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/centos-7-change-yum-repos.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/deploy-nodejs-on-new-ecs.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-new-systemd-service.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/centos-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/centos-ntp-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-vnc.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/kernel-note-0-env.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/kernel-note-1-char-driver.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/kernel-note-2-platform-dev.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/kernel-note-3-platform-template.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/kernel-note-4-sysfs.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/embedded-linux/kernel-note-5-procfs.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/kernel-note-6-pci-driver-probe.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/kernel-note-7-ef-bc-8dintel-lpc-ich-driver.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/embedded-linux/kernel-note-8-mfd-driver.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/linux-kernel/kernel-note-9-intel-itco-wdt-driver.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/ubuntu-debootstrap-iii.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/lubuntu16-4-customize.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/iptables-note-wireless-ap.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/capture-wifi-packet-using-tcpdump.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/install-4g-net-card-on-ubuntu.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-ntp-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-ntp-note-2.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/linux-kernel-version-build-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/linux-using-vnstat.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/ftp-learning-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/scsi-blocking-io-schedule.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/linux-timestamp-problem.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/network-link-up-down.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/iptables-notes-tcp-udp-forward.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/linux-posix-timezone.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/linux-timezone-code-slice.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-14-04-dhcp-server.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/check-code-using-cppcheck.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/some-share-way-between-host-and-target-board.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/iptables-note-ipforward.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/iptables-note-inside-to-outside.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/iptables-note-outside-to-inside.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/copy-hard-disk-using-dd.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-apache-gitweb.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-debootstrap-ii.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-more-fast-network-configuration.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-booting-script.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/little-about-crontab.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/notes-about-ubuntu-syslog.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/fixed-ubuntu-networking-device-name.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/filesystem-readonly-for-bios-error-time.html</loc>
-    <lastmod>2021-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.latelee.org/using-gnu-linux/new-to-pci.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/ubuntu-intel-gpu-vaapi.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/learning-linux-1-stepout.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-ntp-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/learning-linux-2-breakdown.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-ntp-note-2.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/learning-linux-3-ubuntu.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/linux-kernel-version-build-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/learning-linux-4-know-more.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/linux-using-vnstat.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/learning-linux-5-terminate.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/ftp-learning-note.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/cross-compile-gdb-and-gdbserver.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/scsi-blocking-io-schedule.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/installing-gcc-and-doxygen.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/linux-timestamp-problem.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/how-to-use-doxygen-under-linux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/network-link-up-down.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/how-to-use-boa.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/iptables-notes-tcp-udp-forward.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/installing-gcc-2953.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/linux-posix-timezone.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/using-ld.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/linux-timezone-code-slice.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/diff-and-patch-on-linux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-14-04-dhcp-server.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/mouting-ntfs-on-linux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/check-code-using-cppcheck.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/minicom-usage.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/some-share-way-between-host-and-target-board.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/make-picture-into-executable.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/iptables-note-ipforward.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
-    <loc>http://www.latelee.org/using-gnu-linux/multi-dir-makefile.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <loc>http://www.latelee.org/using-gnu-linux/iptables-note-inside-to-outside.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/iptables-note-outside-to-inside.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/generate-svn-git-version.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/compile-freetype-linux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/compile-ssl-sip-linux.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/generate-svn-git-version-ii.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/compile-tcpdump.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/ntp-sync-time-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/compile-iperf.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/linux-out-of-inode.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/cannot-use-sudo.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/shell-calc-diskspace.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/httpwww-latelee-orgusing-gnu-linuxgenerate-svn-git-version-iii-html.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/way-to-generate-linux-version.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/linux-iptables-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/ubuntu-debootstrap.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/linux-memory-bandwidth-test-note.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/ubuntu-livecd.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/linux-cosole-redirect-serialport.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/linux-cpu-mem-info.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
   </url>
   <url>
     <loc>http://www.latelee.org/using-gnu-linux/ubuntu-compiling-kernel-grub-notes.html</loc>
-    <lastmod>2021-02-05</lastmod>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/copy-hard-disk-using-dd.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-apache-gitweb.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-debootstrap-ii.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-more-fast-network-configuration.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/ubuntu-booting-script.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/little-about-crontab.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/notes-about-ubuntu-syslog.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/fixed-ubuntu-networking-device-name.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/filesystem-readonly-for-bios-error-time.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/new-to-pci.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/learning-linux-1-stepout.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/learning-linux-2-breakdown.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/learning-linux-3-ubuntu.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/learning-linux-4-know-more.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/learning-linux-5-terminate.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/cross-compile-gdb-and-gdbserver.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/installing-gcc-and-doxygen.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/how-to-use-doxygen-under-linux.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/how-to-use-boa.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/installing-gcc-2953.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/using-ld.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/diff-and-patch-on-linux.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/mouting-ntfs-on-linux.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/minicom-usage.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/make-picture-into-executable.html</loc>
+    <lastmod>2021-03-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.latelee.org/using-gnu-linux/multi-dir-makefile.html</loc>
+    <lastmod>2021-03-11</lastmod>
   </url>
 </urlset> 
