@@ -189,7 +189,7 @@
 <p>遗留：.h会匹配.sh文件，.c会匹配.cpp文件。</p>
 <h2 id="程序后台执行"><a href="#程序后台执行" class="headerlink" title="程序后台执行"></a>程序后台执行</h2><p>有时需要在本地使用ssh连接到linux上执行命令或程序，但当连接断开时（断网或本机关机），程序会退出，使用nohup可以将程序放到后台执行，并且不随外界影响，当然，自身系统挂掉除外。示例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup xxx &amp; &gt;&gt; /tmp/output.txt</span><br></pre></td></tr></table></figure>
-
+<p>注：执行命令后，要用exit退出终端，否则意外断开连接，程序会自动退出。  </p>
 <h2 id="查找文件指定字符串出现第一次或最后一次位置"><a href="#查找文件指定字符串出现第一次或最后一次位置" class="headerlink" title="查找文件指定字符串出现第一次或最后一次位置"></a>查找文件指定字符串出现第一次或最后一次位置</h2><p>查找指定文件某字符串第一次出现位置：<br>命令：<code>cat &lt;文件名称&gt; | grep -n &quot;&lt;字符串&gt;&quot; | head -n 1</code><br>示例：  </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat log.txt | grep -n &quot;MISCONF Redis is configured to save RDB snapshots&quot; | head -n 1</span><br></pre></td></tr></table></figure>
 
