@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vuepress学习记录 | 迟思堂随笔</title>
+  <title>vuepress实践录：初步入门 | 迟思堂随笔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="" />
 
@@ -118,23 +118,23 @@
 </div></div></header>
 
   <div id="container"><div id="wrap"><div id="content" class="outer">
-        <section id="main" style="float:none;"><article id="post-L-语言-NodeJS/2021-04-30-vuepress学习记录" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+        <section id="main" style="float:none;"><article id="post-L-语言-NodeJS/2021-04-30-vuepress实践录：初步入门" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    <header class="article-header"><h1 class="thumb" class="article-title" itemprop="name">vuepress学习记录</h1></header>
+    <header class="article-header"><h1 class="thumb" class="article-title" itemprop="name">vuepress实践录：初步入门</h1></header>
     <ul class="breadcrumb">
       <li><a href="/">首页</a></li>
       <li><a href="/archives">所有文章</a></li>
-      <li><a href="/archives/2019/04">2019年04月</a></li>
-      <li><a class="article-category-link" href="/category/web/">网络/网站/web</a>
+      <li><a href="/archives/2021/04">2021年04月</a></li>
+      <li><a class="article-category-link" href="/category/vue/">vue</a>
       </li>
     </ul> 
 
     <div class="article-meta">
-      <span class="ico-calendar"> </span><time datetime="2019-04-30T00:00:00+08:00" itemprop="datePublished">2019-04-30 00:00</time>
+      <span class="ico-calendar"> </span><time datetime="2021-04-30T00:00:00+08:00" itemprop="datePublished">2021-04-30 00:00</time>
       
 	<span class="ico-folder"> </span>
-    <a class="article-category-link" href="/category/web/">网络/网站/web</a>
-      <span class="ico-keyboard"> </span>1.3k 字
+    <a class="article-category-link" href="/category/vue/">vue</a>
+      <span class="ico-keyboard"> </span>1.4k 字
       
 	<span id="busuanzi_container_page_pv" class="ico-eye">
 	 <span id="busuanzi_value_page_pv"></span> 次
@@ -142,7 +142,7 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <font color=blue>作者注：本文将持续更新</font>
+        
         
         <span id="more"></span>
 
@@ -194,9 +194,16 @@
 <p>参考：<br><a target="_blank" rel="noopener" href="https://www.imaegoo.com/2020/vuepress-encrypt/">https://www.imaegoo.com/2020/vuepress-encrypt/</a> <a target="_blank" rel="noopener" href="https://szp15.com/2020/02/04/plugin-encrypt-doc/">https://szp15.com/2020/02/04/plugin-encrypt-doc/</a><br>还不成功</p>
 <h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><p>路径路由默认使用目录的 README.md 文件。<br>markdown 有扩展功能。<br>vuepress 大部分文件都支持热更新，但有的配置可能不会，如 config.js，需要重启服务。当修改 markdown 文档时，浏览器会自动刷新。<br>主题可继承，从默认主题继承。<br>执行<code>vuepress</code>无命令，使用<code>yarn vuepress</code>代替。  </p>
 <p>markdown 小记录：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">站内跳转，/表示从根目录开始</span><br><span class="line">[XXX](/doc/foo/XXX.md) </span><br><span class="line">插入当前目录的图片，似乎不能用中文名称</span><br><span class="line">![XXX](./01.png) </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">站内跳转，/表示从根目录开始</span><br><span class="line">[XXX](/doc/foo/XXX.md) </span><br><span class="line">插入当前目录的图片，默认情况下路径和图片名称不能有中文</span><br><span class="line">![XXX](./01.png) </span><br></pre></td></tr></table></figure>
 <p>内嵌 vue 代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 循环，输出1 2 3</span><br><span class="line">&lt;span v-for=&quot;i in 3&quot;&gt;&#123;&#123; i &#125;&#125; &lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题及解决"><a href="#问题及解决" class="headerlink" title="问题及解决"></a>问题及解决</h2><p>支持中文名称图片。<br>安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add markdown-it-disable-url-encode</span><br></pre></td></tr></table></figure>
+
+<p>在<code>.vuepress/config.js</code>添加：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// .....</span></span><br><span class="line">  <span class="attr">markdown</span>: &#123;</span><br><span class="line">    <span class="comment">// ......</span></span><br><span class="line">    <span class="attr">extendMarkdown</span>: <span class="function"><span class="params">md</span> =&gt;</span> &#123;</span><br><span class="line">      md.use(<span class="built_in">require</span>(<span class="string">&quot;markdown-it-disable-url-encode&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
 
 <h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">保留</span><br><span class="line">mkdir -p docs/.vuepress docs/.vuepress/styles docs/.vuepress/public docs/.vuepress/templates docs/.vuepress/theme docs/.vuepress/components</span><br><span class="line"></span><br><span class="line">touch docs/.vuepress/styles/index.styl</span><br><span class="line">touch docs/.vuepress/styles/palette.styl</span><br><span class="line">touch docs/.vuepress/templates/dev.html</span><br><span class="line">touch docs/.vuepress/templates/ssr.html</span><br><span class="line">touch docs/.vuepress/config.js</span><br><span class="line">touch docs/.vuepress/enhanceApp.js</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -219,16 +226,16 @@
       
     <div class="authorinfo">
       <img alt='' src='/author/latelee.jpg'  class='avatar avatar-64 photo' height='64' width='64' />
-      <ul><li><strong>本文作者：</strong>李迟<strong>&nbsp;&nbsp;最后更新：</strong><time >2019-12-21 13:08</time></li> 
+      <ul><li><strong>本文作者：</strong>李迟</li> 
       <li><strong>版权声明：</strong>原创文章，版权归署名作者，转载建议注明出处（当然不注明亦可）。</li>
-      <li><strong>本文链接：</strong><a href="/web/vuepress-learning.html" title="vuepress学习记录">http://www.latelee.org/web/vuepress-learning.html</a></li></ul>
+      <li><strong>本文链接：</strong><a href="/vue/vuepress-learning1.html" title="vuepress实践录：初步入门">http://www.latelee.org/vue/vuepress-learning1.html</a></li></ul>
     </div>
     
  
-    <nav id="article-nav">      <a href="/using-gnu-linux/centos-7-change-yum-repos.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <nav id="article-nav">      <a href="/golang/golang-notes-generate-version-time.html" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
-        一台CentOS云主机更改源的记录</a> 
-  <a href="/ellp/ellp-qemu-vexpress-a9.html" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">后一篇</strong> vexpress-a9资源及学习计划</a></nav>
+        Golang实践录：生成版本号和编译时间</a> 
+  <a href="/my-library/code-for-2021-04.html" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">后一篇</strong> 李迟2021年4月知识总结</a></nav>
     <hr class="entry-footer-hr">
     <footer class="entry-meta entry-footer">
       
@@ -335,21 +342,21 @@
               <div class="widget-entry-summary">
               <h6 style="margin: 0;"><a href="/golang/golang-notes-generate-version-time.html">Golang实践录：生成版本号和编译时间</a></h6></div></li>
           <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/vue/vuepress-learning1.html" title=""><img width="50" height="50" src="/gallery/tech/vue.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/vue/vuepress-learning1.html">vuepress实践录：初步入门</a></h6></div></li>
+          <li class="clearfix">
               <div class="widget-entry-thumbnail"><a href="/my-library/code-for-2021-04.html" title=""><img width="50" height="50" src="/gallery/tech/c2.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
               <div class="widget-entry-summary">
               <h6 style="margin: 0;"><a href="/my-library/code-for-2021-04.html">李迟2021年4月知识总结</a></h6></div></li>
           <li class="clearfix">
               <div class="widget-entry-thumbnail"><a href="/ml/nvidia-building-yolov5-for-tx2.html" title=""><img width="50" height="50" src="/gallery/tech/nvidia.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
               <div class="widget-entry-summary">
-              <h6 style="margin: 0;"><a href="/ml/nvidia-building-yolov5-for-tx2.html">nvidia TX2 CUDA yolov5环境搭建</a></h6></div></li>
-          <li class="clearfix">
-              <div class="widget-entry-thumbnail"><a href="/code-life/ruankao-pm4.html" title=""><img width="50" height="50" src="/gallery/cat/rk.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
-              <div class="widget-entry-summary">
-              <h6 style="margin: 0;"><a href="/code-life/ruankao-pm4.html">软考路：高项4流水账</a></h6></div></li></ul></div></div>
+              <h6 style="margin: 0;"><a href="/ml/nvidia-building-yolov5-for-tx2.html">nvidia TX2 CUDA yolov5环境搭建</a></h6></div></li></ul></div></div>
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-linux/">GNU/Linux程序</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/category/using-gnu-linux/">GNU/Linux系统</a><span class="category-list-count">76</span></li><li class="category-list-item"><a class="category-list-link" href="/category/linux-kernel/">Linux内核研究</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/Qt/">Qt</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/category/porting-uboot/">U-Boot随笔</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-windows/">Windows程序</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/cicd/">cicd</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/csharp/">csharp</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/delphi/">delphi</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/devops/">devops</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/docker/">docker</a><span class="category-list-count">41</span></li><li class="category-list-item"><a class="category-list-link" href="/category/golang/">golang</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubeedge/">kubeedge</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubernetes/">kubernetes</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/category/nodejs/">nodejs</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/category/python/">python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/vue/">vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/pkc/">个人知识中心</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/">人文社科</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/code-life/">代码生活</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/category/just-for-fun/">小玩意</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/embedded-linux/">嵌入式Linux</a><span class="category-list-count">58</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ellp/">嵌入式Linux入门与实践</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/firmware-bios/">嵌入式底层BIOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/category/toolslib/">工具编译使用</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/open-project/">开源项目</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-library/">我的程序代码</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-study/">技术杂铺</a><span class="category-list-count">45</span></li><li class="category-list-item"><a class="category-list-link" href="/category/wireless/">无线WIFI</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ml/">机器学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/multistream/">流媒体学习</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/category/the-life/">生活掠影</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/category/answer4you/">答网友问</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/compilelinking/">编译链接</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/web/">网络/网站/web</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/category/net-study/">网络方面</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/architecture/">软件架构</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/">项目日志</a><span class="category-list-count">12</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-linux/">GNU/Linux程序</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/category/using-gnu-linux/">GNU/Linux系统</a><span class="category-list-count">76</span></li><li class="category-list-item"><a class="category-list-link" href="/category/linux-kernel/">Linux内核研究</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/Qt/">Qt</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/category/porting-uboot/">U-Boot随笔</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-windows/">Windows程序</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/cicd/">cicd</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/csharp/">csharp</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/delphi/">delphi</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/devops/">devops</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/docker/">docker</a><span class="category-list-count">41</span></li><li class="category-list-item"><a class="category-list-link" href="/category/golang/">golang</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubeedge/">kubeedge</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubernetes/">kubernetes</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/category/nodejs/">nodejs</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/category/python/">python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/vue/">vue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/pkc/">个人知识中心</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/">人文社科</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/code-life/">代码生活</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/category/just-for-fun/">小玩意</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/embedded-linux/">嵌入式Linux</a><span class="category-list-count">58</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ellp/">嵌入式Linux入门与实践</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/firmware-bios/">嵌入式底层BIOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/category/toolslib/">工具编译使用</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/open-project/">开源项目</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-library/">我的程序代码</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-study/">技术杂铺</a><span class="category-list-count">45</span></li><li class="category-list-item"><a class="category-list-link" href="/category/wireless/">无线WIFI</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ml/">机器学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/multistream/">流媒体学习</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/category/the-life/">生活掠影</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/category/answer4you/">答网友问</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/compilelinking/">编译链接</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/web/">网络/网站/web</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/net-study/">网络方面</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/architecture/">软件架构</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/">项目日志</a><span class="category-list-count">12</span></li></ul>
     </div>
   </div>
 
