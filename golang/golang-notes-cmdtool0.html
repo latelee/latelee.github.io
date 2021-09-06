@@ -7,9 +7,9 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Golang实践录：反射reflect的一些研究及代码汇总 | 迟思堂随笔</title>
+  <title>Golang实践录：工程框架实践：汇总 | 迟思堂随笔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="本文汇总一些工程中使用到的和 reflect 有关的代码示例。由于是代码片段，不一定保证完整。  " />
+<meta name="description" content="面" />
 <meta name="keywords" content="golang " />
 
   <link rel="alternate" href="/atom.xml" title="迟思堂随笔" type="application/atom+xml">
@@ -118,9 +118,9 @@
 </div></div></header>
 
   <div id="container"><div id="wrap"><div id="content" class="outer">
-        <section id="main" style="float:none;"><article id="post-L-语言-Golang/2021-06-29-Golang实践录：反射的一些研究及代码汇总" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+        <section id="main" style="float:none;"><article id="post-L-语言-Golang/2021-06-07-Golang实践录：工程框架实践：汇总" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    <header class="article-header"><h1 class="thumb" class="article-title" itemprop="name">Golang实践录：反射reflect的一些研究及代码汇总</h1></header>
+    <header class="article-header"><h1 class="thumb" class="article-title" itemprop="name">Golang实践录：工程框架实践：汇总</h1></header>
     <ul class="breadcrumb">
       <li><a href="/">首页</a></li>
       <li><a href="/archives">所有文章</a></li>
@@ -137,7 +137,7 @@
   <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/golang/" rel="tag">golang</a></li></ul>
 
-      <span class="ico-keyboard"> </span>884 字
+      <span class="ico-keyboard"> </span>1 字
       
 	<span id="busuanzi_container_page_pv" class="ico-eye">
 	 <span id="busuanzi_value_page_pv"></span> 次
@@ -147,24 +147,10 @@
       
         
         
-        <p>本文汇总一些工程中使用到的和 reflect 有关的代码示例。由于是代码片段，不一定保证完整。  </p>
+        <p>面</p>
 <span id="more"></span>
 
-<h3 id="解析json"><a href="#解析json" class="headerlink" title="解析json"></a>解析json</h3><p>本节介绍解析json的一些方法。json 可来自文件，也可来自字符串，无论哪种，都是先转换成<code>[]byte</code>，再调用<code>json.Unmarshal</code>解析。<br>有时候并不关注完整的 json 格式，我们可以只取其中一部分字段，因此，可使用<code>map[string]interface&#123;&#125;</code>来接收解析结果（注意如是数组，则须使用数组形式）。  </p>
-<h4 id="从json文件解析其字段"><a href="#从json文件解析其字段" class="headerlink" title="从json文件解析其字段"></a>从json文件解析其字段</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">file, err := os.Open(filename)</span><br><span class="line">if err != nil &#123;</span><br><span class="line">    fmt.Printf(&quot;open file %s error: %s\n&quot;, filename, err)</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line">defer file.Close()</span><br><span class="line"></span><br><span class="line">read := io.Reader(file)</span><br><span class="line"></span><br><span class="line">data, _ := ioutil.ReadAll(read)</span><br><span class="line">var v []map[string]interface&#123;&#125;</span><br><span class="line">err = json.Unmarshal(data, &amp;v)</span><br><span class="line">if err != nil &#123;</span><br><span class="line">    fmt.Printf(&quot;Unmarshal error: %s\n&quot;, err)</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 假定filename里面有很多的json数组，一一遍历</span><br><span class="line">for _, idx := range v &#123;</span><br><span class="line">    fmt.Println(idx[&quot;foo&quot;])</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="从json字符串解析"><a href="#从json字符串解析" class="headerlink" title="从json字符串解析"></a>从json字符串解析</h4><p>一个简单的示例，从字符串组装，到解析，到提取其中某个字段。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func TestJsonSimple(t *testing.T) &#123;</span><br><span class="line">// 原始json字符串不能格式化，必须转换成[]byte</span><br><span class="line">orgJsonString :=</span><br><span class="line">`&#123;&quot;enID&quot;:&quot;ID250&quot;,&quot;exID&quot;:&quot;ID251&quot;,&quot;type&quot;:1,&quot;money&quot;:250.44,&quot;distance&quot;:274050&#125;`</span><br><span class="line"></span><br><span class="line">    // 虽然不知道具体结构体，但知道json只有一个，不是数组</span><br><span class="line">    var data map[string]interface&#123;&#125;</span><br><span class="line">true// 解析</span><br><span class="line">    err := json.Unmarshal([]byte(orgJsonString), &amp;data)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        fmt.Println(err.Error())</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(&quot;%#v\n&quot;, data);</span><br><span class="line">    fmt.Println(data[&quot;money&quot;]) // 并不关心其它字段，只抽取所需的</span><br><span class="line">    fmt.Println(data[&quot;money1&quot;]) // 不存在，返回nil</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map[string]interface &#123;&#125;&#123;&quot;distance&quot;:274050, &quot;enID&quot;:&quot;ID250&quot;, &quot;exID&quot;:&quot;ID251&quot;, &quot;money&quot;:250.44, &quot;type&quot;:1&#125;</span><br><span class="line">250.44</span><br><span class="line">&lt;nil&gt;</span><br></pre></td></tr></table></figure>
-
-<p>json中嵌套数组，并获取数组内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">func showInterface(origin interface&#123;&#125;) &#123;</span><br><span class="line">    switch reflect.TypeOf(origin).Kind() &#123;</span><br><span class="line">    case reflect.Slice, reflect.Array:</span><br><span class="line">        s := reflect.ValueOf(origin)</span><br><span class="line">        for i := 0; i &lt; s.Len(); i++ &#123;</span><br><span class="line">            fmt.Printf(&quot;%d: %v\n&quot;, i, s.Index(i))</span><br><span class="line">        &#125;</span><br><span class="line">    case reflect.String:</span><br><span class="line">        s := reflect.ValueOf(origin)</span><br><span class="line">        fmt.Printf(&quot;only string %v\n&quot;, s.String())</span><br><span class="line">    case reflect.Int:</span><br><span class="line">        s := reflect.ValueOf(origin)</span><br><span class="line">        fmt.Printf(&quot;only int %v\n&quot;, s.Int())</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func TestJsonArray(t *testing.T) &#123;</span><br><span class="line">    orgJsonString :=</span><br><span class="line">`&#123;&quot;enID&quot;:&quot;ID500&quot;,&quot;exID&quot;:&quot;ID501&quot;,&quot;type&quot;:2,&quot;money&quot;:27.00,&quot;distance&quot;:28322,&quot;splitInfo&quot;:[&#123;&quot;index&quot;:1,&quot;pTag&quot;:&quot;11&quot;,&quot;pMoney&quot;:700&#125;,&#123;&quot;index&quot;:2,&quot;pTag&quot;:&quot;12&quot;,&quot;pMoney&quot;:2000&#125;]&#125;`</span><br><span class="line"></span><br><span class="line">    // 解析</span><br><span class="line">    var data map[string]interface&#123;&#125;</span><br><span class="line">trueerr := json.Unmarshal([]byte(orgJsonString), &amp;data)</span><br><span class="line">    if err != nil &#123;</span><br><span class="line">        fmt.Println(err.Error())</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(&quot;org json:\n%#v\n\n&quot;, data);</span><br><span class="line">    showInterface(data[&quot;enID&quot;])</span><br><span class="line">    showInterface(data[&quot;splitInfo&quot;])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>data[&quot;splitInfo&quot;]</code>是一个<code>interface</code>，此刻并不知道具体的内容，因此无法再获取内部的字段或长度。可以利用<code>reflect.TypeOf</code>获取类型，如是数组，需要遍历。详见代码。<br>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">org json:</span><br><span class="line">map[string]interface &#123;&#125;&#123;&quot;distance&quot;:28322, &quot;enID&quot;:&quot;ID500&quot;, &quot;exID&quot;:&quot;ID501&quot;, &quot;money&quot;:27, &quot;splitInfo&quot;:[]interface &#123;&#125;&#123;map[string]interface &#123;&#125;&#123;&quot;index&quot;:1, &quot;pMoney&quot;:700, &quot;pTag&quot;:&quot;11&quot;&#125;, map[string]interface &#123;&#125;&#123;&quot;index&quot;:2, &quot;pMoney&quot;:2000, &quot;pTag&quot;:&quot;12&quot;&#125;&#125;, &quot;type&quot;:2&#125;</span><br><span class="line"></span><br><span class="line">only string ID500</span><br><span class="line">0: map[index:1 pMoney:700 pTag:11]</span><br><span class="line">1: map[index:2 pMoney:2000 pTag:12]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>接上，如果只需要获取<code>data[&quot;splitInfo&quot;]</code>的长度。注意，此处是知道该字段是数组，但不知道其内容（或不关注内容），可直接用<code>reflect.ValueOf</code>求出长度，如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mylen := reflect.ValueOf(data[&quot;splitInfo&quot;]).Len()</span><br><span class="line">fmt.Println(&quot;splitInfo len: &quot;, mylen)</span><br></pre></td></tr></table></figure> </div>
+ </div>
     <div id="donation_div"></div>
 
 
@@ -181,13 +167,13 @@
       <img alt='' src='/author/latelee.jpg'  class='avatar avatar-64 photo' height='64' width='64' />
       <ul><li><strong>本文作者：</strong>李迟</li> 
       <li><strong>版权声明：</strong>原创文章，版权归署名作者，转载建议注明出处（当然不注明亦可）。</li>
-      <li><strong>本文链接：</strong><a href="/golang/golang-notes-cmdtool0.html" title="Golang实践录：反射reflect的一些研究及代码汇总">http://www.latelee.org/golang/golang-notes-cmdtool0.html</a></li></ul>
+      <li><strong>本文链接：</strong><a href="/golang/golang-notes-cmdtool0.html" title="Golang实践录：工程框架实践：汇总">http://www.latelee.org/golang/golang-notes-cmdtool0.html</a></li></ul>
     </div>
     
  
-    <nav id="article-nav">      <a href="/golang/golang-notes-cmdtool0.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <nav id="article-nav">      <a href="/my-study/my-terminal-4.html" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
-        Golang实践录：工程框架实践：汇总</a> 
+        “命令终端”的实现4-优化之解耦</a> 
   <a href="/my-library/code-for-2021-05.html" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">后一篇</strong> 李迟2021年5月知识总结</a></nav>
     <hr class="entry-footer-hr">
     <footer class="entry-meta entry-footer">
