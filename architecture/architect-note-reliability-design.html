@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!--
+无上甚深微妙法，百千万劫难遭遇。
+我今见闻得受持，愿解如来真实义。
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>架构师考点汇总：论文之可靠性设计 | 迟思堂随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="论文 可靠性设计  " />
+<meta name="keywords" content="软件架构, 考证 " />
+
+  <link rel="alternate" href="/atom.xml" title="迟思堂随笔" type="application/atom+xml">
+  <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  
+<link rel="stylesheet" href="/css/style.css">
+ 
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+   <link rel="stylesheet" href="/css/vdonate.css" > 
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+  <script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'}var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s)})();</script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body data-spy="scroll" data-target="#toc" data-offset="50">
+
+  
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    <a class="navbar-brand" href="/"></a></div>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_0" href="">
+                嵌入式/Linux<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/using-gnu-linux"> GUN/Linux系统</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/linux-kernel"> Linux内核研究</a></li>
+                <li><a href="/category/embedded-linux"> 嵌入式Linux</a></li>
+                <li><a href="/category/porting-uboot"> U-Boot随笔</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/firmware-bios"> 嵌入式底层BIOS</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/嵌入式qemu"> qemu</a></li>
+                <li><a href="/tag/raspberrypi"> 树莓派</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_1" href="">
+                程序开发<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/my-study"> 技术杂铺</a></li>
+                <li><a href="/category/open-project"> 开源项目</a></li>
+                <li><a href="/category/my-library"> 程序库</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/multistream"> 流媒体</a></li>
+                <li><a href="/category/wireless"> 无线WIFI</a></li>
+                <li><a href="/category/"> 网络/网站/web</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/just-for-fun"> 小玩意</a></li>
+                <li><a href="/category/answer4you"> 答网友问</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_2" href="">
+                编程语言<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/programming-under-linux"> GUN/Linux</a></li>
+                <li><a href="/category/programming-under-windows"> Windows</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/C语言/"> C/C++</a></li>
+                <li><a href="/category/python"> Python</a></li>
+                <li><a href="/category/nodejs"> NodeJS</a></li>
+                <li><a href="/tag/golang"> Golang</a></li>
+                <li><a href="/category/csharp"> C#</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_3" href="">
+                自动化群集运维<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/devops"> devops</a></li>
+                <li><a href="/category/docker"> Docker</a></li>
+                <li><a href="/category/cicd"> CICD</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_4" href="">
+                生活/随想<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/code-life"> 代码生活</a></li>
+                <li><a href="/category/the-life"> 生活掠影</a></li>
+                <li><a href="/category/人文社科"> 人文社科</a></li>
+                </ul></li>
+           
+        <li><a href="/archives">文章归档</a></li> 
+           
+        <li><a href="/webinfo">本站信息</a></li> 
+          </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="latelee" title="Late Lee&#39;s GitHub" target=_blank><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul></div></div></nav>
+<header id="allheader" class="site-header" role="banner"
+   >
+  <div class="clearfix container"><div class="site-branding"><h1 class="site-title">
+            
+              <!-- <a href="/" title="迟思堂随笔" rel="home"> 迟思堂随笔 </a> -->
+            </h1>
+          <!-- <div class="header-container" style="background: url('/bg.jpg')"></div> -->
+          <center>
+
+本站当前定位为个人的知识库中心。 <br> 如果有疑问，可发邮件至li@latelee.org，但不一定回复。 <br> 
+</center>
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    </ul></div></nav>
+</div></div></header>
+
+  <div id="container"><div id="wrap"><div id="content" class="outer">
+        <section id="main" style="float:none;"><article id="post-T-架构/2020-12-28-架构师考点汇总_论文之可靠性设计" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    <header class="article-header"><h1 class="thumb" class="article-title" itemprop="name">架构师考点汇总：论文之可靠性设计</h1></header>
+    <ul class="breadcrumb">
+      <li><a href="/">首页</a></li>
+      <li><a href="/archives">所有文章</a></li>
+      <li><a href="/archives/2020/12">2020年12月</a></li>
+      <li><a class="article-category-link" href="/category/architecture/">软件架构</a>
+      </li>
+    </ul> 
+
+    <div class="article-meta">
+      <span class="ico-calendar"> </span><time datetime="2020-12-28T00:00:00+08:00" itemprop="datePublished">2020-12-28 00:00</time>
+      
+	<span class="ico-folder"> </span>
+    <a class="article-category-link" href="/category/architecture/">软件架构</a>
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/%E8%80%83%E8%AF%81/" rel="tag">考证</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/" rel="tag">软件架构</a></li></ul>
+
+      <span class="ico-keyboard"> </span>4.5k 字
+      
+	<span id="busuanzi_container_page_pv" class="ico-eye">
+	 <span id="busuanzi_value_page_pv"></span> 次
+	</span>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+        <p>论文 可靠性设计  </p>
+<span id="more"></span>
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>系统的可靠性分析与设计是系统架构设计师在系统分析与设计阶段、系统集成阶段应该重点考虑的问题。内容主要为可靠性设计、系统的故障模型、系统的可靠性模型、组合模型可靠性计算、马尔柯夫模型可靠性计算，以及硬件冗余、信息校验码等方面；另外也涉及系统可靠性分析与计算、系统可靠性评估和系统配置方法等概念与理论的实际工程运用等内容。</p>
+<p>与可靠性相关的概念主要有：可靠度、可用度、可维度、平均无故障时间、平均故障修复时间及平均故障间隔时间等。<br>可靠度。系统的可靠度 R(t)是指在 t=0 时系统正常的条件下，系统在时间区间[0,t] 内能正常运行的概率。<br>平均无故障时间。可靠度为 R(t)的系统平均无故障时间（Mean Time To Failure，MTTF）定义为从 t=0 时到故障发生时系统的持续运行时间的期望值：</p>
+<p>平均故障修复时间。可用度为 A(t)的系统平均故障修复时间（Mean Time To Repair，MTTR）可以用类似于求 MTTF的方法求得。</p>
+<p>可靠性和可用性<br>系统可靠性是系统在规定的时间内及规定的环境条件下，完成规定功能的能力，也就是系统无故障运行的概率。<br>系统可用性是指在某个给定时间点上系统能够按照需求执行的概率。<br>两者不同。  </p>
+<p>软件可靠性分析与设计的原因：<br>软件在使用中发生失效(不可靠）会导致任务的失败,甚至导致灾难性的后果。因此,应在软件设计过程中,对可能发生的失效进行分析,采取必要的措施避免将引起失效的缺陷引入软件,为失效纠正措施的制定提供依据,同时为避免类似问题的发生提供借鉴。<br>这些工作将会大大提高使用中软件的可靠性,减少由于软件失效带来的各种损失。  </p>
+<p>软件可靠性设计的四种类型：<br>避错设计<br>容错设计<br>改错设计<br>查错设计  </p>
+<h3 id="避错设计"><a href="#避错设计" class="headerlink" title="避错设计"></a>避错设计</h3><p>避错设计是使软件产品在设计过程中，不发生错误或少发生错误的一种设计方法。的设计原则是控制和减少程序的复杂性。<br>体现了以预防为主的思想，软件可靠性设计的首要方法。<br>各阶段都要进行避错。  </p>
+<p>避免需求错误，早期介入，使用原型提供客户决策。深入研究用户需求。<br>选择好的开发方法。<br>面向对象方法，分析、设计、实现。  </p>
+<p>软件避错设计准则：<br>模块独立，分治法。解耦。<br>信息隐蔽和局部分。（面向对象设计原则）<br>编码方面：防错程序设计，跳转。异常处理。  </p>
+<h3 id="查错设计"><a href="#查错设计" class="headerlink" title="查错设计"></a>查错设计</h3><p>软件查错设计是指在设计中赋予程序某些特殊的功能，使程序在运行中自动查找存在错误的一种设计方法。  </p>
+<p>被动式错误检测<br>设置检测点，等待错误出现。<br>软件看门狗<br>循环次数，避免潜在的死循环（有个解析协议错误，死循环）<br>检查数据有效性。<br>忽略极限条件<br>操作错误<br>变量下标错误<br>主动式错误检测<br>主动检查程序状态<br>cppcheck</p>
+<p>故障恢复措施<br>完成恢复  降级恢复  立即停止程序运行，记录错误。  </p>
+<h3 id="改错设计"><a href="#改错设计" class="headerlink" title="改错设计"></a>改错设计</h3><p>改错设计是指在设计中，赋予程序自我改正错误、减少错误危害程度的能力的一种设计方法。<br>改正错误的前提是已经准确地找出软件错误的起因和部位（故障检测与故障定位合称故障诊断），程序又有能力修改、剔除有错误的语句。<br>现阶段仅限于减少软件错误造成的有害影响，或将有害影响限制在一个较小的范围。常采用故障隔离技术。<br>权限最小化原则。故障隔离。  </p>
+<h3 id="容错设计"><a href="#容错设计" class="headerlink" title="容错设计"></a>容错设计</h3><p>软件容错设计是指在设计中赋予程序某种特殊的功能，使程序在错误已被触发的情况下，系统仍然具有正常运行能力的一种设计方法。<br>时间容错<br>所谓“时间容错”就是不惜以牺牲时间为代价来换取软件系统高可靠性的一种手段，它包括指令的重复执行和程序(一个模块或一个子程序)重复执行，两种常被采用而行之有效的方法</p>
+<p>结构容错<br>结构容错的基本思想来源于硬件可靠性中的冗余技术。</p>
+<p>静态冗余  －》 N版本程序设计法(NVP)<br>动态冗余 －》恢复块法(RB)</p>
+<p>信息容错<br>一对相同的要求进行多个不同版本的设计一对相同的初始条件和相同的输入的操作结果实行表决（多数决定、一致决定)  </p>
+<p>要求需求说明完全、精确</p>
+<p>防卫式程序设计<br>对于程序中存在的错误和不一致性，通过在程序中包含错误检查代码和错误恢复代码，使得一旦错误发生，程序能撤消错误状态，恢复到一个已知的正确状态中去<br>实现策略:错误检测、破坏估计、错误恢复  </p>
+<p>部署阶段：<br>双机容错  双机热备<br>数据库读写分离<br>集群</p>
+<p>摘要：<br>本人于2015年11月参与浙江省某在线教育平台“外教一对一在线教育”项目，该项目为客户提供了一对一欧美外教视频教学，社交圈，公众直播等功能提供全方位的软件支撑，在该项目组中我担任系统架构师岗位，主要负责整体架构设计与中间件选型。本文以该教育平台为例，主要讨论了该系统有关可靠性方面的设计与应用，以及遇到的问题与解决方案。一方面通过负载均衡进行容错技术中冗余设计的实现，另一方面通过层次架构风格来明确系统结构体系，从而降低系统设计复杂度，提高系统可靠性。整个系统开发工作历时18个月。目前，该系统已经稳定运行近一年半的时间。实践证明，通过容错设计，降低复杂度设计等，系统有效提高了可靠性，从而为公司业务提供持续稳定的服务支撑。</p>
+<p>正文：<br>随着国家对教育的越发重视，英语教育的市场份额逐步上升，其中用户口语提升的需求越来越大。为此，一些公司开始提供与外国人聊天的平台。我所在公司决定从国际通讯领域进军口语教育领域。为了这项战略转变，公司于2015年11月设计某在线教育平台系统（一下简称为“系统”）。该系统帮助人们与欧美外教进行面对面的口语交流和教学。其中随意聊提供了一种类似QQ视频通话，而正式课程还提供了H5互动课件与课后点评等，以提高教学质量。与此同时，还有公众直播用于拉新，AI测试用于评定学院能力，降低成本。我参与了该项目的开发工作，担任系统架构设计师职务，负责设计系统架构。本项目组全体成员共9人，我主要负责项目计划制定，需求分析，整体架构设计与技术选型，以及部分底层设计。该项目的架构工作与次年2月完成，选择了层次架构风格。整个项目耗时18个月，于2017年5月完成。<br>目前主流的可靠性设计技术有容错设计，检错设计，降低复杂度设计等技术。容错设计技术分为恢复块设计，N版本程序设计和冗余设计。其中恢复块设计是选择一组软件操作作为容错设计单元，将普通的程序块编程恢复块。N版本程序设计的核心是通过设计出多个模块或不同版本，对于相同初始条件和相同输入的操作结果，实现多数表决，防止其中某一软件模块/版本的故障提供错误的服务，以实现软件容错。冗余设计是在一套完整的软件系统之外，设计一种不同路径，不同算法或不同实现方法的模块或系统作为备份，在出现故障时可以使用冗余的部分进行替换，从而维持软件系统的正常运行。缺点是费用和资源的消耗会有所增加。检错技术是在软件出现故障后能及时发现并报警。其缺点是不能自动解决故障。降低复杂度设计是因为软件复杂性与软件可靠性有着密切关系，是产生软件缺陷的重要根源。在设计时考虑降低软件的复杂性，是提高软件可靠性的有效方法。</p>
+<p>在了解系统需求后，我们决定听从公司技术顾问的建议，容错设计主要应用在冗余设计方面，通过负载均衡，双机容错等机制完成冗余设计。检错设计则是通过对Java异常处理机制的设计与封装处理完成。至于降低复杂度方面，采用层次架构风格，使得系统的结构明确，立体，从而提高系统可靠性。接下来，我将从系统的冗余设计，复杂度降低设计介绍可靠性在系统中的设计与应用，以及应用过程中遇到的问题与解决方案。</p>
+<p>1.冗余设计：</p>
+<p>首先说冗余设计，冗余包含逻辑冗余，数据冗余，应用冗余等。这里以应用冗余为例。为了提高系统的性能，可靠性，可拓展性等，我们采用了负载均衡技术。常见的负载均衡技术有F5硬件，LVS软件，Nginx服务器配置等。出于便捷与成本的考虑，我们采用了Nginx服务器配置负载均衡技术。通过对Nginx服务器中upstream模块的配置，就可以实现在多台服务器的反向代理家在负载均衡。采用负载均衡后，应用服务器集群存在Session问题无法统一的问题。解决方法有Session Sticky，Session Replication，Session数据集中存储，Cookie Based四个方案。Session Sticky是通过确保同一个会话的请求都在同一个Web服务器上处理实现。Session Replication是增加Web服务器间会话数据的同步来保证不同Web服务器间的Session数据的一致。Cookie Based就是通过Cookie传递Session数据完成。经过考虑，我们采用了Session数据集中存储。Session数据集中存储通过令每台服务器从专门的session服务器获取session数据来解决问题。优点是可靠性，可移植性与可拓展性的大幅提高。缺点是一方面读写Session数据引入了网络操作，对数据读取存在时延和不稳定性，但对于使用内网通信的系统并没有太大影响。另一方面，如果Session服务器或集群出现问题，将会影响整个应用。我们通过双机容错机制解决该问题。除此之外，还有心跳线，看门狗等技术。限于篇幅，不再赘述。</p>
+<p>2.降低复杂度设计：</p>
+<p>再者就是降低复杂度设计，由于系统的复杂性和综合性，我们决定采用层次架构风格，将系统架构分为接入层，应用层，服务层，数据层四个层次。这里以应用层与服务层为例。应用层分为视图层与业务逻辑层，视图层负责App与网站的表现效果，业务逻辑层负责业务层的逻辑处理。为了解决系统日益复杂，应用日益臃肿问题，我们将系统按照应用横向划分，将系统划分为课件管理系统，课程管理系统等十余个子系统。如课件管理系统负责学员上课所用课件，有课件编辑，课件预览，课件交互等多个功能模块。功能模块需调用服务层的服务支撑，如课件交互模块需要调用stomp通信服务，实现学生与老师间课件的交互功能。另外，课件交互模块通过对账户服务的调用，确立课件双方的身份，从而明确双方在课件交互过程中对课件交互部分的交互权限。该划分使得系统体系变得清晰明了，极大降低系统复杂度，提高系统可靠性。应用层采用基于J2ee的MVC框架-Structs框架，主要通过Servlet和JSP技术实现。另外还有动静分离，动态资源静态化等，这里不再赘述。</p>
+<p>服务层提供通用服务。系统在应用层中按照应用横向划分，有效降低系统复杂度。但系统代码仍然存在冗余，比如用户信息的调用在诸多应用子系统中都有相关模块。另外应用的大小依旧十分巨大，复杂，而过小的应用划分会增加数据库连接数负担，故我们提出服务化解决方案。服务化方案就是提取出各个应用的通用服务，如账户服务，Session服务等。出于技术成熟度与技术支持等考虑，我们最终采用了阿里的dubbo服务框架，建立服务层。开发过程中，产生了服务框架部署问题与实现服务框架的jar包和应用自身依赖的jar包冲突的问题。前者，我们通过Tomcat作为Web容器，而服务框架作为容器的一部分来解决。后者，我们通过Java的ClassLoader将服务框架自身用的类与应用的类进行隔离。除此之外，我们通过服务线程池隔离，分布请求合并，服务调用端的流程控制来降低系统复杂度，提高系统可靠性。详情限于篇幅，不再赘述。</p>
+<p>最终项目成功上线，正常运行了近一年半，收到各方好评。尤其是H5课件的良好互动性，使得大量业界同行争相模仿，改用H5制作课件。还有我们的服务化方案架构被作为许多传统互联网企业系统重构的经典方案。在系统的架构设计中，我们引入了层次架构的设计思想，有效地降低了维护成本，提高了系统的开放性，可扩展性，可重用性以及可移植性。当然还是存在一些问题的。如H5课件采用http协议，易被非法劫持，嵌入广告，可以将协议修改为https来解决。还有我们采用的负载均衡算法是加权轮转算法，过于简单，常常出现资源分配不合理的现象，可以将算法改为加权最小连接数算法来解决。这些都是我在今后的系统设计和开发中需要注意与改进的地方，也是日后我应该努力的方向。</p>
+<p>三，总结<br>这篇论文的项目，依旧是之前那片论文的项目-在线教育系统。但是其中很多技术，其实在原有项目中是没有涉及的。</p>
+<p>另外这篇论文与之前论文存在一个结构上的不同之处，那就是这次的核心论点只有两个分论点。不过，第二个论点-降低复杂度设计，是通过两个方面进行阐述的。这也算是论文中核心论点的一种回答方式。往往论文的核心论点，推荐使用三个分论点进行论述，而部分论文的核心论点就只能拆分为两个分论点（或者，三个论点的拆分维度，自己不熟悉）。这时候就需要灵活的转变自己的思想，将核心论点的两个分论点氛围主次论点回答，实际体现就是主论点两个段落，次论点一个段落。</p>
+<p>既然说到这里，也说一下，如果核心论点可以拆分出多个分论点。如架构风格的层次架构完全可以拆分为接入层，应用层，服务层（基础服务层，通用服务层，业务服务层），数据接入层，数据源等。那么这种情况，我们完全可以从中挑选三点自己熟悉的部分，进行阐述。如果担心这样写，文章显得比较僵硬，就在相关位置写上“此处，我们以XXX,XXX,XXX为重点，进行论述”这样的话语即可。</p>
+ </div>
+    <div id="donation_div"></div>
+
+
+<div style="width: 90%; text-align: center;">
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}"><span>打赏支持</span></button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block"><img id="wechat_qr" src="/images/wepay_240.png" width="50%" alt="微信支付"><p>微信支付</p></div>
+    
+      <div id="alipay" style="display: inline-block"><img id="alipay_qr" src="/images/alipay_240.png" width="50%" alt="支付宝"><p>支付宝</p></div>
+    <br>如觉得本文有用，可随意赞助以资鼓励。<br>如影响阅读体验，请再次点击关闭窗口。</div></div>
+      
+    <div class="authorinfo">
+      <img alt='' src='/author/latelee.jpg'  class='avatar avatar-64 photo' height='64' width='64' />
+      <ul><li><strong>本文作者：</strong>李迟</li> 
+      <li><strong>版权声明：</strong>原创文章，版权归署名作者，转载建议注明出处（当然不注明亦可）。</li>
+      <li><strong>本文链接：</strong><a href="/architecture/architect-note-reliability-design.html" title="架构师考点汇总：论文之可靠性设计">http://www.latelee.org/architecture/architect-note-reliability-design.html</a></li></ul>
+    </div>
+    
+ 
+    <nav id="article-nav">      <a href="/my-library/parsing-yaml-in-golang.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+        yaml文件解析：golang篇</a> 
+  <a href="/my-library/parsing-yaml-in-nodejs.html" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">后一篇</strong> yaml文件解析：nodejs篇</a></nav>
+    <hr class="entry-footer-hr">
+    <footer class="entry-meta entry-footer">
+      
+<div id="comment"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'true' == true ? true : false;
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+    window.onload = function() {
+        new Valine({
+			//av: AV,
+            el: '#comment',
+            notify: notify,
+            verify: verify,
+            app_id: "X36fuJhKb5DzHu6Sv2AU1Aap-gzGzoHsz",
+            app_key: "bix54WVwzsQyxeHbvIcJGsyA",
+            avatar:"monsterid",
+            placeholder: "可自由评论，但勿恶意评论。上面那行可填可不填。",
+            guest_info:guest_info,
+			//visitor: true // 阅读量统计
+        });
+    }
+  </script></div></footer></div>
+</article>
+  <aside id="sidebar">
+  <div style="margin: 20px 0;">
+	<div id="search-form-wrap">
+
+    <form class="search-form">
+        <label style="width: 72%;">
+            <span class="screen-reader-text">Search for:</span>
+            <input type="search" class="search-field" style="height: 36px; width: 100%;" placeholder=" 搜索…" value="" name="s" title="Search for:">
+        </label>
+        <input type="submit" class="search-form-submit" value="搜索">
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+</div><div class="widget_athemes_tabs">
+    <ul id="widget-tab" class="clearfix widget-tab-nav"><li class="active"><a>最新文章</a></li></ul>
+    <div class="widget"><ul>
+        
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/my-library/code-for-2021-09.html" title=""><img width="50" height="50" src="/gallery/tech/c2.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/my-library/code-for-2021-09.html">李迟2021年9月知识总结</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/my-study/liteos-search.html" title=""><img width="50" height="50" src="/gallery/linux/linux6.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/my-study/liteos-search.html">LiteOS调研</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/my-study/gd32mcu-search.html" title=""><img width="50" height="50" src="/gallery/linux/linux6.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/my-study/gd32mcu-search.html">兆易创新GD32芯片调研</a></h6></div></li>
+          <li class="clearfix"><div class="widget-entry-summary" style="margin: 0;">
+              <h6 style="margin: 0;"><a href="/pkc/jekyll-usage.html">jekyll使用</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/my-study/nginx-load-balnace-note.html" title=""><img width="50" height="50" src="/gallery/tech/redis.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/my-study/nginx-load-balnace-note.html">nginx负载均衡实验笔记</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-print-structure.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-print-structure.html">Golang实践录：使用gin框架实现转发功能：一些负载均衡算法的实现</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-print-structure.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-print-structure.html">Golang实践录：使用gin框架实现转发功能：利用nginx转发</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-gin-httpforward1.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-gin-httpforward1.html">Golang实践录：使用gin框架实现转发功能：管理后端服务启动</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-gin-httpforward1.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-gin-httpforward1.html">Golang实践录：使用gin框架实现转发功能：上传文件并转发</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/the-life/one-year-in-new-company%EF%BC%8D2021.html" title=""><img width="50" height="50" src="/gallery/nature/grass-weeds.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/the-life/one-year-in-new-company%EF%BC%8D2021.html">新公司入职这一年</a></h6></div></li></ul></div></div>
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-linux/">GNU/Linux程序</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/category/using-gnu-linux/">GNU/Linux系统</a><span class="category-list-count">76</span></li><li class="category-list-item"><a class="category-list-link" href="/category/linux-kernel/">Linux内核研究</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/Qt/">Qt</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/category/porting-uboot/">U-Boot随笔</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-windows/">Windows程序</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/cicd/">cicd</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/csharp/">csharp</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/delphi/">delphi</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/devops/">devops</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/docker/">docker</a><span class="category-list-count">46</span></li><li class="category-list-item"><a class="category-list-link" href="/category/golang/">golang</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubeedge/">kubeedge</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubernetes/">kubernetes</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/category/nodejs/">nodejs</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/category/python/">python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/vue/">vue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/pkc/">个人知识中心</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/">人文社科</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/code-life/">代码生活</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/category/just-for-fun/">小玩意</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/embedded-linux/">嵌入式Linux</a><span class="category-list-count">58</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ellp/">嵌入式Linux入门与实践</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/firmware-bios/">嵌入式底层BIOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/category/toolslib/">工具编译使用</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/open-project/">开源项目</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-library/">我的程序代码</a><span class="category-list-count">49</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-study/">技术杂铺</a><span class="category-list-count">50</span></li><li class="category-list-item"><a class="category-list-link" href="/category/wireless/">无线WIFI</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ml/">机器学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/multistream/">流媒体学习</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/category/the-life/">生活掠影</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/category/answer4you/">答网友问</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/compilelinking/">编译链接</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/web/">网络/网站/web</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/net-study/">网络方面</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/architecture/">软件架构</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/">项目日志</a><span class="category-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+  <div class="widget-wrap"><h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud"><a href="/tag/4G%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">4G网卡</a> <a href="/tag/ARM/" style="font-size: 10.43px;">ARM</a> <a href="/tag/CPU%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">CPU寄存器</a> <a href="/tag/CPU%E9%A2%91%E7%8E%87/" style="font-size: 10px;">CPU频率</a> <a href="/tag/CentOS/" style="font-size: 10.43px;">CentOS</a> <a href="/tag/C%E8%AF%AD%E8%A8%80/" style="font-size: 14.78px;">C语言</a> <a href="/tag/FTP/" style="font-size: 10.43px;">FTP</a> <a href="/tag/H265/" style="font-size: 10px;">H265</a> <a href="/tag/Intel%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">Intel处理器</a> <a href="/tag/LCD/" style="font-size: 10.87px;">LCD</a> <a href="/tag/Linux/" style="font-size: 11.74px;">Linux</a> <a href="/tag/Linux%E4%B9%8B%E8%A1%8C/" style="font-size: 11.74px;">Linux之行</a> <a href="/tag/Linux%E4%BD%BF%E7%94%A8/" style="font-size: 13.04px;">Linux使用</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8/" style="font-size: 11.3px;">Linux内核</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/" style="font-size: 10px;">Linux内核编译</a> <a href="/tag/Linux%E7%A7%BB%E6%A4%8D%E9%9A%8F%E7%AC%94/" style="font-size: 12.17px;">Linux移植随笔</a> <a href="/tag/Linux%E7%BC%96%E7%A8%8B/" style="font-size: 13.48px;">Linux编程</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C/" style="font-size: 10.43px;">Linux网络</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10.43px;">Linux网络子系统</a> <a href="/tag/Linux%E9%A9%B1%E5%8A%A8/" style="font-size: 11.3px;">Linux驱动</a> <a href="/tag/MFC/" style="font-size: 17.39px;">MFC</a> <a href="/tag/Makefile/" style="font-size: 13.91px;">Makefile</a> <a href="/tag/PHY%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10.43px;">PHY寄存器</a> <a href="/tag/PHY%E7%8A%B6%E6%80%81/" style="font-size: 10px;">PHY状态</a> <a href="/tag/PHY%E9%A9%B1%E5%8A%A8/" style="font-size: 10px;">PHY驱动</a> <a href="/tag/Qt/" style="font-size: 13.04px;">Qt</a> <a href="/tag/SDL/" style="font-size: 10.87px;">SDL</a> <a href="/tag/SD%E5%8D%A1/" style="font-size: 10px;">SD卡</a> <a href="/tag/STL/" style="font-size: 10.87px;">STL</a> <a href="/tag/U-Boot%E9%9A%8F%E7%AC%94/" style="font-size: 16.52px;">U-Boot随笔</a> <a href="/tag/USB/" style="font-size: 12.17px;">USB</a> <a href="/tag/U%E7%9B%98%E5%88%B6%E4%BD%9C/" style="font-size: 10px;">U盘制作</a> <a href="/tag/V4L2/" style="font-size: 10px;">V4L2</a> <a href="/tag/VAAPI/" style="font-size: 10px;">VAAPI</a> <a href="/tag/Vagrant/" style="font-size: 10.43px;">Vagrant</a> <a href="/tag/WIFI/" style="font-size: 13.04px;">WIFI</a> <a href="/tag/Windows%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">Windows编程</a> <a href="/tag/YUV/" style="font-size: 14.35px;">YUV</a> <a href="/tag/YUV%E6%92%AD%E6%94%BE%E5%99%A8/" style="font-size: 13.04px;">YUV播放器</a> <a href="/tag/ap-hotspot/" style="font-size: 10px;">ap-hotspot</a> <a href="/tag/armdocker/" style="font-size: 11.74px;">armdocker</a> <a href="/tag/atom/" style="font-size: 10px;">atom</a> <a href="/tag/beidou/" style="font-size: 10.43px;">beidou</a> <a href="/tag/bios/" style="font-size: 15.65px;">bios</a> <a href="/tag/boa/" style="font-size: 10.87px;">boa</a> <a href="/tag/cgi/" style="font-size: 10px;">cgi</a> <a href="/tag/cicd/" style="font-size: 15.22px;">cicd</a> <a href="/tag/coreboot/" style="font-size: 14.35px;">coreboot</a> <a href="/tag/coredump/" style="font-size: 10.87px;">coredump</a> <a href="/tag/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tag/crontab/" style="font-size: 10px;">crontab</a> <a href="/tag/cuda/" style="font-size: 10.43px;">cuda</a> <a href="/tag/debootstrap/" style="font-size: 10.87px;">debootstrap</a> <a href="/tag/delphi/" style="font-size: 11.3px;">delphi</a> <a href="/tag/docker/" style="font-size: 20px;">docker</a> <a href="/tag/dos%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">dos系统</a> <a href="/tag/doxygen/" style="font-size: 10.43px;">doxygen</a> <a href="/tag/dropbox/" style="font-size: 10px;">dropbox</a> <a href="/tag/emacs/" style="font-size: 10.43px;">emacs</a> <a href="/tag/ethtool/" style="font-size: 10.87px;">ethtool</a> <a href="/tag/ffmpeg/" style="font-size: 11.74px;">ffmpeg</a> <a href="/tag/flash/" style="font-size: 10px;">flash</a> <a href="/tag/freetype/" style="font-size: 10px;">freetype</a> <a href="/tag/gcc/" style="font-size: 10.87px;">gcc</a> <a href="/tag/gdbserver/" style="font-size: 10px;">gdbserver</a> <a href="/tag/getopt/" style="font-size: 10px;">getopt</a> <a href="/tag/git/" style="font-size: 13.91px;">git</a> <a href="/tag/git-cicd/" style="font-size: 10px;">git-cicd</a> <a href="/tag/gitbook/" style="font-size: 10px;">gitbook</a> <a href="/tag/github/" style="font-size: 10.43px;">github</a> <a href="/tag/golang/" style="font-size: 19.57px;">golang</a> <a href="/tag/gpio-ich/" style="font-size: 10px;">gpio_ich</a> <a href="/tag/grub/" style="font-size: 10px;">grub</a> <a href="/tag/hexo/" style="font-size: 10.43px;">hexo</a> <a href="/tag/hostapd/" style="font-size: 11.3px;">hostapd</a> <a href="/tag/i2c-gpio/" style="font-size: 10px;">i2c-gpio</a> <a href="/tag/iTCO-wdt/" style="font-size: 10px;">iTCO_wdt</a> <a href="/tag/ifconfig/" style="font-size: 10px;">ifconfig</a> <a href="/tag/inode/" style="font-size: 10px;">inode</a> <a href="/tag/iperf/" style="font-size: 10px;">iperf</a> <a href="/tag/iptables/" style="font-size: 12.61px;">iptables</a> <a href="/tag/kubeedge/" style="font-size: 15.65px;">kubeedge</a> <a href="/tag/kubernetes/" style="font-size: 18.26px;">kubernetes</a> <a href="/tag/leds-gpio/" style="font-size: 10px;">leds-gpio</a> <a href="/tag/libjpeg/" style="font-size: 13.04px;">libjpeg</a> <a href="/tag/libjpeg-turbo/" style="font-size: 10px;">libjpeg-turbo</a> <a href="/tag/linux%E5%A4%8D%E4%BD%8D/" style="font-size: 10px;">linux复位</a> <a href="/tag/linux%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">linux编程</a> <a href="/tag/live555/" style="font-size: 10.43px;">live555</a> <a href="/tag/malloc/" style="font-size: 10px;">malloc</a> <a href="/tag/mingw/" style="font-size: 10.43px;">mingw</a> <a href="/tag/nodejs/" style="font-size: 16.52px;">nodejs</a> <a href="/tag/ntfs/" style="font-size: 10px;">ntfs</a> <a href="/tag/onvif/" style="font-size: 13.04px;">onvif</a> <a href="/tag/openwrt/" style="font-size: 10.87px;">openwrt</a> <a href="/tag/osd/" style="font-size: 10.43px;">osd</a> <a href="/tag/pelco%E5%8D%8F%E8%AE%AE/" style="font-size: 10.43px;">pelco协议</a> <a href="/tag/platform/" style="font-size: 10px;">platform</a> <a href="/tag/proc/" style="font-size: 10px;">proc</a> <a href="/tag/python/" style="font-size: 10px;">python</a> <a href="/tag/radiotap/" style="font-size: 10px;">radiotap</a> <a href="/tag/rtc%E6%99%B6%E6%8C%AF/" style="font-size: 10px;">rtc晶振</a> <a href="/tag/shell/" style="font-size: 10.87px;">shell</a> <a href="/tag/socket/" style="font-size: 10px;">socket</a> <a href="/tag/spin-lock/" style="font-size: 10px;">spin_lock</a> <a href="/tag/sscanf/" style="font-size: 10px;">sscanf</a> <a href="/tag/sysfs/" style="font-size: 10px;">sysfs</a> <a href="/tag/syslog/" style="font-size: 10.43px;">syslog</a> <a href="/tag/tcpdump/" style="font-size: 10.43px;">tcpdump</a> <a href="/tag/ubuntu/" style="font-size: 11.74px;">ubuntu</a> <a href="/tag/visca%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">visca协议</a> <a href="/tag/vnstat/" style="font-size: 10px;">vnstat</a> <a href="/tag/vue/" style="font-size: 10.43px;">vue</a> <a href="/tag/web/" style="font-size: 11.3px;">web</a> <a href="/tag/web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">web服务器</a> <a href="/tag/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tag/x86/" style="font-size: 10px;">x86</a> <a href="/tag/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" style="font-size: 15.65px;">个人总结</a> <a href="/tag/%E4%B8%B2%E5%8F%A3/" style="font-size: 10.87px;">串口</a> <a href="/tag/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" style="font-size: 10px;">交叉编译</a> <a href="/tag/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/" style="font-size: 10px;">人文社科</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">代码生活</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%A7%AF%E7%B4%AF/" style="font-size: 14.78px;">代码积累</a> <a href="/tag/%E5%86%85%E5%AD%98%E5%B8%A6%E5%AE%BD/" style="font-size: 10px;">内存带宽</a> <a href="/tag/%E5%86%85%E5%AD%98%E9%A2%91%E7%8E%87/" style="font-size: 10px;">内存频率</a> <a href="/tag/%E5%86%85%E6%A0%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 16.96px;">内核学习笔记</a> <a href="/tag/%E5%8A%A8%E6%80%81%E5%BA%93/" style="font-size: 10px;">动态库</a> <a href="/tag/%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5/" style="font-size: 10px;">参数检查</a> <a href="/tag/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" style="font-size: 10px;">双向链表</a> <a href="/tag/%E5%8F%8C%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">双网卡</a> <a href="/tag/%E5%8F%A5%E6%9F%84/" style="font-size: 10px;">句柄</a> <a href="/tag/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/" style="font-size: 10.43px;">可变参数</a> <a href="/tag/%E5%90%AF%E5%8A%A8/" style="font-size: 10px;">启动</a> <a href="/tag/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tag/%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">处理器</a> <a href="/tag/%E5%A4%87%E6%A1%88/" style="font-size: 10px;">备案</a> <a href="/tag/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E5%89%8D%E7%BC%80/" style="font-size: 10px;">子网掩码前缀</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" style="font-size: 12.61px;">字符编码</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87/" style="font-size: 10px;">字符设备</a> <a href="/tag/%E5%AD%A6%E4%BD%9B/" style="font-size: 11.74px;">学佛</a> <a href="/tag/%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">寄存器</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/" style="font-size: 10px;">嵌入式Linux</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux%E5%85%A5%E9%97%A8/" style="font-size: 15.22px;">嵌入式Linux入门</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8Fqemu/" style="font-size: 10.87px;">嵌入式qemu</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B9%8B%E8%A1%8C/" style="font-size: 15.22px;">嵌入式之行</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 11.74px;">嵌入式开发环境</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 15.22px;">工具使用</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E7%BC%96%E8%AF%91/" style="font-size: 14.78px;">工具编译</a> <a href="/tag/%E5%B7%A5%E7%A8%8B%E5%BA%93%E4%BB%A3%E7%A0%81/" style="font-size: 18.7px;">工程库代码</a> <a href="/tag/%E5%BA%93%E7%BC%96%E8%AF%91/" style="font-size: 13.04px;">库编译</a> <a href="/tag/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/tag/%E5%BC%80%E5%8F%91%E5%AE%9E%E5%BD%95/" style="font-size: 10px;">开发实录</a> <a href="/tag/%E5%BC%B1%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">弱链接</a> <a href="/tag/%E5%BE%AE%E6%9C%BA%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">微机知识</a> <a href="/tag/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" style="font-size: 15.65px;">技术笔记</a> <a href="/tag/%E6%8B%B7%E8%B4%9D%E7%A1%AC%E7%9B%98/" style="font-size: 10px;">拷贝硬盘</a> <a href="/tag/%E6%8C%82%E8%BD%BD/" style="font-size: 10px;">挂载</a> <a href="/tag/%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8D%E5%AE%9A%E5%90%91/" style="font-size: 10px;">控制台重定向</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.3px;">数据库</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10.43px;">数据结构</a> <a href="/tag/%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组</a> <a href="/tag/%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96/" style="font-size: 10px;">数组初始化</a> <a href="/tag/%E6%96%87%E4%BB%B6%E5%8F%A5%E6%9F%84/" style="font-size: 10.43px;">文件句柄</a> <a href="/tag/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" style="font-size: 10px;">文件操作</a> <a href="/tag/%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" style="font-size: 10.43px;">新年计划</a> <a href="/tag/%E6%97%B6%E5%8C%BA/" style="font-size: 10.43px;">时区</a> <a href="/tag/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tag/%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0/" style="font-size: 11.3px;">架构学习</a> <a href="/tag/%E6%B1%87%E7%BC%96/" style="font-size: 11.74px;">汇编</a> <a href="/tag/%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81/" style="font-size: 10px;">汉字编码</a> <a href="/tag/%E6%B5%81%E5%AA%92%E4%BD%93/" style="font-size: 13.48px;">流媒体</a> <a href="/tag/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 11.74px;">源码分析</a> <a href="/tag/%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6/" style="font-size: 12.61px;">点阵字符</a> <a href="/tag/%E7%82%B9%E9%98%B5%E6%98%BE%E7%A4%BA/" style="font-size: 10.87px;">点阵显示</a> <a href="/tag/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 13.04px;">版本控制</a> <a href="/tag/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/" style="font-size: 10.87px;">电子邮件</a> <a href="/tag/%E7%9C%8B%E9%97%A8%E7%8B%97/" style="font-size: 10px;">看门狗</a> <a href="/tag/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" style="font-size: 12.17px;">知识总结</a> <a href="/tag/%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F/" style="font-size: 10px;">硬件加速</a> <a href="/tag/%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/" style="font-size: 10px;">磁盘空间</a> <a href="/tag/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84/" style="font-size: 10px;">端口映射</a> <a href="/tag/%E7%AD%94%E7%BD%91%E5%8F%8B%E9%97%AE/" style="font-size: 10.43px;">答网友问</a> <a href="/tag/%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" style="font-size: 10.43px;">简明教程</a> <a href="/tag/%E7%AE%A1%E9%81%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">管道函数</a> <a href="/tag/%E7%B3%BB%E7%BB%9F%E5%AE%9A%E5%88%B6/" style="font-size: 11.3px;">系统定制</a> <a href="/tag/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 10.43px;">编程规范</a> <a href="/tag/%E7%BC%96%E8%AF%91%E8%AD%A6%E5%91%8A/" style="font-size: 11.3px;">编译警告</a> <a href="/tag/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5/" style="font-size: 10.87px;">编译链接</a> <a href="/tag/%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">网卡</a> <a href="/tag/%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">网络</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E8%BD%AC%E5%8F%91/" style="font-size: 10px;">网络转发</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/" style="font-size: 10.43px;">网络问题</a> <a href="/tag/%E8%80%83%E8%AF%81/" style="font-size: 19.13px;">考证</a> <a href="/tag/%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86/" style="font-size: 10px;">视频采集</a> <a href="/tag/%E8%AF%97%E8%AF%8D%E9%9F%B5%E5%BE%8B/" style="font-size: 10px;">诗词韵律</a> <a href="/tag/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/" style="font-size: 10px;">语法高亮</a> <a href="/tag/%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%B9%BF%E6%92%AD%E5%8C%85/" style="font-size: 10px;">跨网段广播包</a> <a href="/tag/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 10px;">软件安装</a> <a href="/tag/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/" style="font-size: 17.83px;">软件架构</a> <a href="/tag/%E9%97%AE%E9%A2%98%E9%9B%86/" style="font-size: 16.09px;">问题集</a> <a href="/tag/%E9%9D%99%E6%80%81%E5%BA%93/" style="font-size: 10px;">静态库</a> <a href="/tag/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/" style="font-size: 15.65px;">项目日志</a></div></div>
+ 
+<div class="widget-wrap"><h3 class="widget-title">友情链接</h3>
+  <div class="widget">
+    <ul class="clearfix">
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.blog.csdn.net/" target="_blank">李迟的专栏</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://i.latelee.org" target="_blank">李迟的个人主页</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.github.io/" target="_blank">本站备份网址</a>
+      </li>
+    </ul>
+  </div>
+</div>
+  </aside> </section></div></div>
+    <footer id="footer" class="site-footer">
+  
+  <div class="clearfix container text-center">
+        <ul class="list-inline text-center">
+          <li><a href="/sitemap.xml">网站地图</a></li>
+          <li>|</li>
+          <li><a href="/lisence">版权声明</a></li>
+          <li>|</li>
+          <li><a href="/donate">捐赠本站</a></li>
+          <li>|</li>
+          <li><a href="/news-for-my-website">建站记录</a></li>
+          <li>|</li>
+          <li><a href="/atom.xml">RSS订阅</a></li>
+          <li>|</li>
+          <li><a href="/about">关于</a></li>
+          </ul>
+      <div class="list-inline  text-center">
+	      &copy; 2010 - 2021 <a href="/" target="_blank"></a> 版权所有.
+          本博客由hexo强力驱动，主题修改自<a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a> &nbsp;&nbsp;
+          <a href="https://beian.miit.gov.cn/" target=_blank>桂ICP备10003672号-1</a> &nbsp;&nbsp <a href="https://uweb.umeng.com/v1/login.php?siteid=2137378" target="_blank">站长统计</a> </br></div>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div></footer>
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+    
+</script><!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/bootstrap.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=2137378&web_id=2137378" language="JavaScript"></script>
+  </div>
+
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <script type="text/javascript" src="/js/click_show_text.js"></script>
+</body>
+</html>

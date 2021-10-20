@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<!--
+无上甚深微妙法，百千万劫难遭遇。
+我今见闻得受持，愿解如来真实义。
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>架构师考点大纲5 设计模式 | 迟思堂随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="架构师考点汇总 设计模式，综合网络资源，添加自己理解。  " />
+<meta name="keywords" content="软件架构, 考证 " />
+
+  <link rel="alternate" href="/atom.xml" title="迟思堂随笔" type="application/atom+xml">
+  <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  
+<link rel="stylesheet" href="/css/style.css">
+ 
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+   <link rel="stylesheet" href="/css/vdonate.css" > 
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+  <script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'}var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s)})();</script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body data-spy="scroll" data-target="#toc" data-offset="50">
+
+  
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    <a class="navbar-brand" href="/"></a></div>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_0" href="">
+                嵌入式/Linux<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/using-gnu-linux"> GUN/Linux系统</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/linux-kernel"> Linux内核研究</a></li>
+                <li><a href="/category/embedded-linux"> 嵌入式Linux</a></li>
+                <li><a href="/category/porting-uboot"> U-Boot随笔</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/firmware-bios"> 嵌入式底层BIOS</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/嵌入式qemu"> qemu</a></li>
+                <li><a href="/tag/raspberrypi"> 树莓派</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_1" href="">
+                程序开发<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/my-study"> 技术杂铺</a></li>
+                <li><a href="/category/open-project"> 开源项目</a></li>
+                <li><a href="/category/my-library"> 程序库</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/multistream"> 流媒体</a></li>
+                <li><a href="/category/wireless"> 无线WIFI</a></li>
+                <li><a href="/category/"> 网络/网站/web</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/category/just-for-fun"> 小玩意</a></li>
+                <li><a href="/category/answer4you"> 答网友问</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_2" href="">
+                编程语言<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/programming-under-linux"> GUN/Linux</a></li>
+                <li><a href="/category/programming-under-windows"> Windows</a></li> <li role="separator" class="divider"></li> 
+                <li><a href="/tag/C语言/"> C/C++</a></li>
+                <li><a href="/category/python"> Python</a></li>
+                <li><a href="/category/nodejs"> NodeJS</a></li>
+                <li><a href="/tag/golang"> Golang</a></li>
+                <li><a href="/category/csharp"> C#</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_3" href="">
+                自动化群集运维<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/devops"> devops</a></li>
+                <li><a href="/category/docker"> Docker</a></li>
+                <li><a href="/category/cicd"> CICD</a></li>
+                </ul></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" id="Nav_4" href="">
+                生活/随想<span class="caret"></span></a>
+              <ul class="dropdown-menu"><li><a href="/category/code-life"> 代码生活</a></li>
+                <li><a href="/category/the-life"> 生活掠影</a></li>
+                <li><a href="/category/人文社科"> 人文社科</a></li>
+                </ul></li>
+           
+        <li><a href="/archives">文章归档</a></li> 
+           
+        <li><a href="/webinfo">本站信息</a></li> 
+          </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="latelee" title="Late Lee&#39;s GitHub" target=_blank><i class="fa fa-github" aria-hidden="true"></i></a></li>
+      </ul></div></div></nav>
+<header id="allheader" class="site-header" role="banner"
+   >
+  <div class="clearfix container"><div class="site-branding"><h1 class="site-title">
+            
+              <!-- <a href="/" title="迟思堂随笔" rel="home"> 迟思堂随笔 </a> -->
+            </h1>
+          <!-- <div class="header-container" style="background: url('/bg.jpg')"></div> -->
+          <center>
+
+本站当前定位为个人的知识库中心。 <br> 如果有疑问，可发邮件至li@latelee.org，但不一定回复。 <br> 
+</center>
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    </ul></div></nav>
+</div></div></header>
+
+  <div id="container"><div id="wrap"><div id="content" class="outer">
+        <section id="main" style="float:none;"><article id="post-T-架构/2020-12-27-架构师考点大纲5_设计模式" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    <header class="article-header"><h1 class="thumb" class="article-title" itemprop="name">架构师考点大纲5 设计模式</h1></header>
+    <ul class="breadcrumb">
+      <li><a href="/">首页</a></li>
+      <li><a href="/archives">所有文章</a></li>
+      <li><a href="/archives/2020/12">2020年12月</a></li>
+      <li><a class="article-category-link" href="/category/architecture/">软件架构</a>
+      </li>
+    </ul> 
+
+    <div class="article-meta">
+      <span class="ico-calendar"> </span><time datetime="2020-12-27T00:00:00+08:00" itemprop="datePublished">2020-12-27 00:00</time>
+      
+	<span class="ico-folder"> </span>
+    <a class="article-category-link" href="/category/architecture/">软件架构</a>
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/%E8%80%83%E8%AF%81/" rel="tag">考证</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/" rel="tag">软件架构</a></li></ul>
+
+      <span class="ico-keyboard"> </span>8.9k 字
+      
+	<span id="busuanzi_container_page_pv" class="ico-eye">
+	 <span id="busuanzi_value_page_pv"></span> 次
+	</span>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+        <p>架构师考点汇总 设计模式，综合网络资源，添加自己理解。  </p>
+<span id="more"></span>
+
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>不同模式均有对应的使用场景，模式是应对变化点的，解决稳定中有变化的点。如果所有地方都变化，或所有地方都没变化，那么，不适用设计模式。设计模式不是万能的。  </p>
+<p>包含三种类型。  </p>
+<p>创建型：<br>速记：单工抽原建 （单工抽元件） </p>
+<p>结构型：<br>外观（门面） 组合 享元 装饰 桥接 适配 代理<br>速记：外组享装桥适代 （外祖想装桥四代）</p>
+<p>行为型：<br>迭代 命令 解释器 访问者 观察者 职责链 中介者 备忘录 策略 状态<br>速记：迭命模解访观职，中备策状（爹命摩诘访观止，终被车撞）</p>
+<h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>考点：保证一个类仅有一个实例，并提供一个该实例的全局访问点。确保一个类只有一个实例，并且提供全局访问入口，确保使用这个实例所有的对象使用相同的实例。 某个类只能生成一个实例，该类提供了一个全局访问点供外部获取该实例，其拓展是有限多例模式。 </p>
+<p>Singleton模式中的实例构造器可以设置为protected以允许子类派生。<br>Singleton模式一般不要支持拷贝构造函数和Clone接口，因为这有可能导致多个对象实例，与Singleton模式的初衷违背。<br>如何实现多线程环境下安全的Singleton?注意对双检查锁的正确实现。<br><img src="/architecture/architect-note-5-design-patterns/image-20210923003043164.png" alt="image-20210923003043164"></p>
+<p>一个类只有一个实例，提供的接口全局可用，该接口返回同一对象。<br>注：在分布式中要加锁。  </p>
+<p>构造函数设置为private，静态构造函数。  </p>
+<p>优点：<br>省资源（只有一个对象）  </p>
+<p>缺点：<br>变化的对象不适用。违背单一职责原则。  </p>
+<p>应用场景：<br>配置文件，日志文件。  </p>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>考点：实例化工作交给其子类，可以在不修改代码的情况下引入新类，因为新类只实现了接口。定义一个用于创建产品的接口，由子类决定生产什么产品。  </p>
+<p>定义一个用于创建对象的接口，让子类决定实例化哪一个类。Factory Method使得一个类的实例化延迟(自的:解耦,手段:虚函数)到子类。<br><img src="/architecture/architect-note-5-design-patterns/image-20210923003213579.png" alt="image-20210923003213579"></p>
+<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>定义：提供一个接口，让该接口负责创建一系列”相关或者相互依赖的对象”，无需指定它们具体的类。提供一个创建产品族的接口，其每个子类可以生产一系列相关的产品。  </p>
+<p>要点：如果没有应对”多系列对象构建”的需求变化，则没有必要使用Abstract Factory模式，这时候使用简单的工广完全可以。<br>“系列对象”指的是在某一特定系列下的对象之间有相互依赖、或作用的关系。不同系列的对象之间不能相互依赖。<br>Abstract Factory模式主要在于应对”新系列”的需求变动。其缺点在于难以应对“新对象”的需求变动。  </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210923003511034.png" alt="image-20210923003511034"></p>
+<p>注：红色为稳定的，蓝色、绿色为变化点。 </p>
+<p>示例：数据库连接类。MySQL、Oracle。</p>
+<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>定义：使用原型实例指定创建对象的种类,然后通过拷贝这些原型来创建新的对象。 将一个对象作为原型，通过对其进行复制而克隆出多个和原型类似的新实例。 </p>
+<p>要点：Prototype模式同样用于隔离类对象的使用者和具体类型〈易变类)之间的耦合关系，它同样要求这些”易变类”拥有稳定的接口“。<br>Prototype模式对于“如何创建易变类的实体对象”采用“原型克隆”的方法来做，它使得我们可以非常灵活地动态创建“拥有某些稳定接口”的新对象——所需工作仅仅是注册一个新类的对象（即原型)，然后在任何需要的地方Clone。<br>Prototype模式中的Clone方法可以利用某些框架中的序列化来实现深拷贝。  </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210923004149201.png" alt="image-20210923004149201"></p>
+<p>注：实际中不常见。  </p>
+<h3 id="建造者模式-构建器模式"><a href="#建造者模式-构建器模式" class="headerlink" title="建造者模式 构建器模式"></a>建造者模式 构建器模式</h3><p>考点：将复杂对象的构件与表示相分离，相同的构造过程可以创建不同的对象，通过只指定对象的类型和内容。  一次就可以创建所有的复杂对象，而其他模式一次就只能创建一个对象。  将一个复杂对象分解成多个相对简单的部分，然后根据不同需要分别创建它们，最后构建成该复杂对象。  </p>
+<p>动机：在软件系统中，有时候面临着“一个复杂对象”的创建工作，其通常由各个部分的子对象用一定的算法构成;由于需求的变化，这个复杂对象的各个部分经常面临着剧烈的变化，但是将它们组合在一起的算法却相对稳定。<br>如何应对这种变化?如何提供一种”封装机制”来隔离出”复杂对象的各个部分”的变化，从而保持系统中的“稳定构建算法”不随着需求改变而改变?  </p>
+<p>定义：将一个复杂对象的构建与其表示相分离,使得同样的构建过程(稳定)可以创建不同的表示(变化)。  </p>
+<p>要点：  Builder模式主要用于“分步骤构建一个复杂的对象”。在这其中”分步骤”是一个稳定的算法，而复杂对象的各个部分则经常变化。<br>变化点在哪里，封装哪里—— Builder模式主要在于应对”复杂对象各个部分”的频繁需求变动。其缺点在于难以应对“分步骤构建算法”的需求变动。<br>在Builder模式中，要注意不同语言中构造器内调用虚函数的差别(C++ vs.C#)。  </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210923004448778.png" alt="image-20210923004448778"></p>
+<h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><h3 id="外观（门面）-facade-法文"><a href="#外观（门面）-facade-法文" class="headerlink" title="外观（门面）  facade(法文)"></a>外观（门面）  facade(法文)</h3><p>考点：为子系统定义了一个高层接口，这个接口使得子系统更加容易使用。为子系统中的一组接口提供了一个统<strong>一的接口</strong>，更容易使用子系统的高级接口。  为多个复杂的子系统提供一个一致的接口，使这些子系统更加容易被访问。<br>场合：为复杂的子系统提供简单的接口。  客户端和抽象的实现类中存在许多依赖关系。  想要对子系统进行分层。    </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210923004851232.png" alt="image-20210923004851232"></p>
+<p>动机：上述A方案的问题在于组件的客户和组件中各种复杂的子系统有了过多的耦合，随着外部客户程序和各子系统的演化，这种过多的耦合面临很多变化的挑战。<br>如何简化外部客户程序和系统间的交互接口?如何将外部客户程序的演化和内部子系统的变化之间的依赖相互解耦?</p>
+<p>定义：为子系统中的一组接口提供一个（致（稳定)的界面，Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用（复用)。  </p>
+<p>要点：  从客户程序的角度来看，Facade模式简化了整个组件系统的接口，对子组件内部与外部客户程序来说，达到了一种“解耦”的效果－－内部子系统的任何变化不会影响到Facade接口的变化。<br>Facade设计模式更注重从架构的层次去看整个系统，而不是单个类的层次。Facade很多时候更是一种架构设计模式。<br>Facade设计模式并非一个集装箱,可以任意地放进任何多个对象。Facade模式中组件的内部应该是“相互耦合关系比较天的一系列组件”，而不是一个简单的功能集合。  </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210923005052564.png" alt="image-20210923005052564"></p>
+<p>示例：数据库连接。</p>
+<h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><p>考点：  创建树形层次结构来改变复杂性。<strong>整体和部分。</strong> 将对象组合成树状层次结构，使用户对单个对象和组合对象具有一致的访问性。   </p>
+<p>场合： 想要表示对象的整个或者部分的层次结构。  想要客户端能够忽略符合对象和单个对象之间的差异。  结构可以具有任何级别的复杂性，而且是动态的。</p>
+<p>动机：在软件在某些情况下，客户代码过多地依赖于对象容器复杂的内部实现结构，对象容器丙部实现结构(而非抽象接口) 的变化将引起客户代码的频繁变化，带来了代码的维护性、扩展性等弊端。<br>如何将“客户代码与复杂的对象容器结构”解耦?让对象容器自己来实现自身的复杂结构,从而使得客户代码就像处理简单对象―样来处理复杂的对象容器?  </p>
+<p>定义：将对象组合成树形结构以表示“部分-整体”的层次结构。Composite使得用户对单个对象和组合对象的使用具有一致性（稳定)。  </p>
+<p>要点：Composite模式采用树形结构来实现普遍存在的对象容器，从而将“一对多”的关系转化为“一对一”的关系，使得客户代码可以一致地(复用)处理对象和对象容器，无需关心处理的是单个的对象，还是组合的对象容器。<br>Composite模式采用树形结构来实现普遍存在的对象容器，从而将“一对多”的关系转化为“一对一”的关系，使得客户代码可以一致地(复用)处理对象和对象容器，无需关心处理的是单个的对象，还是组合的对象容器。<br>将“客户代码与复杂的对象容器结构”解耦是Composite的核心思想，解耦之后，客户代码将与纯粹的抽象接口——而非对象容器的内部实现结构——发生依赖，从而更能“应对变化”。<br>Composite模式在具体实现中，可以让父对象中的子对象反向追溯;如果父对象有频繁的遍历需求，可使用缓存技巧来改善效率。   </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210923005528862.png" alt="image-20210923005528862"></p>
+<h3 id="享元"><a href="#享元" class="headerlink" title="享元"></a>享元</h3><p>考点：通过运用<strong>共享技术</strong>，有效支持<strong>大量细粒度</strong>的对象。 运用共享技术来有效地支持大量细粒度对象的复用。   </p>
+<p>场合：应用程序使用大量的对象。  由于对象数目巨大，导致很高的存储开销。    </p>
+<p>动机：  </p>
+<p>在软件系统采用纯粹对象方案的问题在于大量细粒度的对象会很快充斥在系统中，从而带来很高的运行时代价——主要指内存需求方面的代价。<br>如何在避免大量细粒度对象问题的同时，让外部客户程序仍然能够透明地使用面向对象的方式来进行操作?  </p>
+<p>定义：<br>运用共享技术有效地支持大量细粒度的对象。 </p>
+<p>实例：字符串，字体。</p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210927001251333.png" alt="image-20210927001251333"></p>
+<h3 id="装饰"><a href="#装饰" class="headerlink" title="装饰"></a>装饰</h3><p>考点：动态地给一个对象增加一些额外的职责。比生成子类实现起来更加灵活。可以动态、透明地给单个对象添加职责。不修改对象外观和功能的情况下添加或删除对象功能，比静态继承具有更大的灵活性。    动态的给对象增加一些职责，即增加其额外的功能。      </p>
+<p>场合：在单个对象中动态并且透明地添加责任，不会影响其他对象。  以后可能要修改的对象中添加责任。  无法通过静态子类化实现扩展时。  </p>
+<p>动机：<br>在某些情况下我们可能会”过度地使用继承来扩展对象的功能”，由于继承为类型引入的静态特质，使得这种扩展方式缺乏灵活性;并且随着子类的增多(扩展功能的增多)各种子类的组合(扩展功能的组合)会导致更多子类的膨胀。<br>如何使“对象功能的扩展”能够根据需要来动态地实现?同时避免“扩展功能的增多”带来的子类膨胀问题?从而使得任何“功能扩展变化”所导致的影响将为最低?  </p>
+<p>定义：  动态组合)地给一个对象增加一些额外的职责。就增加功能而言，Decorator模式比生成子类(继承)更为灵活(消除重复代码&amp;减少子类个数)。  注：组合优于继承的典型应用。</p>
+<p>要点：<br>通过采用组合而非继承的手法，Decorator模式实现了在运行时动态扩展对象功能的能力，而且可以根据需要扩展多个功能。避免了使用继承带来的“灵活性差”和“多子类衍生问题”。<br>Decorator类在接口上表现为is-a Component的继承关系，即Decorator类继承了Component类所具有的接口。但在实现上又表现为has-a Component的组合关系，即Decorator类又使用了另外一个Component类。<br>Decorator模式的目的并非解决”多子类衍生的多继承”问题, Decorator模式应用的要点在子解决“主体类在多个方向上的扩展功能”——是为“”装饰”的含义。</p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210927001659363.png" alt="image-20210927001659363"></p>
+<h3 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h3><p>考点：将抽象部分与其实现部分分离，使它们都可以独立地变化。<strong>接口与实现分离。</strong>  将抽象与实现分离，使它们可以独立变化。它是用组合关系代替继承关系来实现，从而降低了抽象和实现这两个可变维度的耦合度。  </p>
+<p>场合：避免在抽象及其实现之间存在永久的绑定。  抽象及其实现可以使用子类进行扩展。  抽象的实现被改动不用重新编译代码。  </p>
+<p>动机：<br>由于某些类型的固有的实现逻辑，使得它们具有两个变化的维度，乃至多个纬度的变化。<br>如何应对这种“多维度的变化”?如何利用面向对象技术来使得类型可以轻松地沿着两个乃至多个方向变化，而不引入额外的复杂度?      </p>
+<p>定义：<br>将抽象部分(业务功能)与实现部分(平台实现)分离，使它们都可以独立地变化。  </p>
+<p>要点：<br>Bridge模式使用“对象间的组合关系”解耦了抽象和实现之间固有的绑定关系，使得抽象和实现可以沿着各自的维度来变化。所谓抽象和实现沿着各自纬度的变化,即子类化”它们。<br>Bridge模式有时候类似于多继承方案，但是多继承方案往往违背单一职责原则(即一个类只有一个变化的原因)，复用性比较差。Bridge模式是比多继承方案更好的解决方法。<br>Bridge模式的应用一般在“两个非常强的变化维度”，有时一个类也有多于两个的变化维度，这时可以使用Bridge的扩展模式。  </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210927003134788.png" alt="image-20210927003134788"></p>
+<h3 id="适配"><a href="#适配" class="headerlink" title="适配"></a>适配</h3><p>考点：将一个接口转换为客户希望的另一个接口。可以充当两个类之间的媒介，可以转换一个类的接口，被另外一个类使用，使得具有不兼容接口的类能够系统使用。   将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作。  </p>
+<p>场合：要使用已有类，而该类接口与所需的接口并不匹配。  要创建可重用的类，该类可以与不相关或未知类进行协作。  要在一个不同于已知对象接口的接口环境中使用对象。  必须要进行多个源之间的接口转换的时候。  </p>
+<p>动机：<br>在软件系统中，由于应用环境的变化，常常需要将“一些现存的对象”放在新的环境中应用，但是新环境要求的接口是这些现存对象所不满足的。<br>如何应对这种“迁移的变化”?如何既能利用现有对象的良好实现，同时又能满足新的应用环境所要求的接口?<br>定义：<br>将一个类的接口转换成客户希望的另一个接口。Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。  </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210927003601551.png" alt="image-20210927003601551"></p>
+<h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><p>考点：可以为某个对象提供一个代理，并由代理对象控制对原对象的引用。代理模式能够协调调用者和被调用者，在一定程度上降低系统的耦合度。 为某对象提供一种代理以控制对该对象的访问。即客户端通过代理间接地访问该对象，从而限制、增强或修改该对象的一些特性。<br>可以充当两个类之间的媒介，可以转换一个类的接口，被另外一个类使用，使得具有不兼容接口的类能够系统使用。      </p>
+<p>动机：<br>在面向对象系统中，有些对象由于某种原因（比如对象创建的开销很大，或者某些操作需要安全控制,或者需要进程外的访问等),直接访问会给使用者、或者系统结构带来很多麻烦。<br>如何在不失去透明操作对象的同时来管理/控制这些对象特有的复杂性?增加一层间接层是软件开发中常见的解决方式。</p>
+<p>定义：<br>为其他对象提供一种代理以控制(隔离，使用接口）对这个对象的访问。</p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210927003829206.png" alt="image-20210927003829206"></p>
+<h2 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h2><h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><p>考点：为集合中的有序访问提供了一致的方法，而该集合是独立于基础集合。  提供一种方法来顺序访问聚合对象中的一系列数据，而不暴露聚合对象的内部表示。</p>
+<p>场合：不开放集合对象内部表示的前提下，访问集合对象内容。  支持集合对象的多重遍历。  为遍历集合中的不同结构提供了统一的接口。</p>
+<p>注：C++、Java已经支持了迭代。  </p>
+<p>动机：<br>在软件构建过程中，集合对象内部结构常常变化各异。但对于这些集合对象，我们希望在不暴露其内部结构的同时，可以让外部客户代码透明地访问其中包含的元素;同时这种“透明遍历”也为“同一种算法在多种集合对象上进行操作”提供了可能。<br>使用面向对象技术将这种遍历机制抽象为“迭代器对象”为”应对变化中的集合对象”提供了一种优雅的方式。</p>
+<p>定义：提供一种方法顺序访问一个聚合对象中的各个元素，而又不暴露(稳定)该对象的内部表示。  </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210927000934038.png" alt="image-20210927000934038"></p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>考点：将请求封装成对象，以便使用不同的请求、队列或者日志来参数化其他对象。支持<strong>撤销和恢复</strong>操作。 将一个请求封装为一个对象，使发出请求的责任和执行请求的责任分割开。  </p>
+<p>场合：要通过执行的动作来参数化对象。  在不同的时间指定、排序、执行请求。  必须支持Undo、日志记录或事务。</p>
+<p>动机：在软件构建过程中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。但在某些场合——比如需要对行为进行“记录、撤销/重(undo/redo)、事务”等处理，这种无法抵御变化的紧耦合是不合适的。<br>在这种情况下，如何将“”行为请求者”与“行为实现者”解耦?将一组行为抽象为对象,可以实现二者之间的松耦合。</p>
+<p>定义：将一个请求(行为)封装为一个对象，从而使你可用不同的请求对客户进行参数化;对请求排队或记录请求百志,以及支持可撤销的操作。  </p>
+<p>要点：<br>实现Command接口的具体命令对象ConcreteCommand有时候根据需要可能会保存一些额外的状态信息。通过使用Composite模式，可以将多个“命令封装为一个“复合命令”MacroCommand。<br>-Command模式的根本目的在于将“行为请求者”与“行为实现者”解耦，在面向对象语言中，常见的实现手段是“将行为抽象为对象”。<br>实现Command接口的具体命令对象ConcreteCommand有时候根据需要可能会保存一些额外的状态信息。通过使用Composite模式，可以将多个“命令封装为一个“复合命令”MacroCommand。<br>Command模式与C++中的函数对象有些类似。但两者定义行为接口的规范有所区别: Command以面向对象中的“接口-实现”来定义行为接口规范,更严格，但有性能损失;C++函数对象以函数签名来定义行为接口规范,更灵活，性能更高。<br><img src="/architecture/architect-note-5-design-patterns/image-20210928001137111.png" alt="image-20210928001137111"></p>
+<h3 id="模板方法"><a href="#模板方法" class="headerlink" title="模板方法"></a>模板方法</h3><p>考点：不重写方法的前提下允许子类重载部分方法的方法。  定义一个操作中的算法骨架，而将算法的一些步骤延迟到子类中，使得子类可以不改变该算法结构的情况下重定义该算法的某些特定步骤。  </p>
+<p>场合：一次实现算法的不变部分，子类实现算法的可变行为。</p>
+<h3 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h3><p>考点：解释定义其语法表示的语言，提供了语句解释器。  提供如何定义语言的文法，以及对语言句子的解释方法，即解释器。</p>
+<p>场合：语言的语法比较简单。  效率并不是最主要的问题。  </p>
+<p>动机：<br>在软件构建过程中，如果某一特定领域的问题比较复杂，类似的结构不断重复出现，如果使用普通的编程方式来实现将面临非常频繁的变化。<br>在这种情况下，将特定领域的问题表达为某种语法规则下的句子，然后构建一个解释器来解释这样的句子，从而达到解决问题的自的。  </p>
+<p>定义：给定一个语言，定义它的文法的一种表示，并定义一种解释器,这个解释器使用该表示来解释语言中的句子。  </p>
+<p>要点：<br>Interpreter模式的应用场合是Interpreter模式应用中的难点，只有满足“业务规则频繁变化，且类似的结构不断重复出现，并且容易抽象为语法规则的问题”才适合使用Interpreter模式。<br>使用Interpreter模式来表示文法规则，从而可以使用面向对象技巧来方便地“扩展”文法。<br>Interpreter模式比较适合简单的文法表示，对于复杂的文法表示，lnterperter模式会产生比较大的类层次结构，需要求助于语法分析生成器这样的标准工具。</p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210928001655759.png" alt="image-20210928001655759"></p>
+<h3 id="访问者"><a href="#访问者" class="headerlink" title="访问者"></a>访问者</h3><p>考点：不改变原来类结构（活动节点）的基础上增加新功能。不改变操作元素的类的前提下定义一个新操作。  在不改变集合元素的前提下，为一个集合中的每个元素提供多种访问方式，即每个元素有多个访问者对象访问。  </p>
+<p>场合：包含许多具有不同接口的对象类，并且想要对这些依赖具体类的对象进行操作。 定义对象结构的类很少被修改，但想要在此结构上定义新的操作。</p>
+<h3 id="观察者"><a href="#观察者" class="headerlink" title="观察者"></a>观察者</h3><p>考点：定义了对象间一到多的依赖关系，当对象改变状态时，将<strong>自动通知并更新</strong>它所有的依赖对象。  多个对象间存在一对多关系，当一个对象发生改变时，把这种改变通知给其他多个对象，从而影响其他对象的行为。</p>
+<p>场合： 对一个对象的修改涉及对其他对象的修改，而且不知道有多少对象需要进行相应修改。  对象应该能够在不同假设对象标识的前提下通知其它对象。  </p>
+<p>动机：<br>给定一个语言，定义它的文法的一种表示，并定义一种解释器,这个解释器使用该表示来解释语言中的句子。———个对象(自标对象)的状态发生改变，所有的依赖对象（观察者对象)都将得到通知。”如果这样的依赖关系过于紧密，将使软件不能很好地抵御变化。<br>使用面向对象技术，可以将这种依赖关系弱化，并形成一种稳定的依赖关系。从而实现软件体系结构的松耦合。  </p>
+<p>定义：  定义对象间的一种—对多（变化)的依赖关系，以便当一个对象(Subject)的状态发生改变时，所有依赖于它的对象都得到通知并自动更新。</p>
+<p>要点：<br>使用面向对象的抽象，Observer模式使得我们可以独立地改变目标与观察者，从而使二者之间的依赖关系达致松耦合。<br>目标发送通知时，无需指定观察者，通知（可以携带通知信息作为参数)会自动传播。<br>观察者自己决定是否需要订阅通知，目标对象对此一无所知。<br>Observer模式是基于事件的UI框架中非常常用的设计模式，也是MVC模式的一个重要组成部分。<br>目标发送通知时，无需指定观察者，通知（可以携带通知信息作为参数)会自动传播。<br>观察者自己决定是否需要订阅通知，目标对象对此一无所知。<br>Observer模式是基于事件的UI框架中非常常用的设计模式，也是MVC模式的一个重要组成部分。  </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210928002309895.png" alt="image-20210928002309895"></p>
+<h3 id="职责链"><a href="#职责链" class="headerlink" title="职责链"></a>职责链</h3><p>考点：在系统中建立一个链，在首先接收到它的级别处被处理，或者定位到可以处理它的对象。  把请求从链中的一个对象传到下一个对象，直到请求被响应为止。通过这种方式去除对象之间的耦合。  </p>
+<p>场合：多个对象可以处理一个请求，而其处理器却是未知的。  在不指定确切的请求接受对象的情况下，向几个对象中的一个发送请求。  动态地指定能够处理请求的对象集。</p>
+<p>动机：<br>在软件构建过程中，一个请求可能被多个对象处理，但是每个请求在运行时只能有一个接受者，如果显式指定，将必不可少地带来请求发送者与接受者的紧耦合。<br>如何使请求的发送者不需要指定具体的接受者?让请求的接受者自己在运行时决定来处理请求，从而使两者解耦。  </p>
+<p>定义：<br>使多个对象都有机会处理请求,从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递请求，直到有一个对象处理它为止。  </p>
+<p>要点：<br>-Chain of Responsibility模式的应用场合在于“一个请求可能有多个接受者,但是最后真正的接受者只有一个”这时候请求发送者与接受者的耦合有可能出现“变化脆弱”的症状，职责链的目的就是将二者解耦，从而更好地应对变化。<br>应用了Chain of Responsibility模式后，对象的职责分派将更具灵活性。我们可以在运行时动态添加/修改请求的处理职责。<br>如果请求传递到职责链的末尾仍得不到处理，应该有一个合理的缺省机制。这也是每一个接受对象的责任，而不是发出请求的对象的责任。  </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210928003226197.png" alt="image-20210928003226197"></p>
+<h3 id="中介者"><a href="#中介者" class="headerlink" title="中介者"></a>中介者</h3><p>考点：用一个中介对象封装一系列的对象交互。通过引入一个能够管理对象间消息分布的对象，简化了系统中对象间的通信。提高了对象间的松耦合度，还可以独立地改变其间的交互。    定义一个中介对象来简化原有对象之间的交互关系，降低系统中对象间的耦合度，使原有对象之间不必相互了解。  </p>
+<p>场合：对象集合需要以一个定义规范但复杂的方式进行通信。  </p>
+<p>动机：<br>在软件构建过程中,经常会出现多个对象互相关联交互的情况,对象之间常常会维持一种复杂的引用关系，如果遇到一些需求的更改，这种直接的引用关系将面临不断的变化。<br>在这种情况下，我们可使用一个“中介对象”来管理对象间的关联关系，避免相互交互的对象之间的紧耦合引用关系，从而更好地抵御变化。  </p>
+<p>定义：<br>用一个中介对象来封装(封装变化)一系列的对象交互。中介者使各对象不需要显式的相互引用(编译时依赖→运行时依赖)，从而使其耦合松散(管理变化)，而且可以独立地改变它们之间的交互。</p>
+<p>要点：<br>将多个对象间复杂的关联关系解耦，Mediator模式将多个对象间的控制逻辑进行集中管理，变“多个对象互相关联”为“多个对象和一个中介者关联”,简化了系统的维护，抵御了可能的变化。<br>随着控制逻辑的复杂化，Mediator具体对象的实现可能相当复杂。这时候可以对Mediator对象进行分解处理。<br>Facade模式是解耦系统间(单向)的对象关联关系;Mediator模式是解耦系统内各个对象之间(双向)的关联关系。  </p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210928003649088.png" alt="image-20210928003649088"></p>
+<h3 id="备忘录"><a href="#备忘录" class="headerlink" title="备忘录"></a>备忘录</h3><p>考点：保持对象状态的“快照”(snapshot)，对象可以在不向外界公开其内容的情况下返回到它的最初状态。  在不破坏封装性的前提下，获取并保存一个对象的内部状态，以便以后恢复它。</p>
+<p>场合：必须保存对象状态的快照，恢复状态。</p>
+<p>动机：<br>在软件构建过程中，某些对象的状态在转换过程中，可能由于某种需要，要求程序能够回溯到对象之前处子某个点时的状态。如果使用一些公有接口来让其他对象得到对象的状态，便会暴露对象的细节实现。<br>如何实现对象状态的良好保存与恢复?但同时又不会因此而破坏对象本身的封装性。</p>
+<p>定义：<br>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可以将该对象恢复到原先保存的状态。</p>
+<p>要点：<br>备忘录(Memento)存储原发器(Originator）对象的内部状态，在需要时恢复原发器状态。<br>-Memento模式的核心是信息隐藏，即Originator需要向外接隐藏信息，保持其封装性。但同时又需要将状态保持到外界(Memento) 。<br>由于现代语言运行时（如C#、Java等）都具有相当的对象序列化支持，因此往往采用效率较高、又较容易正确实现的序列化方案来实现Memento模式。</p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210928004449616.png" alt="image-20210928004449616"></p>
+<h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>考点：定义了一组能够用来表示可能行为集合的类。这些行为可以在应用程序中使用，来修改应用程序功能。  定义了一系列算法，并将每个算法封装起来，使它们可以相互替换，且<strong>算法</strong>的改变不会影响使用算法的客户。</p>
+<p>场合：许多相关类只是在行为方面有所区别。  需要算法的不同变体。  算法使用客户端未知的数据。</p>
+<p>动机：<br>在软件构建过程中,某些对象使用的算法可能多种多样，经常改变，如果将这些算法都编码到对象中:将会使对象变得异常复杂;而自有时候支持不使用的算法也是一个性能负担。<br>如何在运行时根据需要透明地更改对象的算法?将算法与对象本身解耦，从而避免上述问题?  </p>
+<p>定义：<br>定义一系列算法，把它们一个个封装起来，并且使它们可互相替换(变化)。该模式使得算法可独立于使用它的客户程序(稳定)而变化(扩展，子类化)。</p>
+<p>要点：<br>如何在运行时根据需要透明地更改对象的算法?将算法与对象本身解耦，从而避免上述问题?<br>Strategy模式提供了用条件判断语句以外的另一种选择，消除条件判断语苟，就是在解耦合。含有许多条件判断语句的代码通常都需我Strategy模式。<br>如果Strategy对象没有实例变量,那么各个上下文可以共享同一个Strategy对象，从而节省对象开销。</p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210928004731842.png" alt="image-20210928004731842"></p>
+<h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><p>考点：对象在内部<strong>状态变化</strong>时，变更其行为，并且修改其类。  允许一个对象在其内部状态发生改变时改变其行为能力。  </p>
+<p>场合：</p>
+<p>动机：<br>在软件构建过程中，某些对象的状态如果改变,其行为也会随之而发生变化，比如文档处于只读状态，其支持的行为和读写状态支持的行为就可能完全不同。<br>如何在运行时根据对象的状态来透明地更改对象的行为?而不会为对象操作和状态转化之间引入紧耦合?</p>
+<p>定义：<br>允许一个对象在其内部状态改变时改变它的行为。从而使对象看起来似乎修改了其行为。</p>
+<p>要点：<br>State模式将所有与一个特定状态相关的行为都放入一个State的子类对象中，在对象状态切换时，切换相应的对象;但同时维持State的接口，这样实现了具体操作与状态转换之间的解耦。<br>为不同的状态引入不同的对象使得状态转换变得更加明确,而且可以保证不会出现状态不一致的情况，因为转换是原子性的——即要么彻底转换过来，要么不转换。<br>如果State对象没有实例变量，那么各个上下文可以共享同一个State对象，从而节省对象开销。</p>
+<p><img src="/architecture/architect-note-5-design-patterns/image-20210928005039861.png" alt="image-20210928005039861"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eb4y1m7Uj">https://www.bilibili.com/video/BV1Eb4y1m7Uj</a><br><a target="_blank" rel="noopener" href="https://www.educity.cn/rk/1774043.html">https://www.educity.cn/rk/1774043.html</a>  </p>
+ </div>
+    <div id="donation_div"></div>
+
+
+<div style="width: 90%; text-align: center;">
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}"><span>打赏支持</span></button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block"><img id="wechat_qr" src="/images/wepay_240.png" width="50%" alt="微信支付"><p>微信支付</p></div>
+    
+      <div id="alipay" style="display: inline-block"><img id="alipay_qr" src="/images/alipay_240.png" width="50%" alt="支付宝"><p>支付宝</p></div>
+    <br>如觉得本文有用，可随意赞助以资鼓励。<br>如影响阅读体验，请再次点击关闭窗口。</div></div>
+      
+    <div class="authorinfo">
+      <img alt='' src='/author/latelee.jpg'  class='avatar avatar-64 photo' height='64' width='64' />
+      <ul><li><strong>本文作者：</strong>李迟</li> 
+      <li><strong>版权声明：</strong>原创文章，版权归署名作者，转载建议注明出处（当然不注明亦可）。</li>
+      <li><strong>本文链接：</strong><a href="/architecture/architect-note-5-design-patterns.html" title="架构师考点大纲5 设计模式">http://www.latelee.org/architecture/architect-note-5-design-patterns.html</a></li></ul>
+    </div>
+    
+ 
+    <nav id="article-nav">      <a href="/architecture/architect-note-9-calc.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+        架构师考点大纲9 计算类</a> 
+  <a href="/my-library/cmdline-in-c++.html" id="article-nav-older" class="article-nav-link-wrap"><strong class="article-nav-caption">后一篇</strong> c++命令行解析库cmdline使用</a></nav>
+    <hr class="entry-footer-hr">
+    <footer class="entry-meta entry-footer">
+      
+<div id="comment"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'true' == true ? true : false;
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+    window.onload = function() {
+        new Valine({
+			//av: AV,
+            el: '#comment',
+            notify: notify,
+            verify: verify,
+            app_id: "X36fuJhKb5DzHu6Sv2AU1Aap-gzGzoHsz",
+            app_key: "bix54WVwzsQyxeHbvIcJGsyA",
+            avatar:"monsterid",
+            placeholder: "可自由评论，但勿恶意评论。上面那行可填可不填。",
+            guest_info:guest_info,
+			//visitor: true // 阅读量统计
+        });
+    }
+  </script></div></footer></div>
+</article>
+  <aside id="sidebar">
+  <div style="margin: 20px 0;">
+	<div id="search-form-wrap">
+
+    <form class="search-form">
+        <label style="width: 72%;">
+            <span class="screen-reader-text">Search for:</span>
+            <input type="search" class="search-field" style="height: 36px; width: 100%;" placeholder=" 搜索…" value="" name="s" title="Search for:">
+        </label>
+        <input type="submit" class="search-form-submit" value="搜索">
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+</div><div class="widget_athemes_tabs">
+    <ul id="widget-tab" class="clearfix widget-tab-nav"><li class="active"><a>最新文章</a></li></ul>
+    <div class="widget"><ul>
+        
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/my-library/code-for-2021-09.html" title=""><img width="50" height="50" src="/gallery/tech/c2.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/my-library/code-for-2021-09.html">李迟2021年9月知识总结</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/my-study/liteos-search.html" title=""><img width="50" height="50" src="/gallery/linux/linux6.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/my-study/liteos-search.html">LiteOS调研</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/my-study/gd32mcu-search.html" title=""><img width="50" height="50" src="/gallery/linux/linux6.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/my-study/gd32mcu-search.html">兆易创新GD32芯片调研</a></h6></div></li>
+          <li class="clearfix"><div class="widget-entry-summary" style="margin: 0;">
+              <h6 style="margin: 0;"><a href="/pkc/jekyll-usage.html">jekyll使用</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/my-study/nginx-load-balnace-note.html" title=""><img width="50" height="50" src="/gallery/tech/redis.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/my-study/nginx-load-balnace-note.html">nginx负载均衡实验笔记</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-print-structure.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-print-structure.html">Golang实践录：使用gin框架实现转发功能：一些负载均衡算法的实现</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-print-structure.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-print-structure.html">Golang实践录：使用gin框架实现转发功能：利用nginx转发</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-gin-httpforward1.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-gin-httpforward1.html">Golang实践录：使用gin框架实现转发功能：管理后端服务启动</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/golang/golang-notes-gin-httpforward1.html" title=""><img width="50" height="50" src="/gallery/tech/go1.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/golang/golang-notes-gin-httpforward1.html">Golang实践录：使用gin框架实现转发功能：上传文件并转发</a></h6></div></li>
+          <li class="clearfix">
+              <div class="widget-entry-thumbnail"><a href="/the-life/one-year-in-new-company%EF%BC%8D2021.html" title=""><img width="50" height="50" src="/gallery/nature/grass-weeds.jpg" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a></div>
+              <div class="widget-entry-summary">
+              <h6 style="margin: 0;"><a href="/the-life/one-year-in-new-company%EF%BC%8D2021.html">新公司入职这一年</a></h6></div></li></ul></div></div>
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-linux/">GNU/Linux程序</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/category/using-gnu-linux/">GNU/Linux系统</a><span class="category-list-count">76</span></li><li class="category-list-item"><a class="category-list-link" href="/category/linux-kernel/">Linux内核研究</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/category/Qt/">Qt</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/category/porting-uboot/">U-Boot随笔</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/programming-under-windows/">Windows程序</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/category/cicd/">cicd</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/category/csharp/">csharp</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/delphi/">delphi</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/devops/">devops</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/docker/">docker</a><span class="category-list-count">46</span></li><li class="category-list-item"><a class="category-list-link" href="/category/golang/">golang</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubeedge/">kubeedge</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/category/kubernetes/">kubernetes</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/category/nodejs/">nodejs</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/category/python/">python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/vue/">vue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/pkc/">个人知识中心</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/">人文社科</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/code-life/">代码生活</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/category/just-for-fun/">小玩意</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/embedded-linux/">嵌入式Linux</a><span class="category-list-count">58</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ellp/">嵌入式Linux入门与实践</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/category/firmware-bios/">嵌入式底层BIOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/category/toolslib/">工具编译使用</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/open-project/">开源项目</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-library/">我的程序代码</a><span class="category-list-count">49</span></li><li class="category-list-item"><a class="category-list-link" href="/category/my-study/">技术杂铺</a><span class="category-list-count">50</span></li><li class="category-list-item"><a class="category-list-link" href="/category/wireless/">无线WIFI</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/category/ml/">机器学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/category/multistream/">流媒体学习</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/category/the-life/">生活掠影</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/category/answer4you/">答网友问</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/category/compilelinking/">编译链接</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/web/">网络/网站/web</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/category/net-study/">网络方面</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/category/architecture/">软件架构</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/category/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/">项目日志</a><span class="category-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+  <div class="widget-wrap"><h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud"><a href="/tag/4G%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">4G网卡</a> <a href="/tag/ARM/" style="font-size: 10.43px;">ARM</a> <a href="/tag/CPU%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">CPU寄存器</a> <a href="/tag/CPU%E9%A2%91%E7%8E%87/" style="font-size: 10px;">CPU频率</a> <a href="/tag/CentOS/" style="font-size: 10.43px;">CentOS</a> <a href="/tag/C%E8%AF%AD%E8%A8%80/" style="font-size: 14.78px;">C语言</a> <a href="/tag/FTP/" style="font-size: 10.43px;">FTP</a> <a href="/tag/H265/" style="font-size: 10px;">H265</a> <a href="/tag/Intel%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">Intel处理器</a> <a href="/tag/LCD/" style="font-size: 10.87px;">LCD</a> <a href="/tag/Linux/" style="font-size: 11.74px;">Linux</a> <a href="/tag/Linux%E4%B9%8B%E8%A1%8C/" style="font-size: 11.74px;">Linux之行</a> <a href="/tag/Linux%E4%BD%BF%E7%94%A8/" style="font-size: 13.04px;">Linux使用</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8/" style="font-size: 11.3px;">Linux内核</a> <a href="/tag/Linux%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/" style="font-size: 10px;">Linux内核编译</a> <a href="/tag/Linux%E7%A7%BB%E6%A4%8D%E9%9A%8F%E7%AC%94/" style="font-size: 12.17px;">Linux移植随笔</a> <a href="/tag/Linux%E7%BC%96%E7%A8%8B/" style="font-size: 13.48px;">Linux编程</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C/" style="font-size: 10.43px;">Linux网络</a> <a href="/tag/Linux%E7%BD%91%E7%BB%9C%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10.43px;">Linux网络子系统</a> <a href="/tag/Linux%E9%A9%B1%E5%8A%A8/" style="font-size: 11.3px;">Linux驱动</a> <a href="/tag/MFC/" style="font-size: 17.39px;">MFC</a> <a href="/tag/Makefile/" style="font-size: 13.91px;">Makefile</a> <a href="/tag/PHY%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10.43px;">PHY寄存器</a> <a href="/tag/PHY%E7%8A%B6%E6%80%81/" style="font-size: 10px;">PHY状态</a> <a href="/tag/PHY%E9%A9%B1%E5%8A%A8/" style="font-size: 10px;">PHY驱动</a> <a href="/tag/Qt/" style="font-size: 13.04px;">Qt</a> <a href="/tag/SDL/" style="font-size: 10.87px;">SDL</a> <a href="/tag/SD%E5%8D%A1/" style="font-size: 10px;">SD卡</a> <a href="/tag/STL/" style="font-size: 10.87px;">STL</a> <a href="/tag/U-Boot%E9%9A%8F%E7%AC%94/" style="font-size: 16.52px;">U-Boot随笔</a> <a href="/tag/USB/" style="font-size: 12.17px;">USB</a> <a href="/tag/U%E7%9B%98%E5%88%B6%E4%BD%9C/" style="font-size: 10px;">U盘制作</a> <a href="/tag/V4L2/" style="font-size: 10px;">V4L2</a> <a href="/tag/VAAPI/" style="font-size: 10px;">VAAPI</a> <a href="/tag/Vagrant/" style="font-size: 10.43px;">Vagrant</a> <a href="/tag/WIFI/" style="font-size: 13.04px;">WIFI</a> <a href="/tag/Windows%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">Windows编程</a> <a href="/tag/YUV/" style="font-size: 14.35px;">YUV</a> <a href="/tag/YUV%E6%92%AD%E6%94%BE%E5%99%A8/" style="font-size: 13.04px;">YUV播放器</a> <a href="/tag/ap-hotspot/" style="font-size: 10px;">ap-hotspot</a> <a href="/tag/armdocker/" style="font-size: 11.74px;">armdocker</a> <a href="/tag/atom/" style="font-size: 10px;">atom</a> <a href="/tag/beidou/" style="font-size: 10.43px;">beidou</a> <a href="/tag/bios/" style="font-size: 15.65px;">bios</a> <a href="/tag/boa/" style="font-size: 10.87px;">boa</a> <a href="/tag/cgi/" style="font-size: 10px;">cgi</a> <a href="/tag/cicd/" style="font-size: 15.22px;">cicd</a> <a href="/tag/coreboot/" style="font-size: 14.35px;">coreboot</a> <a href="/tag/coredump/" style="font-size: 10.87px;">coredump</a> <a href="/tag/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tag/crontab/" style="font-size: 10px;">crontab</a> <a href="/tag/cuda/" style="font-size: 10.43px;">cuda</a> <a href="/tag/debootstrap/" style="font-size: 10.87px;">debootstrap</a> <a href="/tag/delphi/" style="font-size: 11.3px;">delphi</a> <a href="/tag/docker/" style="font-size: 20px;">docker</a> <a href="/tag/dos%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">dos系统</a> <a href="/tag/doxygen/" style="font-size: 10.43px;">doxygen</a> <a href="/tag/dropbox/" style="font-size: 10px;">dropbox</a> <a href="/tag/emacs/" style="font-size: 10.43px;">emacs</a> <a href="/tag/ethtool/" style="font-size: 10.87px;">ethtool</a> <a href="/tag/ffmpeg/" style="font-size: 11.74px;">ffmpeg</a> <a href="/tag/flash/" style="font-size: 10px;">flash</a> <a href="/tag/freetype/" style="font-size: 10px;">freetype</a> <a href="/tag/gcc/" style="font-size: 10.87px;">gcc</a> <a href="/tag/gdbserver/" style="font-size: 10px;">gdbserver</a> <a href="/tag/getopt/" style="font-size: 10px;">getopt</a> <a href="/tag/git/" style="font-size: 13.91px;">git</a> <a href="/tag/git-cicd/" style="font-size: 10px;">git-cicd</a> <a href="/tag/gitbook/" style="font-size: 10px;">gitbook</a> <a href="/tag/github/" style="font-size: 10.43px;">github</a> <a href="/tag/golang/" style="font-size: 19.57px;">golang</a> <a href="/tag/gpio-ich/" style="font-size: 10px;">gpio_ich</a> <a href="/tag/grub/" style="font-size: 10px;">grub</a> <a href="/tag/hexo/" style="font-size: 10.43px;">hexo</a> <a href="/tag/hostapd/" style="font-size: 11.3px;">hostapd</a> <a href="/tag/i2c-gpio/" style="font-size: 10px;">i2c-gpio</a> <a href="/tag/iTCO-wdt/" style="font-size: 10px;">iTCO_wdt</a> <a href="/tag/ifconfig/" style="font-size: 10px;">ifconfig</a> <a href="/tag/inode/" style="font-size: 10px;">inode</a> <a href="/tag/iperf/" style="font-size: 10px;">iperf</a> <a href="/tag/iptables/" style="font-size: 12.61px;">iptables</a> <a href="/tag/kubeedge/" style="font-size: 15.65px;">kubeedge</a> <a href="/tag/kubernetes/" style="font-size: 18.26px;">kubernetes</a> <a href="/tag/leds-gpio/" style="font-size: 10px;">leds-gpio</a> <a href="/tag/libjpeg/" style="font-size: 13.04px;">libjpeg</a> <a href="/tag/libjpeg-turbo/" style="font-size: 10px;">libjpeg-turbo</a> <a href="/tag/linux%E5%A4%8D%E4%BD%8D/" style="font-size: 10px;">linux复位</a> <a href="/tag/linux%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">linux编程</a> <a href="/tag/live555/" style="font-size: 10.43px;">live555</a> <a href="/tag/malloc/" style="font-size: 10px;">malloc</a> <a href="/tag/mingw/" style="font-size: 10.43px;">mingw</a> <a href="/tag/nodejs/" style="font-size: 16.52px;">nodejs</a> <a href="/tag/ntfs/" style="font-size: 10px;">ntfs</a> <a href="/tag/onvif/" style="font-size: 13.04px;">onvif</a> <a href="/tag/openwrt/" style="font-size: 10.87px;">openwrt</a> <a href="/tag/osd/" style="font-size: 10.43px;">osd</a> <a href="/tag/pelco%E5%8D%8F%E8%AE%AE/" style="font-size: 10.43px;">pelco协议</a> <a href="/tag/platform/" style="font-size: 10px;">platform</a> <a href="/tag/proc/" style="font-size: 10px;">proc</a> <a href="/tag/python/" style="font-size: 10px;">python</a> <a href="/tag/radiotap/" style="font-size: 10px;">radiotap</a> <a href="/tag/rtc%E6%99%B6%E6%8C%AF/" style="font-size: 10px;">rtc晶振</a> <a href="/tag/shell/" style="font-size: 10.87px;">shell</a> <a href="/tag/socket/" style="font-size: 10px;">socket</a> <a href="/tag/spin-lock/" style="font-size: 10px;">spin_lock</a> <a href="/tag/sscanf/" style="font-size: 10px;">sscanf</a> <a href="/tag/sysfs/" style="font-size: 10px;">sysfs</a> <a href="/tag/syslog/" style="font-size: 10.43px;">syslog</a> <a href="/tag/tcpdump/" style="font-size: 10.43px;">tcpdump</a> <a href="/tag/ubuntu/" style="font-size: 11.74px;">ubuntu</a> <a href="/tag/visca%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">visca协议</a> <a href="/tag/vnstat/" style="font-size: 10px;">vnstat</a> <a href="/tag/vue/" style="font-size: 10.43px;">vue</a> <a href="/tag/web/" style="font-size: 11.3px;">web</a> <a href="/tag/web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">web服务器</a> <a href="/tag/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tag/x86/" style="font-size: 10px;">x86</a> <a href="/tag/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" style="font-size: 15.65px;">个人总结</a> <a href="/tag/%E4%B8%B2%E5%8F%A3/" style="font-size: 10.87px;">串口</a> <a href="/tag/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" style="font-size: 10px;">交叉编译</a> <a href="/tag/%E4%BA%BA%E6%96%87%E7%A4%BE%E7%A7%91/" style="font-size: 10px;">人文社科</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">代码生活</a> <a href="/tag/%E4%BB%A3%E7%A0%81%E7%A7%AF%E7%B4%AF/" style="font-size: 14.78px;">代码积累</a> <a href="/tag/%E5%86%85%E5%AD%98%E5%B8%A6%E5%AE%BD/" style="font-size: 10px;">内存带宽</a> <a href="/tag/%E5%86%85%E5%AD%98%E9%A2%91%E7%8E%87/" style="font-size: 10px;">内存频率</a> <a href="/tag/%E5%86%85%E6%A0%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 16.96px;">内核学习笔记</a> <a href="/tag/%E5%8A%A8%E6%80%81%E5%BA%93/" style="font-size: 10px;">动态库</a> <a href="/tag/%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5/" style="font-size: 10px;">参数检查</a> <a href="/tag/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" style="font-size: 10px;">双向链表</a> <a href="/tag/%E5%8F%8C%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">双网卡</a> <a href="/tag/%E5%8F%A5%E6%9F%84/" style="font-size: 10px;">句柄</a> <a href="/tag/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/" style="font-size: 10.43px;">可变参数</a> <a href="/tag/%E5%90%AF%E5%8A%A8/" style="font-size: 10px;">启动</a> <a href="/tag/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tag/%E5%A4%84%E7%90%86%E5%99%A8/" style="font-size: 10px;">处理器</a> <a href="/tag/%E5%A4%87%E6%A1%88/" style="font-size: 10px;">备案</a> <a href="/tag/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E5%89%8D%E7%BC%80/" style="font-size: 10px;">子网掩码前缀</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" style="font-size: 12.61px;">字符编码</a> <a href="/tag/%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87/" style="font-size: 10px;">字符设备</a> <a href="/tag/%E5%AD%A6%E4%BD%9B/" style="font-size: 11.74px;">学佛</a> <a href="/tag/%E5%AF%84%E5%AD%98%E5%99%A8/" style="font-size: 10px;">寄存器</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux/" style="font-size: 10px;">嵌入式Linux</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8FLinux%E5%85%A5%E9%97%A8/" style="font-size: 15.22px;">嵌入式Linux入门</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8Fqemu/" style="font-size: 10.87px;">嵌入式qemu</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B9%8B%E8%A1%8C/" style="font-size: 15.22px;">嵌入式之行</a> <a href="/tag/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 11.74px;">嵌入式开发环境</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 15.22px;">工具使用</a> <a href="/tag/%E5%B7%A5%E5%85%B7%E7%BC%96%E8%AF%91/" style="font-size: 14.78px;">工具编译</a> <a href="/tag/%E5%B7%A5%E7%A8%8B%E5%BA%93%E4%BB%A3%E7%A0%81/" style="font-size: 18.7px;">工程库代码</a> <a href="/tag/%E5%BA%93%E7%BC%96%E8%AF%91/" style="font-size: 13.04px;">库编译</a> <a href="/tag/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/tag/%E5%BC%80%E5%8F%91%E5%AE%9E%E5%BD%95/" style="font-size: 10px;">开发实录</a> <a href="/tag/%E5%BC%B1%E9%93%BE%E6%8E%A5/" style="font-size: 10px;">弱链接</a> <a href="/tag/%E5%BE%AE%E6%9C%BA%E7%9F%A5%E8%AF%86/" style="font-size: 10px;">微机知识</a> <a href="/tag/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" style="font-size: 15.65px;">技术笔记</a> <a href="/tag/%E6%8B%B7%E8%B4%9D%E7%A1%AC%E7%9B%98/" style="font-size: 10px;">拷贝硬盘</a> <a href="/tag/%E6%8C%82%E8%BD%BD/" style="font-size: 10px;">挂载</a> <a href="/tag/%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%87%8D%E5%AE%9A%E5%90%91/" style="font-size: 10px;">控制台重定向</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.3px;">数据库</a> <a href="/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10.43px;">数据结构</a> <a href="/tag/%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组</a> <a href="/tag/%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96/" style="font-size: 10px;">数组初始化</a> <a href="/tag/%E6%96%87%E4%BB%B6%E5%8F%A5%E6%9F%84/" style="font-size: 10.43px;">文件句柄</a> <a href="/tag/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" style="font-size: 10px;">文件操作</a> <a href="/tag/%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" style="font-size: 10.43px;">新年计划</a> <a href="/tag/%E6%97%B6%E5%8C%BA/" style="font-size: 10.43px;">时区</a> <a href="/tag/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tag/%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0/" style="font-size: 11.3px;">架构学习</a> <a href="/tag/%E6%B1%87%E7%BC%96/" style="font-size: 11.74px;">汇编</a> <a href="/tag/%E6%B1%89%E5%AD%97%E7%BC%96%E7%A0%81/" style="font-size: 10px;">汉字编码</a> <a href="/tag/%E6%B5%81%E5%AA%92%E4%BD%93/" style="font-size: 13.48px;">流媒体</a> <a href="/tag/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 11.74px;">源码分析</a> <a href="/tag/%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6/" style="font-size: 12.61px;">点阵字符</a> <a href="/tag/%E7%82%B9%E9%98%B5%E6%98%BE%E7%A4%BA/" style="font-size: 10.87px;">点阵显示</a> <a href="/tag/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 13.04px;">版本控制</a> <a href="/tag/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/" style="font-size: 10.87px;">电子邮件</a> <a href="/tag/%E7%9C%8B%E9%97%A8%E7%8B%97/" style="font-size: 10px;">看门狗</a> <a href="/tag/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" style="font-size: 12.17px;">知识总结</a> <a href="/tag/%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F/" style="font-size: 10px;">硬件加速</a> <a href="/tag/%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/" style="font-size: 10px;">磁盘空间</a> <a href="/tag/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84/" style="font-size: 10px;">端口映射</a> <a href="/tag/%E7%AD%94%E7%BD%91%E5%8F%8B%E9%97%AE/" style="font-size: 10.43px;">答网友问</a> <a href="/tag/%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" style="font-size: 10.43px;">简明教程</a> <a href="/tag/%E7%AE%A1%E9%81%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">管道函数</a> <a href="/tag/%E7%B3%BB%E7%BB%9F%E5%AE%9A%E5%88%B6/" style="font-size: 11.3px;">系统定制</a> <a href="/tag/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 10.43px;">编程规范</a> <a href="/tag/%E7%BC%96%E8%AF%91%E8%AD%A6%E5%91%8A/" style="font-size: 11.3px;">编译警告</a> <a href="/tag/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5/" style="font-size: 10.87px;">编译链接</a> <a href="/tag/%E7%BD%91%E5%8D%A1/" style="font-size: 10px;">网卡</a> <a href="/tag/%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">网络</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E8%BD%AC%E5%8F%91/" style="font-size: 10px;">网络转发</a> <a href="/tag/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/" style="font-size: 10.43px;">网络问题</a> <a href="/tag/%E8%80%83%E8%AF%81/" style="font-size: 19.13px;">考证</a> <a href="/tag/%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86/" style="font-size: 10px;">视频采集</a> <a href="/tag/%E8%AF%97%E8%AF%8D%E9%9F%B5%E5%BE%8B/" style="font-size: 10px;">诗词韵律</a> <a href="/tag/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/" style="font-size: 10px;">语法高亮</a> <a href="/tag/%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%B9%BF%E6%92%AD%E5%8C%85/" style="font-size: 10px;">跨网段广播包</a> <a href="/tag/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 10px;">软件安装</a> <a href="/tag/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/" style="font-size: 17.83px;">软件架构</a> <a href="/tag/%E9%97%AE%E9%A2%98%E9%9B%86/" style="font-size: 16.09px;">问题集</a> <a href="/tag/%E9%9D%99%E6%80%81%E5%BA%93/" style="font-size: 10px;">静态库</a> <a href="/tag/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/" style="font-size: 15.65px;">项目日志</a></div></div>
+ 
+<div class="widget-wrap"><h3 class="widget-title">友情链接</h3>
+  <div class="widget">
+    <ul class="clearfix">
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.blog.csdn.net/" target="_blank">李迟的专栏</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://i.latelee.org" target="_blank">李迟的个人主页</a>
+      <li>
+      <i class="fas fa-link"></i><a href="https://latelee.github.io/" target="_blank">本站备份网址</a>
+      </li>
+    </ul>
+  </div>
+</div>
+  </aside> </section></div></div>
+    <footer id="footer" class="site-footer">
+  
+  <div class="clearfix container text-center">
+        <ul class="list-inline text-center">
+          <li><a href="/sitemap.xml">网站地图</a></li>
+          <li>|</li>
+          <li><a href="/lisence">版权声明</a></li>
+          <li>|</li>
+          <li><a href="/donate">捐赠本站</a></li>
+          <li>|</li>
+          <li><a href="/news-for-my-website">建站记录</a></li>
+          <li>|</li>
+          <li><a href="/atom.xml">RSS订阅</a></li>
+          <li>|</li>
+          <li><a href="/about">关于</a></li>
+          </ul>
+      <div class="list-inline  text-center">
+	      &copy; 2010 - 2021 <a href="/" target="_blank"></a> 版权所有.
+          本博客由hexo强力驱动，主题修改自<a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a> &nbsp;&nbsp;
+          <a href="https://beian.miit.gov.cn/" target=_blank>桂ICP备10003672号-1</a> &nbsp;&nbsp <a href="https://uweb.umeng.com/v1/login.php?siteid=2137378" target="_blank">站长统计</a> </br></div>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div></footer>
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+    
+</script><!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/bootstrap.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=2137378&web_id=2137378" language="JavaScript"></script>
+  </div>
+
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <script type="text/javascript" src="/js/click_show_text.js"></script>
+</body>
+</html>
